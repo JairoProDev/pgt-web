@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# pgt-web — Peru Grand Travel Greenfield (EN)
 
-## Getting Started
+Next.js rebuild of **perugrandtravel.com** EN — performance, SEO, WhatsApp leads.
 
-First, run the development server:
+**Live:** https://pgt-web-theta.vercel.app  
+**Repo:** https://github.com/JairoProDev/pgt-web
+
+## MVP pages
+
+| Page | URL |
+|---|---|
+| Home | `/` |
+| Packages hub | `/packages/` |
+| Tour Salkantay 5D | `/tour/the-classic-salkantay-trek-5d/` |
+| Blog Things MP | `/blog/things-to-do-in-machu-picchu/` |
+
+## Stack
+
+- Next.js 16 + TypeScript + Tailwind 4
+- Content: JSON in `src/content/` (→ Payload CMS fase 2)
+- Analytics: GTM `GTM-K8SZBJM5` + `whatsapp_click` dataLayer
+- SEO: JSON-LD, trailing slash, 115 blog redirects
+- Beta: `noindex` via `NEXT_PUBLIC_ENV=beta`
+
+## Local dev
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run validate-parity   # diff meta vs WP live
+npm run scrape-tour       # scrape tour from WP
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Lighthouse (local, tour page)
 
-## Learn More
+| Métrica | Score |
+|---|---:|
+| Performance | 100 |
+| SEO | 100 |
+| LCP | 1.5s |
 
-To learn more about Next.js, take a look at the following resources:
+See `pgt/08-investigacion/auditoria-greenfield-2026-08-31/lighthouse-summary.json`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## DNS staging
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+→ `beta.perugrandtravel.com` — ver `pgt/08-investigacion/auditoria-greenfield-2026-08-31/MENSAJE-DNS-RICARDO.md`
