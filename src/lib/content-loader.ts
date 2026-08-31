@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { displayDuration, formatPriceLabel, isTrustedPrice, tourWhatsAppMessage } from "./conversion";
+import { enrichPackageCard } from "./tour-card";
 import type { BlogPost, PackageCard, PageContent, Tour } from "./types";
 
 const CONTENT_ROOT = path.join(process.cwd(), "src/content");
@@ -134,17 +134,7 @@ export function getToursBySlugs(slugs: string[]): Tour[] {
 }
 
 export function tourToPackageCard(tour: Tour): PackageCard {
-  return {
-    slug: tour.slug,
-    title: tour.h1,
-    duration: displayDuration(tour),
-    priceFrom: tour.priceFrom,
-    priceLabel: formatPriceLabel(tour),
-    trustedPrice: isTrustedPrice(tour),
-    waMessage: tourWhatsAppMessage(tour),
-    highlights: tour.included.slice(0, 3),
-    image: tour.heroImage,
-  };
+  return enrichPackageCard(tour);
 }
 
 export function getChildPagesByPath(parentPath: string): PageContent[] {

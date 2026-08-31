@@ -49,6 +49,11 @@ export type PackageCard = {
   waMessage?: string;
   highlights: string[];
   image?: string;
+  summary?: string;
+  styleLabel?: string;
+  difficulty?: string;
+  destinations?: string;
+  badge?: "best-seller" | null;
 };
 
 export type PageLink = {
