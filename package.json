@@ -16,6 +16,8 @@
     "backup:images": "python3 scripts/backup-hero-images.py",
     "patch:pages": "python3 scripts/patch-page-types.py",
     "audit:content": "python3 scripts/audit-content-quality.py",
+    "catalog:build": "python3 scripts/build-catalogo-maestro.py",
+    "precios:snapshot": "python3 scripts/build-precios-snapshot.py",
     "pre-cutover": "bash scripts/pre-cutover-checklist.sh",
     "post-cutover": "bash scripts/post-cutover-monitor.sh"
   },
