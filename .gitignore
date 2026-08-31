@@ -36,6 +36,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# lighthouse / chrome temp
+lighthouse-*.json
+/C:\\Users/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
