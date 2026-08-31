@@ -1,8 +1,8 @@
 {
-  "generated": "2026-08-31T22:23:17.712Z",
+  "generated": "2026-08-31T22:37:53.176Z",
   "counts": {
-    "tours": 69,
-    "blogs": 455,
+    "tours": 70,
+    "blogs": 456,
     "pages": 62
   },
   "tours": [
@@ -35,6 +35,11 @@
       "slug": "ballestas-huacachina-islands-full-day",
       "priceFrom": 150,
       "title": "Ballestas & Huacachina Islands with sandboard & buggies-Full Day"
+    },
+    {
+      "slug": "challenge-of-the-incas-15d",
+      "priceFrom": 0,
+      "title": "Peru Travel Packages 2026 - Customized Tours & Machu Picchu"
     },
     {
       "slug": "choquequirao-trek-5d",
@@ -1696,6 +1701,10 @@
     {
       "slug": "temples-and-cathedrals-in-peru",
       "title": "Spiritual Journey through the Temples and Cathedrals in Peru: Lima, Arequipa and Cusco | Travel guide"
+    },
+    {
+      "slug": "temples-in-peru-2026",
+      "title": "Best tips for traveling to Peru l Blog Peru Grand Travel"
     },
     {
       "slug": "temples-in-peru",

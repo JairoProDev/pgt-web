@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Merge tour data from pgt-web JSON + pgt SEO sheet → master catalog CSV in pgt repo."""
+"""Merge tour data from pgt-web JSON + pgt SEO sheet (73 fichas) → master catalog CSV."""
 from __future__ import annotations
 
 import csv
@@ -12,8 +12,14 @@ ROOT = Path(__file__).resolve().parents[1]
 PGT = ROOT.parent / "pgt"
 TOURS_DIR = ROOT / "src" / "content" / "tours"
 SHEET_CSV = PGT / "03-seo/datos/keywords-canibalizacion-2026-08-31/tours.csv"
+SITEMAP_CSV = PGT / "03-seo/datos/inventario-sitemap-2026-08-31/inventario-urls.csv"
 PACKAGES_JSON = ROOT / "src/content/pages/packages.json"
 OUT_DIR = PGT / "04-producto/datos/catalogo-maestro-2026-08-31"
+
+# Sheet slug → live web slug when WP renamed URL
+SHEET_TO_WEB_SLUG = {
+    "incredible-experience-machu-picchu-7-days": "incredible-experience-machu-picchu-7d",
+}
 
 QUOTE_ONLY_SLUGS = {
     "grand-deluxe-cusco-machu-picchu-by-belmond-5-days",
@@ -45,6 +51,28 @@ def load_sheet() -> dict[str, dict]:
     return out
 
 
+def load_sitemap_tours() -> set[str]:
+    if not SITEMAP_CSV.exists():
+        return set()
+    slugs: set[str] = set()
+    with SITEMAP_CSV.open(newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            if row.get("tipo") == "tour":
+                u = row.get("url", "")
+                m = re.search(r"/tour/([^/]+)/", u)
+                if m:
+                    slugs.add(m.group(1))
+    return slugs
+
+
+def load_web_tours() -> dict[str, dict]:
+    out: dict[str, dict] = {}
+    for path in TOURS_DIR.glob("*.json"):
+        t = json.loads(path.read_text(encoding="utf-8"))
+        out[t["slug"]] = t
+    return out
+
+
 def hub_slugs() -> set[str]:
     if not PACKAGES_JSON.exists():
         return set()
@@ -60,46 +88,69 @@ def duration_ok(d: str) -> bool:
     return bool(re.search(r"\d", d))
 
 
+def web_slug_for_sheet(sheet_slug: str) -> str:
+    return SHEET_TO_WEB_SLUG.get(sheet_slug, sheet_slug)
+
+
+def tour_row(sheet_slug: str, meta: dict, web: dict | None, hub: set[str], sitemap: set[str]) -> dict:
+    web_slug = web["slug"] if web else web_slug_for_sheet(sheet_slug)
+    price = float(web.get("priceFrom") or 0) if web else 0
+    inc = [x for x in (web.get("included") or []) if str(x).strip()] if web else []
+    exc = [x for x in (web.get("excluded") or []) if str(x).strip()] if web else []
+    itin = web.get("itinerary") or [] if web else []
+    quote = (price <= 0 or web_slug in QUOTE_ONLY_SLUGS) if web else True
+    estado = (meta.get("Estado") or "").strip().lower()
+
+    return {
+        "slug_sheet": sheet_slug,
+        "slug_web": web_slug,
+        "titulo": (web or meta).get("title") or meta.get("Título", ""),
+        "estado_sheet": estado,
+        "en_sitemap": "yes" if sheet_slug in sitemap or web_slug in sitemap else "no",
+        "en_web_json": "yes" if web else "no",
+        "migrar": "no" if estado == "draft" and not web else "yes",
+        "categoria_wp": meta.get("Categoría de tour", ""),
+        "estilo_viaje": meta.get("Estilo de viaje", ""),
+        "tags": meta.get("Etiquetas", ""),
+        "precio_usd_web": int(price) if web and price == int(price) else (price if web else ""),
+        "quote_only": "yes" if quote else "no",
+        "duracion": web.get("duration", "") if web else "",
+        "duracion_ok": "yes" if web and duration_ok(web.get("duration", "")) else ("no" if web else ""),
+        "dias_itinerario": len(itin),
+        "itinerario_ok": "yes" if len(itin) >= 1 else "no",
+        "includes_count": len(inc),
+        "excludes_count": len(exc),
+        "gsc_clics_16m": meta.get("Clics", ""),
+        "gsc_impresiones_16m": meta.get("Impresiones", ""),
+        "gsc_posicion": meta.get("Posición", ""),
+        "en_hub_packages": "yes" if web_slug in hub else "no",
+        "url_web": f"/tour/{web_slug}/" if web else "",
+    }
+
+
 def main() -> None:
     sheet = load_sheet()
+    web_all = load_web_tours()
+    sitemap = load_sitemap_tours()
     hub = hub_slugs()
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     out_csv = OUT_DIR / "catalogo-tours.csv"
     rows: list[dict] = []
 
-    for path in sorted(TOURS_DIR.glob("*.json")):
-        t = json.loads(path.read_text(encoding="utf-8"))
-        slug = t["slug"]
-        meta = sheet.get(slug, {})
-        price = float(t.get("priceFrom") or 0)
-        inc = [x for x in (t.get("included") or []) if str(x).strip()]
-        exc = [x for x in (t.get("excluded") or []) if str(x).strip()]
-        itin = t.get("itinerary") or []
-        quote = price <= 0 or slug in QUOTE_ONLY_SLUGS
+    # All 73 sheet fichas (canonical SEO list)
+    for sheet_slug in sorted(sheet.keys()):
+        meta = sheet[sheet_slug]
+        web_slug = web_slug_for_sheet(sheet_slug)
+        web = web_all.get(web_slug)
+        rows.append(tour_row(sheet_slug, meta, web, hub, sitemap))
 
-        rows.append(
-            {
-                "slug": slug,
-                "titulo": t.get("title", ""),
-                "categoria_wp": meta.get("Categoría de tour", ""),
-                "estilo_viaje": meta.get("Estilo de viaje", ""),
-                "tags": meta.get("Etiquetas", ""),
-                "precio_usd_web": int(price) if price == int(price) else price,
-                "quote_only": "yes" if quote else "no",
-                "duracion": t.get("duration", ""),
-                "duracion_ok": "yes" if duration_ok(t.get("duration", "")) else "no",
-                "dificultad": t.get("difficulty") or "",
-                "dias_itinerario": len(itin),
-                "itinerario_ok": "yes" if len(itin) >= 1 else "no",
-                "includes_count": len(inc),
-                "excludes_count": len(exc),
-                "gsc_clics_16m": meta.get("Clics", ""),
-                "gsc_impresiones_16m": meta.get("Impresiones", ""),
-                "gsc_posicion": meta.get("Posición", ""),
-                "en_hub_packages": "yes" if slug in hub else "no",
-                "url_web": f"/tour/{slug}/",
-            }
-        )
+    # Web-only tours not in sheet (should be none)
+    sheet_web_slugs = {web_slug_for_sheet(s) for s in sheet}
+    for slug, web in sorted(web_all.items()):
+        if slug not in sheet_web_slugs and slug not in sheet.values():
+            rows.append(
+                tour_row(slug, {}, web, hub, sitemap)
+            )
 
     fields = list(rows[0].keys()) if rows else []
     with out_csv.open("w", newline="", encoding="utf-8") as f:
@@ -107,11 +158,9 @@ def main() -> None:
         w.writeheader()
         w.writerows(rows)
 
-    # Summary markdown
-    by_cat: dict[str, int] = {}
-    for r in rows:
-        c = r["categoria_wp"] or "(sin categoría)"
-        by_cat[c] = by_cat.get(c, 0) + 1
+    web_count = sum(1 for r in rows if r["en_web_json"] == "yes")
+    sitemap_count = sum(1 for r in rows if r["en_sitemap"] == "yes")
+    draft_count = sum(1 for r in rows if r["estado_sheet"] == "draft")
 
     summary = OUT_DIR / "RESUMEN.md"
     summary.write_text(
@@ -119,34 +168,27 @@ def main() -> None:
 
 Generado por `pgt-web/scripts/build-catalogo-maestro.py`.
 
-## Totales
+## Totales (fuente Sheet = verdad SEO)
 
 | Métrica | Valor |
 |---------|-------|
-| Tours EN | {len(rows)} |
-| Con precio numérico | {sum(1 for r in rows if r['quote_only'] == 'no')} |
-| Quote only (sin precio) | {sum(1 for r in rows if r['quote_only'] == 'yes')} |
-| Con itinerario (≥1 día) | {sum(1 for r in rows if r['itinerario_ok'] == 'yes')} |
+| **Fichas Sheet Excel** | **{len(sheet)}** |
+| En sitemap WP (69) | {sitemap_count} |
+| En web JSON | {web_count} |
+| Drafts en Sheet (no migrar) | {draft_count} |
+| Con precio numérico | {sum(1 for r in rows if r.get('quote_only') == 'no' and r['en_web_json']=='yes')} |
 | Con includes scrapeados | {sum(1 for r in rows if int(r['includes_count']) > 0)} |
-| En hub `/packages/` | {sum(1 for r in rows if r['en_hub_packages'] == 'yes')} |
-| Duración corrupta | {sum(1 for r in rows if r['duracion_ok'] == 'no' and r['duracion'])} |
 
-## Por categoría WP
-
-"""
-        + "\n".join(f"- **{k}**: {v}" for k, v in sorted(by_cat.items(), key=lambda x: -x[1]))
-        + """
+Ver `04-producto/RECONCILIACION-INVENTARIO.md` para 73 vs 69 vs 70.
 
 ## Archivos
 
-- `catalogo-tours.csv` — una fila por tour, merge Sheet SEO + JSON web
-- Ver `04-producto/CATALOGO-MAESTRO.md` para reglas y fuentes
+- `catalogo-tours.csv` — **73 filas** (una por ficha Sheet) + merge JSON web
 """,
         encoding="utf-8",
     )
 
-    print(f"Wrote {out_csv} ({len(rows)} tours)")
-    print(f"Wrote {summary}")
+    print(f"Wrote {out_csv} ({len(rows)} rows, sheet={len(sheet)}, web={web_count})")
 
 
 if __name__ == "__main__":

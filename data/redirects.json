@@ -1,6 +1,6 @@
 {
   "generated": "2026-08-31",
-  "count": 115,
+  "count": 117,
   "redirects": [
     {
       "source": "/blog/cusco/the-top-3-hikes-in-cusco/",
@@ -575,6 +575,16 @@
     {
       "source": "/blog/cusco/machu-picchu-travel-packages/",
       "destination": "/blog/machu-picchu-travel-packages/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/temples-in-peru/",
+      "destination": "/blog/temples-in-peru-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/where-to-buy-peruvian-pisco/",
+      "destination": "/blog/where-to-buy-peruvian-pisco-2027/",
       "permanent": true
     }
   ]

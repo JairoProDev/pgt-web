@@ -44,8 +44,9 @@
 
 | Métrica | Objetivo cutover | Estado actual |
 |---------|------------------|---------------|
-| Tours | 69 | **69** JSON + SSG |
-| Blogs | 452 | **455** JSON (+3 Jairo re-scrape) |
+| Tours (sitemap EN) | 69 | **70** JSON (69 + `challenge-of-the-incas-15d`) |
+| Fichas tour Sheet | 73 | Ver `pgt/04-producto/RECONCILIACION-INVENTARIO.md` |
+| Blogs Sheet SEO | **454** | **456** JSON (454 + 2 legacy duplicados) |
 | Páginas estáticas/hubs | 62 | **62** JSON |
 | Build SSG | 589 URLs | **591** rutas generadas |
 | Footer links funcionales | 100% | **~95%** (ver auditoría abajo) |
