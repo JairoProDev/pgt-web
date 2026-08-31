@@ -20,8 +20,9 @@
 # production
 /build
 
-# misc
-.DS_Store
+# misc assets (generated)
+/public/images/backup/
+/data/payload-export/
 *.pem
 
 # debug
@@ -38,7 +39,12 @@ yarn-error.log*
 
 # lighthouse / chrome temp
 lighthouse-*.json
-/C:\\Users/
+C:\\Users/
+**/lighthouse.*/
+
+# python
+__pycache__/
+*.pyc
 
 # typescript
 *.tsbuildinfo

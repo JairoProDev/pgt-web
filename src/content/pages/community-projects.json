@@ -1,0 +1,23 @@
+{
+  "slug": "community-projects",
+  "path": "/community-projects/",
+  "pageType": "static",
+  "title": "Community projects – Peru Grand Travel",
+  "seo": {
+    "title": "Community projects – Peru Grand Travel",
+    "description": "Peru Grand Travel promotes community projects in the Cusco region aimed exclusively at communities in need of support....",
+    "canonical": "/community-projects/"
+  },
+  "h1": "Community projects",
+  "heroSubtitle": "Peru Grand Travel promotes community projects in the Cusco region aimed exclusively at communities in need of support....",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/07/people-cusco-peru-02.jpg",
+  "sections": [
+    {
+      "heading": "What is a Community Project?",
+      "body": "A community project is a tool in which the solution to a problem is laid out or the satisfaction of a need is felt through a community. This is to say that it is a plan of action put into detail to resolve a problem, various problems or the collective necessities of a certain community. A community project is also a combination of oriented activities that satisfy or resolve the most urgent necessities and desperate needs of a community. It is fundamentally oriented for people who form part of the community and for people who know how the real situation is in this particular area. The community projects form part of the social projects, which result in the improvement in the quality of life for people by satisfying their basic needs. These projects need to be thorough enough so that we can respond to the needs of the communities by bringing them solutions in a methodological manner and by taking into consideration the municipal, state, and national development plans."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}

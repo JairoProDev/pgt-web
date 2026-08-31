@@ -1,0 +1,40 @@
+{
+  "slug": "social-projects",
+  "path": "/social-projects/",
+  "pageType": "static",
+  "title": "SOCIAL PROJECTS",
+  "seo": {
+    "title": "▷ SOCIAL PROJECTS | Peru Grand Travel",
+    "description": "Meet the social projects of Peru Grand Travel, a travel agency committed to local community development in Cusco.",
+    "canonical": "/social-projects/"
+  },
+  "h1": "PGT Foundation",
+  "heroSubtitle": "Meet the social projects of Peru Grand Travel, a travel agency committed to local community development in Cusco.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/04/cropped-peru-grand-travel-logo-colour-favicon-32x32.png",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "At Peru Grand Travel, we are committed to responsible and sustainable tourism, prioritizing unforgettable experiences for our travelers while supporting the socioeconomic development of local communities and protecting the environment. Through our tours and packages, we promote ethical tourism, respectful of Peruvian culture, nature and traditions. In addition, we dedicate efforts to social projects that boost the economic, educational and cultural growth of local populations.” Our approach is based on creating a positive and lasting impact in each destination we visit. We work closely with communities to ensure that the benefits of tourism reach people directly, preserving their heritage and improving their quality of life. With Peru Grand Travel, every trip is not only an adventure, but an active contribution to the well-being and development of Peru."
+    },
+    {
+      "heading": "Christmas Campaign: Lighting Hearts, Sharing Joy",
+      "body": "At Peru Grand Travel , Christmas is more than just a season: it’s a time to share and care for our local communities. Discover how our Christmas Campaign lights up hearts and spreads joy through social projects that positively impact those who need it most. Join us in this celebration of generosity and hope."
+    },
+    {
+      "heading": "For a Cleaner Planet: Our Cleanup Campaign",
+      "body": "Our agency is actively engaged in promoting environmental awareness and education as an integral part of our sustainable tourism philosophy. To fulfill this commitment, we regularly organize trail clean-up campaigns and hikes in the Cusco region. These activities not only seek to preserve the natural beauty of our landscapes, but also to generate a positive impact on the local community by involving residents and visitors in the active conservation of the environment."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/social-projects/christmas/",
+      "label": "Christmas"
+    },
+    {
+      "path": "/social-projects/cleaning-campaigns/",
+      "label": "Cleaning Campaigns"
+    }
+  ],
+  "tourSlugs": []
+}

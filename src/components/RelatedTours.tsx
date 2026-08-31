@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Tour } from "@/lib/types";
+import { formatPriceLabel, tourWhatsAppMessage } from "@/lib/conversion";
 import { WhatsAppButton } from "./WhatsAppButton";
 
 type Props = {
@@ -22,12 +23,12 @@ export function RelatedTours({ tours, pagePath, heading = "Recommended tours" }:
                 {tour.h1}
               </Link>
               <p className="text-sm text-stone-600">
-                From US$ {tour.priceFrom} · {tour.duration}
+                {formatPriceLabel(tour)} · {tour.h1.match(/\d+D\/\d+N/i)?.[0] ?? tour.duration}
               </p>
             </div>
             <WhatsAppButton
               label="Ask about this tour"
-              message={`Hi! I'm interested in the ${tour.h1} from perugrandtravel.com.`}
+              message={tourWhatsAppMessage(tour)}
               utmContent={`related_${tour.slug}`}
               contentType="tour"
               contentSlug={tour.slug}

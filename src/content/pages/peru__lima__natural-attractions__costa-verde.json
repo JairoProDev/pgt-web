@@ -1,0 +1,27 @@
+{
+  "slug": "costa-verde",
+  "path": "/peru/lima/natural-attractions/costa-verde/",
+  "pageType": "destination",
+  "title": "Costa Verde, Boardwalk of Miraflores in Lima",
+  "seo": {
+    "title": "Costa Verde, Boardwalk of Miraflores in Lima",
+    "description": "Costa Verde, Miraflores Boardwalk in Lima: Enjoy the Beauty of the Pacific Ocean and the Energy of this Coastal Icon, Explore Lima in Style!",
+    "canonical": "/peru/lima/natural-attractions/costa-verde/"
+  },
+  "h1": "Costa Verde, Boardwalk of Miraflores in Lima",
+  "heroSubtitle": "Costa Verde, Miraflores Boardwalk in Lima: Enjoy the Beauty of the Pacific Ocean and the Energy of this Coastal Icon, Explore Lima in Style!",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/12/costa-verde-lima.webp",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Home » Destinations » Lima » Natural Attractions » Costa Verde, Miraflores Boardwalk"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "colonial-lima-and-sacred-land-of-the-incas-7d",
+    "spectacular-peru-10d",
+    "origins-of-the-incas-10d"
+  ]
+}

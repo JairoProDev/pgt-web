@@ -1,0 +1,29 @@
+{
+  "slug": "chinchero",
+  "path": "/peru/cusco/archaeological-sites/chinchero/",
+  "pageType": "destination",
+  "title": "Archaeological Complex of Chinchero in Cusco, Peru",
+  "seo": {
+    "title": "Archaeological Complex of Chinchero in Cusco, Peru",
+    "description": "Discover the Magic of the Archaeological Complex of Chinchero: Incan Treasures and Colonial Blends await you in the Peruvian Andes.",
+    "canonical": "/peru/cusco/archaeological-sites/chinchero/"
+  },
+  "h1": "Archaeological Complex of Chinchero in Cusco, Peru",
+  "heroSubtitle": "Discover the Magic of the Archaeological Complex of Chinchero: Incan Treasures and Colonial Blends await you in the Peruvian Andes.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/03/chinchero-cusco.webp",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Home » Destinations » Cusco » Archaeological Sites » Chinchero"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "colonial-lima-and-sacred-land-of-the-incas-7d",
+    "spectacular-peru-10d",
+    "origins-of-the-incas-10d",
+    "classic-machu-picchu-5d",
+    "machu-picchu-extreme-challenge"
+  ]
+}

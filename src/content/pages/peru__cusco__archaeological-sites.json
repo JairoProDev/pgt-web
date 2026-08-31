@@ -1,0 +1,55 @@
+{
+  "slug": "archaeological-sites",
+  "path": "/peru/cusco/archaeological-sites/",
+  "pageType": "destination",
+  "title": "Archaeological Sites – Peru Grand Travel",
+  "seo": {
+    "title": "Archaeological Sites – Peru Grand Travel",
+    "description": "",
+    "canonical": "/peru/cusco/archaeological-sites/"
+  },
+  "h1": "Archaeological Sites",
+  "heroSubtitle": "",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/04/cropped-peru-grand-travel-logo-colour-favicon-32x32.png",
+  "sections": [],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/peru/cusco/archaeological-sites/chinchero/",
+      "label": "Chinchero"
+    },
+    {
+      "path": "/peru/cusco/archaeological-sites/choquequirao/",
+      "label": "Choquequirao"
+    },
+    {
+      "path": "/peru/cusco/archaeological-sites/coricancha/",
+      "label": "Coricancha"
+    },
+    {
+      "path": "/peru/cusco/archaeological-sites/ollantaytambo/",
+      "label": "Ollantaytambo"
+    },
+    {
+      "path": "/peru/cusco/archaeological-sites/puka-pukara/",
+      "label": "Puka Pukara"
+    },
+    {
+      "path": "/peru/cusco/archaeological-sites/qenqo/",
+      "label": "Qenqo"
+    },
+    {
+      "path": "/peru/cusco/archaeological-sites/raqchi/",
+      "label": "Raqchi"
+    },
+    {
+      "path": "/peru/cusco/archaeological-sites/sacsayhuaman/",
+      "label": "Sacsayhuaman"
+    },
+    {
+      "path": "/peru/cusco/archaeological-sites/tambomachay/",
+      "label": "Tambomachay"
+    }
+  ],
+  "tourSlugs": []
+}

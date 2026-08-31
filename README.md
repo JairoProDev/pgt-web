@@ -3,16 +3,12 @@
 Next.js rebuild of **perugrandtravel.com** EN — performance, SEO, WhatsApp leads.
 
 **Live:** https://pgt-web-theta.vercel.app  
-**Repo:** https://github.com/JairoProDev/pgt-web
+**Repo:** https://github.com/JairoProDev/pgt-web  
+**Estado completo:** [docs/ESTADO-PROYECTO.md](docs/ESTADO-PROYECTO.md) — hecho, pendiente, tus tareas, roadmap
 
-## MVP pages
+## Catalog (2026-08-31)
 
-| Page | URL |
-|---|---|
-| Home | `/` |
-| Packages hub | `/packages/` |
-| Tour Salkantay 5D | `/tour/the-classic-salkantay-trek-5d/` |
-| Blog Things MP | `/blog/things-to-do-in-machu-picchu/` |
+591 SSG pages: 69 tours · 455 blogs · 62 static/hub pages
 
 ## Stack
 
@@ -32,8 +28,12 @@ npm run dev
 ## Scripts
 
 ```bash
+npm run build
+npm run audit:content     # footer pages quality
 npm run validate-parity   # diff meta vs WP live
-npm run scrape-tour       # scrape tour from WP
+npm run scrape:tours      # batch scrape tours
+npm run scrape:pages      # batch scrape static pages
+npm run pre-cutover [URL]
 ```
 
 ## Lighthouse (local, tour page)

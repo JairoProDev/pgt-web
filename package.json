@@ -4,11 +4,20 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run content:index && next build",
     "start": "next start",
     "lint": "eslint",
-    "validate-parity": "bash scripts/validate-parity.sh",
-    "scrape-tour": "python3 scripts/scrape-tour-full.py"
+    "content:index": "npx tsx scripts/build-content-index.ts",
+    "scrape:tours": "python3 scripts/scrape-all-tours.py --skip-existing",
+    "scrape:blogs": "python3 scripts/scrape-all-blogs.py --skip-existing",
+    "scrape:pages": "python3 scripts/scrape-all-pages.py",
+    "validate-parity": "bash scripts/validate-parity-v2.sh",
+    "cms:export": "npx tsx scripts/import-json-to-payload.ts",
+    "backup:images": "python3 scripts/backup-hero-images.py",
+    "patch:pages": "python3 scripts/patch-page-types.py",
+    "audit:content": "python3 scripts/audit-content-quality.py",
+    "pre-cutover": "bash scripts/pre-cutover-checklist.sh",
+    "post-cutover": "bash scripts/post-cutover-monitor.sh"
   },
   "dependencies": {
     "next": "16.3.4",
@@ -23,6 +32,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.4",
     "tailwindcss": "^4",
+    "tsx": "^4.23.13",
     "typescript": "^5"
   }
 }

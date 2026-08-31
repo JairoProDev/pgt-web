@@ -1,0 +1,61 @@
+{
+  "slug": "amazon-rainforest-express-3d",
+  "title": "Amazon Rainforest Express 3 days – Peru Grand Travel",
+  "h1": "",
+  "seo": {
+    "title": "Amazon Rainforest Express 3 days – Peru Grand Travel",
+    "description": "Amazonia express knows the apu Victor lake, monkey island, cocha Caiman. All inclusive as the lodge, food, among others.",
+    "canonical": "/tour/amazon-rainforest-express-3d/"
+  },
+  "priceFrom": 0,
+  "currency": "USD",
+  "duration": "1s;animation-fill-mode:both;animation-delay:0s;animation-iteration-count:1;}\t\t@keyframes center{from{transform:scale(0);}to{transform:scale(1);}}.ht_ctc_an_entry_center{animation: center .25s;}",
+  "difficulty": null,
+  "categories": [],
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/03/amazon-rainforest-express-3d.jpg",
+  "gallery": [
+    "https://www.perugrandtravel.com/wp-content/uploads/2023/03/amazon-rainforest-express-3d.jpg",
+    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+  ],
+  "summary": "Amazonia express knows the apu Victor lake, monkey island, cocha Caiman. All inclusive as the lodge, food, among others.",
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Day 1: Puerto Maldonado",
+      "body": "AT THE MOMENT TO BUY YOUR AIRLINE TICKETS, YOUR FLIGHT SHOULD ARRIVE IN PUERTO MALDONADO NO LATER THAN 1 PM When you arrive in Puerto Maldonado, the capital city of biodiversity in Peru, we will be there to welcome you at the airport. We will start our program with a bus tour of the city, followed by a trip to Puerto Capitanía where we will board a motorized riverboat to navigate the Madre de Dios River. This will be an exciting opportunity to immerse ourselves in the stunning natural environment, where we may be fortunate enough to witness various animal species in their natural habitats, including Ronsocos, Caimans, Turtles, Herons, Cormorants, and others. Once we arrive at the Lodge, we will be served to a delicious welcome drink and settle into our cozy bungalows before enjoying a lovely lunch together. After lunch, our expert guide will lead you along a marked trail to the Caimán Cocha, a petite lake teeming with specimens of Black Caiman (Melanosuchus Niger) and Caiman (Caiman Crocodilus). As the afternoon draws to a close, you will marvel at the breathtaking sunset over the Amazon, an encounter that promises to be a sensorial feast, bursting with vivid colors. Once you return to the Lodge, you will enjoy a delectable dinner, followed by some leisure time to create memories to last a lifetime at the bar, complete with an excellent game room and an endless supply of beverages. Overnight: Bungalow in Puerto Maldonado Included meals : breakfast , lunch and dinner"
+    },
+    {
+      "day": 2,
+      "title": "Day 2: Lake Apu Victor and Isla de los monos Tour",
+      "body": "We will ultimately arrive at the magnificent Lake Apu Victor, surrounded by marshes and towering trees with crystal clear waters. Subsequently, we will ascend to the Observation Deck, where we can savor a panoramic view of the lake, marveling at the numerous animals, including parrots, macaws, toucans, camungos, shanshos, herons, caimans, turtles. With a stroke of luck, we may even see the Giant Otter, one of the most striking animals in the rainforest. After a few hours of exploration, we will return to the Lodge for a delightful lunch. In the afternoon, our expert guide will accompany us on a visit to Isla de los Monos- a unique destination situated in the heart of the Madre de Dios River, just a five-minute boat ride from the Lodge. Our hike towards the island will offer breathtaking views of the landscape, including a lush and diverse flora, which provides shelter to a variety of monkey species, such as Maquisapas, Capuchins, Small Lion Monkeys, Frailes, Cotos, as well as other fascinating creatures, including Coatis, Sloths, and a wide range of birds. At the conclusion of our island visit, we will witness a truly spectacular sunset – one of the most breathtaking sights the jungle has to offer. Upon returning to the Lodge, we will have a delectable dinner to round out an unforgettable day. Overnight: Bungalow in Puerto Maldonado Included meals : breakfast , lunch and dinner"
+    },
+    {
+      "day": 3,
+      "title": "Day 3: Transfer Hotel to Puerto Maldonado Airport",
+      "body": "Following a peaceful night’s sleep, the start of the day is greeted by the pleasant melodies of charming avian creatures in the idyllic Amazonian haven. Our dining area is ready to serve a final breakfast before setting off on the journey back to Puerto Maldonado Airport. This marks the end of our services. <div class=\"gdlr-core-pbf-wrapper \" style=\"padding: 0px 0px 30px 0px;\" data-skin=\"Blue Icon\""
+    }
+  ],
+  "included": [
+    "Day 1: - Transfer Puerto Maldodano Airport – Amazonian Lodge ; - Caiman Cocha tour – Guide and transportation",
+    "Day 2: - Lake Apu Victor Tour – Guide and transportation ; - Isla de los monos Tour – Guide adn transportation",
+    "Day 3: - Transfer Amazonian Lodge to Puerto Maldonado Airport",
+    "Hotels: - 02 nights at a lodge in Tambopata Reserve with breakfast, lunch and dinner"
+  ],
+  "excluded": [
+    "Airfare",
+    "Drinks, except as noted",
+    "Food, except what is mentioned",
+    "Snacks",
+    "Phone calls",
+    "Extra expenses",
+    "Tips",
+    "Travel insurance"
+  ],
+  "relatedTourSlugs": []
+}

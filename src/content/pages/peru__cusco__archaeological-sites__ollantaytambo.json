@@ -1,0 +1,29 @@
+{
+  "slug": "ollantaytambo",
+  "path": "/peru/cusco/archaeological-sites/ollantaytambo/",
+  "pageType": "destination",
+  "title": "Ollantaytambo Archaeological Site in Cusco, Peru",
+  "seo": {
+    "title": "Ollantaytambo Archaeological Site in Cusco, Peru",
+    "description": "Discover Ollantaytambo in Cusco, one of the most impressive and emblematic Inca archaeological complexes in Peru.",
+    "canonical": "/peru/cusco/archaeological-sites/ollantaytambo/"
+  },
+  "h1": "Ollantaytambo Archaeological Site in Cusco, Peru",
+  "heroSubtitle": "Discover Ollantaytambo in Cusco, one of the most impressive and emblematic Inca archaeological complexes in Peru.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/12/ollantaytambo-cusco-peru.webp",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Home » Destinations » Cusco » Archaeological Sites » Ollantaytambo"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "colonial-lima-and-sacred-land-of-the-incas-7d",
+    "spectacular-peru-10d",
+    "origins-of-the-incas-10d",
+    "classic-machu-picchu-5d",
+    "machu-picchu-extreme-challenge"
+  ]
+}

@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BlogLeadCTA } from "@/components/BlogLeadCTA";
 import { JsonLd } from "@/components/JsonLd";
 import { RelatedTours } from "@/components/RelatedTours";
 import { WhatsAppButton, WhatsAppSticky } from "@/components/WhatsAppButton";
+import { blogWhatsAppMessage, defaultRelatedTourSlugs } from "@/lib/conversion";
 import { getAllBlogSlugs, getBlog, getToursBySlugs } from "@/lib/content";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
@@ -43,9 +45,12 @@ export default async function BlogPostPage({ params }: Props) {
 
   const path = `/blog/${slug}/`;
   const url = `${siteConfig.baseUrl}${path}`;
-  const relatedTours = getToursBySlugs(blog.relatedTourSlugs);
-  const waMessage =
-    "Hi! I read your Machu Picchu guide on Peru Grand Travel and would like help planning my visit.";
+  const tourSlugs =
+    blog.relatedTourSlugs.length >= 2
+      ? blog.relatedTourSlugs
+      : defaultRelatedTourSlugs(slug);
+  const relatedTours = getToursBySlugs(tourSlugs.slice(0, 4));
+  const waMessage = blogWhatsAppMessage(blog.h1);
 
   return (
     <>
@@ -61,7 +66,7 @@ export default async function BlogPostPage({ params }: Props) {
           }),
           breadcrumbSchema([
             { name: "Home", url: siteConfig.baseUrl },
-            { name: "Blog", url: `${siteConfig.baseUrl}/blog/${slug}/` },
+            { name: "Blog", url: `${siteConfig.baseUrl}/blogs/` },
             { name: blog.h1, url },
           ]),
         ]}
@@ -89,20 +94,36 @@ export default async function BlogPostPage({ params }: Props) {
           <p className="mt-6 text-lg leading-relaxed text-stone-600">{blog.intro}</p>
 
           <div className="prose-pgt mt-8">
-            {blog.sections.map((section) => (
+            {blog.sections.map((section, index) => (
               <section key={section.heading}>
                 <h2>{section.heading}</h2>
-                <p>{section.body.slice(0, 800)}{section.body.length > 800 ? "…" : ""}</p>
+                {section.body.split(/\n\n+/).map((para) => (
+                  <p key={para.slice(0, 60)}>{para}</p>
+                ))}
+                {index === 0 && (
+                  <BlogLeadCTA message={waMessage} slug={slug} pagePath={path} />
+                )}
               </section>
             ))}
           </div>
 
-          <RelatedTours tours={relatedTours} pagePath={path} heading="Tours to Machu Picchu" />
+          {blog.sections.length === 0 && (
+            <BlogLeadCTA message={waMessage} slug={slug} pagePath={path} />
+          )}
 
-          <div className="mt-10 rounded-xl bg-pgt-blue p-6 text-center text-white">
-            <p className="text-lg font-semibold">Ready to plan your Machu Picchu trip?</p>
+          <RelatedTours
+            tours={relatedTours}
+            pagePath={path}
+            heading="Tours mentioned in this guide"
+          />
+
+          <div className="mt-10 rounded-xl bg-pgt-blue p-6 text-center text-white md:p-8">
+            <p className="text-lg font-semibold">Ready to turn this guide into a real itinerary?</p>
+            <p className="mt-2 text-sm text-blue-100">
+              Tell us your dates and group size — we reply on WhatsApp with options and prices.
+            </p>
             <WhatsAppButton
-              label="Chat with our team"
+              label="Chat with our Cusco team"
               message={waMessage}
               utmContent={`blog_${slug}`}
               contentType="blog"
@@ -112,9 +133,12 @@ export default async function BlogPostPage({ params }: Props) {
             />
           </div>
 
-          <p className="mt-8 text-sm text-stone-500">
-            <Link href="/tour/the-classic-salkantay-trek-5d/" className="text-pgt-blue hover:underline">
-              Salkantay Trek 5 days →
+          <p className="mt-8 flex flex-wrap gap-4 text-sm">
+            <Link href="/packages/" className="font-medium text-pgt-blue hover:underline">
+              View all Peru packages →
+            </Link>
+            <Link href="/machu-picchu-packages/" className="font-medium text-pgt-blue hover:underline">
+              Machu Picchu tours →
             </Link>
           </p>
         </div>

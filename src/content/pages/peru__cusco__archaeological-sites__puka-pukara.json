@@ -1,0 +1,29 @@
+{
+  "slug": "puka-pukara",
+  "path": "/peru/cusco/archaeological-sites/puka-pukara/",
+  "pageType": "destination",
+  "title": "Puka Pukara Archaeological Complex in Cusco, Peru",
+  "seo": {
+    "title": "Puka Pukara Archaeological Complex in Cusco, Peru",
+    "description": "Explore Puka Pukara, an archaeological complex full of mystery and beauty. Immerse yourself in the ancestral legacy at this unique place.",
+    "canonical": "/peru/cusco/archaeological-sites/puka-pukara/"
+  },
+  "h1": "Puka Pukara Archaeological Complex in Cusco, Peru",
+  "heroSubtitle": "Explore Puka Pukara, an archaeological complex full of mystery and beauty. Immerse yourself in the ancestral legacy at this unique place.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/11/puka-pukara-cusco.webp",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Home » Destinations » Cusco » Archaeological Sites » Puka Pukara"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "colonial-lima-and-sacred-land-of-the-incas-7d",
+    "spectacular-peru-10d",
+    "origins-of-the-incas-10d",
+    "classic-machu-picchu-5d",
+    "machu-picchu-extreme-challenge"
+  ]
+}

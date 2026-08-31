@@ -1,0 +1,29 @@
+{
+  "slug": "coricancha",
+  "path": "/peru/cusco/archaeological-sites/coricancha/",
+  "pageType": "destination",
+  "title": "Coricancha Archaeological Complex in Cusco, Peru",
+  "seo": {
+    "title": "Coricancha Archaeological Complex in Cusco, Peru",
+    "description": "Discover Coricancha in Cusco, archaeological complex considered the most important religious and political center of the Incan civilization.",
+    "canonical": "/peru/cusco/archaeological-sites/coricancha/"
+  },
+  "h1": "Coricancha Archaeological Complex in Cusco, Peru",
+  "heroSubtitle": "Discover Coricancha in Cusco, archaeological complex considered the most important religious and political center of the Incan civilization.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/12/coricancha-cusco.jpg",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Home » Destinations » Cusco » Archaeological Sites » Coricancha"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "colonial-lima-and-sacred-land-of-the-incas-7d",
+    "spectacular-peru-10d",
+    "origins-of-the-incas-10d",
+    "classic-machu-picchu-5d",
+    "machu-picchu-extreme-challenge"
+  ]
+}

@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { TourGallery } from "@/components/TourGallery";
 import { WhatsAppButton, WhatsAppSticky } from "@/components/WhatsAppButton";
 import { getAllTourSlugs, getTour } from "@/lib/content";
+import { displayDuration, formatPriceLabel, isTrustedPrice, tourWhatsAppMessage, TRUST_SIGNALS } from "@/lib/conversion";
 import { breadcrumbSchema, faqSchema, touristTripSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 
@@ -40,7 +41,9 @@ export default async function TourPage({ params }: Props) {
 
   const path = `/tour/${slug}/`;
   const url = `${siteConfig.baseUrl}${path}`;
-  const waMessage = `Hi! I'm interested in the ${tour.h1} from perugrandtravel.com. Can you send availability and the price from US$ ${tour.priceFrom}?`;
+  const waMessage = tourWhatsAppMessage(tour);
+  const duration = displayDuration(tour);
+  const priceLabel = formatPriceLabel(tour);
 
   const faqs = tour.faq ?? [
     {
@@ -103,8 +106,8 @@ export default async function TourPage({ params }: Props) {
           <div>
             <h1 className="text-3xl font-bold text-stone-900 md:text-4xl">{tour.h1}</h1>
             <p className="mt-2 text-stone-600">
-              {tour.duration}
-              {tour.difficulty ? ` · ${tour.difficulty}` : ""}
+              {duration}
+              {tour.difficulty && tour.difficulty.length < 30 ? ` · ${tour.difficulty}` : ""}
             </p>
 
             <div className="mt-6">
@@ -122,14 +125,31 @@ export default async function TourPage({ params }: Props) {
 
             <section className="mt-10">
               <h2 className="text-xl font-semibold text-pgt-blue">Itinerary</h2>
-              <div className="mt-4 space-y-6">
-                {tour.itinerary.map((day) => (
-                  <article key={day.day} className="rounded-lg border border-stone-200 p-4">
-                    <h3 className="font-semibold text-stone-900">{day.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-stone-600">{day.body.slice(0, 500)}…</p>
-                  </article>
-                ))}
-              </div>
+              {tour.itinerary.length > 0 ? (
+                <div className="mt-4 space-y-6">
+                  {tour.itinerary.map((day) => (
+                    <article key={day.day} className="rounded-lg border border-stone-200 p-4">
+                      <h3 className="font-semibold text-stone-900">{day.title}</h3>
+                      <p className="mt-2 text-sm leading-relaxed text-stone-600">{day.body}</p>
+                    </article>
+                  ))}
+                </div>
+              ) : (
+                <div className="mt-4 rounded-lg border border-dashed border-stone-300 bg-stone-50 p-6 text-center">
+                  <p className="text-stone-600">
+                    Full day-by-day itinerary available on request — message us for the detailed PDF.
+                  </p>
+                  <WhatsAppButton
+                    label="Request full itinerary"
+                    message={`Hi! Please send me the detailed day-by-day itinerary for ${tour.h1}.`}
+                    utmContent={`tour_${slug}_itinerary`}
+                    contentType="tour"
+                    contentSlug={slug}
+                    pagePath={path}
+                    className="mt-4"
+                  />
+                </div>
+              )}
             </section>
 
             <section className="mt-10 grid gap-8 md:grid-cols-2">
@@ -154,11 +174,16 @@ export default async function TourPage({ params }: Props) {
 
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-xl border border-stone-200 bg-stone-50 p-6 shadow-sm">
-              <p className="text-sm text-stone-500">From</p>
-              <p className="text-3xl font-bold text-pgt-orange">
-                US$ {tour.priceFrom.toLocaleString()}
-              </p>
-              <p className="mt-1 text-sm text-stone-600">per person · {tour.duration}</p>
+              <p className="text-sm text-stone-500">Price</p>
+              <p className="text-3xl font-bold text-pgt-orange">{priceLabel}</p>
+              {isTrustedPrice(tour) && (
+                <p className="mt-1 text-sm text-stone-600">per person · {duration}</p>
+              )}
+              <ul className="mt-4 space-y-1 text-xs text-stone-500">
+                {TRUST_SIGNALS.map((s) => (
+                  <li key={s}>✓ {s}</li>
+                ))}
+              </ul>
               <WhatsAppButton
                 label="Request info on WhatsApp"
                 message={waMessage}
@@ -168,8 +193,10 @@ export default async function TourPage({ params }: Props) {
                 pagePath={path}
                 className="mt-6 w-full"
               />
-              <p className="mt-3 text-center text-xs text-stone-500">
-                Reply within 24h · English support
+              <p className="mt-3 text-center text-xs leading-relaxed text-stone-500">
+                Typical reply within a few hours · Cusco time (UTC-5)
+                <br />
+                No obligation — ask about dates, hotels, or a custom version
               </p>
             </div>
           </aside>

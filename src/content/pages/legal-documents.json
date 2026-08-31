@@ -1,0 +1,23 @@
+{
+  "slug": "legal-documents",
+  "path": "/legal-documents/",
+  "pageType": "static",
+  "title": "Legal Documents for your Safe Travel",
+  "seo": {
+    "title": "Legal Documents for your Safe Travel | Peru Grand Travel",
+    "description": "Ensure a hassle-free trip. Know our legal documents. Peru Grand Travel is a company legally constituted under Peruvian law.",
+    "canonical": "/legal-documents/"
+  },
+  "h1": "Legal Documents for your Safe Travel",
+  "heroSubtitle": "Ensure a hassle-free trip. Know our legal documents. Peru Grand Travel is a company legally constituted under Peruvian law.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/07/peru-machu-picchu.jpg",
+  "sections": [
+    {
+      "heading": "Legal documents",
+      "body": "Perú Grand Travel Group S.A.C. is a legally registered business fulfilling all the norms and requisites determined by the Peruvian government. Our company pays income tax called IGV which at the moment is 18% as well as paying a yearly tax of 30% on our annual earnings. Our taxes are carefully monitored and paid for by our accountant. We never try to avoid paying taxes as we are a responsible and professional company that accepts the responsibility to directly contribute to the Peruvian economy. Since 2020, we donate a % of our earnings on community development projects, however this has been delayed until 2023 due to the Covid 19 pandemic. We are completely conscious of the fact that a large number of indigenous communities suffer from extreme poverty and we need to help in any way we can, as our social responsibility."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}

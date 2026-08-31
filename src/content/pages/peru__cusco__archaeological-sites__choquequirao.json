@@ -1,0 +1,29 @@
+{
+  "slug": "choquequirao",
+  "path": "/peru/cusco/archaeological-sites/choquequirao/",
+  "pageType": "destination",
+  "title": "Choquequirao Archaeological Park in Cusco, Peru",
+  "seo": {
+    "title": "Choquequirao Archaeological Park in Cusco, Peru",
+    "description": "Explore the Archaeological Complex of Choquequirao, an ancestral treasure hidden in the depths of the Peruvian Andes. Book your experience!",
+    "canonical": "/peru/cusco/archaeological-sites/choquequirao/"
+  },
+  "h1": "Choquequirao Archaeological Park in Cusco, Peru",
+  "heroSubtitle": "Explore the Archaeological Complex of Choquequirao, an ancestral treasure hidden in the depths of the Peruvian Andes. Book your experience!",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/01/choquequirao-cusco.webp",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Home » Destinations » Cusco » Archaeological Sites » Choquequirao"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "colonial-lima-and-sacred-land-of-the-incas-7d",
+    "spectacular-peru-10d",
+    "origins-of-the-incas-10d",
+    "classic-machu-picchu-5d",
+    "machu-picchu-extreme-challenge"
+  ]
+}

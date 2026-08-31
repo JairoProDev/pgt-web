@@ -1,0 +1,31 @@
+{
+  "slug": "christmas",
+  "path": "/social-projects/christmas/",
+  "pageType": "static",
+  "title": "Christmas Campaign: Sharing Joy",
+  "seo": {
+    "title": "Christmas Campaign: Sharing Joy | Peru Grand Travel",
+    "description": "Share the Christmas spirit with Peru Grand Travel. Our Christmas campaign seeks to bring happiness and resources to those in need.",
+    "canonical": "/social-projects/christmas/"
+  },
+  "h1": "Christmas",
+  "heroSubtitle": "Share the Christmas spirit with Peru Grand Travel. Our Christmas campaign seeks to bring happiness and resources to those in need.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/04/cropped-peru-grand-travel-logo-colour-favicon-32x32.png",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "At Peru Grand Travel, we are committed to responsible and sustainable tourism, prioritizing unforgettable experiences for our travelers while supporting the socioeconomic development of local communities and protecting the environment. Through our tours and packages, we promote ethical tourism, respectful of Peruvian culture, nature and traditions. In addition, we dedicate efforts to social projects that promote the economic, educational and cultural growth of local populations, such as our Christmas campaign. Our approach is based on creating a positive and lasting impact in each destination we visit. We work closely with communities to ensure that the benefits of tourism reach people directly, preserving their heritage and improving their quality of life. With Peru Grand Travel, every trip is not only an adventure, but an active contribution to the well-being and development of Peru. Learn more about our social projects ."
+    },
+    {
+      "heading": "2022",
+      "body": "PGT 2022 Christmas campaign in Calca, Cusco, together with children and parents. A unique experience sharing joy, gifts and traditions in the heart of the Andes. Peru Grand Travel supports Christmas celebrations that unite the community and travelers in an emotional cultural connection."
+    },
+    {
+      "heading": "2023",
+      "body": "PGT 2023 Christmas Campaign in Maras, Urubamba, sharing smiles and hugs with children and parents in the heart of the Andes. Join a Christmas celebration full of love, gifts and traditions that intertwine hearts, creating memories that will last in the soul and spirit."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}

@@ -1,0 +1,40 @@
+{
+  "slug": "churches-and-convents",
+  "path": "/peru/lima/churches-and-convents/",
+  "pageType": "destination",
+  "title": "Churches and Convents – Peru Grand Travel",
+  "seo": {
+    "title": "Churches and Convents – Peru Grand Travel",
+    "description": "",
+    "canonical": "/peru/lima/churches-and-convents/"
+  },
+  "h1": "Churches and Convents",
+  "heroSubtitle": "",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/04/cropped-peru-grand-travel-logo-colour-favicon-32x32.png",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Santo Domingo church Lima The Basilica and Convent of Our Lady of La Merced Basilica and Convent of San Francisco Basilica cathedral of Lima"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/peru/lima/churches-and-convents/basilica-and-convent-of-santo-domingo-lima/",
+      "label": "Basilica And Convent Of Santo Domingo Lima"
+    },
+    {
+      "path": "/peru/lima/churches-and-convents/convent-of-our-lady-of-la-merced/",
+      "label": "Convent Of Our Lady Of La Merced"
+    },
+    {
+      "path": "/peru/lima/churches-and-convents/basilica-and-convent-of-san-francisco/",
+      "label": "Basilica And Convent Of San Francisco"
+    },
+    {
+      "path": "/peru/lima/churches-and-convents/basilica-cathedral-of-lima/",
+      "label": "Basilica Cathedral Of Lima"
+    }
+  ],
+  "tourSlugs": []
+}

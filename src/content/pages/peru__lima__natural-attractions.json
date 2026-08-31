@@ -1,0 +1,23 @@
+{
+  "slug": "natural-attractions",
+  "path": "/peru/lima/natural-attractions/",
+  "pageType": "destination",
+  "title": "Natural Attractions – Peru Grand Travel",
+  "seo": {
+    "title": "Natural Attractions – Peru Grand Travel",
+    "description": "",
+    "canonical": "/peru/lima/natural-attractions/"
+  },
+  "h1": "Natural Attractions",
+  "heroSubtitle": "",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/04/cropped-peru-grand-travel-logo-colour-favicon-32x32.png",
+  "sections": [],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/peru/lima/natural-attractions/costa-verde/",
+      "label": "Costa Verde"
+    }
+  ],
+  "tourSlugs": []
+}

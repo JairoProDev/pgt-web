@@ -1,0 +1,29 @@
+{
+  "slug": "tambomachay",
+  "path": "/peru/cusco/archaeological-sites/tambomachay/",
+  "pageType": "destination",
+  "title": "Tambomachay Archaeological Complex in Cusco, Peru",
+  "seo": {
+    "title": "Tambomachay Archaeological Complex in Cusco, Peru",
+    "description": "Discover Tambomachay in Cusco, an archaeological complex that offers the opportunity to explore the rich history and culture of the region.",
+    "canonical": "/peru/cusco/archaeological-sites/tambomachay/"
+  },
+  "h1": "Tambomachay Archaeological Complex in Cusco, Peru",
+  "heroSubtitle": "Discover Tambomachay in Cusco, an archaeological complex that offers the opportunity to explore the rich history and culture of the region.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/12/tambomachay-cusco.webp",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Home » Destinations » Cusco » Archaeological Sites » Tambomachay"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "colonial-lima-and-sacred-land-of-the-incas-7d",
+    "spectacular-peru-10d",
+    "origins-of-the-incas-10d",
+    "classic-machu-picchu-5d",
+    "machu-picchu-extreme-challenge"
+  ]
+}

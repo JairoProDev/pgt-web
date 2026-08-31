@@ -1,0 +1,87 @@
+{
+  "slug": "travel-styles",
+  "path": "/travel-styles/",
+  "pageType": "hub",
+  "title": "Travel styles – Peru Grand Travel",
+  "seo": {
+    "title": "Travel styles – Peru Grand Travel",
+    "description": "",
+    "canonical": "/travel-styles/"
+  },
+  "h1": "Travel styles",
+  "heroSubtitle": "",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/06/peru-travel-styles.jpg",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Home » Travel styles Our best experiences Trekking 14 tours View all tours Traditional 12 tours View all tours Events & Festivals 2 tours View all tours Culture 3 tours View all tours Combined Travel 14 tours View all tours Adventure 4 tours View all tours Adrenaline 5 tours View all tours"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/travel-styles/trekking/",
+      "label": "Trekking"
+    },
+    {
+      "path": "/travel-styles/traditional/",
+      "label": "Traditional"
+    },
+    {
+      "path": "/travel-styles/events-festivals/",
+      "label": "Events Festivals"
+    },
+    {
+      "path": "/travel-styles/culture/",
+      "label": "Culture"
+    },
+    {
+      "path": "/travel-styles/combined/",
+      "label": "Combined"
+    },
+    {
+      "path": "/travel-styles/adventure/",
+      "label": "Adventure"
+    },
+    {
+      "path": "/travel-styles/adrenaline/",
+      "label": "Adrenaline"
+    }
+  ],
+  "tourSlugs": [
+    "colonial-lima-and-sacred-land-of-the-incas-7d",
+    "inca-encounters-8d",
+    "colonial-lima-huacachina-and-sacred-land-of-the-incas-9-days",
+    "spectacular-peru-10d",
+    "gastronomic-and-historic-peru-10d",
+    "origins-of-the-incas-10d",
+    "fascinating-adventure-challenge-in-the-andes-11-days",
+    "origins-and-mysteries-of-the-andes-16d",
+    "machu-picchu-full-day",
+    "incredible-machu-picchu-2d",
+    "machu-picchu-moderate-4d",
+    "classic-machu-picchu-5d",
+    "machu-picchu-humantay-lake-6d",
+    "incredible-experience-machu-picchu-7d",
+    "unforgettable-machu-picchu-8d",
+    "machu-picchu-challenge-8d",
+    "short-inca-trail-2d",
+    "sacred-valley-short-inca-trail-3d",
+    "classic-inca-trail-4d",
+    "classic-inca-trail-7-days",
+    "salkantay-trek-4-days",
+    "the-classic-salkantay-trek-5d",
+    "lares-trek-4d",
+    "ausangate-7-lakes-day-trip",
+    "humantay-lake-full-day",
+    "trek-humantay-salkantay-2d",
+    "rainbow-mountain-full-day",
+    "atv-rainbow-mountain",
+    "palccoyo-rainbow-mountain-full-day",
+    "maras-moray-and-the-salineras-full-day",
+    "tour-by-bike-maras-moray-and-salineras",
+    "maras-moray-and-salineras-atv-tour",
+    "qeswachaka-bridge-full-day",
+    "andean-wedding-full-day"
+  ]
+}

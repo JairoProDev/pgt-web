@@ -1,0 +1,27 @@
+{
+  "slug": "squares-and-parks",
+  "path": "/peru/lima/squares-and-parks/",
+  "pageType": "destination",
+  "title": "Squares and Parks – Peru Grand Travel",
+  "seo": {
+    "title": "Squares and Parks – Peru Grand Travel",
+    "description": "",
+    "canonical": "/peru/lima/squares-and-parks/"
+  },
+  "h1": "Squares and Parks",
+  "heroSubtitle": "",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/04/cropped-peru-grand-travel-logo-colour-favicon-32x32.png",
+  "sections": [],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/peru/lima/squares-and-parks/parque-del-amor/",
+      "label": "Parque Del Amor"
+    },
+    {
+      "path": "/peru/lima/squares-and-parks/magical-water-circuit-lima/",
+      "label": "Magical Water Circuit Lima"
+    }
+  ],
+  "tourSlugs": []
+}

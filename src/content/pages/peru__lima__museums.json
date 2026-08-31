@@ -1,0 +1,27 @@
+{
+  "slug": "museums",
+  "path": "/peru/lima/museums/",
+  "pageType": "destination",
+  "title": "Museums – Peru Grand Travel",
+  "seo": {
+    "title": "Museums – Peru Grand Travel",
+    "description": "",
+    "canonical": "/peru/lima/museums/"
+  },
+  "h1": "Museums",
+  "heroSubtitle": "",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/04/cropped-peru-grand-travel-logo-colour-favicon-32x32.png",
+  "sections": [],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/peru/lima/museums/national-museum-of-archaeology-anthropology-and-history-of-peru/",
+      "label": "National Museum Of Archaeology Anthropology And History Of Peru"
+    },
+    {
+      "path": "/peru/lima/museums/rafael-larco-herrera/",
+      "label": "Rafael Larco Herrera"
+    }
+  ],
+  "tourSlugs": []
+}

@@ -44,17 +44,32 @@ export type PackageCard = {
   title: string;
   duration: string;
   priceFrom: number;
+  priceLabel?: string;
+  trustedPrice?: boolean;
+  waMessage?: string;
   highlights: string[];
   image?: string;
 };
 
+export type PageLink = {
+  path: string;
+  label: string;
+};
+
 export type PageContent = {
   slug: string;
+  path?: string;
   title: string;
   seo: SeoFields;
   h1: string;
   heroSubtitle?: string;
+  heroImage?: string;
   sections?: { heading: string; body: string }[];
+  bodyHtml?: string;
+  childLinks?: PageLink[];
+  /** Hub pages: tour slugs to render as cards */
+  tourSlugs?: string[];
   packages?: PackageCard[];
   popularTours?: PackageCard[];
+  pageType?: "home" | "hub" | "static" | "destination";
 };

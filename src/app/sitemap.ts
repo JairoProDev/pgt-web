@@ -1,16 +1,16 @@
 import type { MetadataRoute } from "next";
-import { getAllBlogSlugs, getAllTourSlugs } from "@/lib/content";
+import { getAllBlogSlugs, getAllPagePaths, getAllTourSlugs } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.baseUrl.replace(/\/$/, "");
   const now = new Date();
 
-  const staticPages = ["", "/packages/"].map((path) => ({
-    url: `${base}${path}`,
+  const pages = getAllPagePaths().map((p) => ({
+    url: `${base}${p === "/" ? "" : p}`,
     lastModified: now,
     changeFrequency: "weekly" as const,
-    priority: path === "" ? 1 : 0.9,
+    priority: p === "/" ? 1 : p.includes("packages") ? 0.9 : 0.6,
   }));
 
   const tours = getAllTourSlugs().map((slug) => ({
@@ -27,5 +27,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...tours, ...blogs];
+  const blogIndex = {
+    url: `${base}/blogs/`,
+    lastModified: now,
+    changeFrequency: "weekly" as const,
+    priority: 0.75,
+  };
+
+  return [...pages, blogIndex, ...tours, ...blogs];
 }

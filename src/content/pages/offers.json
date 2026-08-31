@@ -1,0 +1,62 @@
+{
+  "slug": "offers",
+  "path": "/offers/",
+  "pageType": "hub",
+  "title": "Peru Travel Deals & Vacation Packages 2026 - 2027",
+  "seo": {
+    "title": "Peru Travel Deals & Vacation Packages 2026 - 2027",
+    "description": "Check out exclusive Peru travel deals with discounts on Machu Picchu tours, Cusco packages and complete vacation experiences across Peru.",
+    "canonical": "/offers/"
+  },
+  "h1": "Offers",
+  "heroSubtitle": "Check out exclusive Peru travel deals with discounts on Machu Picchu tours, Cusco packages and complete vacation experiences across Peru.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/12/machu-picchu-trip-on-offer.webp",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "¡Always thinking of you! That’s why we present these unmatched Peru travel offers, so you can make the most of your free time with a trip to this wonderful part of the planet. We invite you to review these options created by people who are simply passionate about travel. Enriching cultural encounters, delightful dishes to captivate the most discerning palate, extraordinary hikes with beautiful landscapes, museums rich in history, and astonishing archaeological remains are just some of the experiences you’ll find in our promotions in Peru. Fascinating stops and the most demanding adventures will not be left out, so all that’s left for you is to choose the package you like the most and that fits your budget. If you find the place you’ve imagined being, like the Inca Trail, one of the most coveted hikes to Machu Picchu , or Rainbow Mountain , a masterpiece gifted to us by nature, you have nothing to doubt. If places like Huacachina Lagoon, surrounded by an immense desert, Lima with its picturesque Barranco, or the Islands of Amantaní where you’ll share experiences with the locals have caught your attention, we encourage you to start packing your bags and book your trip with us to ensure a dream journey you won’t regret."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "colonial-lima-and-sacred-land-of-the-incas-7d",
+    "inca-encounters-8d",
+    "colonial-lima-huacachina-and-sacred-land-of-the-incas-9-days",
+    "spectacular-peru-10d",
+    "gastronomic-and-historic-peru-10d",
+    "origins-of-the-incas-10d",
+    "fascinating-adventure-challenge-in-the-andes-11-days",
+    "origins-and-mysteries-of-the-andes-16d",
+    "machu-picchu-full-day",
+    "incredible-machu-picchu-2d",
+    "machu-picchu-moderate-4d",
+    "classic-machu-picchu-5d",
+    "machu-picchu-humantay-lake-6d",
+    "incredible-experience-machu-picchu-7d",
+    "unforgettable-machu-picchu-8d",
+    "machu-picchu-challenge-8d",
+    "short-inca-trail-2d",
+    "sacred-valley-short-inca-trail-3d",
+    "classic-inca-trail-4d",
+    "classic-inca-trail-7-days",
+    "salkantay-trek-4-days",
+    "the-classic-salkantay-trek-5d",
+    "lares-trek-4d",
+    "ausangate-7-lakes-day-trip",
+    "humantay-lake-full-day",
+    "trek-humantay-salkantay-2d",
+    "rainbow-mountain-full-day",
+    "atv-rainbow-mountain",
+    "palccoyo-rainbow-mountain-full-day",
+    "maras-moray-and-the-salineras-full-day",
+    "tour-by-bike-maras-moray-and-salineras",
+    "maras-moray-and-salineras-atv-tour",
+    "qeswachaka-bridge-full-day",
+    "andean-wedding-full-day",
+    "inti-raymi-full-day",
+    "cusco-corpus-christi",
+    "holy-week-in-cusco",
+    "spectacular-cusco-7-days"
+  ]
+}

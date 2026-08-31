@@ -1,0 +1,43 @@
+{
+  "slug": "payment-methods",
+  "path": "/payment-methods/",
+  "pageType": "static",
+  "title": "PAYMENT METHODS",
+  "seo": {
+    "title": "▷ PAYMENT METHODS | Peru Grand Travel",
+    "description": "Book your trip with confidence using secure payment methods. Peru Grand Travel offers fast, reliable options to enjoy your trip worry-free.",
+    "canonical": "/payment-methods/"
+  },
+  "h1": "PAYMENT METHODS",
+  "heroSubtitle": "Book your trip with confidence using secure payment methods. Peru Grand Travel offers fast, reliable options to enjoy your trip worry-free.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/04/cropped-peru-grand-travel-logo-colour-favicon-32x32.png",
+  "sections": [
+    {
+      "heading": "Payment methods",
+      "body": "Dear passenger, to confirm your reservation, a 25% deposit of the total tour price is required. This deposit must be made using one of the following payment methods."
+    },
+    {
+      "heading": "1) Payment via Wetravel",
+      "body": "Through Wetravel, you can make the payment with Credit/Debit Card , with a 2.9% commission."
+    },
+    {
+      "heading": "2) Payment via Bank Transfer (BCP)",
+      "body": "To make the payment via international transfer, you must cover the transfer fee charged by the bank (when making the transfer, you must pay the percentage fee requested by your bank). Transfer details: Name: PERÚ GRAND TRAVEL GROUP S.A.C Account number: 285-93063208-1-06 Swift code: BCPLPEPL Once the transfer is made, please send us the payment receipt by email."
+    },
+    {
+      "heading": "3) Payment via Western Union",
+      "body": "The transfer must be made by the bank in your country, in the name of our representative, and not to any other name. Please check www.westernunion.com for the nearest agent to your location and contact the closest Western Union office to send the payment to: Details for sending: Name : Ruth Elizabeth Last name : Gutierrez Callapiña Address : Av. El Sol N. 948, Centro Comercial Cusco Sol Plaza, OF. 324 City : Cusco Country : Perú After sending the payment, please provide us with the transfer number (MTCN: Money Transfer Control Number) via email."
+    },
+    {
+      "heading": "4) Payment via MoneyGram",
+      "body": "Make your payment at any MoneyGram agency in the name of our representative, do not send it to anyone else. Check www.moneygram.com for the nearest agent to your location, then go to the closest office and make the payment to: Details for sending: Name : Ruth Elizabeth Last name : Gutierrez Callapiña ID : 44880482 Address : Av. El Sol N. 948, Centro Comercial Cusco Sol Plaza, OF. 324 City : Cusco Country : Perú Please send us the reference number and the amount sent via email."
+    },
+    {
+      "heading": "5) Payment via PayPal",
+      "body": "When making a payment via PayPal, a 6.9% fee will be added to the total amount. Instructions to pay with PayPal: Click on the provided payment button. Enter the amount and click “update.” Log in to your PayPal account using your email and password. Enter your card details and confirm the payment. Once the payment is completed, please send us the payment receipt by email.\n\nUpon confirming your reservation, you assume to be consistent to the politics and terms & conditions of the Company. We ask you to read our politics and terms & conditions ."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}

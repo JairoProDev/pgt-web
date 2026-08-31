@@ -1,0 +1,18 @@
+{
+  "slug": "blogs",
+  "path": "/blogs/",
+  "pageType": "static",
+  "title": "Best tips for traveling to Peru l Blog Peru Grand Travel",
+  "seo": {
+    "title": "Best tips for traveling to Peru l Blog Peru Grand Travel",
+    "description": "Discover the best tips for traveling to Peru. Get ready for a unique experience with recommendations on destinations, culture, and safety.",
+    "canonical": "/blogs/"
+  },
+  "h1": "Trip & Travel Blog",
+  "heroSubtitle": "Discover the best tips for traveling to Peru. Get ready for a unique experience with recommendations on destinations, culture, and safety.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/machu-picchu-peru-1.webp",
+  "sections": [],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}

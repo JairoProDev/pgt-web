@@ -1,0 +1,27 @@
+{
+  "slug": "contact-us",
+  "path": "/contact-us/",
+  "pageType": "static",
+  "title": "CONTACT US",
+  "seo": {
+    "title": "▷ CONTACT US | Peru Grand Travel",
+    "description": "Contact Peru Grand Travel, if you have any questions or want to ask us about our services, please contact us!",
+    "canonical": "/contact-us/"
+  },
+  "h1": "Contact Us",
+  "heroSubtitle": "Contact Peru Grand Travel, if you have any questions or want to ask us about our services, please contact us!",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/07/people-cusco-peru-02.jpg",
+  "sections": [
+    {
+      "heading": "Leave us your info",
+      "body": "Need to ask for something? Contact us by filling out the form, we will gladly clarify your doubts."
+    },
+    {
+      "heading": "Location",
+      "body": "Opening Hours : From Monday to Friday- 8:00am to 1pm and 3pm to 6pm. Saturday: from 9:00am to 13:00pm."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}

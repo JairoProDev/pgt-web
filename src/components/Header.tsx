@@ -3,13 +3,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { siteConfig } from "@/lib/site";
 
 const navLinks = [
   { href: "/packages/", label: "Packages" },
-  { href: "/tour/the-classic-salkantay-trek-5d/", label: "Tours" },
-  { href: "/blog/things-to-do-in-machu-picchu/", label: "Blog" },
-  { href: "/packages/", label: "Contact" },
+  { href: "/machu-picchu-packages/", label: "Machu Picchu" },
+  { href: "/packages/", label: "Tours" },
+  { href: "/blogs/", label: "Blog" },
+  { href: "/contact-us/", label: "Contact" },
 ];
 
 export function Header() {
@@ -29,15 +31,24 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-stone-700 md:flex">
+        <nav className="hidden items-center gap-6 text-sm font-medium text-stone-700 md:flex">
           {navLinks.map((link) => (
             <Link key={link.label} href={link.href} className="hover:text-pgt-blue">
               {link.label}
             </Link>
           ))}
-          <a href={`tel:${siteConfig.phonePe.replace(/\s/g, "")}`} className="text-pgt-blue font-semibold">
+          <a href={`tel:${siteConfig.phonePe.replace(/\s/g, "")}`} className="font-semibold text-pgt-blue">
             {siteConfig.phonePe}
           </a>
+          <WhatsAppButton
+            label="WhatsApp"
+            message="Hi! I'm planning a trip to Peru and found Peru Grand Travel. Can you help me choose the right package?"
+            utmContent="header_desktop"
+            contentType="home"
+            contentSlug="header"
+            pagePath="/"
+            className="hidden text-sm lg:inline-flex"
+          />
         </nav>
 
         <button

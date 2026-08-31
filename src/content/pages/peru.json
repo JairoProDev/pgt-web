@@ -1,0 +1,48 @@
+{
+  "slug": "peru",
+  "path": "/peru/",
+  "pageType": "destination",
+  "title": "Our Destinations – Peru Grand Travel",
+  "seo": {
+    "title": "Our Destinations – Peru Grand Travel",
+    "description": "Complete packages of tourist destinations in Peru. The best tourist sites to visit in Peru such as Cusco, Machu Picchu, Arequipa, Lima, Puno.",
+    "canonical": "/peru/"
+  },
+  "h1": "Destinations",
+  "heroSubtitle": "Complete packages of tourist destinations in Peru. The best tourist sites to visit in Peru such as Cusco, Machu Picchu, Arequipa, Lima, Puno.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/06/peru-destinations.jpg",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Discover Peruvian cities Lima See more Cusco See more Puno See more Huaraz See more Ica See more Arequipa See more"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/peru/lima/",
+      "label": "Lima"
+    },
+    {
+      "path": "/peru/cusco/",
+      "label": "Cusco"
+    },
+    {
+      "path": "/peru/puno/",
+      "label": "Puno"
+    },
+    {
+      "path": "/peru/huaraz/",
+      "label": "Huaraz"
+    },
+    {
+      "path": "/peru/ica/",
+      "label": "Ica"
+    },
+    {
+      "path": "/peru/arequipa/",
+      "label": "Arequipa"
+    }
+  ],
+  "tourSlugs": []
+}

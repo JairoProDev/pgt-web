@@ -1,23 +1,31 @@
 import { siteConfig } from "./site";
 
 export function travelAgencySchema() {
+  const { address, social } = siteConfig;
   return {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
+    "@id": `${siteConfig.baseUrl}/#organization`,
     name: siteConfig.name,
+    legalName: siteConfig.legalName,
     url: siteConfig.baseUrl,
-    telephone: siteConfig.phonePe,
+    logo: siteConfig.logo,
+    description: siteConfig.tagline,
+    telephone: [siteConfig.phonePe, siteConfig.phonePeSecondary, siteConfig.phoneUs],
     email: siteConfig.email,
+    taxID: siteConfig.ruc,
+    priceRange: "$$",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Av. El Sol 123",
-      addressLocality: "Cusco",
-      addressCountry: "PE",
+      streetAddress: address.street,
+      addressLocality: address.locality,
+      addressRegion: address.region,
+      postalCode: address.postalCode,
+      addressCountry: address.country,
     },
-    sameAs: [
-      "https://www.facebook.com/perugrandtravel",
-      "https://www.instagram.com/perugrandtravel",
-    ],
+    areaServed: { "@type": "Country", name: "Peru" },
+    knowsLanguage: ["en", "es", "pt"],
+    sameAs: Object.values(social),
   };
 }
 

@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleTagManager";
 import { Header } from "@/components/Header";
+import { TrustBar } from "@/components/TrustBar";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -35,6 +36,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <GoogleTagManager />
         <GoogleTagManagerNoScript />
         <Header />
+        <TrustBar />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

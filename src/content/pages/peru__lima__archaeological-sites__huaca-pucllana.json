@@ -1,0 +1,27 @@
+{
+  "slug": "huaca-pucllana",
+  "path": "/peru/lima/archaeological-sites/huaca-pucllana/",
+  "pageType": "destination",
+  "title": "Archaeological Site Huaca Pucllana: History, Location, and More",
+  "seo": {
+    "title": "Archaeological Site Huaca Pucllana: History, Location, and More",
+    "description": "Huaca Pucllana Archaeological Site: Discover the Majestic Culture of Lima in the Heart of Modern Lima: Time Travel!",
+    "canonical": "/peru/lima/archaeological-sites/huaca-pucllana/"
+  },
+  "h1": "Archaeological Site Huaca Pucllana: History, Location, and More",
+  "heroSubtitle": "Huaca Pucllana Archaeological Site: Discover the Majestic Culture of Lima in the Heart of Modern Lima: Time Travel!",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/11/Archaeological-Site-Huaca-Pucllana.webp",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Home » Destinations » Lima » Archaeological Sites » Huaca Pucllana"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "colonial-lima-and-sacred-land-of-the-incas-7d",
+    "spectacular-peru-10d",
+    "origins-of-the-incas-10d"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "cleaning-campaigns",
+  "path": "/social-projects/cleaning-campaigns/",
+  "pageType": "static",
+  "title": "Ecological commitment clean-up campaigns",
+  "seo": {
+    "title": "Ecological commitment clean-up campaigns | Peru Grand Travel",
+    "description": "Peru Grand Travel is committed to the environment and carries out cleaning campaigns to keep tourist destinations free of waste.",
+    "canonical": "/social-projects/cleaning-campaigns/"
+  },
+  "h1": "Cleaning Campaigns",
+  "heroSubtitle": "Peru Grand Travel is committed to the environment and carries out cleaning campaigns to keep tourist destinations free of waste.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/04/cropped-peru-grand-travel-logo-colour-favicon-32x32.png",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "At Peru Grand Travel, we are committed to sustainable tourism through our tourist landscape cleanup campaigns. We promote environmental awareness by organizing regular trail clean-ups and hikes. These actions not only preserve the natural beauty of our landscapes, but also generate a positive impact on the local community. We engage residents and visitors in active conservation of the environment, creating a meaningful connection with nature and fostering a lasting commitment to caring for the planet. Learn more about our social projects ."
+    },
+    {
+      "heading": "2022",
+      "body": "PGT Cleanup Campaign, each cleanup action is an opportunity to preserve and raise awareness about the importance of caring for our landscapes. Together, we are creating a conservation legacy that goes beyond a simple visit, fostering a deep respect for nature and truly responsible tourism."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}

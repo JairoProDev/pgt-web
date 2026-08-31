@@ -1,0 +1,27 @@
+{
+  "slug": "pachacamac",
+  "path": "/peru/lima/archaeological-sites/pachacamac/",
+  "pageType": "destination",
+  "title": "The archaeological sanctuary or temple of Pachacamac in Lima",
+  "seo": {
+    "title": "The archaeological sanctuary or temple of Pachacamac in Lima",
+    "description": "Temple of Pachacamac: Immerse yourself in the Spirituality of this Ancient Peruvian Sanctuary. Discover the History in every corner.",
+    "canonical": "/peru/lima/archaeological-sites/pachacamac/"
+  },
+  "h1": "The archaeological sanctuary or temple of Pachacamac in Lima",
+  "heroSubtitle": "Temple of Pachacamac: Immerse yourself in the Spirituality of this Ancient Peruvian Sanctuary. Discover the History in every corner.",
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/11/pachacamac-temple.webp",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Home » Destinations » Lima » Archaeological Sites » Pachacamac"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "colonial-lima-and-sacred-land-of-the-incas-7d",
+    "spectacular-peru-10d",
+    "origins-of-the-incas-10d"
+  ]
+}

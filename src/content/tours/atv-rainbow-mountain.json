@@ -1,0 +1,35 @@
+{
+  "slug": "atv-rainbow-mountain",
+  "title": "Rainbow Mountain ATV Adventure Full Day",
+  "h1": "Rainbow Mountain ATV Tour",
+  "seo": {
+    "title": "Rainbow Mountain ATV Adventure Full Day",
+    "description": "Enjoy an ATV adventure through Rainbow Mountain with panoramic Andean landscapes and unique cultural experiences.",
+    "canonical": "/tour/atv-rainbow-mountain/"
+  },
+  "priceFrom": 170.0,
+  "currency": "USD",
+  "duration": "1 day",
+  "difficulty": null,
+  "categories": [],
+  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/04/Rainbow-Mountain-ATV-Tour.webp",
+  "gallery": [
+    "https://www.perugrandtravel.com/wp-content/uploads/2023/04/Rainbow-Mountain-ATV-Tour.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
+    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+  ],
+  "summary": "Enjoy an ATV adventure through Rainbow Mountain with panoramic Andean landscapes and unique cultural experiences.",
+  "itinerary": [],
+  "included": [
+    "Day 1: - Transportation ; - Entrance ticket ; - 1 rain poncho(weather is unpredictable, even in the dry season!) ; - 1 Hearty breakfast and hot drinks ; - 1 Delicious lunch ; - First Aid Kit/ Oxygen tank / basic medical supplies/ high altitude medication ; - Professional guide ; - Trained in high-altitude mountain rescue ; - ATVs (Honda TRX 250) Fuel ; - Helmet."
+  ],
+  "excluded": [
+    "Day 1: - Transportation ; - Entrance ticket ; - 1 rain poncho(weather is unpredictable, even in the dry season!) ; - 1 Hearty breakfast and hot drinks ; - 1 Delicious lunch ; - First Aid Kit/ Oxygen tank / basic medical supplies/ high altitude medication ; - Professional guide ; - Trained in high-altitude mountain rescue ; - ATVs (Honda TRX 250) Fuel ; - Helmet."
+  ],
+  "relatedTourSlugs": []
+}
