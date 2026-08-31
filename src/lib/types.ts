@@ -54,6 +54,12 @@ export type PackageCard = {
   difficulty?: string;
   destinations?: string;
   badge?: "best-seller" | null;
+  filterMeta?: {
+    days: number;
+    styleKey: string;
+    destinationTags: string[];
+    trustedPrice: boolean;
+  };
 };
 
 export type PageLink = {

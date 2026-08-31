@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PackageGrid } from "@/components/PackageGrid";
+import { HubPackagesSection } from "@/components/HubPackagesSection";
 import { WhatsAppButton, WhatsAppSticky } from "@/components/WhatsAppButton";
 import { getHubTourCards, getPageByPath } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
@@ -59,7 +59,15 @@ export default function HomePage() {
       </section>
 
       <div className="mx-auto max-w-7xl px-4">
-        <PackageGrid items={popular} title="Most popular trips" pagePath={path} />
+        <HubPackagesSection
+          items={popular}
+          title="Most popular trips"
+          pagePath={path}
+          waMessage={waMessage}
+          utmContent="home_empty_filters"
+          compact
+          showFinder={false}
+        />
 
         <section className="my-12 rounded-2xl bg-pgt-blue px-6 py-10 text-center text-white md:px-12">
           <h2 className="text-2xl font-bold">Not sure which package fits you?</h2>

@@ -15,7 +15,7 @@ export function PackageGrid({ items, title, pagePath = "/packages/" }: Props) {
         Tap <strong className="font-semibold text-stone-800">Get quote on WhatsApp</strong> for dates and
         availability — or open the itinerary if you want every detail first.
       </p>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
         {items.map((pkg, index) => (
           <TourPackageCard key={pkg.slug} pkg={pkg} pagePath={pagePath} priority={index < 3} />
         ))}

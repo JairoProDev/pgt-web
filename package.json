@@ -7,7 +7,7 @@
     "build": "npm run content:index && next build",
     "start": "next start",
     "lint": "eslint",
-    "content:index": "npx tsx scripts/build-content-index.ts",
+    "content:index": "npx tsx scripts/build-content-index.ts && npx tsx scripts/build-search-index.ts",
     "scrape:tours": "python3 scripts/scrape-all-tours.py --skip-existing",
     "scrape:blogs": "python3 scripts/scrape-all-blogs.py --skip-existing",
     "scrape:pages": "python3 scripts/scrape-all-pages.py",

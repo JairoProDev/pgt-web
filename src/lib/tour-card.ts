@@ -1,5 +1,11 @@
 import type { PackageCard, Tour } from "./types";
-import { displayDuration, formatPriceLabel, isTrustedPrice, tourWhatsAppMessage } from "./conversion";
+import {
+  displayDuration,
+  formatPriceLabel,
+  isTrustedPrice,
+  tourDayCount,
+  tourWhatsAppMessage,
+} from "./conversion";
 
 /** Top converters / hub priority — badge only when honest (curated list). */
 export const BEST_SELLER_SLUGS = new Set([
@@ -77,7 +83,34 @@ export function cardBadge(slug: string): "best-seller" | null {
   return BEST_SELLER_SLUGS.has(slug) ? "best-seller" : null;
 }
 
+const STYLE_KEYS: Record<string, string> = {
+  Trekking: "trekking",
+  "Multi-day package": "package",
+  "Day tour": "day-tour",
+  Luxury: "luxury",
+  Amazon: "amazon",
+  "Culture & sights": "culture",
+};
+
+export function styleKeyFromLabel(style: string): string {
+  return STYLE_KEYS[style] ?? "culture";
+}
+
+export function destinationTagsFromTour(tour: Tour): string[] {
+  const text = cardDestinations(tour).toLowerCase();
+  const tags: string[] = [];
+  if (/cusco/.test(text)) tags.push("cusco");
+  if (/machu picchu/.test(text)) tags.push("machu-picchu");
+  if (/lima/.test(text)) tags.push("lima");
+  if (/amazon/.test(text)) tags.push("amazon");
+  if (/sacred valley/.test(text)) tags.push("sacred-valley");
+  if (/puno/.test(text)) tags.push("puno");
+  if (/arequipa/.test(text)) tags.push("arequipa");
+  return tags;
+}
+
 export function enrichPackageCard(tour: Tour): PackageCard {
+  const styleLabel = inferTourStyle(tour);
   return {
     slug: tour.slug,
     title: displayCardTitle(tour.h1),
@@ -89,9 +122,15 @@ export function enrichPackageCard(tour: Tour): PackageCard {
     highlights: cardFeatureChips(tour),
     image: tour.heroImage,
     summary: tour.summary?.slice(0, 160),
-    styleLabel: inferTourStyle(tour),
+    styleLabel,
     difficulty: inferDifficulty(tour),
     destinations: cardDestinations(tour),
     badge: cardBadge(tour.slug),
+    filterMeta: {
+      days: tourDayCount(tour),
+      styleKey: styleKeyFromLabel(styleLabel),
+      destinationTags: destinationTagsFromTour(tour),
+      trustedPrice: isTrustedPrice(tour),
+    },
   };
 }

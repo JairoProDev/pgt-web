@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
+import { AppProviders } from "@/components/AppProviders";
 import { Footer } from "@/components/Footer";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleTagManager";
 import { Header } from "@/components/Header";
@@ -35,10 +36,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex min-h-screen flex-col bg-white font-sans text-stone-900 antialiased">
         <GoogleTagManager />
         <GoogleTagManagerNoScript />
-        <Header />
-        <TrustBar />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <AppProviders>
+          <Header />
+          <TrustBar />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </AppProviders>
       </body>
     </html>
   );

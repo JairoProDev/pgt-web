@@ -33,3 +33,24 @@ export function trackWhatsAppClick(ctx: WhatsAppClickContext, onSent?: () => voi
 
   window.setTimeout(() => onSent?.(), 400);
 }
+
+export type SearchEventContext = {
+  query: string;
+  resultCount: number;
+  pagePath: string;
+  source: "global" | "trip_finder" | "blog_index";
+};
+
+export function trackSearch(ctx: SearchEventContext) {
+  if (typeof window === "undefined" || !ctx.query.trim()) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: ctx.resultCount === 0 ? "search_no_results" : "search",
+    search_term: ctx.query.trim(),
+    search_results: ctx.resultCount,
+    search_source: ctx.source,
+    page_path: ctx.pagePath,
+    environment: siteConfig.isBeta ? "beta" : "production",
+  });
+}
