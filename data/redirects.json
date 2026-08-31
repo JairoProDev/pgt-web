@@ -1,0 +1,581 @@
+{
+  "generated": "2026-08-31",
+  "count": 115,
+  "redirects": [
+    {
+      "source": "/blog/cusco/the-top-3-hikes-in-cusco/",
+      "destination": "/blog/the-top-3-hikes-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/ceviche-peru-in-10-days/",
+      "destination": "/blog/ceviche-peru-in-10-days/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/puno/10-amazing-places-to-visit-in-peru/",
+      "destination": "/blog/10-amazing-places-to-visit-in-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/best-things-to-do-in-cusco/",
+      "destination": "/blog/best-things-to-do-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/is-it-safe-to-go-to-peru/",
+      "destination": "/blog/is-it-safe-to-go-to-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/huayna-picchu/",
+      "destination": "/blog/huayna-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/what-to-visit-in-cusco/",
+      "destination": "/blog/what-to-visit-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/luxury/luxury-travel-experiences/",
+      "destination": "/blog/luxury-travel-experiences/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/valentines-day-travel-ideas/",
+      "destination": "/blog/valentines-day-travel-ideas/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/puno/temple-of-the-merced-in-puno/",
+      "destination": "/blog/temple-of-the-merced-in-puno/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/luxury-hotels-in-cusco/",
+      "destination": "/blog/luxury-hotels-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/travel-for-day-mom-to-peru/",
+      "destination": "/blog/travel-for-day-mom-to-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lima/family-packages-to-lima/",
+      "destination": "/blog/family-packages-to-lima/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/museums-in-machu-picchu/",
+      "destination": "/blog/museums-in-machu-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/trips-adventure-for-holy-week/",
+      "destination": "/blog/trips-adventure-for-holy-week/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/things-to-do-in-machu-picchu/",
+      "destination": "/blog/things-to-do-in-machu-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/peru-tours/",
+      "destination": "/blog/peru-tours/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/atv-tours-in-cusco/",
+      "destination": "/blog/atv-tours-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/the-best-time-of-year-to-visit-peru/",
+      "destination": "/blog/the-best-time-of-year-to-visit-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/things-to-do-in-ollantaytambo/",
+      "destination": "/blog/things-to-do-in-ollantaytambo/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/andean-art/",
+      "destination": "/blog/andean-art/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/vinicunca-elevation/",
+      "destination": "/blog/vinicunca-elevation/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/inca-trail-sold-out/",
+      "destination": "/blog/inca-trail-sold-out/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/traditional-dances-of-peru/",
+      "destination": "/blog/traditional-dances-of-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/peru-in-may/",
+      "destination": "/blog/peru-in-may/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lima/best-museums-in-lima/",
+      "destination": "/blog/best-museums-in-lima/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/terraces-of-moray/",
+      "destination": "/blog/terraces-of-moray/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/hidden-gems-of-the-sacred-valley/",
+      "destination": "/blog/hidden-gems-of-the-sacred-valley/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/things-to-do-in-the-sacred-valley/",
+      "destination": "/blog/things-to-do-in-the-sacred-valley/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/cusco-vs-sacred-valley-altitude/",
+      "destination": "/blog/cusco-vs-sacred-valley-altitude/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/inca-trail-vs-sacred-valley-treks/",
+      "destination": "/blog/inca-trail-vs-sacred-valley-treks/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/humantay-lake-hike-2026/",
+      "destination": "/blog/humantay-lake-hike-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/treks-to-machu-picchu/",
+      "destination": "/blog/treks-to-machu-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/inca-trail-vs-salkantay/",
+      "destination": "/blog/inca-trail-vs-salkantay/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/salkantay-mountain/",
+      "destination": "/blog/salkantay-mountain/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/when-is-the-best-time-to-do-the-salkantay-trek/",
+      "destination": "/blog/when-is-the-best-time-to-do-the-salkantay-trek/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/luxury-travel-peru/",
+      "destination": "/blog/luxury-travel-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/family-trip-to-peru/",
+      "destination": "/blog/family-trip-to-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/amazonia/climate-in-peru-best-time-to-travel/",
+      "destination": "/blog/climate-in-peru-best-time-to-travel/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/cusco-tourist-attractions/",
+      "destination": "/blog/cusco-tourist-attractions/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/what-is-the-best-time-to-travel-to-peru-machu-picchu/",
+      "destination": "/blog/what-is-the-best-time-to-travel-to-peru-machu-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/things-to-do-in-cusco/",
+      "destination": "/blog/things-to-do-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lima/tips-for-traveling-to-peru/",
+      "destination": "/blog/tips-for-traveling-to-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/interesting-facts-about-machu-picchu/",
+      "destination": "/blog/interesting-facts-about-machu-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lima/beaches-in-lima/",
+      "destination": "/blog/beaches-in-lima/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ica/adventure-in-ica/",
+      "destination": "/blog/adventure-in-ica/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lima/peru-honeymoon/",
+      "destination": "/blog/peru-honeymoon/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/cusco-tourist-places/",
+      "destination": "/blog/cusco-tourist-places/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/travel-guide-laguna-humantay/",
+      "destination": "/blog/travel-guide-laguna-humantay/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/humantay-lagoon-rainbow-mountain/",
+      "destination": "/blog/humantay-lagoon-rainbow-mountain/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nazca/nazca-lines-tours/",
+      "destination": "/blog/nazca-lines-tours/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ica/peruvian-pisco-from-ica/",
+      "destination": "/blog/peruvian-pisco-from-ica/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/ica/family-tourism-in-nazca-paracas-ica/",
+      "destination": "/blog/family-tourism-in-nazca-paracas-ica/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/family-packages-to-cusco/",
+      "destination": "/blog/family-packages-to-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/hidden-places-in-cusco/",
+      "destination": "/blog/hidden-places-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/cusco-tourist-ticket/",
+      "destination": "/blog/cusco-tourist-ticket/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/day-tours-in-cusco/",
+      "destination": "/blog/day-tours-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/sanctuary-of-the-lord-of-pampacucho/",
+      "destination": "/blog/sanctuary-of-the-lord-of-pampacucho/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/2-weeks-in-peru/",
+      "destination": "/blog/2-weeks-in-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/museums-in-cusco/",
+      "destination": "/blog/museums-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/7-days-in-peru/",
+      "destination": "/blog/7-days-in-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/find-out-how-to-have-the-best-4-days-in-cusco/",
+      "destination": "/blog/find-out-how-to-have-the-best-4-days-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/lima/lima-cusco-and-machu-picchu/",
+      "destination": "/blog/lima-cusco-and-machu-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/adventure-at-machu-picchu-humantay-lake-on-a-6-day/",
+      "destination": "/blog/adventure-at-machu-picchu-humantay-lake-on-a-6-day/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/tourist-packages-to-enjoy-with-children-for-a-trip-to-peru-machu-picchu/",
+      "destination": "/blog/tourist-packages-to-enjoy-with-children-for-a-trip-to-peru-machu-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/what-to-visit-on-the-inca-adventure-route-in-8-days/",
+      "destination": "/blog/what-to-visit-on-the-inca-adventure-route-in-8-days/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/traveling-to-machu-picchu-with-tour-packages/",
+      "destination": "/blog/traveling-to-machu-picchu-with-tour-packages/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/visits-to-peru-one-week-itinerary/",
+      "destination": "/blog/visits-to-peru-one-week-itinerary/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/vacation-to-machu-picchu/",
+      "destination": "/blog/vacation-to-machu-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/where-is-machu-picchu-guide/",
+      "destination": "/blog/where-is-machu-picchu-guide/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/luxury/luxury-peru-vacations/",
+      "destination": "/blog/luxury-peru-vacations/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/places-to-visit-in-cusco/",
+      "destination": "/blog/places-to-visit-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/weather-in-cusco/",
+      "destination": "/blog/weather-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/plan-a-trip-to-machu-picchu/",
+      "destination": "/blog/plan-a-trip-to-machu-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/where-to-buy-peruvian-pisco-2027/",
+      "destination": "/blog/where-to-buy-peruvian-pisco-2027/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/puno/church-of-saint-anthony-of-padua/",
+      "destination": "/blog/church-of-saint-anthony-of-padua/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/puno/san-juan-de-letran-church/",
+      "destination": "/blog/san-juan-de-letran-church/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/craftsmans-day/",
+      "destination": "/blog/craftsmans-day/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/luxury-hotels-in-peru/",
+      "destination": "/blog/luxury-hotels-in-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/adventure-trip-for-moms/",
+      "destination": "/blog/adventure-trip-for-moms/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/is-there-snow-in-peru/",
+      "destination": "/blog/is-there-snow-in-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/lake-humantay/",
+      "destination": "/blog/lake-humantay/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/peru-lima-packages/",
+      "destination": "/blog/peru-lima-packages/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/ayacucho-museum/",
+      "destination": "/blog/ayacucho-museum/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/why-travel-to-peru/",
+      "destination": "/blog/why-travel-to-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/huayna-picchu-vs-machu-picchu-mountain/",
+      "destination": "/blog/huayna-picchu-vs-machu-picchu-mountain/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/maras-and-moray/",
+      "destination": "/blog/maras-and-moray/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/ausangate-snow/",
+      "destination": "/blog/ausangate-snow/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/mistakes-to-avoid-on-a-trip-to-machu-picchu/",
+      "destination": "/blog/mistakes-to-avoid-on-a-trip-to-machu-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/hotel-in-downtown-cusco/",
+      "destination": "/blog/hotel-in-downtown-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/travel-planning-tips-for-machu-picchu/",
+      "destination": "/blog/travel-planning-tips-for-machu-picchu/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/llama-therapy-in-peru/",
+      "destination": "/blog/llama-therapy-in-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/machu-picchu-itinerary/",
+      "destination": "/blog/machu-picchu-itinerary/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/food-in-cusco/",
+      "destination": "/blog/food-in-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/local-experiences-in-the-sacred-valley/",
+      "destination": "/blog/local-experiences-in-the-sacred-valley/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/peru-in-june/",
+      "destination": "/blog/peru-in-june/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/atv-tours-peru/",
+      "destination": "/blog/atv-tours-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/is-peru-safe/",
+      "destination": "/blog/is-peru-safe/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/day-of-the-pachamama/",
+      "destination": "/blog/day-of-the-pachamama/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/art-of-the-chinchero-communities/",
+      "destination": "/blog/art-of-the-chinchero-communities/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/alpaca-wool-processing/",
+      "destination": "/blog/alpaca-wool-processing/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/qeswachaka-bridge/",
+      "destination": "/blog/qeswachaka-bridge/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/inca-quarries-of-cachiccata/",
+      "destination": "/blog/inca-quarries-of-cachiccata/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/amazonia/peruvian-amazon/",
+      "destination": "/blog/peruvian-amazon/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/cusco-hidden-gems-2026/",
+      "destination": "/blog/cusco-hidden-gems-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/the-ultimate-guide-to-cusco/",
+      "destination": "/blog/the-ultimate-guide-to-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/corpus-christi/",
+      "destination": "/blog/corpus-christi/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/the-best-day-hikes-from-cusco/",
+      "destination": "/blog/the-best-day-hikes-from-cusco/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/guide-to-the-sacred-valley-peru/",
+      "destination": "/blog/guide-to-the-sacred-valley-peru/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/the-best-restaurants-in-sacred-valley/",
+      "destination": "/blog/the-best-restaurants-in-sacred-valley/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/vinicunca-rainbow-mountain/",
+      "destination": "/blog/vinicunca-rainbow-mountain/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/palcoyo-rainbow-mountain/",
+      "destination": "/blog/palcoyo-rainbow-mountain/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/choosing-a-peru-travel-agency/",
+      "destination": "/blog/choosing-a-peru-travel-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/peru/peru-travel-packages-for-2026/",
+      "destination": "/blog/peru-travel-packages-for-2026/",
+      "permanent": true
+    },
+    {
+      "source": "/blog/cusco/machu-picchu-travel-packages/",
+      "destination": "/blog/machu-picchu-travel-packages/",
+      "permanent": true
+    }
+  ]
+}

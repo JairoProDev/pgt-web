@@ -1,0 +1,43 @@
+{
+  "slug": "home",
+  "title": "Peru Travel Agency & Tour Company | Peru Grand Travel",
+  "seo": {
+    "title": "Peru Travel Agency & Tour Company | Peru Grand Travel",
+    "description": "Peru Grand Travel is a Peru travel agency and tour company offering tours to Machu Picchu, Cusco, Lima, Puno, Arequipa and beyond.",
+    "canonical": "/"
+  },
+  "h1": "Peru Travel Agency & Tour Company",
+  "heroSubtitle": "Your trip to Peru begins here! 20+ destinations · 15+ years · 24h support",
+  "popularTours": [
+    {
+      "slug": "packages",
+      "title": "Colonial Lima and Sacred land of the Incas 7D/6N",
+      "duration": "7D/6N",
+      "priceFrom": 889,
+      "highlights": ["Lima and Cusco", "Accommodations included", "Daily departures"],
+      "image": "https://www.perugrandtravel.com/wp-content/uploads/2024/04/colonial-lima-sacred-land-incas-7d.webp"
+    },
+    {
+      "slug": "packages",
+      "title": "Spectacular Peru 10D/9N",
+      "duration": "10D/9N",
+      "priceFrom": 1303,
+      "highlights": ["Lima, Cusco and Puno", "Breakfast included", "Daily departures"],
+      "image": "https://www.perugrandtravel.com/wp-content/uploads/2024/04/spectacular-peru-10d.webp"
+    },
+    {
+      "slug": "the-classic-salkantay-trek-5d",
+      "title": "Classic Machu Picchu 5D/4N",
+      "duration": "5D/4N",
+      "priceFrom": 730,
+      "highlights": ["Cusco", "Tourist train", "Machu Picchu entrance"],
+      "image": "https://www.perugrandtravel.com/wp-content/uploads/2023/03/salkantay-soraypampa-5d-trek.webp"
+    }
+  ],
+  "sections": [
+    {
+      "heading": "Why choose Peru Grand Travel?",
+      "body": "Local expertise, customized itineraries, passionate guides, and quality comfort — we tailor every trip to your interests. Over 7,000 travelers have explored Peru with us."
+    }
+  ]
+}

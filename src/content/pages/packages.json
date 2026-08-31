@@ -1,0 +1,48 @@
+{
+  "slug": "packages",
+  "title": "Peru Travel Packages 2026 - Customized Tours & Machu Picchu",
+  "seo": {
+    "title": "Peru Travel Packages 2026 - Customized Tours & Machu Picchu",
+    "description": "Peru travel packages with hotels, transfers and guided tours. Visit Machu Picchu, Cusco, Lima and the Amazon on a personalized journey.",
+    "canonical": "/packages/"
+  },
+  "h1": "Peru Travel Packages",
+  "heroSubtitle": "Customize your vacation tours and explore Peru with us — all inclusive packages with competitive prices.",
+  "packages": [
+    {
+      "slug": "packages",
+      "title": "Colonial Lima and Sacred land of the Incas 7D/6N",
+      "duration": "7D/6N",
+      "priceFrom": 889,
+      "highlights": ["Lima and Cusco accommodations", "Transfers included", "Breakfast included"]
+    },
+    {
+      "slug": "packages",
+      "title": "Inca Encounters 8D/7N",
+      "duration": "8D/7N",
+      "priceFrom": 1144,
+      "highlights": ["Cusco and Puno", "Activities and excursions", "Daily departures"]
+    },
+    {
+      "slug": "packages",
+      "title": "Spectacular Peru 10D/9N",
+      "duration": "10D/9N",
+      "priceFrom": 1303,
+      "highlights": ["Lima, Cusco and Puno", "All transfers", "Breakfast included"]
+    },
+    {
+      "slug": "packages",
+      "title": "Origins of the Incas 10D/9N",
+      "duration": "10D/9N",
+      "priceFrom": 1593,
+      "highlights": ["Lima, Nazca, Cusco and Puno", "Full itinerary", "Daily departures"]
+    },
+    {
+      "slug": "the-classic-salkantay-trek-5d",
+      "title": "Salkantay SKY Trek 5 days",
+      "duration": "5D/4N",
+      "priceFrom": 731,
+      "highlights": ["Sky Camp accommodation", "Machu Picchu entrance", "English guide"]
+    }
+  ]
+}

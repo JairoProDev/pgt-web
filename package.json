@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate-parity": "bash scripts/validate-parity.sh",
+    "scrape-tour": "python3 scripts/scrape-tour-full.py"
   },
   "dependencies": {
     "next": "16.3.4",
