@@ -8,21 +8,22 @@ type Props = {
 };
 
 export function HomeHero({ page, path, waMessage }: Props) {
-  const displayTitle =
-    page.heroHeadline ??
-    "Peru packages & Machu Picchu tours — custom quotes on WhatsApp";
+  const emotionalLine = page.heroEmotionalLine ?? "TRAVEL · DISCOVER · PERU";
+  const title = page.heroHeadline ?? "Your Machu Picchu adventure starts here";
   const subtitle =
     page.heroSubtitle ??
-    "Licensed Cusco operator since 2012. Hotels, transfers & guides — tell us your dates and we send 2–3 options.";
+    "Licensed Cusco tour operator since 2012. Hotels, transfers & expert guides — we send 2–3 tailored quotes on WhatsApp.";
 
   return (
     <ConversionHero
       variant="home"
-      title={displayTitle}
-      subtitle={subtitle}
+      emotionalLine={emotionalLine}
       eyebrow="Reply within hours · English support"
+      title={title}
+      subtitle={subtitle}
       image={page.heroImage}
-      imageAlt="Machu Picchu and the Andes — Peru Grand Travel"
+      imageAlt="Machu Picchu and the Peruvian Andes — Peru Grand Travel"
+      showTripIntent
       primaryCta={{
         label: "Plan on WhatsApp",
         message: waMessage,
@@ -31,7 +32,7 @@ export function HomeHero({ page, path, waMessage }: Props) {
         contentSlug: "home",
         pagePath: path,
       }}
-      secondaryLink={{ href: "/packages/", label: "View Peru packages →" }}
+      secondaryLink={{ href: "/packages/", label: "Browse all packages →" }}
       anchorLink={{ href: "#popular-trips", label: "See popular trips ↓" }}
     />
   );

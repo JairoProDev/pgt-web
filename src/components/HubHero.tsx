@@ -18,11 +18,13 @@ export function HubHero({ page, path, packageCount, waMessage, utmContent }: Pro
   return (
     <ConversionHero
       variant="hub"
+      emotionalLine="PERU PACKAGES · MACHU PICCHU · TREKS"
+      eyebrow={`${packageCount} packages · Cusco-based operator`}
       title={title}
       subtitle={subtitle}
-      eyebrow={`${packageCount} packages · Cusco-based operator`}
       image={page.heroImage}
       imageAlt={title}
+      statBadge={`${packageCount} packages available`}
       primaryCta={{
         label: "Get a custom quote on WhatsApp",
         message: waMessage,

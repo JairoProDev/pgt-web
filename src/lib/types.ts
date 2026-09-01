@@ -73,6 +73,8 @@ export type PageContent = {
   title: string;
   seo: SeoFields;
   h1: string;
+  /** Short emotional tagline above headline */
+  heroEmotionalLine?: string;
   /** Display headline for conversion (SEO h1 may differ) */
   heroHeadline?: string;
   heroSubtitle?: string;
