@@ -73,6 +73,8 @@ export type PageContent = {
   title: string;
   seo: SeoFields;
   h1: string;
+  /** Display headline for conversion (SEO h1 may differ) */
+  heroHeadline?: string;
   heroSubtitle?: string;
   heroImage?: string;
   sections?: { heading: string; body: string }[];
