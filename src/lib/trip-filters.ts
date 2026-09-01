@@ -122,3 +122,35 @@ export const BUDGET_OPTIONS: { value: BudgetFilter; label: string }[] = [
   { value: "500-1000", label: "US$500–1,000" },
   { value: "1000+", label: "US$1,000+" },
 ];
+
+export type QuickFilterPreset = {
+  id: string;
+  label: string;
+  filters: Partial<TripFilters>;
+};
+
+export const QUICK_FILTER_PRESETS: QuickFilterPreset[] = [
+  { id: "5-7-days", label: "5–7 days", filters: { duration: "5-7" } },
+  {
+    id: "inca-trail",
+    label: "Inca Trail",
+    filters: { style: "trekking", destination: "machu-picchu" },
+  },
+  { id: "machu-picchu", label: "Machu Picchu", filters: { destination: "machu-picchu" } },
+  { id: "under-500", label: "Under US$500", filters: { budget: "under-500" } },
+  { id: "trekking", label: "Trekking", filters: { style: "trekking" } },
+  { id: "multi-day", label: "Multi-day", filters: { style: "package" } },
+];
+
+export function applyQuickFilter(preset: Partial<TripFilters>): TripFilters {
+  return { ...DEFAULT_TRIP_FILTERS, ...preset };
+}
+
+export function filtersMatchPreset(current: TripFilters, preset: TripFilters): boolean {
+  return (
+    current.duration === preset.duration &&
+    current.style === preset.style &&
+    current.destination === preset.destination &&
+    current.budget === preset.budget
+  );
+}

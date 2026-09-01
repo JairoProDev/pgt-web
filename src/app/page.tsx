@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { HomeHero } from "@/components/HomeHero";
 import { HubPackagesSection } from "@/components/HubPackagesSection";
 import { WhatsAppButton, WhatsAppSticky } from "@/components/WhatsAppButton";
 import { getHubTourCards, getPageByPath } from "@/lib/content";
@@ -35,30 +35,10 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="bg-pgt-blue px-4 py-16 text-white md:py-24">
-        <div className="mx-auto max-w-7xl">
-          <h1 className="text-3xl font-bold leading-tight md:text-5xl">{page.h1}</h1>
-          <p className="mt-4 max-w-2xl text-lg text-blue-100">{page.heroSubtitle}</p>
-          <div className="mt-8 flex flex-wrap gap-4">
-            <Link
-              href="/packages/"
-              className="inline-flex rounded-lg bg-pgt-orange px-6 py-3 text-sm font-semibold text-white hover:opacity-90"
-            >
-              View Peru Packages
-            </Link>
-            <WhatsAppButton
-              label="Plan on WhatsApp"
-              message={waMessage}
-              utmContent="home_hero"
-              contentType="home"
-              contentSlug="home"
-              pagePath={path}
-            />
-          </div>
-        </div>
-      </section>
+      <HomeHero page={page} path={path} waMessage={waMessage} />
 
       <div className="mx-auto max-w-7xl px-4">
+        <div id="popular-trips" className="scroll-mt-24">
         <HubPackagesSection
           items={popular}
           title="Most popular trips"
@@ -68,6 +48,7 @@ export default function HomePage() {
           compact
           showFinder={false}
         />
+        </div>
 
         <section className="my-12 rounded-2xl bg-pgt-blue px-6 py-10 text-center text-white md:px-12">
           <h2 className="text-2xl font-bold">Not sure which package fits you?</h2>

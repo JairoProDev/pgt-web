@@ -3,12 +3,15 @@
 import { useEffect, useMemo, useState } from "react";
 import { trackSearch } from "@/lib/analytics";
 import {
+  applyQuickFilter,
   BUDGET_OPTIONS,
   DEFAULT_TRIP_FILTERS,
   DESTINATION_OPTIONS,
   DURATION_OPTIONS,
   filterPackageCards,
+  filtersMatchPreset,
   isDefaultFilters,
+  QUICK_FILTER_PRESETS,
   STYLE_OPTIONS,
   type TripFilters,
 } from "@/lib/trip-filters";
@@ -45,6 +48,13 @@ export function TripFinder({ items, pagePath, compact, onFilteredChange }: Props
     setFilters((prev) => ({ ...prev, [key]: value }));
   };
 
+  const handleQuickFilter = (presetFilters: Partial<TripFilters>) => {
+    const applied = applyQuickFilter(presetFilters);
+    setFilters((current) =>
+      filtersMatchPreset(current, applied) ? DEFAULT_TRIP_FILTERS : applied,
+    );
+  };
+
   return (
     <div
       className={`rounded-xl border border-stone-200 bg-stone-50/80 ${compact ? "p-4" : "p-5 md:p-6"}`}
@@ -67,6 +77,37 @@ export function TripFinder({ items, pagePath, compact, onFilteredChange }: Props
             Clear filters
           </button>
         )}
+      </div>
+
+      <div className="mt-4 flex items-center gap-2">
+        <span className="hidden shrink-0 text-xs font-semibold uppercase tracking-wide text-stone-500 sm:inline">
+          Popular:
+        </span>
+        <div
+          className="flex flex-1 gap-2 overflow-x-auto pb-1 -mx-1 px-1 snap-x"
+          role="group"
+          aria-label="Popular filters"
+        >
+          {QUICK_FILTER_PRESETS.map((preset) => {
+            const applied = applyQuickFilter(preset.filters);
+            const isActive = filtersMatchPreset(filters, applied);
+            return (
+              <button
+                key={preset.id}
+                type="button"
+                aria-pressed={isActive}
+                onClick={() => handleQuickFilter(preset.filters)}
+                className={`shrink-0 snap-start rounded-full px-3.5 py-1.5 text-sm font-medium transition-colors ${
+                  isActive
+                    ? "bg-pgt-blue text-white shadow-sm"
+                    : "border border-stone-300 bg-white text-stone-700 hover:border-pgt-blue/40 hover:text-pgt-blue"
+                }`}
+              >
+                {preset.label}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
