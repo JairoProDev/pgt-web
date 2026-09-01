@@ -3,11 +3,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { NavDestinations } from "@/components/NavDestinations";
 import { useSearch } from "@/components/search/SearchProvider";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { siteConfig } from "@/lib/site";
 
-const navLinks = [
+const navLinksAfterDestinations = [
   { href: "/packages/", label: "Packages" },
   { href: "/machu-picchu-packages/", label: "Machu Picchu" },
   { href: "/packages/", label: "Tours" },
@@ -18,6 +19,7 @@ const navLinks = [
 export function Header() {
   const [open, setOpen] = useState(false);
   const { openSearch } = useSearch();
+  const closeMobile = () => setOpen(false);
 
   return (
     <header className="sticky top-0 z-40 border-b border-stone-200 bg-white/95 backdrop-blur">
@@ -33,8 +35,12 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-5 text-sm font-medium text-stone-700 md:flex">
-          {navLinks.map((link) => (
+        <nav
+          className="hidden items-center gap-5 text-sm font-medium text-stone-700 md:flex"
+          aria-label="Main navigation"
+        >
+          <NavDestinations variant="desktop" />
+          {navLinksAfterDestinations.map((link) => (
             <Link key={link.label} href={link.href} className="hover:text-pgt-blue">
               {link.label}
             </Link>
@@ -94,13 +100,14 @@ export function Header() {
       </div>
 
       {open && (
-        <nav className="border-t border-stone-100 bg-white px-4 py-4 md:hidden">
-          {navLinks.map((link) => (
+        <nav className="border-t border-stone-100 bg-white px-4 py-4 md:hidden" aria-label="Mobile navigation">
+          <NavDestinations variant="mobile" onNavigate={closeMobile} />
+          {navLinksAfterDestinations.map((link) => (
             <Link
               key={link.label}
               href={link.href}
-              className="block py-2 text-sm font-medium text-stone-700"
-              onClick={() => setOpen(false)}
+              className="block border-b border-stone-100 py-2 text-sm font-medium text-stone-700"
+              onClick={closeMobile}
             >
               {link.label}
             </Link>
@@ -109,7 +116,7 @@ export function Header() {
             type="button"
             className="block w-full py-2 text-left text-sm font-medium text-stone-700"
             onClick={() => {
-              setOpen(false);
+              closeMobile();
               openSearch();
             }}
           >

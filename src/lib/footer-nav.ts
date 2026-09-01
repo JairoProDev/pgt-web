@@ -1,5 +1,7 @@
 /** Footer navigation — internal links for SEO, UX and crawl depth */
 
+import { footerDestinationLinks } from "./destinations-nav";
+
 export type FooterLink = {
   href: string;
   label: string;
@@ -90,13 +92,11 @@ export const footerSections: FooterSection[] = [
     id: "destinations",
     title: "Destinations",
     links: [
-      { href: "/destinations/", label: "All Destinations" },
-      { href: "/peru/cusco/", label: "Cusco & Sacred Valley" },
-      { href: "/peru/lima/", label: "Lima" },
-      { href: "/peru/arequipa/", label: "Arequipa & Colca Canyon" },
-      { href: "/peru/puno/", label: "Puno & Lake Titicaca" },
-      { href: "/peru/ica/", label: "Ica, Paracas & Nazca" },
-      { href: "/peru/huaraz/", label: "Huaraz & Cordillera Blanca" },
+      ...footerDestinationLinks.map((link) => ({
+        href: link.href,
+        label: link.label,
+        description: link.description,
+      })),
       { href: "/blogs/", label: "Peru Travel Blog" },
     ],
   },
