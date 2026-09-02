@@ -8,7 +8,6 @@ import { StickyHelpBar } from "@/components/conversion/StickyHelpBar";
 import { HubPackagesSection } from "@/components/HubPackagesSection";
 import { JsonLd } from "@/components/JsonLd";
 import { PartnerLogosBar } from "@/components/trust/PartnerLogosBar";
-import { ReviewQuotesStrip } from "@/components/trust/ReviewQuotesStrip";
 import { ReviewsSection } from "@/components/trust/ReviewsSection";
 import { TrustStatsBar } from "@/components/trust/TrustStatsBar";
 import { TrustValueBand } from "@/components/trust/TrustValueBand";
@@ -75,7 +74,6 @@ export default function HomePage() {
       </div>
 
       <HomeExploreHubs />
-      <ReviewQuotesStrip />
       <PartnerLogosBar />
       <ReviewsSection />
 

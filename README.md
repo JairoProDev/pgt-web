@@ -4,7 +4,20 @@ Next.js rebuild of **perugrandtravel.com** EN — performance, SEO, WhatsApp lea
 
 **Live:** https://perugrandtravel.vercel.app  
 **Repo:** https://github.com/JairoProDev/pgt-web  
-**Estado completo:** [docs/ESTADO-PROYECTO.md](docs/ESTADO-PROYECTO.md) — hecho, pendiente, tus tareas, roadmap
+**Estado completo:** [docs/ESTADO-PROYECTO.md](docs/ESTADO-PROYECTO.md)
+
+## Migración WordPress → cutover
+
+| Doc | Uso |
+|-----|-----|
+| [MIGRACION-COMPLETA-PGT-WEB.md](docs/MIGRACION-COMPLETA-PGT-WEB.md) | Roadmap maestro |
+| [PASOS-SOLO-JAIRO.md](docs/PASOS-SOLO-JAIRO.md) | Solo tú (DNS, GTM, Clever) |
+| [CHECKLIST-DIA-D-CUTOVER.md](docs/CHECKLIST-DIA-D-CUTOVER.md) | Día del swap DNS |
+
+```bash
+npm run pre-cutover https://perugrandtravel.vercel.app
+npm run post-cutover https://www.perugrandtravel.com   # post cutover
+```
 
 ## Catalog (2026-08-31)
 

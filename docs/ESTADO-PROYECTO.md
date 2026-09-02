@@ -50,7 +50,7 @@
 | Footer links funcionales | 100% | **~95%** (ver auditoría abajo) |
 | Payload CMS | Editar 1 tour + 1 blog | **Stub** — export JSON listo, PostgreSQL pendiente |
 | Beta DNS | beta.perugrandtravel.com | **Pendiente (Jairo)** |
-| Cutover prod DNS | www → Vercel | **Pendiente (Jairo)** |
+| Cutover prod DNS | www → Vercel | **Guía lista — Jairo ejecuta** ([PASOS-SOLO-JAIRO.md](PASOS-SOLO-JAIRO.md)) |
 
 ---
 
@@ -261,7 +261,9 @@ Criterio OK: ≥1 sección de contenido OR ≥3 tours en hub.
 
 ## Referencias
 
-- **Blueprint Fase A:** `docs/BLUEPRINT-FASE-A-BETA-CUTOVER.md`
+- **Migración cutover:** `docs/MIGRACION-COMPLETA-PGT-WEB.md`
+- **Solo Jairo (humano):** `docs/PASOS-SOLO-JAIRO.md`
+- **Día D:** `docs/CHECKLIST-DIA-D-CUTOVER.md`
 - **Guía maestra SEO/marketing:** `docs/GUIA-MAESTRA-SEO-MARKETING-PGT.md`
 - **Reporte jefatura:** `docs/REPORTE-AVANCE-JAIRO.md`
 - **Plataformas multi-dominio:** `docs/INVENTARIO-PLATAFORMAS.md`

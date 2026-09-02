@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-09-01",
+  "syncedAt": "2026-09-02",
   "source": "https://www.perugrandtravel.com/ (TrustIndex widgets)",
   "platforms": {
     "tripadvisor": {
@@ -7,64 +7,64 @@
       "ratingLabel": "EXCELLENT",
       "ratingValue": 5,
       "reviewCount": 1209,
-      "profileUrl": ""
+      "profileUrl": "https://www.tripadvisor.com/Attraction_Review-g294314-d3335204-Reviews-Peru_Grand_Travel-Cusco_Cusco_Region.html"
     },
     "google": {
       "label": "Google",
       "ratingLabel": "EXCELLENT",
       "ratingValue": 5,
       "reviewCount": 311,
-      "profileUrl": "https://www.google.com/maps/search/?api=1&query=Peru+Grand+Travel+Av+El+Sol+948+Cusco"
+      "profileUrl": "https://www.google.com/maps/search/?api=1&query=Peru+Grand+Travel+Av+El+Sol+948+Cusco+Peru"
     }
   },
   "featured": [
     {
       "platform": "tripadvisor",
-      "author": "Peter",
-      "date": "2026-04-16",
+      "author": "Michelle M",
+      "date": "2026-04-18",
       "rating": 5,
-      "title": "Machu Picchu is the destination!",
-      "text": "Machu Picchu is the destination! Together with the Sacred Valley they are the most impressive attractions in Peru. Attentive, friendly guides who explained everything perfectly."
-    },
-    {
-      "platform": "tripadvisor",
-      "author": "Renato P",
-      "date": "2026-04-17",
-      "rating": 5,
-      "title": "Worth waking up early — the payoff is incredible",
-      "text": "Highly recommend. Guide Will was excellent! Beautiful place full of history. Excellent service and willingness to help — we recommend it very much."
+      "title": "Interessante conhecer a cultura e a produção das salinas Muito interessa",
+      "text": "Interessante conhecer a cultura e a produção das salinas Muito interessante poder aprender sobre as salinas."
     },
     {
       "platform": "tripadvisor",
       "author": "Michelle M",
       "date": "2026-04-18",
       "rating": 5,
-      "title": "Amazing experience!",
-      "text": "Wonderful experience with so much to learn. An incredible place — the landscape looks almost unreal."
+      "title": "Lugar incrível",
+      "text": "Lugar incrível! Parece de mentira de tão bonita a paisagem. É um caminho árduo pra chegar, mas vale muito pena."
+    },
+    {
+      "platform": "tripadvisor",
+      "author": "Michelle M",
+      "date": "2026-04-18",
+      "rating": 5,
+      "title": "Experiência incrível",
+      "text": "Experiência incrível! Maravilhosa experiência com muito aprendizado. Lugar incrível!"
     },
     {
       "platform": "google",
       "author": "Preeti Bisht",
       "date": "2026-04-02",
       "rating": 5,
-      "title": "Unforgettable journey to Peru",
-      "text": "I recently returned from an unforgettable journey to Peru thanks to Peru Grand Travel and Christian. His responsiveness made planning effortless. If you are planning Peru, book Peru Grand Travel and ask for Christian."
+      "title": "I recently returned from an unforgettable journey to Peru- all thanks to",
+      "text": "I recently returned from an unforgettable journey to Peru- all thanks to Peru Grand Travel and in particular, my sales POC Christian. His responsiveness and attention to detail made the entire planning process effortless and exciting. I recommend them highly!!! 1- Exceptional Communication Christian answered every question- big or small- within minutes. Carla my everyday go-to person after reaching Peru was also very good. 2- Meticulous, personalized Itinerary Christian took the time to learn my"
     },
     {
       "platform": "google",
       "author": "Bárbara Martins",
       "date": "2026-02-26",
       "rating": 5,
-      "title": "Went beyond our expectations",
-      "text": "Peru Grand Travel was perfect in everything they promised, even going beyond our expectations. Our guide Will went above and beyond. If you are going to Cusco, go with Peru Grand Travel!"
+      "title": "A Peru Grand Travel foi perfeita em tudo que se propôs, inclusive indo a",
+      "text": "A Peru Grand Travel foi perfeita em tudo que se propôs, inclusive indo além das nossas expectativas. Todos os passeios foram incríveis, com direito a fotos lindíssimas, muito aprendizado e comodidade. Nosso guia Will não era só um guia, era um PAI. Sle foi além de suas obrigações pra tornar nossa viagem a melhor possível. Minha experiência e dos meus amigos no Peru foi extremamente feliz por conta da agência, que sempre nos apoiou e entregou o MELHOR serviço. Se vai pra Cusco, vá de Peru Grand T"
     },
     {
       "platform": "google",
-      "author": "Sara Tibola",
-      "date": "2026-01-31",
+      "author": "Lorena Vasconcelos De Oliveira",
+      "date": "2026-02-16",
       "rating": 5,
-      "title": "Excellent support from start to finish",
-      "text": "We were very well looked after from first contact until the end of the trip — Ubaldina for booking, Ebert for transfers and Yonel as our Machu Picchu guide. We highly recommend them!"
+      "title": "Experiência impecável, incrível",
+      "text": "Experiência impecável, incrível!!!!"
     }
   ]
 }

@@ -110,7 +110,10 @@ def main() -> int:
                 "ratingLabel": ta["ratingLabel"],
                 "ratingValue": 5,
                 "reviewCount": ta["reviewCount"],
-                "profileUrl": ta_plat.get("profileUrl", ""),
+                "profileUrl": ta_plat.get(
+                    "profileUrl",
+                    "https://www.tripadvisor.com/Attraction_Review-g294314-d3335204-Reviews-Peru_Grand_Travel-Cusco_Cusco_Region.html",
+                ),
             },
             "google": {
                 "label": "Google",
@@ -123,8 +126,10 @@ def main() -> int:
                 ),
             },
         },
-        # Keep hand-curated EN snippets; sync only refreshes aggregate counts.
-        "featured": existing.get("featured") or ta["featured"][:3] + g["featured"][:3],
+        # Refresh featured from WP when sync finds items; else keep existing
+        "featured": (ta["featured"][:3] + g["featured"][:3])
+        if ta["featured"] or g["featured"]
+        else existing.get("featured", []),
     }
 
     OUT.write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

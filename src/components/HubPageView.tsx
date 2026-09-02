@@ -7,7 +7,6 @@ import { HelpChooseCta } from "@/components/conversion/HelpChooseCta";
 import { StickyHelpBar } from "@/components/conversion/StickyHelpBar";
 import { JsonLd } from "@/components/JsonLd";
 import { PartnerLogosBar } from "@/components/trust/PartnerLogosBar";
-import { ReviewQuotesStrip } from "@/components/trust/ReviewQuotesStrip";
 import { ReviewsSection } from "@/components/trust/ReviewsSection";
 import { TrustStatsBar } from "@/components/trust/TrustStatsBar";
 import { WhatsAppSticky } from "@/components/WhatsAppButton";
@@ -75,8 +74,6 @@ export function HubPageView({
         />
       </div>
 
-      <ReviewQuotesStrip />
-
       <div className="mx-auto max-w-7xl px-4 pb-8">
         <HelpChooseCta
           title={helpTitle ?? "Showing too many options? We can narrow it down."}
@@ -93,8 +90,7 @@ export function HubPageView({
       </div>
 
       <PartnerLogosBar />
-
-      {showFullReviews && <ReviewsSection />}
+      {(showFullReviews ?? true) && <ReviewsSection compact />}
 
       {page.sections && page.sections.length > 0 && (
         <HubSeoAccordion sections={page.sections} />

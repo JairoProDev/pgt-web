@@ -1,0 +1,36 @@
+{
+  "mcpServers": {
+    "google-analytics": {
+      "command": "/home/jairoprodev/.local/bin/uvx",
+      "args": ["analytics-mcp"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "${workspaceFolder}/../pgt/.secrets/google-service-account.json",
+        "GOOGLE_PROJECT_ID": "${env:GOOGLE_PROJECT_ID}"
+      },
+      "envFile": "${workspaceFolder}/.env.mcp"
+    },
+    "google-search-console": {
+      "command": "/home/jairoprodev/.local/bin/uvx",
+      "args": ["mcp-gsc"],
+      "env": {
+        "GOOGLE_APPLICATION_CREDENTIALS": "${workspaceFolder}/../pgt/.secrets/google-service-account.json",
+        "GSC_SITE_URL": "${env:PGT_GSC_PROPERTY}"
+      },
+      "envFile": "${workspaceFolder}/.env.mcp"
+    },
+    "google-drive": {
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/scripts/mcp/run-gdrive-mcp.sh",
+        "${workspaceFolder}/../pgt/.secrets/gdrive-oauth-atendimento"
+      ]
+    },
+    "google-drive-marketing": {
+      "command": "bash",
+      "args": [
+        "${workspaceFolder}/scripts/mcp/run-gdrive-mcp.sh",
+        "${workspaceFolder}/../pgt/.secrets/gdrive-oauth-marketing"
+      ]
+    }
+  }
+}

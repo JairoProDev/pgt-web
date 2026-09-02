@@ -117,10 +117,17 @@ export type ReviewsBundle = {
 };
 
 function envProfileUrl(key: ReviewPlatformKey, fallback: string): string {
+  const defaults: Record<ReviewPlatformKey, string> = {
+    tripadvisor:
+      "https://www.tripadvisor.com/Attraction_Review-g294314-d3335204-Reviews-Peru_Grand_Travel-Cusco_Cusco_Region.html",
+    google:
+      "https://www.google.com/maps/search/?api=1&query=Peru+Grand+Travel+Av+El+Sol+948+Cusco+Peru",
+  };
+  const base = fallback || defaults[key];
   if (key === "tripadvisor") {
-    return process.env.NEXT_PUBLIC_TRIPADVISOR_URL?.trim() || fallback;
+    return process.env.NEXT_PUBLIC_TRIPADVISOR_URL?.trim() || base;
   }
-  return process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL?.trim() || fallback;
+  return process.env.NEXT_PUBLIC_GOOGLE_REVIEWS_URL?.trim() || base;
 }
 
 export function getReviewsBundle(): ReviewsBundle {
