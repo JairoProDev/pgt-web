@@ -1,12 +1,18 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { HubFAQ } from "@/components/HubFAQ";
+import { TourTrustCard } from "@/components/trust/TourTrustCard";
+import { StickyHelpBar } from "@/components/conversion/StickyHelpBar";
 import { JsonLd } from "@/components/JsonLd";
 import { TourGallery } from "@/components/TourGallery";
 import { WhatsAppButton, WhatsAppSticky } from "@/components/WhatsAppButton";
 import { getAllTourSlugs, getTour } from "@/lib/content";
 import { displayDuration, formatPriceLabel, isTrustedPrice, tourWhatsAppMessage, TRUST_SIGNALS } from "@/lib/conversion";
-import { breadcrumbSchema, faqSchema, touristTripSchema } from "@/lib/schema";
+import { filterTourGallery } from "@/lib/tour-images";
+import { extraFaqsForTour } from "@/lib/tour-faq-extras";
+import { breadcrumbSchema, touristTripSchema } from "@/lib/schema";
+import { contentPageTitle } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -21,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!tour) return {};
   const path = `/tour/${slug}/`;
   return {
-    title: tour.seo.title,
+    title: contentPageTitle(tour.seo.title),
     description: tour.seo.description,
     alternates: { canonical: path },
     openGraph: {
@@ -45,16 +51,21 @@ export default async function TourPage({ params }: Props) {
   const duration = displayDuration(tour);
   const priceLabel = formatPriceLabel(tour);
 
-  const faqs = tour.faq ?? [
+  const faqs = [
+  ...(tour.faq ?? [
     {
       q: "What is included in the price?",
-      a: tour.included.slice(0, 4).join("; "),
+      a: tour.included.slice(0, 4).join("; ") || "Contact us for a detailed inclusion list for your dates.",
     },
     {
       q: "How difficult is this trek?",
       a: tour.difficulty ?? "Moderate to challenging — contact us for details.",
     },
+  ]),
+  ...extraFaqsForTour(slug),
   ];
+
+  const galleryImages = filterTourGallery(tour.heroImage, tour.gallery);
 
   return (
     <>
@@ -84,7 +95,6 @@ export default async function TourPage({ params }: Props) {
             duration: tour.duration,
             image: tour.heroImage,
           }),
-          faqSchema(faqs),
           breadcrumbSchema([
             { name: "Home", url: siteConfig.baseUrl },
             { name: "Tours", url: `${siteConfig.baseUrl}/packages/` },
@@ -112,7 +122,7 @@ export default async function TourPage({ params }: Props) {
 
             <div className="mt-6">
               <TourGallery
-                images={tour.gallery}
+                images={galleryImages}
                 alts={tour.galleryAlt}
                 heroAlt={tour.h1}
               />
@@ -198,11 +208,30 @@ export default async function TourPage({ params }: Props) {
                 <br />
                 No obligation — ask about dates, hotels, or a custom version
               </p>
+              <TourTrustCard />
             </div>
           </aside>
         </div>
+
+        {faqs.length > 0 && (
+          <HubFAQ
+            items={faqs}
+            heading="Questions about this trip"
+            waMessage={waMessage}
+            utmContent={`tour_${slug}_faq`}
+            pagePath={path}
+            contentSlug={slug}
+          />
+        )}
       </div>
 
+      <StickyHelpBar
+        message={waMessage}
+        utmContent={`tour_${slug}_sticky_bar`}
+        pagePath={path}
+        contentType="tour"
+        contentSlug={slug}
+      />
       <WhatsAppSticky
         message={waMessage}
         utmContent={`tour_${slug}_sticky`}

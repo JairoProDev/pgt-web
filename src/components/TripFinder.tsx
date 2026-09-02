@@ -57,7 +57,7 @@ export function TripFinder({ items, pagePath, compact, onFilteredChange }: Props
 
   return (
     <div
-      className={`rounded-xl border border-stone-200 bg-stone-50/80 ${compact ? "p-4" : "p-5 md:p-6"}`}
+      className={`rounded-2xl border border-stone-200 bg-white shadow-sm ring-1 ring-stone-100 ${compact ? "p-4 md:p-5" : "p-5 md:p-6"}`}
       role="search"
       aria-label="Filter Peru packages"
     >

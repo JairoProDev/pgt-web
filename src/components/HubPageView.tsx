@@ -2,7 +2,14 @@ import { HubFAQ } from "@/components/HubFAQ";
 import { HubHero } from "@/components/HubHero";
 import { HubPackagesSection } from "@/components/HubPackagesSection";
 import { HubSeoAccordion } from "@/components/HubSeoAccordion";
+import { ConfidenceBand } from "@/components/conversion/ConfidenceBand";
+import { HelpChooseCta } from "@/components/conversion/HelpChooseCta";
+import { StickyHelpBar } from "@/components/conversion/StickyHelpBar";
 import { JsonLd } from "@/components/JsonLd";
+import { PartnerLogosBar } from "@/components/trust/PartnerLogosBar";
+import { ReviewQuotesStrip } from "@/components/trust/ReviewQuotesStrip";
+import { ReviewsSection } from "@/components/trust/ReviewsSection";
+import { TrustStatsBar } from "@/components/trust/TrustStatsBar";
 import { WhatsAppSticky } from "@/components/WhatsAppButton";
 import { breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
@@ -17,10 +24,26 @@ type Props = {
   waMessage: string;
   utmContent: string;
   gridTitle: string;
+  helpTitle?: string;
+  helpBody?: string;
+  emotionalLine?: string;
   faq?: FaqItem[];
+  showFullReviews?: boolean;
 };
 
-export function HubPageView({ page, path, cards, waMessage, utmContent, gridTitle, faq }: Props) {
+export function HubPageView({
+  page,
+  path,
+  cards,
+  waMessage,
+  utmContent,
+  gridTitle,
+  helpTitle,
+  helpBody,
+  emotionalLine,
+  faq,
+  showFullReviews,
+}: Props) {
   return (
     <>
       <JsonLd
@@ -36,17 +59,42 @@ export function HubPageView({ page, path, cards, waMessage, utmContent, gridTitl
         packageCount={cards.length}
         waMessage={waMessage}
         utmContent={utmContent}
+        emotionalLine={emotionalLine}
       />
 
-      <div id="packages-grid" className="mx-auto max-w-7xl scroll-mt-24 px-4 pb-16">
+      <TrustStatsBar compact />
+      <ConfidenceBand />
+
+      <div id="packages-grid" className="mx-auto max-w-7xl scroll-mt-24 px-4 pb-8">
         <HubPackagesSection
           items={cards}
           title={gridTitle}
           pagePath={path}
           waMessage={waMessage}
-          utmContent={`${utmContent}_empty_filters`}
+          utmContent={`${utmContent}_finder_empty`}
         />
       </div>
+
+      <ReviewQuotesStrip />
+
+      <div className="mx-auto max-w-7xl px-4 pb-8">
+        <HelpChooseCta
+          title={helpTitle ?? "Showing too many options? We can narrow it down."}
+          body={
+            helpBody ??
+            "Send your travel month, group size, and budget on WhatsApp — we reply with 2–3 packages that fit, including hotels and transfers."
+          }
+          waMessage={waMessage}
+          utmContent={`${utmContent}_help_choose`}
+          pagePath={path}
+          contentType="hub"
+          contentSlug={page.slug}
+        />
+      </div>
+
+      <PartnerLogosBar />
+
+      {showFullReviews && <ReviewsSection />}
 
       {page.sections && page.sections.length > 0 && (
         <HubSeoAccordion sections={page.sections} />
@@ -62,6 +110,13 @@ export function HubPageView({ page, path, cards, waMessage, utmContent, gridTitl
         />
       )}
 
+      <StickyHelpBar
+        message={waMessage}
+        utmContent={`${utmContent}_sticky_bar`}
+        pagePath={path}
+        contentType="hub"
+        contentSlug={page.slug}
+      />
       <WhatsAppSticky
         message={waMessage}
         utmContent={`${utmContent}_sticky`}

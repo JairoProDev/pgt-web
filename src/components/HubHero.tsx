@@ -7,9 +7,10 @@ type Props = {
   packageCount: number;
   waMessage: string;
   utmContent: string;
+  emotionalLine?: string;
 };
 
-export function HubHero({ page, path, packageCount, waMessage, utmContent }: Props) {
+export function HubHero({ page, path, packageCount, waMessage, utmContent, emotionalLine }: Props) {
   const title = page.h1.replace(/^▷\s*/, "").split("|")[0].trim();
   const subtitle =
     page.heroSubtitle ??
@@ -18,13 +19,18 @@ export function HubHero({ page, path, packageCount, waMessage, utmContent }: Pro
   return (
     <ConversionHero
       variant="hub"
-      emotionalLine="PERU PACKAGES · MACHU PICCHU · TREKS"
+      emotionalLine={
+        emotionalLine ??
+        (path.includes("machu-picchu") ? "MACHU PICCHU · SACRED VALLEY · CUSCO" : "PERU PACKAGES · MACHU PICCHU · TREKS")
+      }
       eyebrow={`${packageCount} packages · Cusco-based operator`}
       title={title}
       subtitle={subtitle}
       image={page.heroImage}
       imageAlt={title}
       statBadge={`${packageCount} packages available`}
+      showTripIntent
+      intentUtmContent={`${utmContent}_hero_intent`}
       primaryCta={{
         label: "Get a custom quote on WhatsApp",
         message: waMessage,

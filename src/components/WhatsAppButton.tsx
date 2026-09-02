@@ -53,7 +53,7 @@ export function WhatsAppButton({
 
 export function WhatsAppSticky(props: Omit<Props, "label" | "className">) {
   return (
-    <div className="fixed bottom-4 right-4 z-50 md:bottom-6 md:right-6">
+    <div className="fixed bottom-14 right-4 z-50 md:bottom-6 md:right-6">
       <WhatsAppButton
         {...props}
         label="WhatsApp"

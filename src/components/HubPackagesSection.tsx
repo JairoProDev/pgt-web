@@ -32,8 +32,16 @@ export function HubPackagesSection({
   const emptyAfterFilter = showFinder && filtered.length === 0 && items.length > 0;
 
   return (
-    <section className="py-8 md:py-12">
-      {title && <h2 className="mb-2 text-xl font-bold text-stone-900 md:text-2xl">{title}</h2>}
+    <section className="py-10 md:py-14">
+      {title && (
+        <header className="mb-6 max-w-2xl">
+          <p className="text-xs font-bold uppercase tracking-wider text-pgt-orange">Packages & tours</p>
+          <h2 className="mt-1 text-2xl font-bold text-stone-900 md:text-3xl">{title}</h2>
+          <p className="mt-2 text-sm text-stone-600 md:text-base">
+            Filter by trip length, style, or destination — then request a WhatsApp quote with your package pre-filled.
+          </p>
+        </header>
+      )}
 
       {showFinder && items.length > 3 && (
         <div className="mb-8">
@@ -54,7 +62,7 @@ export function HubPackagesSection({
       )}
 
       {showFinder && items.length > 3 && (
-        <p className="mb-6 max-w-2xl text-sm text-stone-600">
+        <p className="sr-only">
           Each card opens the full itinerary or sends a WhatsApp quote with your trip name pre-filled.
         </p>
       )}

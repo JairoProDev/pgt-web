@@ -1,0 +1,70 @@
+{
+  "syncedAt": "2026-09-01",
+  "source": "https://www.perugrandtravel.com/ (TrustIndex widgets)",
+  "platforms": {
+    "tripadvisor": {
+      "label": "Tripadvisor",
+      "ratingLabel": "EXCELLENT",
+      "ratingValue": 5,
+      "reviewCount": 1209,
+      "profileUrl": ""
+    },
+    "google": {
+      "label": "Google",
+      "ratingLabel": "EXCELLENT",
+      "ratingValue": 5,
+      "reviewCount": 311,
+      "profileUrl": "https://www.google.com/maps/search/?api=1&query=Peru+Grand+Travel+Av+El+Sol+948+Cusco"
+    }
+  },
+  "featured": [
+    {
+      "platform": "tripadvisor",
+      "author": "Peter",
+      "date": "2026-04-16",
+      "rating": 5,
+      "title": "Machu Picchu is the destination!",
+      "text": "Machu Picchu is the destination! Together with the Sacred Valley they are the most impressive attractions in Peru. Attentive, friendly guides who explained everything perfectly."
+    },
+    {
+      "platform": "tripadvisor",
+      "author": "Renato P",
+      "date": "2026-04-17",
+      "rating": 5,
+      "title": "Worth waking up early — the payoff is incredible",
+      "text": "Highly recommend. Guide Will was excellent! Beautiful place full of history. Excellent service and willingness to help — we recommend it very much."
+    },
+    {
+      "platform": "tripadvisor",
+      "author": "Michelle M",
+      "date": "2026-04-18",
+      "rating": 5,
+      "title": "Amazing experience!",
+      "text": "Wonderful experience with so much to learn. An incredible place — the landscape looks almost unreal."
+    },
+    {
+      "platform": "google",
+      "author": "Preeti Bisht",
+      "date": "2026-04-02",
+      "rating": 5,
+      "title": "Unforgettable journey to Peru",
+      "text": "I recently returned from an unforgettable journey to Peru thanks to Peru Grand Travel and Christian. His responsiveness made planning effortless. If you are planning Peru, book Peru Grand Travel and ask for Christian."
+    },
+    {
+      "platform": "google",
+      "author": "Bárbara Martins",
+      "date": "2026-02-26",
+      "rating": 5,
+      "title": "Went beyond our expectations",
+      "text": "Peru Grand Travel was perfect in everything they promised, even going beyond our expectations. Our guide Will went above and beyond. If you are going to Cusco, go with Peru Grand Travel!"
+    },
+    {
+      "platform": "google",
+      "author": "Sara Tibola",
+      "date": "2026-01-31",
+      "rating": 5,
+      "title": "Excellent support from start to finish",
+      "text": "We were very well looked after from first contact until the end of the trip — Ubaldina for booking, Ebert for transfers and Yonel as our Machu Picchu guide. We highly recommend them!"
+    }
+  ]
+}

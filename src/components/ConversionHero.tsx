@@ -30,6 +30,7 @@ type Props = {
   secondaryLink?: HeroTextLink;
   anchorLink?: HeroTextLink;
   showTripIntent?: boolean;
+  intentUtmContent?: string;
   statBadge?: string;
 };
 
@@ -45,6 +46,7 @@ export function ConversionHero({
   secondaryLink,
   anchorLink,
   showTripIntent = false,
+  intentUtmContent = "home_hero_intent",
   statBadge,
 }: Props) {
   return (
@@ -148,7 +150,8 @@ export function ConversionHero({
                 <HeroTripIntent
                   pagePath={primaryCta.pagePath}
                   contentSlug={primaryCta.contentSlug}
-                  utmContent="home_hero_intent"
+                  contentType={primaryCta.contentType}
+                  utmContent={intentUtmContent}
                 />
               ) : (
                 <HubActionCard primaryCta={primaryCta} />

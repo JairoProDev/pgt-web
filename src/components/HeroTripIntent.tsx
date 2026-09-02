@@ -15,12 +15,14 @@ import { whatsAppUrl } from "@/lib/site";
 type Props = {
   pagePath: string;
   contentSlug: string;
+  contentType?: "home" | "hub";
   utmContent?: string;
 };
 
 export function HeroTripIntent({
   pagePath,
   contentSlug,
+  contentType = "home",
   utmContent = "home_hero_intent",
 }: Props) {
   const [intent, setIntent] = useState<TripIntent>(DEFAULT_TRIP_INTENT);
@@ -36,7 +38,7 @@ export function HeroTripIntent({
 
     trackWhatsAppClick(
       {
-        contentType: "home",
+        contentType,
         contentSlug,
         utmContent,
         pagePath,

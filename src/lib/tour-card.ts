@@ -65,7 +65,12 @@ export function cardDestinations(tour: Tour): string {
 
 export function cardFeatureChips(tour: Tour): string[] {
   const inc = tour.included.join(" ").toLowerCase();
+  const slug = tour.slug.toLowerCase();
   const chips: string[] = [];
+  if (/inca trail|inca-trail/.test(slug)) chips.push("Permit required");
+  if (/train|vistadome|expedition/.test(inc) || /train/.test(tour.summary.toLowerCase())) {
+    chips.push("Train to Machu Picchu");
+  }
   if (/hotel|camp|domes|sky camp|accommodation/.test(inc)) chips.push("Lodging included");
   if (/machu picchu|inca trail/.test(inc) || /machu picchu/.test(tour.summary.toLowerCase())) {
     chips.push("Machu Picchu");
