@@ -29,12 +29,10 @@
 | **S3** Bloque Jairo | ✅ Contenido | ⚠️ Calidad tour variable |
 | **S4** Catálogo 69+452 | ✅ Hecho | ⚠️ Blog CTA mejorado, falta medir |
 | **S5** 62 páginas + destinos | ✅ Hecho | ✅ Contenido real post scraper v2 |
-| **S6** Payload + QA | ⚠️ Stub CMS | ❌ GTM conversión = **tú en admin** |
-| **S7** Cutover | ❌ Bloqueado | ❌ DNS beta/prod = **tú + Ricardo** |
+| **S6** Payload + QA | ⚠️ Stub CMS | ❌ GTM conversión = **Jairo en GTM admin** |
+| **S7** Cutover | 🔄 Fase A | ❌ DNS beta/prod = **Jairo** (ver blueprint) |
 
-**Respuesta honesta:** el plan **técnico de migración** está ~85% completo. El plan **de conversión** (lo que mueve leads) está ~**75%** — blog mid-CTA, home mid-CTA e itinerarios completos añadidos en esta sesión.
-
-**Por qué pausé antes:** completé URLs y build rápido, pero un tour de 10 días a **US$16** destruye confianza peor que no tener precio. Eso no es avance de calidad.
+**Respuesta honesta:** el plan **técnico de migración** está ~**90%** completo. El plan **de conversión** está ~**80%**. **Siguiente gran paso: Fase A — Validación** (ver `docs/BLUEPRINT-FASE-A-BETA-CUTOVER.md`).
 
 ---
 
@@ -157,7 +155,7 @@
 | DNS beta `beta.perugrandtravel.com` → Vercel | **Jairo** | P0 |
 | QA 7 días en beta + `npm run pre-cutover` | **Jairo** | P0 |
 | GTM tag `whatsapp_click` → GA4 conversión | **Jairo** (GTM admin) | P0 |
-| Swap DNS prod con Ricardo | **Jairo + Ricardo** | P0 |
+| Swap DNS prod | **Jairo** | P0 |
 | Quitar `NEXT_PUBLIC_ENV=beta` en prod | **Jairo** | P0 |
 | GSC: sitemap nuevo + monitoreo 30d | **Jairo** | P0 |
 | Payload CMS + PostgreSQL | **Ricardo confirma hosting** | P1 |
@@ -182,7 +180,7 @@
 
 ### Antes del cutover
 5. Demo Clever/Einer (Lighthouse + WA + GSC scorecard)
-6. Coordinar swap DNS con Ricardo
+6. Coordinar fecha cutover con Clever (yo gestiono DNS)
 7. Enviar sitemap en GSC
 8. Mantener WP vivo 30 días (rollback)
 
@@ -222,11 +220,18 @@ npm run cms:export             # bundle Payload
 
 ## Planes siguientes (roadmap)
 
-### Fase A — Beta lista (ahora → 1 semana)
-- [x] Contenido completo scrapeado
-- [x] Footer + páginas estáticas con contenido real
-- [ ] DNS beta + QA 7 días
-- [ ] Parity ≥95% URLs con tráfico
+### Fase A — Validación (ahora → 7–10 días) ← **FASE ACTUAL**
+
+Ver blueprint completo: **`docs/BLUEPRINT-FASE-A-BETA-CUTOVER.md`**
+
+- [x] Preview público `perugrandtravel.vercel.app` (SSO off, noindex)
+- [x] Pre-cutover checklist automático verde (30/30 parity)
+- [ ] GTM tag `whatsapp_click` → GA4 conversión
+- [ ] QA manual 10 puntos (footer, tours, blogs, móvil)
+- [ ] CSV tarifario 2026 + `precios:apply` top 20
+- [ ] Revisión humana top 20 tours GSC
+- [ ] DNS beta (opcional, recomendado)
+- [ ] Demo Clever aprobada
 
 ### Fase B — Cutover EN (semana 2)
 - [ ] DNS prod → Vercel
@@ -256,6 +261,7 @@ Criterio OK: ≥1 sección de contenido OR ≥3 tours en hub.
 
 ## Referencias
 
+- **Blueprint Fase A:** `docs/BLUEPRINT-FASE-A-BETA-CUTOVER.md`
 - **Reporte jefatura:** `docs/REPORTE-AVANCE-JAIRO.md`
 - **Plataformas multi-dominio:** `docs/INVENTARIO-PLATAFORMAS.md`
 - **Google setup:** `docs/GUIA-CONEXION-GOOGLE.md`
