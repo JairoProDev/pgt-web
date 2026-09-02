@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
 import { HomeHero } from "@/components/HomeHero";
+import { HomeEditorial } from "@/components/home/HomeEditorial";
+import { HomeExploreHubs } from "@/components/home/HomeExploreHubs";
+import { ConfidenceBand } from "@/components/conversion/ConfidenceBand";
+import { HelpChooseCta } from "@/components/conversion/HelpChooseCta";
+import { StickyHelpBar } from "@/components/conversion/StickyHelpBar";
 import { HubPackagesSection } from "@/components/HubPackagesSection";
-import { WhatsAppButton, WhatsAppSticky } from "@/components/WhatsAppButton";
+import { JsonLd } from "@/components/JsonLd";
+import { PartnerLogosBar } from "@/components/trust/PartnerLogosBar";
+import { ReviewQuotesStrip } from "@/components/trust/ReviewQuotesStrip";
+import { ReviewsSection } from "@/components/trust/ReviewsSection";
+import { TrustStatsBar } from "@/components/trust/TrustStatsBar";
+import { TrustValueBand } from "@/components/trust/TrustValueBand";
+import { WhatsAppSticky } from "@/components/WhatsAppButton";
 import { getHubTourCards, getPageByPath } from "@/lib/content";
+import { homePageSchema } from "@/lib/schema";
+import { contentPageTitle } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
 const path = "/";
@@ -11,7 +24,7 @@ export function generateMetadata(): Metadata {
   const page = getPageByPath(path);
   if (!page) return {};
   return {
-    title: page.seo.title,
+    title: contentPageTitle(page.seo.title),
     description: page.seo.description,
     alternates: { canonical: path },
     openGraph: {
@@ -19,6 +32,13 @@ export function generateMetadata(): Metadata {
       description: page.seo.description,
       url: siteConfig.baseUrl,
       type: "website",
+      images: [{ url: siteConfig.logo, alt: siteConfig.name }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: page.seo.title,
+      description: page.seo.description,
+      images: [siteConfig.logo],
     },
   };
 }
@@ -35,45 +55,49 @@ export default function HomePage() {
 
   return (
     <>
+      <JsonLd data={homePageSchema()} />
       <HomeHero page={page} path={path} waMessage={waMessage} />
+      <TrustStatsBar />
+      <TrustValueBand />
+      <ConfidenceBand />
 
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="mx-auto max-w-7xl bg-white px-4">
         <div id="popular-trips" className="scroll-mt-24">
-        <HubPackagesSection
-          items={popular}
-          title="Most popular trips"
-          pagePath={path}
-          waMessage={waMessage}
-          utmContent="home_empty_filters"
-          compact
-          showFinder={false}
-        />
-        </div>
-
-        <section className="my-12 rounded-2xl bg-pgt-blue px-6 py-10 text-center text-white md:px-12">
-          <h2 className="text-2xl font-bold">Not sure which package fits you?</h2>
-          <p className="mx-auto mt-3 max-w-xl text-blue-100">
-            Most travelers message us on WhatsApp with their dates and budget — we reply with 2–3 tailored options, no booking fee.
-          </p>
-          <WhatsAppButton
-            label="Help me choose a package"
-            message={waMessage}
-            utmContent="home_mid_cta"
-            contentType="home"
-            contentSlug="home"
+          <HubPackagesSection
+            items={popular}
+            title="Find your ideal Peru trip"
             pagePath={path}
-            className="mt-6"
+            waMessage={waMessage}
+            utmContent="home_finder_empty"
+            compact
           />
-        </section>
-
-        {page.sections?.map((s) => (
-          <section key={s.heading} className="py-8">
-            <h2 className="text-2xl font-bold text-stone-900">{s.heading}</h2>
-            <p className="mt-3 max-w-3xl text-stone-600">{s.body}</p>
-          </section>
-        ))}
+        </div>
       </div>
 
+      <HomeExploreHubs />
+      <ReviewQuotesStrip />
+      <PartnerLogosBar />
+      <ReviewsSection />
+
+      <div className="mx-auto max-w-7xl px-4 pb-4">
+        <HelpChooseCta
+          waMessage={waMessage}
+          utmContent="home_mid_cta"
+          pagePath={path}
+          contentType="home"
+          contentSlug="home"
+        />
+      </div>
+
+      <HomeEditorial sections={page.sections ?? []} />
+
+      <StickyHelpBar
+        message={waMessage}
+        utmContent="home_sticky_bar"
+        pagePath={path}
+        contentType="home"
+        contentSlug="home"
+      />
       <WhatsAppSticky
         message={waMessage}
         utmContent="home_sticky"

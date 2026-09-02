@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { ContentPageView } from "@/components/ContentPageView";
 import { HubPage } from "@/components/HubPage";
 import { getAllPagePaths, getPageByPath } from "@/lib/content";
+import { contentPageTitle } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
 const RESERVED = new Set(["", "packages", "machu-picchu-packages", "tour", "blog", "blogs"]);
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const page = getPageByPath(path);
   if (!page) return {};
   return {
-    title: page.seo.title,
+    title: contentPageTitle(page.seo.title),
     description: page.seo.description,
     alternates: { canonical: path },
     openGraph: {

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { BlogIndexClient } from "@/components/BlogIndexClient";
+import { contentPageTitle } from "@/lib/metadata";
 import { getAllBlogs } from "@/lib/content";
 import type { SearchBlogEntry } from "@/lib/search-types";
 
 export const metadata: Metadata = {
-  title: "Peru Travel Blog | Peru Grand Travel",
+  title: contentPageTitle("Peru Travel Blog | Peru Grand Travel"),
   description: "Travel tips, Machu Picchu guides, and Peru itineraries from Peru Grand Travel.",
   alternates: { canonical: "/blogs/" },
 };

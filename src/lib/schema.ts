@@ -1,8 +1,20 @@
+import { getReviewsBundle } from "./trust-content";
 import { siteConfig } from "./site";
 
-export function travelAgencySchema() {
+type AgencySchemaOptions = {
+  includeAggregateRating?: boolean;
+};
+
+export function travelAgencySchema(opts: AgencySchemaOptions = {}) {
+  const { includeAggregateRating = false } = opts;
   const { address, social } = siteConfig;
-  return {
+  const reviews = getReviewsBundle();
+  const reviewProfiles = [
+    reviews.platforms.tripadvisor.profileUrl,
+    reviews.platforms.google.profileUrl,
+  ].filter(Boolean);
+
+  const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
     "@id": `${siteConfig.baseUrl}/#organization`,
@@ -15,6 +27,12 @@ export function travelAgencySchema() {
     email: siteConfig.email,
     taxID: siteConfig.ruc,
     priceRange: "$$",
+    foundingDate: "2012",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: -13.5167,
+      longitude: -71.9785,
+    },
     address: {
       "@type": "PostalAddress",
       streetAddress: address.street,
@@ -25,8 +43,36 @@ export function travelAgencySchema() {
     },
     areaServed: { "@type": "Country", name: "Peru" },
     knowsLanguage: ["en", "es", "pt"],
-    sameAs: Object.values(social),
+    sameAs: [...Object.values(social), ...reviewProfiles],
   };
+
+  if (includeAggregateRating) {
+    schema.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: "5",
+      bestRating: "5",
+      reviewCount: String(reviews.totalReviewCount),
+    };
+  }
+
+  return schema;
+}
+
+export function websiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${siteConfig.baseUrl}/#website`,
+    url: siteConfig.baseUrl,
+    name: siteConfig.name,
+    description: siteConfig.tagline,
+    publisher: { "@id": `${siteConfig.baseUrl}/#organization` },
+    inLanguage: "en",
+  };
+}
+
+export function homePageSchema() {
+  return [websiteSchema(), travelAgencySchema({ includeAggregateRating: true })];
 }
 
 export function touristTripSchema(tour: {
@@ -59,6 +105,7 @@ export function touristTripSchema(tour: {
     },
     provider: {
       "@type": "TravelAgency",
+      "@id": `${siteConfig.baseUrl}/#organization`,
       name: siteConfig.name,
       telephone: siteConfig.phonePe,
     },
@@ -102,6 +149,19 @@ export function faqSchema(faqs: readonly { q: string; a: string }[]) {
       "@type": "Question",
       name: f.q,
       acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+}
+
+export function itemListSchema(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      url: item.url,
     })),
   };
 }
