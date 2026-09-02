@@ -15,6 +15,7 @@ SHEET_CSV = PGT / "03-seo/datos/keywords-canibalizacion-2026-08-31/tours.csv"
 SITEMAP_CSV = PGT / "03-seo/datos/inventario-sitemap-2026-08-31/inventario-urls.csv"
 PACKAGES_JSON = ROOT / "src/content/pages/packages.json"
 OUT_DIR = PGT / "04-producto/datos/catalogo-maestro-2026-08-31"
+WEB_DATA = ROOT / "data"
 
 # Sheet slug → live web slug when WP renamed URL
 SHEET_TO_WEB_SLUG = {
@@ -158,6 +159,30 @@ def main() -> None:
         w.writeheader()
         w.writerows(rows)
 
+    WEB_DATA.mkdir(parents=True, exist_ok=True)
+    web_csv = WEB_DATA / "catalogo-tours.csv"
+    web_csv.write_text(out_csv.read_text(encoding="utf-8"), encoding="utf-8")
+
+    catalog_json = []
+    for r in rows:
+        catalog_json.append(
+            {
+                "slug_web": r.get("slug_web", ""),
+                "titulo": r.get("titulo", ""),
+                "precio_usd_web": r.get("precio_usd_web", ""),
+                "quote_only": r.get("quote_only", ""),
+                "categoria_wp": r.get("categoria_wp", ""),
+                "gsc_clics_16m": r.get("gsc_clics_16m", ""),
+                "url_web": r.get("url_web", ""),
+                "estado_sheet": r.get("estado_sheet", ""),
+                "en_web_json": r.get("en_web_json", ""),
+            }
+        )
+    (WEB_DATA / "catalogo-tours.json").write_text(
+        json.dumps(catalog_json, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
     web_count = sum(1 for r in rows if r["en_web_json"] == "yes")
     sitemap_count = sum(1 for r in rows if r["en_sitemap"] == "yes")
     draft_count = sum(1 for r in rows if r["estado_sheet"] == "draft")
@@ -184,6 +209,7 @@ Ver `04-producto/RECONCILIACION-INVENTARIO.md` para 73 vs 69 vs 70.
 ## Archivos
 
 - `catalogo-tours.csv` — **73 filas** (una por ficha Sheet) + merge JSON web
+- Copia web: `pgt-web/data/catalogo-tours.{csv,json}` (vista `/catalog/`)
 """,
         encoding="utf-8",
     )

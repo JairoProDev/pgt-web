@@ -1,0 +1,31 @@
+URL de spam,Carpeta inyectada,Clics,Impresiones,CTR,Posición,Diagnóstico
+https://www.perugrandtravel.com/vip/96d-bet,/vip/,1.0,66.0,0.0152,6.21,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/72c-bet,/vip/,1.0,17.0,0.0588,6.41,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/818b-bet,/vip/,1.0,8.0,0.125,2.62,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/688c-bet,/vip/,1.0,8.0,0.125,9.88,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/z87-bet,/vip/,1.0,7.0,0.1429,6.43,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/melhores-jogos-coop-local-game-pass,/vip/,1.0,6.0,0.1667,13.67,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/jogos-de-psp-modificados,/vip/,1.0,5.0,0.2,10.2,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/jogo-171-quando-será-lançado,/vip/,1.0,5.0,0.2,12.6,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/5026-bet,/vip/,1.0,4.0,0.25,1.5,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/551f-bet,/vip/,1.0,3.0,0.3333,1.67,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/zki777-bet,/vip/,1.0,3.0,0.3333,3.33,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/melhores-mods-minecraft-tlauncher,/vip/,1.0,2.0,0.5,13.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/download-jogos-xbox-360-exploit,/vip/,1.0,2.0,0.5,39.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/apps/3370-com-bet,/apps/,1.0,2.0,0.5,47.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/apps/index,/apps/,1.0,1.0,1.0,1.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/4843-bet-com,/vip/,1.0,1.0,1.0,3.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/9md-bet,/vip/,1.0,1.0,1.0,3.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/8y3-bet,/vip/,1.0,1.0,1.0,4.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/bonanza-36tc,/vip/,1.0,1.0,1.0,7.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/m986-bet,/vip/,1.0,1.0,1.0,8.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/raça-negra-só-recordações-antigas-as-melhores-sua-musica,/vip/,1.0,1.0,1.0,8.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/melhores-jogos-psp-para-r36s,/vip/,1.0,1.0,1.0,10.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/2437-bet,/vip/,1.0,1.0,1.0,21.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+https://www.perugrandtravel.com/vip/jogo-dos-7-erros-para-imprimir-difícil,/vip/,1.0,1.0,1.0,52.0,"Inyección de spam — apuestas / juegos (contenido en portugués), no existe en el export de WordPress"
+Qué hacer con estas URLs:,,,,,,
+"1. Localizar y eliminar el contenido inyectado (revisar uploads, plugins y temas; suele entrar por un plugin desactualizado o una cuenta comprometida).",,,,,,
+"2. Devolver 410 Gone en /vip/ y /apps/ — mejor que 404 y mucho mejor que un 301, porque 410 acelera la desindexación.",,,,,,
+3. Pedir la retirada en Search Console (Eliminaciones) para las 24 URLs y revisar Seguridad y acciones manuales.,,,,,,
+"4. Cambiar contraseñas de WordPress, FTP y base de datos, y actualizar el núcleo y los plugins.",,,,,,
+"Impacto medido: 24 clics y 148 impresiones en 16 meses. El daño no es el tráfico, es el riesgo de acción manual por contenido de terceros.",,,,,,

@@ -1,0 +1,13 @@
+{
+  "tours": 18,
+  "blogs": 115,
+  "pilot_tours": [
+    "the-classic-salkantay-trek-5d",
+    "choquequirao-trek-5d",
+    "incredible-machu-picchu-2d"
+  ],
+  "drupal_base": "http://147.135.114.64",
+  "wp_base": "https://www.perugrandtravel.com",
+  "admin_products": "http://147.135.114.64/admin/content \u2192 tab Products",
+  "admin_blogs": "http://147.135.114.64/admin/content \u2192 filter Blog"
+}
