@@ -1,7 +1,7 @@
 # Estado del proyecto PGT Web
 
-> Última actualización: 2026-09-01  
-> Repo: [pgt-web](https://github.com/JairoProDev/pgt-web) · Prod: https://perugrandtravel.vercel.app  
+> Última actualización: 2026-09-02  
+> Repo: [pgt-web](https://github.com/JairoProDev/pgt-web) · Preview: https://perugrandtravel.vercel.app  
 
 ---
 
@@ -52,7 +52,7 @@
 | Footer links funcionales | 100% | **~95%** (ver auditoría abajo) |
 | Payload CMS | Editar 1 tour + 1 blog | **Stub** — export JSON listo, PostgreSQL pendiente |
 | Beta DNS | beta.perugrandtravel.com | **Pendiente (Jairo)** |
-| Cutover prod DNS | www → Vercel | **Pendiente (Jairo + Ricardo)** |
+| Cutover prod DNS | www → Vercel | **Pendiente (Jairo)** |
 
 ---
 
@@ -67,6 +67,9 @@
 - [x] `validate-parity-v2.sh`, `pre-cutover-checklist.sh`, `post-cutover-monitor.sh`
 - [x] Build production verde (~591 páginas)
 - [x] Deploy Vercel prod
+- [x] Preview oficial `perugrandtravel.vercel.app` (alias production, SSO protection off)
+- [x] `NEXT_PUBLIC_SITE_URL` en Vercel → canonical/OG correctos en preview
+- [x] `noindex` automático en `vercel.app` (no compite con WP indexado)
 
 ### Rutas y plantillas
 - [x] Home, `/packages/`, `/machu-picchu-packages/` (hubs con cards reales)

@@ -17,9 +17,13 @@ base = "$BASE".rstrip("/")
 inv = Path("$INV")
 limit = int("$LIMIT")
 
+def decode_entities(s):
+    import html
+    return html.unescape(s.replace("&amp;", "&"))
+
 def extract(html, pat):
     m = re.search(pat, html, re.I | re.S)
-    return m.group(1).strip().replace("&amp;", "&") if m else ""
+    return decode_entities(m.group(1).strip()) if m else ""
 
 def local_path(wp_url):
     p = urlparse(wp_url).path

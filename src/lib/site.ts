@@ -57,6 +57,7 @@ export const siteConfig = {
   ],
   isBeta:
     (process.env.NEXT_PUBLIC_SITE_URL ?? "").includes("beta.") ||
+    (process.env.NEXT_PUBLIC_SITE_URL ?? "").includes("vercel.app") ||
     process.env.NEXT_PUBLIC_ENV === "beta",
 } as const;
 

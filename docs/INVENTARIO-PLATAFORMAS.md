@@ -66,8 +66,7 @@ Actualizado: 2026-09-01 · Responsable técnico: **Jairo** (dirección) · Ejecu
 
 | URL | Uso |
 |-----|-----|
-| **https://perugrandtravel.vercel.app** | Prod preview memorable (alias activo 1 sep) |
-| `pgt-web-theta.vercel.app` | Alias técnico legacy (sigue funcionando) |
+| **https://perugrandtravel.vercel.app** | Preview oficial (alias production, público sin SSO) |
 | `beta.perugrandtravel.com` | Pendiente DNS → beta formal |
 | `www.perugrandtravel.com` | Cutover final con Ricardo |
 

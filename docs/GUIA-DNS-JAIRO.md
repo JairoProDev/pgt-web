@@ -7,8 +7,8 @@
 ## Antes de tocar DNS (checklist 30 min)
 
 1. **Vercel → proyecto `pgt-web` → Settings → Deployment Protection**
-   - Desactiva login en preview/prod **o** usa `pgt-web-theta.vercel.app` para QA (sin password).
-   - `perugrandtravel.vercel.app` hoy puede pedir login — no sirve para QA público.
+   - SSO desactivado (sep 2026) — `perugrandtravel.vercel.app` es público para QA y demos.
+2. **URL de preview oficial:** `https://perugrandtravel.vercel.app` (alias al deploy production más reciente).
 
 2. **Variables en Vercel (Production)**
 
@@ -23,7 +23,7 @@
 ```bash
 cd pgt-web
 npm run build
-bash scripts/pre-cutover-checklist.sh https://pgt-web-theta.vercel.app
+bash scripts/pre-cutover-checklist.sh https://perugrandtravel.vercel.app
 ```
 
 4. **GTM** — tag `whatsapp_click` → GA4 conversión (ver `docs/CUTOVER.md`).

@@ -2,7 +2,7 @@
 
 Next.js rebuild of **perugrandtravel.com** EN — performance, SEO, WhatsApp leads.
 
-**Live:** https://pgt-web-theta.vercel.app  
+**Live:** https://perugrandtravel.vercel.app  
 **Repo:** https://github.com/JairoProDev/pgt-web  
 **Estado completo:** [docs/ESTADO-PROYECTO.md](docs/ESTADO-PROYECTO.md) — hecho, pendiente, tus tareas, roadmap
 

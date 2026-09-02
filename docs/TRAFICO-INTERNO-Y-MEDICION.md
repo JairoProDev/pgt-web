@@ -73,7 +73,7 @@ Salida: `pgt/03-seo/datos/gsc-export-FECHA/<dominio>/queries-pages.csv`
 |--------------|------|-------|
 | `PGT Oficina Cusco` | coincidencia IP | IP pública oficina *(pedir a IT o ver en [whatismyip](https://whatismyip.com) desde la oficina)* |
 | `PGT Staging Drupal` | nombre de host contiene | `147.135.114.64` o hostname staging |
-| `PGT Beta Vercel` | nombre de host contiene | `pgt-web-theta.vercel.app` o `beta.` |
+| `PGT Beta Vercel` | nombre de host contiene | `perugrandtravel.vercel.app` o `beta.` |
 
 Para equipo remoto sin IP fija: más difícil — opciones:
 - No usar la web de prod para QA (usar beta con `noindex`)
@@ -145,7 +145,7 @@ Algunos compañeros **no entran directo** — buscan “peru grand travel” y c
 
 Sin área IT: Jairo puede pedir a Ricardo la **IP pública de la oficina Cusco** (router OVH/hosting) para la regla GA4.
 
-1. **QA y previews** → `pgt-web-theta.vercel.app` o staging Drupal, no prod.
+1. **QA y previews** → `perugrandtravel.vercel.app` o beta, no prod.
 2. **No** “buscar en Google y clicar” como ritual diario — no ayuda y distorsiona GSC mínimamente.
 3. **Sí** usar WhatsApp de prueba en beta; en prod solo si es lead real.
 4. **Bookmarks** de prod para revisar contenido: OK, pero GA4 debe filtrarlos.

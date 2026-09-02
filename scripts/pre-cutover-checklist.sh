@@ -2,7 +2,7 @@
 # Pre-cutover checklist — run against beta URL before DNS swap
 set -euo pipefail
 
-BASE="${1:-https://pgt-web-theta.vercel.app}"
+BASE="${1:-https://perugrandtravel.vercel.app}"
 INV="/home/jairoprodev/proyectos/pgt/03-seo/datos/inventario-sitemap-2026-08-31/inventario-urls.csv"
 
 echo "=== Pre-cutover checklist: $BASE ==="
