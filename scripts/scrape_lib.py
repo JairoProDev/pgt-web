@@ -47,11 +47,18 @@ def normalize_uploads(url: str) -> str:
 
 
 def extract_price(html: str) -> float:
+    # Price must come from this tour's header/booking widget — not "Related Tours" grids.
+    main_chunk = one(
+        html,
+        r"tourmaster-single-tour-content-wrap[^>]*>([\s\S]*?)(?:Related Tours|gdlr-core-title-item-title[^>]*>Related|</footer)",
+    ) or one(html, r"<main[^>]*>([\s\S]*?)</main>") or html
+    header_chunk = main_chunk.split("Related Tours")[0]
+
     for pat in [
         r'"@type"\s*:\s*"Product"[\s\S]*?"offers"\s*:\s*\{[\s\S]*?"price"\s*:\s*"([\d.]+)"',
         r'"offers"\s*:\s*\{[^}]*"price"\s*:\s*"([\d]+)"',
     ]:
-        m = re.search(pat, html, re.I)
+        m = re.search(pat, header_chunk, re.I)
         if m:
             try:
                 val = float(m.group(1))
@@ -59,33 +66,25 @@ def extract_price(html: str) -> float:
                     return val
             except ValueError:
                 pass
+
     patterns = [
+        r"tourmaster-tour-price-wrap[^>]*>[\s\S]{0,120}?US\$?\s*([\d,]+)",
+        r"tourmaster-tour-price[^>]*>\s*US\$?\s*([\d,]+)",
         r"From\s*US\$?\s*([\d,]+)",
-        r'tourmaster-price[^>]*>[\s\S]{0,200}?US\$?\s*([\d,]+)',
     ]
-    prices_chunk = _tour_content_chunk(html, "prices") or html
-    for pat in patterns:
-        m = re.search(pat, prices_chunk, re.I)
-        if m:
-            val = m.group(1).replace(",", "").strip()
-            if val:
-                try:
-                    p = float(val)
-                    if p >= 1:
-                        return p
-                except ValueError:
-                    continue
-    for pat in patterns:
-        m = re.search(pat, html, re.I)
-        if m:
-            val = m.group(1).replace(",", "").strip()
-            if val:
-                try:
-                    p = float(val)
-                    if p >= 1:
-                        return p
-                except ValueError:
-                    continue
+    prices_chunk = _tour_content_chunk(html, "prices") or header_chunk
+    for chunk in (prices_chunk, header_chunk):
+        for pat in patterns:
+            m = re.search(pat, chunk, re.I)
+            if m:
+                val = m.group(1).replace(",", "").strip()
+                if val:
+                    try:
+                        p = float(val)
+                        if p >= 1:
+                            return p
+                    except ValueError:
+                        continue
     return 0
 
 

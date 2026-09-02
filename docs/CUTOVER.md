@@ -5,7 +5,7 @@
 - [ ] `bash scripts/pre-cutover-checklist.sh https://beta.perugrandtravel.com` — verde
 - [ ] GTM: tag `whatsapp_click` → GA4 evento clave (propiedad `368486554`)
 - [ ] Demo Clever/Einer aprobada
-- [ ] Ricardo listo para DNS
+- [ ] DNS listo (ver `docs/GUIA-DNS-JAIRO.md`)
 
 ## Post-cutover (30 días)
 
@@ -21,7 +21,7 @@ Semanal: GSC cobertura, clics, 404. Rollback si clics caen >20% en 7d.
    - Vercel env: eliminar `NEXT_PUBLIC_ENV=beta` en producción
    - Verificar `robots.txt` permite index
 
-2. **DNS swap** (Ricardo)
+2. **DNS swap** (ver `docs/GUIA-DNS-JAIRO.md`)
    - `www.perugrandtravel.com` → Vercel (A/CNAME según panel)
    - `NEXT_PUBLIC_SITE_URL=https://www.perugrandtravel.com`
 

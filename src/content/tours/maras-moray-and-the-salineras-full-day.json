@@ -17,7 +17,13 @@
     "/images/content/tour/maras-moray-and-the-salineras-full-day/hero.webp"
   ],
   "summary": "Visit the Moray terraces and Maras Salt Mines on a scenic cultural day tour departing from Cusco and surroundings.",
-  "itinerary": [],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Day 1: Tour of Maras, Moray & Salineras from Cusco",
+      "body": "Transportation · Tour Guide"
+    }
+  ],
   "included": [
     "Day 1: - Transportation ; - Tour Guide"
   ],

@@ -7,7 +7,7 @@
     "description": "Enjoy an ATV adventure through Rainbow Mountain with panoramic Andean landscapes and unique cultural experiences.",
     "canonical": "/tour/atv-rainbow-mountain/"
   },
-  "priceFrom": 170,
+  "priceFrom": 170.0,
   "currency": "USD",
   "duration": "1 day",
   "difficulty": null,
@@ -17,12 +17,20 @@
     "/images/content/tour/atv-rainbow-mountain/hero.webp"
   ],
   "summary": "Enjoy an ATV adventure through Rainbow Mountain with panoramic Andean landscapes and unique cultural experiences.",
-  "itinerary": [],
+  "itinerary": [
+    {
+      "day": 1,
+      "title": "Day 1: Rainbow Mountain ATV Tour",
+      "body": "Transportation · Entrance ticket · 1 rain poncho(weather is unpredictable, even in the dry season!) · 1 Hearty breakfast and hot drinks · 1 Delicious lunch · First Aid Kit/ Oxygen tank / basic medical supplies/ high altitude medication · Professional guide · Trained in high-altitude mountain rescue · ATVs (Honda TRX 250) Fuel · Helmet."
+    }
+  ],
   "included": [
     "Day 1: - Transportation ; - Entrance ticket ; - 1 rain poncho(weather is unpredictable, even in the dry season!) ; - 1 Hearty breakfast and hot drinks ; - 1 Delicious lunch ; - First Aid Kit/ Oxygen tank / basic medical supplies/ high altitude medication ; - Professional guide ; - Trained in high-altitude mountain rescue ; - ATVs (Honda TRX 250) Fuel ; - Helmet."
   ],
   "excluded": [
-    "Day 1: - Transportation ; - Entrance ticket ; - 1 rain poncho(weather is unpredictable, even in the dry season!) ; - 1 Hearty breakfast and hot drinks ; - 1 Delicious lunch ; - First Aid Kit/ Oxygen tank / basic medical supplies/ high altitude medication ; - Professional guide ; - Trained in high-altitude mountain rescue ; - ATVs (Honda TRX 250) Fuel ; - Helmet."
+    "Meals not listed above",
+    "Personal expenses and tips",
+    "Travel insurance"
   ],
   "relatedTourSlugs": []
 }
