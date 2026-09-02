@@ -9,8 +9,8 @@ import {
   getHubTourCards,
   getToursBySlugs,
 } from "@/lib/content";
-import { cleanPageTitle } from "@/lib/page-utils";
-import { breadcrumbSchema } from "@/lib/schema";
+import { cleanPageTitle, sanitizeSectionHeading } from "@/lib/page-utils";
+import { breadcrumbSchema, touristDestinationSchema, travelAgencySchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 import type { PageContent, PageLink } from "@/lib/types";
 
@@ -94,7 +94,8 @@ function ChildLinksGrid({ links, title }: { links: PageLink[]; title: string }) 
 
 export function ContentPageView({ page, path, showTourGrid, tourGridTitle }: Props) {
   const h1 = cleanPageTitle(page.h1);
-  const isContact = page.slug === "contact-us";
+  const isContact = path === "/contact-us/";
+  const isDestination = page.pageType === "destination";
   const sections = page.sections?.filter((s) => s.body && s.body.length > 40) ?? [];
   const childLinks =
     page.childLinks && page.childLinks.length > 0
@@ -124,9 +125,24 @@ export function ContentPageView({ page, path, showTourGrid, tourGridTitle }: Pro
   }
   crumbs[crumbs.length - 1] = { name: h1, url: `${siteConfig.baseUrl}${path}` };
 
+  const jsonLd = [
+    breadcrumbSchema(crumbs),
+    ...(isContact ? [travelAgencySchema()] : []),
+    ...(isDestination
+      ? [
+          touristDestinationSchema({
+            name: h1,
+            description: page.heroSubtitle ?? page.seo.description,
+            url: `${siteConfig.baseUrl}${path}`,
+            image: page.heroImage,
+          }),
+        ]
+      : []),
+  ];
+
   return (
     <>
-      <JsonLd data={breadcrumbSchema(crumbs)} />
+      <JsonLd data={jsonLd} />
 
       {page.heroImage && (
         <div className="relative aspect-[21/9] max-h-[420px] w-full bg-stone-100">
@@ -155,7 +171,7 @@ export function ContentPageView({ page, path, showTourGrid, tourGridTitle }: Pro
         <div className="prose-pgt mt-10 space-y-10">
           {sections.map((section) => (
             <section key={`${section.heading}-${section.body.slice(0, 40)}`}>
-              <h2>{cleanPageTitle(section.heading)}</h2>
+              <h2>{sanitizeSectionHeading(section.heading, page.h1)}</h2>
               {section.body.split(/\n\n+/).map((para) => (
                 <p key={para.slice(0, 48)}>{para}</p>
               ))}

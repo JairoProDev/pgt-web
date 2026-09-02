@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleTagManager";
 import { Header } from "@/components/Header";
 import { TrustBar } from "@/components/TrustBar";
+import { absoluteContentUrl, geoMetadata, openGraphImage } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
@@ -16,35 +17,36 @@ const poppins = Poppins({
   display: "swap",
 });
 
-const defaultOgImage = siteConfig.logo;
+const defaultOgImage = "/images/content/page/home/hero.webp";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.baseUrl),
   title: {
-    default: siteConfig.name,
+    default: `${siteConfig.name} | Licensed Cusco Tour Operator`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.tagline,
   robots: siteConfig.isBeta
     ? { index: false, follow: true }
     : { index: true, follow: true },
+  other: geoMetadata,
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: siteConfig.name,
     title: siteConfig.name,
     description: siteConfig.tagline,
-    images: [{ url: defaultOgImage, width: 1200, height: 630, alt: siteConfig.name }],
+    images: openGraphImage(defaultOgImage),
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.tagline,
-    images: [defaultOgImage],
+    images: [absoluteContentUrl(defaultOgImage)],
   },
   icons: {
     icon: "/favicon.ico",
-    apple: siteConfig.logo,
+    apple: "/images/brand/logo.webp",
   },
 };
 
@@ -52,7 +54,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${poppins.variable} light`} style={{ colorScheme: "light" }}>
       <head>
-        <link rel="preconnect" href="https://www.perugrandtravel.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
       </head>
       <body className="flex min-h-screen flex-col bg-white font-sans text-stone-900 antialiased">

@@ -9,7 +9,7 @@ import { WhatsAppButton, WhatsAppSticky } from "@/components/WhatsAppButton";
 import { blogWhatsAppMessage, defaultRelatedTourSlugs } from "@/lib/conversion";
 import { getAllBlogSlugs, getBlog, getToursBySlugs } from "@/lib/content";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
-import { contentPageTitle } from "@/lib/metadata";
+import { contentPageTitle, openGraphImage } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: blog.publishedAt,
       modifiedTime: blog.modifiedAt,
-      images: [{ url: blog.heroImage }],
+      images: openGraphImage(blog.heroImage, blog.h1),
     },
   };
 }

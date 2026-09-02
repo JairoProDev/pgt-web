@@ -11,7 +11,8 @@ import { getAllTourSlugs, getTour } from "@/lib/content";
 import { displayDuration, formatPriceLabel, isTrustedPrice, tourWhatsAppMessage, TRUST_SIGNALS } from "@/lib/conversion";
 import { filterTourGallery } from "@/lib/tour-images";
 import { extraFaqsForTour } from "@/lib/tour-faq-extras";
-import { breadcrumbSchema, touristTripSchema } from "@/lib/schema";
+import { openGraphImage } from "@/lib/metadata";
+import { breadcrumbSchema, faqSchema, tourProductSchema, touristTripSchema } from "@/lib/schema";
 import { contentPageTitle } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: tour.seo.description,
       url: `${siteConfig.baseUrl}${path}`,
       type: "website",
-      images: [{ url: tour.heroImage }],
+      images: openGraphImage(tour.heroImage, tour.h1),
     },
   };
 }
@@ -66,40 +67,37 @@ export default async function TourPage({ params }: Props) {
   ];
 
   const galleryImages = filterTourGallery(tour.heroImage, tour.gallery);
+  const trustedPrice = isTrustedPrice(tour);
 
   return (
     <>
       <JsonLd
         data={[
-          {
-            "@context": "https://schema.org",
-            "@type": "Product",
+          tourProductSchema({
             name: tour.h1,
-            brand: siteConfig.name,
+            description: tour.summary,
             url,
+            price: tour.priceFrom,
+            currency: tour.currency,
             image: tour.heroImage,
-            offers: {
-              "@type": "Offer",
-              price: tour.priceFrom,
-              priceCurrency: tour.currency,
-              availability: "https://schema.org/InStock",
-              url,
-            },
-          },
+            trustedPrice,
+          }),
           touristTripSchema({
             name: tour.h1,
             description: tour.summary,
             url,
             price: tour.priceFrom,
             currency: tour.currency,
-            duration: tour.duration,
+            duration: duration || tour.duration,
             image: tour.heroImage,
+            trustedPrice,
           }),
           breadcrumbSchema([
             { name: "Home", url: siteConfig.baseUrl },
             { name: "Tours", url: `${siteConfig.baseUrl}/packages/` },
             { name: tour.h1, url },
           ]),
+          ...(faqs.length > 0 ? [faqSchema(faqs)] : []),
         ]}
       />
 

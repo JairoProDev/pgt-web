@@ -1,4 +1,5 @@
 import { getReviewsBundle } from "./trust-content";
+import { absoluteContentUrl } from "./metadata";
 import { siteConfig } from "./site";
 
 type AgencySchemaOptions = {
@@ -21,7 +22,7 @@ export function travelAgencySchema(opts: AgencySchemaOptions = {}) {
     name: siteConfig.name,
     legalName: siteConfig.legalName,
     url: siteConfig.baseUrl,
-    logo: siteConfig.logo,
+    logo: absoluteContentUrl(siteConfig.logo),
     description: siteConfig.tagline,
     telephone: [siteConfig.phonePe, siteConfig.phonePeSecondary, siteConfig.phoneUs],
     email: siteConfig.email,
@@ -83,25 +84,19 @@ export function touristTripSchema(tour: {
   currency: string;
   duration: string;
   image: string;
+  trustedPrice?: boolean;
 }) {
-  return {
+  const schema: Record<string, unknown> = {
     "@context": "https://schema.org",
     "@type": "TouristTrip",
     name: tour.name,
     description: tour.description,
     url: tour.url,
-    image: tour.image,
+    image: absoluteContentUrl(tour.image),
     touristType: "Adventure traveler",
     itinerary: {
       "@type": "ItemList",
       description: tour.duration,
-    },
-    offers: {
-      "@type": "Offer",
-      price: tour.price,
-      priceCurrency: tour.currency,
-      availability: "https://schema.org/InStock",
-      url: tour.url,
     },
     provider: {
       "@type": "TravelAgency",
@@ -109,6 +104,75 @@ export function touristTripSchema(tour: {
       name: siteConfig.name,
       telephone: siteConfig.phonePe,
     },
+  };
+
+  if (tour.trustedPrice && tour.price > 0) {
+    schema.offers = {
+      "@type": "Offer",
+      price: tour.price,
+      priceCurrency: tour.currency,
+      availability: "https://schema.org/InStock",
+      url: tour.url,
+    };
+  }
+
+  return schema;
+}
+
+export function tourProductSchema(tour: {
+  name: string;
+  description: string;
+  url: string;
+  price: number;
+  currency: string;
+  image: string;
+  trustedPrice: boolean;
+}) {
+  const schema: Record<string, unknown> = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: tour.name,
+    description: tour.description,
+    brand: { "@type": "Brand", name: siteConfig.name },
+    url: tour.url,
+    image: absoluteContentUrl(tour.image),
+  };
+
+  if (tour.trustedPrice && tour.price > 0) {
+    schema.offers = {
+      "@type": "Offer",
+      price: tour.price,
+      priceCurrency: tour.currency,
+      availability: "https://schema.org/InStock",
+      url: tour.url,
+    };
+  } else {
+    schema.offers = {
+      "@type": "Offer",
+      url: tour.url,
+      priceCurrency: tour.currency,
+      availability: "https://schema.org/InStock",
+      description: "Custom quote based on travel dates and group size",
+    };
+  }
+
+  return schema;
+}
+
+export function touristDestinationSchema(dest: {
+  name: string;
+  description: string;
+  url: string;
+  image?: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "TouristDestination",
+    name: dest.name,
+    description: dest.description,
+    url: dest.url,
+    ...(dest.image ? { image: absoluteContentUrl(dest.image) } : {}),
+    containedInPlace: { "@type": "Country", name: "Peru" },
   };
 }
 
@@ -128,14 +192,14 @@ export function articleSchema(article: {
     url: article.url,
     datePublished: article.datePublished,
     dateModified: article.dateModified,
-    image: article.image,
+    image: absoluteContentUrl(article.image),
     author: { "@type": "Organization", name: siteConfig.name },
     publisher: {
       "@type": "Organization",
       name: siteConfig.name,
       logo: {
         "@type": "ImageObject",
-        url: siteConfig.logo,
+        url: absoluteContentUrl(siteConfig.logo),
       },
     },
   };

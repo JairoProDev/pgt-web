@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { ContentPageView } from "@/components/ContentPageView";
 import { HubPage } from "@/components/HubPage";
 import { getAllPagePaths, getPageByPath } from "@/lib/content";
-import { contentPageTitle } from "@/lib/metadata";
+import { contentPageTitle, openGraphImage } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
 const RESERVED = new Set(["", "packages", "machu-picchu-packages", "tour", "blog", "blogs"]);
@@ -34,6 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: page.seo.title,
       description: page.seo.description,
       url: `${siteConfig.baseUrl}${path}`,
+      ...(page.heroImage ? { images: openGraphImage(page.heroImage, page.h1) } : {}),
     },
   };
 }

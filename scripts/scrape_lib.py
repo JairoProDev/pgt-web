@@ -331,6 +331,8 @@ def extract_page_sections(html: str) -> list[dict]:
         if m.group(1):
             heading = strip_html(m.group(1))
             if heading and len(heading) > 2:
+                if re.search(r"946\s*622\s*318|info@perugrandtravel\.com", heading) or len(heading) > 120:
+                    continue
                 current_heading = heading
         elif m.group(2):
             body = strip_html(m.group(2))
