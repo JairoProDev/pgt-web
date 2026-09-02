@@ -7,21 +7,15 @@
     "description": "Visit Cusco, Sacred Valley, and Machu Picchu on a complete 8-day itinerary filled with cultural experiences and stunning Andean landscapes.",
     "canonical": "/tour/unforgettable-machu-picchu-8d/"
   },
-  "priceFrom": 982.0,
+  "priceFrom": 982,
   "currency": "USD",
   "duration": "8D/7N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/machu-picchu-tour-8d.webp",
+  "heroImage": "/images/content/tour/unforgettable-machu-picchu-8d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/machu-picchu-tour-8d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/unforgettable-machu-picchu-8d/hero.webp",
+    "/images/content/tour/unforgettable-machu-picchu-8d/gallery/01.webp"
   ],
   "summary": "Visit Cusco, Sacred Valley, and Machu Picchu on a complete 8-day itinerary filled with cultural experiences and stunning Andean landscapes.",
   "itinerary": [

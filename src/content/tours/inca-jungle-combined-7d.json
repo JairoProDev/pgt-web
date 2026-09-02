@@ -9,19 +9,12 @@
   },
   "priceFrom": 0,
   "currency": "USD",
-  "duration": "1s;animation-fill-mode:both;animation-delay:0s;animation-iteration-count:1;}\t\t@keyframes center{from{transform:scale(0);}to{transform:scale(1);}}.ht_ctc_an_entry_center{animation: center .25s;}",
+  "duration": "7D",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/03/Inca-Jungle-Combined-7-days.webp",
+  "heroImage": "/images/content/tour/inca-jungle-combined-7d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2023/03/Inca-Jungle-Combined-7-days.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/inca-jungle-combined-7d/hero.webp"
   ],
   "summary": "✓ Book the 7-day Inca Jungle Trek, a new route that includes a city tour in Cusco, biking, hiking, exploration and adventure to Machu Picchu.",
   "itinerary": [

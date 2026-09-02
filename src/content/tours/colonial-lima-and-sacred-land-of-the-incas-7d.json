@@ -7,21 +7,15 @@
     "description": "Experience Peru in 7 days with Lima, Cusco and Machu Picchu! With guided tours, cultural highlights, local cuisine and iconic landmarks.",
     "canonical": "/tour/colonial-lima-and-sacred-land-of-the-incas-7d/"
   },
-  "priceFrom": 889.0,
+  "priceFrom": 889,
   "currency": "USD",
   "duration": "7D/6N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/sacred-valley-7d.webp",
+  "heroImage": "/images/content/tour/colonial-lima-and-sacred-land-of-the-incas-7d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/sacred-valley-7d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/colonial-lima-and-sacred-land-of-the-incas-7d/hero.webp",
+    "/images/content/tour/colonial-lima-and-sacred-land-of-the-incas-7d/gallery/01.webp"
   ],
   "summary": "Experience Peru in 7 days with Lima, Cusco and Machu Picchu! With guided tours, cultural highlights, local cuisine and iconic landmarks.",
   "itinerary": [

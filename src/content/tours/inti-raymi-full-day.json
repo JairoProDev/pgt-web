@@ -7,21 +7,15 @@
     "description": "Join the Inti Raymi Festival 2026 in Cusco, Peru, and experience one of the most iconic Inca cultural celebrations in South America.",
     "canonical": "/tour/inti-raymi-full-day/"
   },
-  "priceFrom": 350.0,
+  "priceFrom": 350,
   "currency": "USD",
   "duration": "4 days",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/03/inca-sacsayhuaman-inti-raymi.webp",
+  "heroImage": "/images/content/tour/inti-raymi-full-day/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2023/03/inca-sacsayhuaman-inti-raymi.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/inti-raymi-full-day/hero.webp",
+    "/images/content/tour/inti-raymi-full-day/gallery/01.webp"
   ],
   "summary": "Join the Inti Raymi Festival 2026 in Cusco, Peru, and experience one of the most iconic Inca cultural celebrations in South America.",
   "itinerary": [

@@ -9,7 +9,7 @@
   "h1": "Trip & Travel Blog",
   "publishedAt": "2021-02-19T15:59:38-05:00",
   "modifiedAt": "2025-04-29T11:36:16-05:00",
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/machu-picchu-peru-1.webp",
+  "heroImage": "/images/content/_fallback/blog-hero.webp",
   "intro": "01 Cusco Traditional Festivals and Celebrations in Peru 03/28/2022",
   "sections": [
     {

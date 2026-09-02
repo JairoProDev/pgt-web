@@ -7,21 +7,15 @@
     "description": "Ride through the Andes visiting Maras, Moray, and the Salt Mines on an exciting cycling adventure from Cusco.",
     "canonical": "/tour/tour-by-bike-maras-moray-and-salineras/"
   },
-  "priceFrom": 220.0,
+  "priceFrom": 220,
   "currency": "USD",
   "duration": "1 day",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/salineras-bike-2.webp",
+  "heroImage": "/images/content/tour/tour-by-bike-maras-moray-and-salineras/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/salineras-bike-2.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/tour-by-bike-maras-moray-and-salineras/hero.webp",
+    "/images/content/tour/tour-by-bike-maras-moray-and-salineras/gallery/01.webp"
   ],
   "summary": "Ride through the Andes visiting Maras, Moray, and the Salt Mines on an exciting cycling adventure from Cusco.",
   "itinerary": [

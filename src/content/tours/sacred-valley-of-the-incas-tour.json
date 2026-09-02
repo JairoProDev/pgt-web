@@ -7,21 +7,15 @@
     "description": "Dare to know the sacred valley of the incas, book here at the best price and service, include ✔️Transportacion, ✔️Guide, ✔️ Best experience.",
     "canonical": "/tour/sacred-valley-of-the-incas-tour/"
   },
-  "priceFrom": 80.0,
+  "priceFrom": 80,
   "currency": "USD",
   "duration": "2D/1N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/sacred-valley-1d.webp",
+  "heroImage": "/images/content/tour/sacred-valley-of-the-incas-tour/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/sacred-valley-1d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/sacred-valley-of-the-incas-tour/hero.webp",
+    "/images/content/tour/sacred-valley-of-the-incas-tour/gallery/01.webp"
   ],
   "summary": "Dare to know the sacred valley of the incas, book here at the best price and service, include ✔️Transportacion, ✔️Guide, ✔️ Best experience.",
   "itinerary": [

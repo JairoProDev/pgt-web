@@ -7,21 +7,15 @@
     "description": "Visit Vinicunca Rainbow Mountain by ATV and enjoy panoramic mountain views with less hiking effort and adventure.",
     "canonical": "/tour/rainbow-mountain-full-day/"
   },
-  "priceFrom": 90.0,
+  "priceFrom": 90,
   "currency": "USD",
   "duration": "1 day",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/Rainbow-Mountain-Peru-day-trip.webp",
+  "heroImage": "/images/content/tour/rainbow-mountain-full-day/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/Rainbow-Mountain-Peru-day-trip.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/rainbow-mountain-full-day/hero.webp",
+    "/images/content/tour/rainbow-mountain-full-day/gallery/01.webp"
   ],
   "summary": "Visit Vinicunca Rainbow Mountain by ATV and enjoy panoramic mountain views with less hiking effort and adventure.",
   "itinerary": [

@@ -22,7 +22,7 @@ export const siteConfig = {
     /** Single-line for display */
     formatted: "Av. El Sol N° 948 INT. OF. 320, Cusco – Peru",
   },
-  logo: "https://www.perugrandtravel.com/wp-content/uploads/2024/04/peru-grand-travel-logo-colour.png",
+  logo: "/images/brand/logo.webp",
   social: {
     facebook: "https://www.facebook.com/perugrandtravel.br",
     instagram: "https://www.instagram.com/perugrandtravel/",
@@ -32,25 +32,25 @@ export const siteConfig = {
   paymentMethods: [
     {
       name: "BCP",
-      logo: "https://www.perugrandtravel.com/wp-content/uploads/2025/01/ico-bcp.webp",
+      logo: "/images/brand/payments/bcp.webp",
       width: 73,
       height: 25,
     },
     {
       name: "EBANX",
-      logo: "https://www.perugrandtravel.com/wp-content/uploads/2025/01/ico-ebanx.webp",
+      logo: "/images/brand/payments/ebanx.webp",
       width: 70,
       height: 25,
     },
     {
       name: "Western Union",
-      logo: "https://www.perugrandtravel.com/wp-content/uploads/2025/01/ico-western-union.webp",
+      logo: "/images/brand/payments/western-union.webp",
       width: 54,
       height: 26,
     },
     {
       name: "MoneyGram",
-      logo: "https://www.perugrandtravel.com/wp-content/uploads/2025/01/ico-money-gram.webp",
+      logo: "/images/brand/payments/moneygram.webp",
       width: 64,
       height: 22,
     },

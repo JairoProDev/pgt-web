@@ -7,21 +7,15 @@
     "description": "Travel to Cusco, Sacred Valley, and Machu Picchu while enjoying gourmet picnic experiences surrounded by the Andes Mountains.",
     "canonical": "/tour/machu-picchu-experience-picnic-with-llamas-7d/"
   },
-  "priceFrom": 982.0,
+  "priceFrom": 982,
   "currency": "USD",
   "duration": "7D/6N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/piquenique-vale-sagrado.webp",
+  "heroImage": "/images/content/tour/machu-picchu-experience-picnic-with-llamas-7d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/piquenique-vale-sagrado.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/machu-picchu-experience-picnic-with-llamas-7d/hero.webp",
+    "/images/content/tour/machu-picchu-experience-picnic-with-llamas-7d/gallery/01.webp"
   ],
   "summary": "Travel to Cusco, Sacred Valley, and Machu Picchu while enjoying gourmet picnic experiences surrounded by the Andes Mountains.",
   "itinerary": [

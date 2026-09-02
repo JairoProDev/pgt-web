@@ -12,16 +12,10 @@
   "duration": "1 day",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/07/dome-piuray-lagoon.jpg",
+  "heroImage": "/images/content/tour/dome-piuray-lagoon/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/07/dome-piuray-lagoon.jpg",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/dome-piuray-lagoon/hero.webp",
+    "/images/content/tour/dome-piuray-lagoon/gallery/01.webp"
   ],
   "summary": "Explore the tranquility of the Piuray Lagoon Dome with our exclusive tour. A serene experience in the middle of nature.",
   "itinerary": [

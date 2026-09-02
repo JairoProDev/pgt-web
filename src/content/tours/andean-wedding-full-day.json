@@ -7,21 +7,15 @@
     "description": "Participate in an authentic Andean wedding ceremony in Chinchero and experience Peru’s ancestral traditions.",
     "canonical": "/tour/andean-wedding-full-day/"
   },
-  "priceFrom": 299.0,
+  "priceFrom": 299,
   "currency": "USD",
   "duration": "1 day",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/04/Andean-Wedding-Full-Day.webp",
+  "heroImage": "/images/content/tour/andean-wedding-full-day/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2023/04/Andean-Wedding-Full-Day.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/andean-wedding-full-day/hero.webp",
+    "/images/content/tour/andean-wedding-full-day/gallery/01.webp"
   ],
   "summary": "Participate in an authentic Andean wedding ceremony in Chinchero and experience Peru’s ancestral traditions.",
   "itinerary": [

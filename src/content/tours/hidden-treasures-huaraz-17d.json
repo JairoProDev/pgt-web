@@ -7,21 +7,15 @@
     "description": "Explore Huaraz, Cusco, Machu Picchu, and Peru’s hidden treasures on an unforgettable 17-day Peru Package Tour.",
     "canonical": "/tour/hidden-treasures-huaraz-17d/"
   },
-  "priceFrom": 3030.0,
+  "priceFrom": 3030,
   "currency": "USD",
   "duration": "17D/16N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/03/arequipa-package-17d.webp",
+  "heroImage": "/images/content/tour/hidden-treasures-huaraz-17d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2023/03/arequipa-package-17d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/hidden-treasures-huaraz-17d/hero.webp",
+    "/images/content/tour/hidden-treasures-huaraz-17d/gallery/01.webp"
   ],
   "summary": "Explore Huaraz, Cusco, Machu Picchu, and Peru’s hidden treasures on an unforgettable 17-day Peru Package Tour.",
   "itinerary": [

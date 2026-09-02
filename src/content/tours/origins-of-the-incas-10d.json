@@ -7,21 +7,15 @@
     "description": "Explore Peru in 10 days with visits to Lima, the Nazca Lines, Cusco, Machu Picchu and Lake Titicaca. Uncover Peru’s rich history and culture.",
     "canonical": "/tour/origins-of-the-incas-10d/"
   },
-  "priceFrom": 1593.0,
+  "priceFrom": 1593,
   "currency": "USD",
   "duration": "10D/9N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/03/nazca-line-package-10d.webp",
+  "heroImage": "/images/content/tour/origins-of-the-incas-10d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2023/03/nazca-line-package-10d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/origins-of-the-incas-10d/hero.webp",
+    "/images/content/tour/origins-of-the-incas-10d/gallery/01.webp"
   ],
   "summary": "Explore Peru in 10 days with visits to Lima, the Nazca Lines, Cusco, Machu Picchu and Lake Titicaca. Uncover Peru’s rich history and culture.",
   "itinerary": [

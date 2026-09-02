@@ -12,7 +12,7 @@
   "heroEmotionalLine": "TRAVEL · DISCOVER · PERU",
   "heroHeadline": "Your Machu Picchu adventure starts here",
   "heroSubtitle": "Licensed Cusco tour operator since 2012. Hotels, transfers & expert guides — tell us your trip details and we send 2–3 tailored quotes on WhatsApp.",
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/06/machu-picchu-peru-1.jpg",
+  "heroImage": "/images/content/page/home/hero.webp",
   "sections": [
     {
       "heading": "Most popular trips",
@@ -29,14 +29,6 @@
   ],
   "bodyHtml": "",
   "childLinks": [
-    {
-      "path": "/feed/",
-      "label": "Feed"
-    },
-    {
-      "path": "/wp-json/",
-      "label": "Wp Json"
-    },
     {
       "path": "/blog/",
       "label": "Blog"

@@ -7,21 +7,15 @@
     "description": "Uncover Cusco, Andean trails, and Machu Picchu on an exciting 8-day adventure itinerary designed for active travelers.",
     "canonical": "/tour/machu-picchu-challenge-8d/"
   },
-  "priceFrom": 1009.0,
+  "priceFrom": 1009,
   "currency": "USD",
   "duration": "8D/7N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/humantay-lagoon-8d.webp",
+  "heroImage": "/images/content/tour/machu-picchu-challenge-8d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/humantay-lagoon-8d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/machu-picchu-challenge-8d/hero.webp",
+    "/images/content/tour/machu-picchu-challenge-8d/gallery/01.webp"
   ],
   "summary": "Uncover Cusco, Andean trails, and Machu Picchu on an exciting 8-day adventure itinerary designed for active travelers.",
   "itinerary": [

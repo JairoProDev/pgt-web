@@ -7,21 +7,15 @@
     "description": "Book your excursion to the Cusco Planetarium. Learn more about Inca astronomy, how they used it for religion and agriculture.",
     "canonical": "/tour/cusco-planetarium/"
   },
-  "priceFrom": 50.0,
+  "priceFrom": 50,
   "currency": "USD",
   "duration": "2D/1N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/planetario-cusco-1d.webp",
+  "heroImage": "/images/content/tour/cusco-planetarium/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/planetario-cusco-1d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/cusco-planetarium/hero.webp",
+    "/images/content/tour/cusco-planetarium/gallery/01.webp"
   ],
   "summary": "Book your excursion to the Cusco Planetarium. Learn more about Inca astronomy, how they used it for religion and agriculture.",
   "itinerary": [

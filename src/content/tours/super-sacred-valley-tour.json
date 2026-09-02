@@ -7,21 +7,15 @@
     "description": "Sacred valley of the incas is waiting for you, book here at the best price and service, include ✔️Transportacion, ✔️Guide, ✔️ Best experience.",
     "canonical": "/tour/super-sacred-valley-tour/"
   },
-  "priceFrom": 80.0,
+  "priceFrom": 80,
   "currency": "USD",
   "duration": "2D/1N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Super-Sacred-Valley-1.webp",
+  "heroImage": "/images/content/tour/super-sacred-valley-tour/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Super-Sacred-Valley-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/super-sacred-valley-tour/hero.webp",
+    "/images/content/tour/super-sacred-valley-tour/gallery/01.webp"
   ],
   "summary": "Sacred valley of the incas is waiting for you, book here at the best price and service, include ✔️Transportacion, ✔️Guide, ✔️ Best experience.",
   "itinerary": [

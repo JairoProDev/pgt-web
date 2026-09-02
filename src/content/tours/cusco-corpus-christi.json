@@ -9,19 +9,12 @@
   },
   "priceFrom": 0,
   "currency": "USD",
-  "duration": "1 day",
+  "duration": "4D",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/12/Corpus-Christi-Cusco.webp",
+  "heroImage": "/images/content/tour/cusco-corpus-christi/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2023/12/Corpus-Christi-Cusco.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/cusco-corpus-christi/hero.webp"
   ],
   "summary": "Join the Corpus Christi festival in Cusco, Peru, on a 4-day cultural tour with traditional processions and Andean heritage celebrations.",
   "itinerary": [],

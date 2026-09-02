@@ -7,21 +7,15 @@
     "description": "Explore Cusco, Maras, Moray, Sacred Valley, and Machu Picchu on a complete journey through the heart of the Inca Empire.",
     "canonical": "/tour/incredible-experience-machu-picchu-7d/"
   },
-  "priceFrom": 935.0,
+  "priceFrom": 935,
   "currency": "USD",
   "duration": "7D/6N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/machu-picchu-tour-7d.webp",
+  "heroImage": "/images/content/tour/incredible-experience-machu-picchu-7d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/machu-picchu-tour-7d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/incredible-experience-machu-picchu-7d/hero.webp",
+    "/images/content/tour/incredible-experience-machu-picchu-7d/gallery/01.webp"
   ],
   "summary": "Explore Cusco, Maras, Moray, Sacred Valley, and Machu Picchu on a complete journey through the heart of the Inca Empire.",
   "itinerary": [

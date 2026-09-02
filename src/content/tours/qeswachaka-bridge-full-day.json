@@ -7,21 +7,15 @@
     "description": "Visit Peru’s last remaining Inca suspension bridge on a unique cultural day tour from Cusco and surrounding Sacred Valley area.",
     "canonical": "/tour/qeswachaka-bridge-full-day/"
   },
-  "priceFrom": 90.0,
+  "priceFrom": 90,
   "currency": "USD",
   "duration": "1 day",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/03/qeswachaca-inca-bridge.webp",
+  "heroImage": "/images/content/tour/qeswachaka-bridge-full-day/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2023/03/qeswachaca-inca-bridge.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/qeswachaka-bridge-full-day/hero.webp",
+    "/images/content/tour/qeswachaka-bridge-full-day/gallery/01.webp"
   ],
   "summary": "Visit Peru’s last remaining Inca suspension bridge on a unique cultural day tour from Cusco and surrounding Sacred Valley area.",
   "itinerary": [

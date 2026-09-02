@@ -7,21 +7,15 @@
     "description": "Discover the Ballestas & Huacachina islands in one day. Explore marine wildlife, visit Ica’s wineries, and enjoy a thrilling dune buggy ride.",
     "canonical": "/tour/ballestas-huacachina-islands-full-day/"
   },
-  "priceFrom": 150.0,
+  "priceFrom": 150,
   "currency": "USD",
   "duration": "2D/1N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ballestas-Huacachina_1.webp",
+  "heroImage": "/images/content/tour/ballestas-huacachina-islands-full-day/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ballestas-Huacachina_1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/ballestas-huacachina-islands-full-day/hero.webp",
+    "/images/content/tour/ballestas-huacachina-islands-full-day/gallery/01.webp"
   ],
   "summary": "Discover the Ballestas & Huacachina islands in one day. Explore marine wildlife, visit Ica’s wineries, and enjoy a thrilling dune buggy ride.",
   "itinerary": [

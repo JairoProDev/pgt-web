@@ -7,21 +7,14 @@
     "description": "Visit the Moray terraces and Maras Salt Mines on a scenic cultural day tour departing from Cusco and surroundings.",
     "canonical": "/tour/maras-moray-and-the-salineras-full-day/"
   },
-  "priceFrom": 60.0,
+  "priceFrom": 60,
   "currency": "USD",
   "duration": "1 day",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/salt-mines-cusco-1d.webp",
+  "heroImage": "/images/content/tour/maras-moray-and-the-salineras-full-day/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/salt-mines-cusco-1d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/maras-moray-and-the-salineras-full-day/hero.webp"
   ],
   "summary": "Visit the Moray terraces and Maras Salt Mines on a scenic cultural day tour departing from Cusco and surroundings.",
   "itinerary": [],

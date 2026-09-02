@@ -7,21 +7,15 @@
     "description": "Hike the Short Inca Trail and arrive at Machu Picchu through the Sun Gate in an unforgettable 2-day adventure.",
     "canonical": "/tour/short-inca-trail-2d/"
   },
-  "priceFrom": 565.0,
+  "priceFrom": 565,
   "currency": "USD",
-  "duration": "",
+  "duration": "2D",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/short-inca-trail.webp",
+  "heroImage": "/images/content/tour/short-inca-trail-2d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/short-inca-trail.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/short-inca-trail-2d/hero.webp",
+    "/images/content/tour/short-inca-trail-2d/gallery/01.webp"
   ],
   "summary": "Hike the Short Inca Trail and arrive at Machu Picchu through the Sun Gate in an unforgettable 2-day adventure.",
   "itinerary": [

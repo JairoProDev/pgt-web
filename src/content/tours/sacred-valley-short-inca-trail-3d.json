@@ -7,21 +7,15 @@
     "description": "Combine Sacred Valley excursions with the Short Inca Trail on a complete Machu Picchu unforgettable adventure.",
     "canonical": "/tour/sacred-valley-short-inca-trail-3d/"
   },
-  "priceFrom": 620.0,
+  "priceFrom": 620,
   "currency": "USD",
-  "duration": "",
+  "duration": "3D",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/03/inca-trail-short-3d.webp",
+  "heroImage": "/images/content/tour/sacred-valley-short-inca-trail-3d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2023/03/inca-trail-short-3d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/sacred-valley-short-inca-trail-3d/hero.webp",
+    "/images/content/tour/sacred-valley-short-inca-trail-3d/gallery/01.webp"
   ],
   "summary": "Combine Sacred Valley excursions with the Short Inca Trail on a complete Machu Picchu unforgettable adventure.",
   "itinerary": [

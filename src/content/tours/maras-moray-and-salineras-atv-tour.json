@@ -7,21 +7,15 @@
     "description": "Explore Maras and Moray by ATV while enjoying Andean scenery, culture, and nearby archaeological sites in Cusco.",
     "canonical": "/tour/maras-moray-and-salineras-atv-tour/"
   },
-  "priceFrom": 120.0,
+  "priceFrom": 120,
   "currency": "USD",
   "duration": "7 hours) – in a group",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Moray-Quad-Bike.webp",
+  "heroImage": "/images/content/tour/maras-moray-and-salineras-atv-tour/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Moray-Quad-Bike.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/maras-moray-and-salineras-atv-tour/hero.webp",
+    "/images/content/tour/maras-moray-and-salineras-atv-tour/gallery/01.webp"
   ],
   "summary": "Explore Maras and Moray by ATV while enjoying Andean scenery, culture, and nearby archaeological sites in Cusco.",
   "itinerary": [

@@ -9,19 +9,12 @@
   },
   "priceFrom": 0,
   "currency": "USD",
-  "duration": "1 day",
+  "duration": "6D",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/01/holy-week-cusco-6d.jpg",
+  "heroImage": "/images/content/tour/holy-week-in-cusco/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/01/holy-week-cusco-6d.jpg",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/holy-week-in-cusco/hero.webp"
   ],
   "summary": "Experience Holy Week in Cusco on a 6-day tour exploring traditional processions, religious ceremonies and Andean cultural heritage in Peru.",
   "itinerary": [],

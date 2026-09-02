@@ -1,49 +1,42 @@
 {
   "slug": "challenge-of-the-incas-15d",
-  "title": "Peru Travel Packages 2026 - Customized Tours & Machu Picchu",
-  "h1": "",
+  "title": "Challenge of the Incas 15 days – Peru Grand Travel",
+  "h1": "Challenge of the Incas 15 days",
   "seo": {
-    "title": "Peru Travel Packages 2026 - Customized Tours & Machu Picchu",
-    "description": "Peru travel packages with hotels, transfers and guided tours. Visit Machu Picchu, Cusco, Lima and the Amazon on a personalized journey.",
+    "title": "Challenge of the Incas 15 days – Peru Grand Travel",
+    "description": "Discover the fascinating 15-day itinerary in Peru — Cusco, Puno, Lima and Machu Picchu on a guided package with hotels, transfers and expert local guides.",
     "canonical": "/tour/challenge-of-the-incas-15d/"
   },
   "priceFrom": 0,
   "currency": "USD",
-  "duration": "7D/6N",
+  "duration": "15D/14N",
   "difficulty": null,
-  "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2026/02/peru-travel-packages-2026.jpg",
-  "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/02/peru-travel-packages-2026.jpg",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+  "categories": [
+    "Tours in Peru",
+    "Combined Travel"
   ],
-  "summary": "Peru travel packages with hotels, transfers and guided tours. Visit Machu Picchu, Cusco, Lima and the Amazon on a personalized journey.",
+  "heroImage": "/images/content/tour/challenge-of-the-incas-15d/hero.webp",
+  "gallery": [
+    "/images/content/tour/challenge-of-the-incas-15d/hero.webp"
+  ],
+  "summary": "A 15-day Peru itinerary combining the coast, Andes and Lake Titicaca — Cusco, Sacred Valley, Machu Picchu, Puno and Lima with licensed guides and tailored hotels.",
   "itinerary": [],
   "included": [
-    "Peru Packages Colonial Lima and Sacred land of the Incas 7D/6N",
-    "Inca Encounters 8D/7N",
-    "Colonial Lima, Huacachina, and Sacred Land of the Incas 9D/8N",
-    "Spectacular Peru 10D/9N",
-    "Gastronomic and Historic Peru 10D/9N",
-    "Origins of the Incas 10D/9N",
-    "Fascinating adventure & challenge in the Andes 11D/10N",
-    "Origins and Mysteries of the Andes 16D/15N"
+    "Licensed bilingual guide on scheduled excursions",
+    "Hotels and domestic transfers per confirmed itinerary",
+    "Machu Picchu entrance and train tickets (as per program)",
+    "24/7 WhatsApp support from our Cusco team"
   ],
   "excluded": [
-    "Peru Packages Colonial Lima and Sacred land of the Incas 7D/6N",
-    "Inca Encounters 8D/7N",
-    "Colonial Lima, Huacachina, and Sacred Land of the Incas 9D/8N",
-    "Spectacular Peru 10D/9N",
-    "Gastronomic and Historic Peru 10D/9N",
-    "Origins of the Incas 10D/9N",
-    "Fascinating adventure & challenge in the Andes 11D/10N",
-    "Origins and Mysteries of the Andes 16D/15N"
+    "International flights",
+    "Meals not specified in the program",
+    "Travel insurance",
+    "Tips and personal expenses"
   ],
-  "relatedTourSlugs": []
+  "relatedTourSlugs": [
+    "origins-and-mysteries-of-the-andes-16d",
+    "wonderful-peru-12-days",
+    "spectacular-peru-10d",
+    "colonial-lima-huacachina-and-sacred-land-of-the-incas-9-days"
+  ]
 }

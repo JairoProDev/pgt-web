@@ -7,21 +7,15 @@
     "description": "Explore Piquillacta, Tipón, and Andahuaylillas in the South Valley in Cusco. Dive into history and culture. Book your adventure now!",
     "canonical": "/tour/tour-south-valley-cusco/"
   },
-  "priceFrom": 60.0,
+  "priceFrom": 60,
   "currency": "USD",
   "duration": "2D/1N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/igreja-andahuaylillas-vale-sul.webp",
+  "heroImage": "/images/content/tour/tour-south-valley-cusco/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/igreja-andahuaylillas-vale-sul.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/tour-south-valley-cusco/hero.webp",
+    "/images/content/tour/tour-south-valley-cusco/gallery/01.webp"
   ],
   "summary": "Explore Piquillacta, Tipón, and Andahuaylillas in the South Valley in Cusco. Dive into history and culture. Book your adventure now!",
   "itinerary": [

@@ -12,6 +12,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 TOURS = ROOT / "src/content/tours"
 BLOGS = ROOT / "src/content/blogs"
+PAGES = ROOT / "src/content/pages"
 OUT = ROOT / "public/images/backup"
 
 
@@ -22,7 +23,8 @@ def slugify(url: str) -> str:
 
 def load_heroes(limit: int) -> list[tuple[str, str]]:
     items: list[tuple[str, str, float]] = []
-    for d, kind in ((TOURS, "tour"), (BLOGS, "blog")):
+    sources = ((TOURS, "tour"), (BLOGS, "blog"), (PAGES, "page"))
+    for d, kind in sources:
         if not d.exists():
             continue
         for f in d.glob("*.json"):
@@ -30,7 +32,8 @@ def load_heroes(limit: int) -> list[tuple[str, str]]:
             url = data.get("heroImage") or ""
             if not url.startswith("http"):
                 continue
-            price = float(data.get("priceFrom") or 0) if kind == "tour" else 0
+            priority = 1000.0 if data.get("pageType") in ("home", "hub") else 0.0
+            price = float(data.get("priceFrom") or 0) if kind == "tour" else priority
             items.append((f"{kind}/{data.get('slug', f.stem)}", url, price))
     items.sort(key=lambda x: x[2], reverse=True)
     seen: set[str] = set()

@@ -7,21 +7,15 @@
     "description": "Dare to know Cusco and book your City Tour Cusco, here, at the best price and service, include ✔️Transportacion, ✔️Guide, ✔️ Best experience.",
     "canonical": "/tour/city-tour-in-cusco/"
   },
-  "priceFrom": 60.0,
+  "priceFrom": 60,
   "currency": "USD",
   "duration": "2D/1N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/cusco-city-catedral.webp",
+  "heroImage": "/images/content/tour/city-tour-in-cusco/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/cusco-city-catedral.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/city-tour-in-cusco/hero.webp",
+    "/images/content/tour/city-tour-in-cusco/gallery/01.webp"
   ],
   "summary": "Dare to know Cusco and book your City Tour Cusco, here, at the best price and service, include ✔️Transportacion, ✔️Guide, ✔️ Best experience.",
   "itinerary": [

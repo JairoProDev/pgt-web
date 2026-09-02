@@ -7,21 +7,15 @@
     "description": "Travel across Peru in 11 days visiting Lima, Paracas, Huacachina, Cusco, and Machu Picchu on a complete adventure itinerary.",
     "canonical": "/tour/fascinating-adventure-challenge-in-the-andes-11-days/"
   },
-  "priceFrom": 1299.0,
+  "priceFrom": 1299,
   "currency": "USD",
   "duration": "11D/10N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/cidadela-machu-picchu.webp",
+  "heroImage": "/images/content/tour/fascinating-adventure-challenge-in-the-andes-11-days/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/cidadela-machu-picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/fascinating-adventure-challenge-in-the-andes-11-days/hero.webp",
+    "/images/content/tour/fascinating-adventure-challenge-in-the-andes-11-days/gallery/01.webp"
   ],
   "summary": "Travel across Peru in 11 days visiting Lima, Paracas, Huacachina, Cusco, and Machu Picchu on a complete adventure itinerary.",
   "itinerary": [

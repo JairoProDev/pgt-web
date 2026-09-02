@@ -7,21 +7,15 @@
     "description": "Take on an 8-day Machu Picchu adventure through the Andes. Perfect for trekkers and nature lovers seeking an unforgettable experience.",
     "canonical": "/tour/machu-picchu-extreme-challenge/"
   },
-  "priceFrom": 1083.0,
+  "priceFrom": 1083,
   "currency": "USD",
   "duration": "8D/7N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/01/rainbow-mountain-atv-package.webp",
+  "heroImage": "/images/content/tour/machu-picchu-extreme-challenge/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/01/rainbow-mountain-atv-package.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/machu-picchu-extreme-challenge/hero.webp",
+    "/images/content/tour/machu-picchu-extreme-challenge/gallery/01.webp"
   ],
   "summary": "Take on an 8-day Machu Picchu adventure through the Andes. Perfect for trekkers and nature lovers seeking an unforgettable experience.",
   "itinerary": [

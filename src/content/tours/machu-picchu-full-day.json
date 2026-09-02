@@ -7,21 +7,16 @@
     "description": "Visit Machu Picchu in one day from Cusco. Including train tickets, transportation and a guided tour of the Inca citadel.",
     "canonical": "/tour/machu-picchu-full-day/"
   },
-  "priceFrom": 387.0,
+  "priceFrom": 387,
   "currency": "USD",
   "duration": "2D/1N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/machu-picchu-full-day.webp",
+  "heroImage": "/images/content/tour/machu-picchu-full-day/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/Machu-Picchu-Full-Day-Tour-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/machu-picchu-full-day.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp"
+    "/images/content/tour/machu-picchu-full-day/hero.webp",
+    "/images/content/tour/machu-picchu-full-day/gallery/01.webp",
+    "/images/content/tour/machu-picchu-full-day/gallery/02.webp"
   ],
   "summary": "Visit Machu Picchu in one day from Cusco. Including train tickets, transportation and a guided tour of the Inca citadel.",
   "itinerary": [

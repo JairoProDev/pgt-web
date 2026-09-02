@@ -7,21 +7,15 @@
     "description": "The ultimate 8-day Peru itinerary through Cusco, Machu Picchu and Puno. Explore Sacred Valley, Andean vistas and Lake Titicaca over 8 days.",
     "canonical": "/tour/inca-encounters-8d/"
   },
-  "priceFrom": 1144.0,
+  "priceFrom": 1144,
   "currency": "USD",
   "duration": "8D/7N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/titicaca-lake-package-8d.webp",
+  "heroImage": "/images/content/tour/inca-encounters-8d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/titicaca-lake-package-8d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/inca-encounters-8d/hero.webp",
+    "/images/content/tour/inca-encounters-8d/gallery/01.webp"
   ],
   "summary": "The ultimate 8-day Peru itinerary through Cusco, Machu Picchu and Puno. Explore Sacred Valley, Andean vistas and Lake Titicaca over 8 days.",
   "itinerary": [

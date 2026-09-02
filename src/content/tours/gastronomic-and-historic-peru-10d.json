@@ -7,21 +7,15 @@
     "description": "Enjoy Peru’s renowned cuisine while visiting Lima, Cusco, Machu Picchu, the Sacred Valley and Lake Titicaca on a 10-day journey.",
     "canonical": "/tour/gastronomic-and-historic-peru-10d/"
   },
-  "priceFrom": 1378.0,
+  "priceFrom": 1378,
   "currency": "USD",
   "duration": "10D/9N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/lima-packages-10d.webp",
+  "heroImage": "/images/content/tour/gastronomic-and-historic-peru-10d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/lima-packages-10d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/gastronomic-and-historic-peru-10d/hero.webp",
+    "/images/content/tour/gastronomic-and-historic-peru-10d/gallery/01.webp"
   ],
   "summary": "Enjoy Peru’s renowned cuisine while visiting Lima, Cusco, Machu Picchu, the Sacred Valley and Lake Titicaca on a 10-day journey.",
   "itinerary": [

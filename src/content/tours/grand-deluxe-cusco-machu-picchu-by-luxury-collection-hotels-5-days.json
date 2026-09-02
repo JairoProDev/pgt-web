@@ -7,21 +7,15 @@
     "description": "Spoil yourself on a 5-day luxury journey through Cusco, the Sacred Valley and Machu Picchu staying at Luxury Collection Hotels.",
     "canonical": "/tour/grand-deluxe-cusco-machu-picchu-by-luxury-collection-hotels-5-days/"
   },
-  "priceFrom": 1852.0,
+  "priceFrom": 1852,
   "currency": "USD",
-  "duration": "1s;animation-fill-mode:both;animation-delay:0s;animation-iteration-count:1;}\t\t@keyframes center{from{transform:scale(0);}to{transform:scale(1);}}.ht_ctc_an_entry_center{animation: center .25s;}",
+  "duration": "5D",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/12/spa-tambo-del-inka-luxury-collection.webp",
+  "heroImage": "/images/content/tour/grand-deluxe-cusco-machu-picchu-by-luxury-collection-hotels-5-days/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/12/spa-tambo-del-inka-luxury-collection.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/grand-deluxe-cusco-machu-picchu-by-luxury-collection-hotels-5-days/hero.webp",
+    "/images/content/tour/grand-deluxe-cusco-machu-picchu-by-luxury-collection-hotels-5-days/gallery/01.webp"
   ],
   "summary": "Spoil yourself on a 5-day luxury journey through Cusco, the Sacred Valley and Machu Picchu staying at Luxury Collection Hotels.",
   "itinerary": [

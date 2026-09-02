@@ -7,21 +7,15 @@
     "description": "Discover Peru in 13 days from the coast to the Andes and the Amazon. Visit Lima, the Ballestas Islands, Huacachina dunes and Cusco.",
     "canonical": "/tour/wonder-of-peru-coast-andes-and-rainforest-13d/"
   },
-  "priceFrom": 2159.0,
+  "priceFrom": 2159,
   "currency": "USD",
   "duration": "13D/12N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/03/tambopata.webp",
+  "heroImage": "/images/content/tour/wonder-of-peru-coast-andes-and-rainforest-13d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2023/03/tambopata.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/wonder-of-peru-coast-andes-and-rainforest-13d/hero.webp",
+    "/images/content/tour/wonder-of-peru-coast-andes-and-rainforest-13d/gallery/01.webp"
   ],
   "summary": "Discover Peru in 13 days from the coast to the Andes and the Amazon. Visit Lima, the Ballestas Islands, Huacachina dunes and Cusco.",
   "itinerary": [

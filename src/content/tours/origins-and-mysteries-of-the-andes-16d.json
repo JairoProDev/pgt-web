@@ -7,21 +7,15 @@
     "description": "Uncover Peru’s top destinations in 16 days, including Lima, Nazca, Arequipa, Cusco, and Machu Picchu on an unforgettable journey.",
     "canonical": "/tour/origins-and-mysteries-of-the-andes-16d/"
   },
-  "priceFrom": 2775.0,
+  "priceFrom": 2775,
   "currency": "USD",
   "duration": "16D/15N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/islands-ballestas-paracas-package.webp",
+  "heroImage": "/images/content/tour/origins-and-mysteries-of-the-andes-16d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/islands-ballestas-paracas-package.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/origins-and-mysteries-of-the-andes-16d/hero.webp",
+    "/images/content/tour/origins-and-mysteries-of-the-andes-16d/gallery/01.webp"
   ],
   "summary": "Uncover Peru’s top destinations in 16 days, including Lima, Nazca, Arequipa, Cusco, and Machu Picchu on an unforgettable journey.",
   "itinerary": [

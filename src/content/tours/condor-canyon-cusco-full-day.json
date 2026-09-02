@@ -9,19 +9,13 @@
   },
   "priceFrom": 0,
   "currency": "USD",
-  "duration": "1s;animation-fill-mode:both;animation-delay:0s;animation-iteration-count:1;}\t\t@keyframes center{from{transform:scale(0);}to{transform:scale(1);}}.ht_ctc_an_entry_center{animation: center .25s;}",
+  "duration": "1D",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/03/condor-cayon-chonta.webp",
+  "heroImage": "/images/content/tour/condor-canyon-cusco-full-day/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/03/condor-cayon-chonta.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/condor-canyon-cusco-full-day/hero.webp",
+    "/images/content/tour/condor-canyon-cusco-full-day/gallery/01.webp"
   ],
   "summary": "Our Tour Viewpoint of the Condor in CHONTA CANYON, the best option to see condors in natural habitat, With Tour guide and Lunch included.",
   "itinerary": [

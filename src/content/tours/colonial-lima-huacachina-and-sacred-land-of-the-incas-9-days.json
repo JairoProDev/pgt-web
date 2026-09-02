@@ -7,21 +7,16 @@
     "description": "Travel through Lima, Huacachina, Cusco and Machu Picchu on a 9-day Peru vacation combining culture, history and adventure.",
     "canonical": "/tour/colonial-lima-huacachina-and-sacred-land-of-the-incas-9-days/"
   },
-  "priceFrom": 1147.0,
+  "priceFrom": 1147,
   "currency": "USD",
   "duration": "9D/8N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/huacachina-ica.webp",
+  "heroImage": "/images/content/tour/colonial-lima-huacachina-and-sacred-land-of-the-incas-9-days/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/city-lima-peru.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/huacachina-ica.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp"
+    "/images/content/tour/colonial-lima-huacachina-and-sacred-land-of-the-incas-9-days/hero.webp",
+    "/images/content/tour/colonial-lima-huacachina-and-sacred-land-of-the-incas-9-days/gallery/01.webp",
+    "/images/content/tour/colonial-lima-huacachina-and-sacred-land-of-the-incas-9-days/gallery/02.webp"
   ],
   "summary": "Travel through Lima, Huacachina, Cusco and Machu Picchu on a 9-day Peru vacation combining culture, history and adventure.",
   "itinerary": [

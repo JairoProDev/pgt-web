@@ -7,21 +7,15 @@
     "description": "Visit Sacred Valley and Machu Picchu on a 2-day trip featuring scenic train rides and cultural experiences.",
     "canonical": "/tour/incredible-machu-picchu-2d/"
   },
-  "priceFrom": 439.0,
+  "priceFrom": 439,
   "currency": "USD",
   "duration": "2D/1N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/machu-picchu-tour-2d.webp",
+  "heroImage": "/images/content/tour/incredible-machu-picchu-2d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/machu-picchu-tour-2d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/incredible-machu-picchu-2d/hero.webp",
+    "/images/content/tour/incredible-machu-picchu-2d/gallery/01.webp"
   ],
   "summary": "Visit Sacred Valley and Machu Picchu on a 2-day trip featuring scenic train rides and cultural experiences.",
   "itinerary": [

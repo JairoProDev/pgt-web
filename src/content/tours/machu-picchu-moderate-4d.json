@@ -7,21 +7,16 @@
     "description": "Explore Cusco, Sacred Valley, and Machu Picchu on a 4-day journey ideal for travelers seeking comfort, culture, and adventure.",
     "canonical": "/tour/machu-picchu-moderate-4d/"
   },
-  "priceFrom": 612.0,
+  "priceFrom": 612,
   "currency": "USD",
   "duration": "4D/3N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2022/04/machu-picchu-tour-4d.webp",
+  "heroImage": "/images/content/tour/machu-picchu-moderate-4d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/travel-sacred-valley.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2022/04/machu-picchu-tour-4d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp"
+    "/images/content/tour/machu-picchu-moderate-4d/hero.webp",
+    "/images/content/tour/machu-picchu-moderate-4d/gallery/01.webp",
+    "/images/content/tour/machu-picchu-moderate-4d/gallery/02.webp"
   ],
   "summary": "Explore Cusco, Sacred Valley, and Machu Picchu on a 4-day journey ideal for travelers seeking comfort, culture, and adventure.",
   "itinerary": [

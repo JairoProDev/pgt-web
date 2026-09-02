@@ -7,21 +7,15 @@
     "description": "Combine the Inca Trail and Amazon Rainforest on an 8-day Peru adventure featuring Machu Picchu, wildlife encounters and the stunning Andes!",
     "canonical": "/tour/short-inca-trail-with-amazon-rainforest-8d/"
   },
-  "priceFrom": 1775.0,
+  "priceFrom": 1775,
   "currency": "USD",
   "duration": "8D/7N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2023/03/monkey-island-madre-de-dios-8d.webp",
+  "heroImage": "/images/content/tour/short-inca-trail-with-amazon-rainforest-8d/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2023/03/monkey-island-madre-de-dios-8d.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/short-inca-trail-with-amazon-rainforest-8d/hero.webp",
+    "/images/content/tour/short-inca-trail-with-amazon-rainforest-8d/gallery/01.webp"
   ],
   "summary": "Combine the Inca Trail and Amazon Rainforest on an 8-day Peru adventure featuring Machu Picchu, wildlife encounters and the stunning Andes!",
   "itinerary": [

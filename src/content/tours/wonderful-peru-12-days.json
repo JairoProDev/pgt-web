@@ -7,21 +7,15 @@
     "description": "Visit Machu Picchu, Lake Titicaca and Arequipa on a 12-day Peru vacation full of culture, history and spectacular scenery.",
     "canonical": "/tour/wonderful-peru-12-days/"
   },
-  "priceFrom": 1561.0,
+  "priceFrom": 1561,
   "currency": "USD",
   "duration": "12D/11N",
   "difficulty": null,
   "categories": [],
-  "heroImage": "https://www.perugrandtravel.com/wp-content/uploads/2024/08/canion-do-colca-arequipa.webp",
+  "heroImage": "/images/content/tour/wonderful-peru-12-days/hero.webp",
   "gallery": [
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/canion-do-colca-arequipa.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/br.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2025/01/es-1.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2026/01/it.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/06/Machu-Picchu-and-Peru-Packages.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/09/Inca-Trail-to-Machu-Picchu.webp",
-    "https://www.perugrandtravel.com/wp-content/uploads/2024/08/Ausangate.webp"
+    "/images/content/tour/wonderful-peru-12-days/hero.webp",
+    "/images/content/tour/wonderful-peru-12-days/gallery/01.webp"
   ],
   "summary": "Visit Machu Picchu, Lake Titicaca and Arequipa on a 12-day Peru vacation full of culture, history and spectacular scenery.",
   "itinerary": [
