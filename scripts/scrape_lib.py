@@ -235,6 +235,11 @@ def extract_duration(html: str) -> str:
         )
         if m:
             return re.sub(r"\s+", "", m.group(1))
+        m = re.search(r"(\d+)\s*days?", title, re.I)
+        if m:
+            return f"{m.group(1)}D"
+        if re.search(r"full\s*day", title, re.I):
+            return "1D"
     for pat in [
         r"(\d+\s*Days?\s*/\s*\d+\s*Nights?)",
         r"(\d+D/\d+N)",
@@ -242,6 +247,36 @@ def extract_duration(html: str) -> str:
         m = re.search(pat, one(html, r"tourmaster-single-tour-content-wrap[^>]*>([\s\S]*?)<footer") or html, re.I)
         if m:
             return re.sub(r"\s+", "", m.group(1))
+    return ""
+
+
+def sanitize_duration(raw: str) -> str:
+    if not raw:
+        return ""
+    lowered = raw.lower()
+    if len(raw) > 40 or "animation" in lowered or "{" in raw or "@" in raw or "quadmenu" in lowered:
+        return ""
+    return raw.strip()
+
+
+def infer_duration(h1: str, slug: str) -> str:
+    if h1:
+        m = re.search(r"(\d+\s*D\s*/\s*\d+\s*N|\d+D/\d+N)", h1, re.I)
+        if m:
+            return re.sub(r"\s+", "", m.group(1))
+        m = re.search(r"(\d+)\s*days?", h1, re.I)
+        if m:
+            return f"{m.group(1)}D"
+        if re.search(r"full\s*day", h1, re.I):
+            return "1D"
+    m = re.search(r"-(\d+)d(?:$|-)", slug, re.I)
+    if m:
+        return f"{m.group(1)}D"
+    m = re.search(r"-(\d+)-days", slug, re.I)
+    if m:
+        return f"{m.group(1)}D"
+    if "full-day" in slug:
+        return "1D"
     return ""
 
 

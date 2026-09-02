@@ -11,7 +11,7 @@ export function tourDayCount(tour: Pick<Tour, "h1" | "duration">): number {
 export function displayDuration(tour: Pick<Tour, "h1" | "duration">): string {
   const fromH1 = tour.h1.match(/(\d+\s*D\s*\/\s*\d+\s*N|\d+D\/\d+N)/i);
   if (fromH1) return fromH1[0].replace(/\s/g, "");
-  if (tour.duration && !tour.duration.includes("quadmenu") && tour.duration.length < 20) {
+  if (tour.duration && !tour.duration.includes("quadmenu") && !tour.duration.includes("animation") && tour.duration.length < 20) {
     return tour.duration;
   }
   return "";

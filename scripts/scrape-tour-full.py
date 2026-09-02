@@ -15,7 +15,9 @@ from scrape_lib import (
     extract_itinerary,
     extract_list_section,
     extract_price,
+    infer_duration,
     one,
+    sanitize_duration,
     scrape_delay,
     slug_from_url,
 )
@@ -51,12 +53,17 @@ def scrape_tour(url: str) -> dict:
         excluded = [x.strip("✗ ").strip() for x in re_find_li(html, "exclude")]
 
     itinerary = extract_itinerary(html)
-    duration = extract_duration(html) or one(html, r"Duration[^:]*:\s*([^<]+)")
+    h1 = one(html, r"<h1[^>]*>([^<]+)</h1>") or ""
+    duration = extract_duration(html)
+    if not duration:
+        duration = sanitize_duration(one(html, r"Duration[^:]*:\s*([^<]+)"))
+    if not duration:
+        duration = infer_duration(h1, slug)
 
     return {
         "slug": slug,
         "title": one(html, r"<title[^>]*>([^<]+)</title>"),
-        "h1": one(html, r"<h1[^>]*>([^<]+)</h1>"),
+        "h1": h1,
         "seo": {
             "title": one(html, r"<title[^>]*>([^<]+)</title>"),
             "description": one(html, r'name="description"\s+content="([^"]*)"'),
