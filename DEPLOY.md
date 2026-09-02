@@ -4,7 +4,7 @@
 
 | Name | Value |
 |---|---|
-| `NEXT_PUBLIC_SITE_URL` | `https://beta.perugrandtravel.com` (or `https://YOUR-PROJECT.vercel.app`) |
+| `NEXT_PUBLIC_SITE_URL` | `https://perugrandtravel.vercel.app` (or `https://beta.perugrandtravel.com`) |
 | `NEXT_PUBLIC_GTM_ID` | `GTM-K8SZBJM5` |
 | `NEXT_PUBLIC_ENV` | `beta` (enables noindex + environment tag in dataLayer) |
 

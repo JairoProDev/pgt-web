@@ -1,7 +1,7 @@
 # Estado del proyecto PGT Web
 
-> Última actualización: 2026-08-31  
-> Repo: [pgt-web](https://github.com/JairoProDev/pgt-web) · Prod: https://pgt-web-theta.vercel.app  
+> Última actualización: 2026-09-01  
+> Repo: [pgt-web](https://github.com/JairoProDev/pgt-web) · Prod: https://perugrandtravel.vercel.app  
 
 ---
 
@@ -83,7 +83,19 @@
 - [x] 62/62 pages scrapeados
 - [x] Bloque Jairo: 18/18 tours, 115/115 blogs
 
-### Conversión (embudo WA)
+### Integraciones Google (1 sep) — **cerradas**
+- [x] GCP + service account + MCPs Cursor
+- [x] GA4/GSC sync scripts → `pgt/03-seo/datos/`
+- [x] GTM API lectura
+- [x] Drive OAuth atendimento@ + marketing@
+- [x] Sheet OTAS exportado (`Precios de productos`, 10 filas PT)
+- [x] PAQUETES MODELO inventariado → `pgt/04-producto/DRIVE-PAQUETES-MODELO.md`
+- [x] `verify:google` 7/7
+- [ ] GSC SA en **ES** solo (`viajesmachupicchutours.com` — 403)
+- [ ] GTM tag `whatsapp_click` → GA4 (**UI manual**, no API)
+- [ ] Filtro tráfico interno GA4
+
+### Confianza y conversión (sesión reciente)
 - [x] WA sticky + tracking dataLayer en todas las páginas
 - [x] Prefill WA contextual por tour (`tourWhatsAppMessage`) y blog (`blogWhatsAppMessage`)
 - [x] **TrustBar** global (operador licenciado, respuesta rápida, pagos)
@@ -241,6 +253,9 @@ Criterio OK: ≥1 sección de contenido OR ≥3 tours en hub.
 
 ## Referencias
 
+- **Reporte jefatura:** `docs/REPORTE-AVANCE-JAIRO.md`
+- **Plataformas multi-dominio:** `docs/INVENTARIO-PLATAFORMAS.md`
+- **Google setup:** `docs/GUIA-CONEXION-GOOGLE.md`
 - Cutover: `docs/CUTOVER.md`
 - Payload fase 2: `docs/PAYLOAD-PHASE2.md`
 - Deploy: `DEPLOY.md`
