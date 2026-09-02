@@ -262,6 +262,7 @@ Criterio OK: ≥1 sección de contenido OR ≥3 tours en hub.
 ## Referencias
 
 - **Blueprint Fase A:** `docs/BLUEPRINT-FASE-A-BETA-CUTOVER.md`
+- **Guía maestra SEO/marketing:** `docs/GUIA-MAESTRA-SEO-MARKETING-PGT.md`
 - **Reporte jefatura:** `docs/REPORTE-AVANCE-JAIRO.md`
 - **Plataformas multi-dominio:** `docs/INVENTARIO-PLATAFORMAS.md`
 - **Google setup:** `docs/GUIA-CONEXION-GOOGLE.md`
