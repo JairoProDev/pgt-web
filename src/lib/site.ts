@@ -34,8 +34,8 @@ export const siteConfig = {
   awardChips: [
     { label: "Price Miradas 2023", href: "/awards-and-recognitions/" },
     { label: "Travelers' Choice 2023", href: "/awards-and-recognitions/" },
-    { label: "Gercetur Cusco", href: "/awards-and-recognitions/" },
-    { label: "Safe Travels 2021", href: "/awards-and-recognitions/" },
+    { label: "Gercetur – Cusco", href: "/awards-and-recognitions/" },
+    { label: "Sello Safe Travels 2021", href: "/awards-and-recognitions/" },
   ] as const,
   logo: "/images/brand/logo.webp",
   social: {
