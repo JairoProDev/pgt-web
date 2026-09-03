@@ -64,7 +64,13 @@ function orderedExploreSections(): FooterSection[] {
   );
 }
 
-function FooterLinkList({ links }: { links: FooterLink[] }) {
+function FooterLinkList({
+  links,
+  showDescriptions = false,
+}: {
+  links: FooterLink[];
+  showDescriptions?: boolean;
+}) {
   const firstLegalIndex = links.findIndex((link) => link.group === "legal");
 
   return (
@@ -84,7 +90,7 @@ function FooterLinkList({ links }: { links: FooterLink[] }) {
             <li>
               <Link href={link.href} className={`group block ${linkClass}`}>
                 <span className="font-medium">{link.label}</span>
-                {link.description ? (
+                {showDescriptions && link.description ? (
                   <span className="mt-0.5 block text-xs text-blue-200/85 group-hover:text-blue-100">
                     {link.description}
                   </span>
@@ -100,6 +106,7 @@ function FooterLinkList({ links }: { links: FooterLink[] }) {
 
 function FooterNavColumn({ section }: { section: FooterSection }) {
   const headingId = `footer-${section.id}`;
+  const showDescriptions = section.id === "packages";
 
   return (
     <nav aria-labelledby={headingId} className="min-w-0">
@@ -109,7 +116,7 @@ function FooterNavColumn({ section }: { section: FooterSection }) {
       >
         {section.title}
       </h2>
-      <FooterLinkList links={section.links} />
+      <FooterLinkList links={section.links} showDescriptions={showDescriptions} />
     </nav>
   );
 }
@@ -473,7 +480,10 @@ export function Footer() {
           {exploreSections.map((section) => (
             <MobileAccordion key={section.id} title={section.title}>
               <nav aria-label={section.title}>
-                <FooterLinkList links={section.links} />
+                <FooterLinkList
+                  links={section.links}
+                  showDescriptions={section.id === "packages"}
+                />
               </nav>
             </MobileAccordion>
           ))}
