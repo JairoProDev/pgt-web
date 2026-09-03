@@ -7,6 +7,7 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { NavDestinations } from "@/components/NavDestinations";
 import { useSearch } from "@/components/search/SearchProvider";
+import { trackWhatsAppClick } from "@/lib/analytics";
 import { headerPackageLinks } from "@/lib/header-nav";
 import { siteConfig, whatsAppUrl } from "@/lib/site";
 
@@ -111,6 +112,24 @@ export function Header() {
   const waMessage = "Hi! I'm planning a trip to Peru and found Peru Grand Travel. Can you help me choose the right package?";
   const waDesktop = whatsAppUrl(waMessage, { utmContent: "header_desktop_wa" });
   const waMobile = whatsAppUrl(waMessage, { utmContent: "header_mobile_wa" });
+  const pagePath = pathname || "/";
+
+  const openTrackedWa = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+    utmContent: string,
+  ) => {
+    e.preventDefault();
+    trackWhatsAppClick(
+      {
+        contentType: "home",
+        contentSlug: "header",
+        utmContent,
+        pagePath,
+      },
+      () => window.open(href, "_blank", "noopener,noreferrer"),
+    );
+  };
   const waMenu = whatsAppUrl(waMessage, { utmContent: "header_menu_wa" });
 
   return (
@@ -169,6 +188,7 @@ export function Header() {
             href={waDesktop}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => openTrackedWa(e, waDesktop, "header_desktop_wa")}
             className="hidden items-center gap-2 rounded-lg bg-pgt-wa px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#1ebe57] lg:inline-flex"
             aria-label="Contact on WhatsApp"
           >
@@ -196,6 +216,7 @@ export function Header() {
             href={waMobile}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => openTrackedWa(e, waMobile, "header_mobile_wa")}
             className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-pgt-wa text-white shadow-md hover:bg-[#1ebe57]"
             aria-label="WhatsApp"
           >

@@ -12,27 +12,73 @@
 
 ### 0.1 GTM → conversión WhatsApp (P0)
 
-**Por qué:** sin esto no medimos leads post-cutover.
+**Por qué:** el código ya hace `dataLayer.push({ event: "whatsapp_click", ... })`. GTM debe **escuchar** ese evento y mandarlo a GA4.
 
-1. Abre https://tagmanager.google.com/
-2. Contenedor **`GTM-K8SZBJM5`**
-3. **Tags → Nuevo**
-   - Tipo: **Google Analytics: evento GA4**
-   - Nombre tag: `GA4 - whatsapp_click`
-   - ID medición: `G-NTXD373H4Q`
-   - Nombre evento: `whatsapp_click`
-   - Disparador: **Evento personalizado** → `whatsapp_click` (dataLayer)
-4. **Enviar** → nombre versión: `pgt-web cutover WA`
-5. Abre https://analytics.google.com/ → propiedad **368486554**
-6. **Admin → Eventos → whatsapp_click → Marcar como conversión**
-7. Verificar:
-   - GTM **Vista previa** en https://perugrandtravel.vercel.app
-   - Clic botón WA → evento en consola Preview
-   - GA4 **Informes → Tiempo real** → evento `whatsapp_click`
+**IDs:** contenedor `GTM-K8SZBJM5` · medición `G-NTXD373H4Q` · propiedad GA4 `368486554`  
+**Probar en:** https://next.perugrandtravel.com (no hace falta que sea “público” en Google)
 
-- [ ] Tag GTM publicado  
-- [ ] Conversión GA4 marcada  
-- [ ] Probado en preview  
+#### A. Crear el tag (donde estás ahora)
+
+1. https://tagmanager.google.com/ → contenedor **`GTM-K8SZBJM5`**
+2. **Etiquetas → Nueva**
+3. Nombre arriba: `GA4 - whatsapp_click` (o el tuyo `Next GA4 - whatsapp_click`)
+4. Clic en el área **Configuración de la etiqueta** → **Google Analytics: evento de GA4**
+5. **ID de medición:** `G-NTXD373H4Q`  
+   (si sale el aviso verde de “se encontró etiqueta Google…”, déjalo; está bien)
+6. **Nombre del evento:** exactamente `whatsapp_click` (minúsculas, guion bajo)
+
+#### B. Activador (lo que te falta — sección abajo vacía)
+
+7. Clic en el área **Activación** (“Elija un activador…”)
+8. Arriba a la derecha del panel de activadores: icono **+** (nuevo activador)
+9. Nombre del activador: `CE - whatsapp_click`
+10. Clic en **Configuración del activador**
+11. Tipo: **Evento personalizado** (Custom Event)
+12. **Nombre del evento:** `whatsapp_click`  
+    (debe coincidir 1:1 con el `event` del dataLayer)
+13. Deja “Algunos eventos personalizados” / “Todos…” = **Todos los eventos personalizados** con ese nombre (default OK)
+14. **Guardar** el activador
+15. Vuelves al tag → debe verse el activador listado abajo → **Guardar** el tag
+
+#### C. Publicar (si no publicas, prod no cambia)
+
+16. Arriba derecha: **Enviar** (Submit)
+17. Nombre de versión: `pgt-web whatsapp_click GA4`
+18. **Publicar**
+
+#### D. Probar con Vista previa GTM (Tag Assistant)
+
+Hay **dos ventanas**:
+- A) La web `next.perugrandtravel.com` (donde haces clic)
+- B) **tagassistant.google.com** — ahí está el “panel izquierdo” (lista: Resumen, eventos 1, 2, 3…)
+
+19. En GTM workspace: **Vista previa**
+20. URL: `https://next.perugrandtravel.com` → conectar
+21. Si sale aviso amarillo de `whatsapp.com` → **Cerrar** (no “Habilitar”)
+22. En la web, clic en un WA **que trackea**:
+    - **Get my quote on WhatsApp** (formulario hero), o
+    - el botón flotante **WhatsApp** abajo a la derecha  
+    - **No uses** solo el WA del header hasta que esté el deploy con tracking (header antes abría wa.me sin dataLayer)
+23. Vuelve a la ventana **Tag Assistant** (B). En la lista de la **izquierda** busca el nombre exacto:
+
+    `whatsapp_click`
+
+    (si solo ves “Compartir en Whatsapp”, ese clic **no** empujó el dataLayer — prueba otro botón)
+24. Clic en esa fila `whatsapp_click` → pestaña **Etiquetas** → **Next GA4 - whatsapp_click** debe estar en **Etiquetas activadas**
+25. Opcional: pestaña **Capa de datos** → debe verse `event: whatsapp_click`
+
+#### E. Marcar conversión en GA4 (puede tardar minutos en aparecer el evento)
+
+24. https://analytics.google.com/ → propiedad **Peru Grand Travel** / id `368486554`
+25. **Admin** (engranaje) → **Visualización de datos → Eventos**
+26. Cuando exista `whatsapp_click` → interruptor **Marcar como conversión**  
+    (si aún no aparece: Admin → **Conversiones** → **Nuevo evento de conversión** → nombre `whatsapp_click`)
+27. Opcional: **Informes → Tiempo real** mientras haces clic WA en `next.`
+
+- [x] Tag guardado con activador Evento personalizado `whatsapp_click`
+- [x] Versión publicada (`pgt-web whatsapp_click GA4`)
+- [x] Vista previa: tag fired en clic WA (`whatsapp_click` → Next GA4 · Completada · hits a G-NTXD373H4Q)
+- [ ] Conversión marcada en GA4  
 
 ---
 
