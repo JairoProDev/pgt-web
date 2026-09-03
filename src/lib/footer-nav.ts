@@ -6,6 +6,7 @@ export type FooterLink = {
   href: string;
   label: string;
   description?: string;
+  group?: "brand" | "legal";
 };
 
 export type FooterSection = {
@@ -19,34 +20,45 @@ export const footerSections: FooterSection[] = [
     id: "company",
     title: "Our Company",
     links: [
-      { href: "/about-us/", label: "About Us", description: "Our story and team in Cusco" },
       {
-        href: "/policy-terms-and-conditions/",
-        label: "Terms & Conditions",
+        href: "/about-us/",
+        label: "About Us",
+        description: "Our story and team in Cusco",
+        group: "brand",
       },
-      {
-        href: "/privacy-policy-and-data-protection/",
-        label: "Privacy Policy",
-      },
-      {
-        href: "/policy-against-exploitation-and-harassment/",
-        label: "Anti-Exploitation Policy",
-      },
-      { href: "/esnna/", label: "ESSNA Code of Conduct" },
-      { href: "/legal-documents/", label: "Legal Documents" },
       {
         href: "/social-projects/",
         label: "Social Projects",
         description: "Community initiatives we support",
+        group: "brand",
       },
       {
         href: "/sustainable-tourism/",
         label: "Sustainable Tourism",
+        group: "brand",
       },
       {
         href: "/awards-and-recognitions/",
         label: "Awards & Recognition",
+        group: "brand",
       },
+      {
+        href: "/policy-terms-and-conditions/",
+        label: "Terms & Conditions",
+        group: "legal",
+      },
+      {
+        href: "/privacy-policy-and-data-protection/",
+        label: "Privacy Policy",
+        group: "legal",
+      },
+      {
+        href: "/policy-against-exploitation-and-harassment/",
+        label: "Anti-Exploitation Policy",
+        group: "legal",
+      },
+      { href: "/esnna/", label: "ESSNA Code of Conduct", group: "legal" },
+      { href: "/legal-documents/", label: "Legal Documents", group: "legal" },
     ],
   },
   {
@@ -95,7 +107,6 @@ export const footerSections: FooterSection[] = [
       ...footerDestinationLinks.map((link) => ({
         href: link.href,
         label: link.label,
-        description: link.description,
       })),
       { href: "/blogs/", label: "Peru Travel Blog" },
     ],
