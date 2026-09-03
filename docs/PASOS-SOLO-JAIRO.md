@@ -98,23 +98,41 @@ Anota fallos P0: _______________________________________________
 
 ---
 
-## FASE 2 — Beta DNS (opcional, 1 h)
+## FASE 2 — Beta DNS (recomendado: `next.`, 1–2 h)
 
-**Saltar si vas directo a cutover prod con confianza.**
+**DNS no está en “Dominios” de BanaHosting** (esa sección vacía = no compraron dominios allí).  
+Los dominios viven en **GoDaddy/Registros.com**; la zona DNS se edita en **cPanel Banahosting**.
 
-### 2.1 Vercel
+Guía completa con capturas mentales y costos: [`HOSTING-DNS-VERCEL-VS-BANAHOSTING.md`](HOSTING-DNS-VERCEL-VS-BANAHOSTING.md)
+
+### 2.0 Antes — Vercel ¿personal o empresa?
+
+| Ahora (demo/beta) | Antes de cutover `www` |
+|-------------------|------------------------|
+| OK en tu Vercel personal | Transferir a **Team PGT** (`marketing@` o `clever@` Owner) |
+
+Paso a paso Team: ver §4 de `HOSTING-DNS-VERCEL-VS-BANAHOSTING.md`.
+
+### 2.1 Vercel — añadir dominio beta
 
 1. https://vercel.com → proyecto **pgt-web**
-2. **Settings → Domains → Add** → `beta.perugrandtravel.com`
-3. Copia el CNAME que indica Vercel
+2. **Settings → Domains → Add** → `next.perugrandtravel.com` (preferido) o `beta.perugrandtravel.com`
+3. Copia el CNAME exacto que indica Vercel (suele ser `cname.vercel-dns.com`)
 
-### 2.2 Registrador DNS
+### 2.2 Banahosting — Zone Editor (no GoDaddy)
 
-| Tipo | Nombre | Valor |
-|------|--------|-------|
-| CNAME | `beta` | `cname.vercel-dns.com` (o el que diga Vercel) |
+1. https://manage.banahosting.com (cuenta Clever)
+2. **Mis servicios** → Reseller-1 `perutrilhainca.com` → **Gestionar**
+3. WHM / lista de cuentas → cPanel de **`perugrandtravel.com`**
+4. **Zone Editor** → Add Record:
 
-Espera 5–30 min.
+| Tipo | Nombre | Valor | TTL |
+|------|--------|-------|-----|
+| CNAME | `next` | `cname.vercel-dns.com` (o el de Vercel) | 300 |
+
+5. **No tocar** `www`, `@`, MX, TXT
+
+Espera 5–60 min.
 
 ### 2.3 Env Vercel (solo si usas beta dedicado)
 
@@ -236,9 +254,11 @@ Resumen:
 
 Invitar `pgt-cursor-agent@pgt-integrations.iam.gserviceaccount.com` como **Restringido** en:
 
-- [ ] viajesmachupicchutours.com  
-- [ ] machupicchupacotes.com  
-- [ ] viaggiomachupicchu.it  
+- [x] viajesmachupicchutours.com — **Domain** `sc-domain:viajesmachupicchutours.com` (NO el URL-prefix `https://www.../`)  
+- [x] machupicchupacotes.com — URL-prefix `https://www.machupicchupacotes.com/`  
+- [x] viaggiomachupicchu.it — URL-prefix `https://www.viaggiomachupicchu.it/`  
+
+> Si un sync da 403, revisa en GSC si la propiedad es Domain (`sc-domain:`) o URL-prefix (`https://www.../`). Debe coincidir con `PGT_GSC_PROPERTIES` en `.env.mcp`.
 
 ### Filtro tráfico interno GA4
 
