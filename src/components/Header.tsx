@@ -3,17 +3,79 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { NavDestinations } from "@/components/NavDestinations";
 import { useSearch } from "@/components/search/SearchProvider";
 import { headerPackageLinks } from "@/lib/header-nav";
 import { siteConfig, whatsAppUrl } from "@/lib/site";
 
+/** Desktop packages dropdown — lightweight hover/click panel */
+function NavPackages({ isActive }: { isActive: boolean }) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+
+  useEffect(() => {
+    if (!open) return;
+    const onPointerDown = (e: MouseEvent) => {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) setOpen(false);
+    };
+    const onEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("mousedown", onPointerDown);
+    document.addEventListener("keydown", onEscape);
+    return () => {
+      document.removeEventListener("mousedown", onPointerDown);
+      document.removeEventListener("keydown", onEscape);
+    };
+  }, [open]);
+
+  const enter = () => {
+    clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
+  const leave = () => {
+    timeoutRef.current = setTimeout(() => setOpen(false), 150);
+  };
+
+  return (
+    <div ref={rootRef} className="relative" onMouseEnter={enter} onMouseLeave={leave}>
+      <button
+        type="button"
+        className={`inline-flex items-center gap-1 hover:text-pgt-blue ${isActive ? "border-b-2 border-pgt-gold font-semibold text-pgt-blue" : ""}`}
+        aria-expanded={open}
+        aria-haspopup="true"
+        onClick={() => setOpen(!open)}
+      >
+        Packages
+        <svg className={`h-4 w-4 transition ${open ? "rotate-180" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden>
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {open && (
+        <div role="menu" aria-label="Packages & tours" className="absolute left-0 top-full z-50 mt-2 w-64 rounded-xl border border-stone-200 bg-white p-3 shadow-xl ring-1 ring-stone-100">
+          {headerPackageLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              role="menuitem"
+              className="block rounded-lg px-3 py-2 text-sm text-stone-700 hover:bg-stone-50 hover:text-pgt-blue"
+              onClick={() => setOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 const navLinksAfterDestinations = [
-  { href: "/packages/", label: "Packages" },
   { href: "/machu-picchu-packages/", label: "Machu Picchu" },
-  { href: "/packages/", label: "Tours" },
   { href: "/blogs/", label: "Blog" },
   { href: "/contact-us/", label: "Contact" },
 ];
@@ -72,6 +134,7 @@ export function Header() {
           aria-label="Main navigation"
         >
           <NavDestinations variant="desktop" />
+          <NavPackages isActive={isActive("/packages/")} />
           {navLinksAfterDestinations.map((link) => (
             <Link
               key={link.label}
@@ -187,6 +250,14 @@ function MobileMenu({
   setPackagesOpen: (v: boolean) => void;
   waMenu: string;
 }) {
+  useEffect(() => {
+    const onEscape = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onEscape);
+    return () => document.removeEventListener("keydown", onEscape);
+  }, [onClose]);
+
   return createPortal(
     <div
       className="fixed inset-0 z-[100] bg-white md:hidden"
