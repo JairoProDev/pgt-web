@@ -3,7 +3,8 @@
 > Tareas imposibles para el agente: accesos humanos, DNS, GTM UI, decisiones jefatura.  
 > Sigue en orden. Marca `[x]` al completar.
 
-**Preview actual:** https://perugrandtravel.vercel.app
+**Guía viva (estado al minuto + DNS snapshot):** [`GUIA-VIVA-BETA-NEXT.md`](GUIA-VIVA-BETA-NEXT.md) ← **empieza aquí**  
+**Preview beta:** https://next.perugrandtravel.com · backup https://perugrandtravel.vercel.app
 
 ---
 
@@ -37,18 +38,16 @@
 
 ### 0.2 Guardar DNS actual (rollback)
 
-Antes de tocar nada, anota valores **actuales** del registrador:
-
-1. Entra al panel donde compraron `perugrandtravel.com`
-2. Copia aquí o en notas:
+**Hecho 3 sep 2026** (export zona WHM). Snapshot en `GUIA-VIVA-BETA-NEXT.md`:
 
 ```
-CNAME www → _______________________
-A @ → _______________________
-TTL → _______________________
+A @ → 50.31.188.120
+CNAME www → perugrandtravel.com
+MX → aspmx.l.google.com (+ alt1–4)
+CNAME next → cname.vercel-dns.com   ← beta (nuevo)
 ```
 
-- [ ] Valores WP guardados para rollback  
+- [x] Valores WP / mail / next guardados para rollback  
 
 ---
 
@@ -98,12 +97,9 @@ Anota fallos P0: _______________________________________________
 
 ---
 
-## FASE 2 — Beta DNS (recomendado: `next.`, 1–2 h)
+## FASE 2 — Beta DNS (`next.`) — **casi cerrada 3 sep 2026**
 
-**DNS no está en “Dominios” de BanaHosting** (esa sección vacía = no compraron dominios allí).  
-Los dominios viven en **GoDaddy/Registros.com**; la zona DNS se edita en **cPanel Banahosting**.
-
-Guía completa con capturas mentales y costos: [`HOSTING-DNS-VERCEL-VS-BANAHOSTING.md`](HOSTING-DNS-VERCEL-VS-BANAHOSTING.md)
+Detalle vivo: [`GUIA-VIVA-BETA-NEXT.md`](GUIA-VIVA-BETA-NEXT.md) · hosting: [`HOSTING-DNS-VERCEL-VS-BANAHOSTING.md`](HOSTING-DNS-VERCEL-VS-BANAHOSTING.md)
 
 ### 2.0 Antes — Vercel ¿personal o empresa?
 
@@ -113,47 +109,35 @@ Guía completa con capturas mentales y costos: [`HOSTING-DNS-VERCEL-VS-BANAHOSTI
 
 Paso a paso Team: ver §4 de `HOSTING-DNS-VERCEL-VS-BANAHOSTING.md`.
 
-### 2.1 Vercel — añadir dominio beta
+### 2.1 Vercel — dominio beta
 
-1. https://vercel.com → proyecto **pgt-web**
-2. **Settings → Domains → Add** → `next.perugrandtravel.com` (preferido) o `beta.perugrandtravel.com`
-3. Copia el CNAME exacto que indica Vercel (suele ser `cname.vercel-dns.com`)
+- [x] `next.perugrandtravel.com` añadido al proyecto `pgt-web` (CLI 3 sep)
 
-### 2.2 Banahosting — Zone Editor (no GoDaddy)
+### 2.2 Banahosting — Zone Manager (WHM; cPanel daba 500)
 
-1. https://manage.banahosting.com (cuenta Clever)
-2. **Mis servicios** → Reseller-1 `perutrilhainca.com` → **Gestionar**
-3. WHM / lista de cuentas → cPanel de **`perugrandtravel.com`**
-4. **Zone Editor** → Add Record:
+- [x] CNAME **Nombre** `next` · **CNAME** `cname.vercel-dns.com` · TTL zona 14400  
+- [x] **No** se tocaron `www`, `@`, MX
 
-| Tipo | Nombre | Valor | TTL |
-|------|--------|-------|-----|
-| CNAME | `next` | `cname.vercel-dns.com` (o el de Vercel) | 300 |
-
-5. **No tocar** `www`, `@`, MX, TXT
-
-Espera 5–60 min.
-
-### 2.3 Env Vercel (solo si usas beta dedicado)
-
-En Vercel → Settings → Environment Variables:
+### 2.3 Env Vercel production (beta en hostname de prod)
 
 | Variable | Valor |
 |----------|-------|
-| `NEXT_PUBLIC_SITE_URL` | `https://beta.perugrandtravel.com` |
-| `NEXT_PUBLIC_ENV` | `beta` |
+| `NEXT_PUBLIC_SITE_URL` | `https://next.perugrandtravel.com` |
+| `NEXT_PUBLIC_ENV` | `next` |
 
-Redeploy production.
+- [x] Variables añadidas · [x] Redeploy verificado (canonical = `next.`)
 
 ### 2.4 Verificar beta
 
 ```bash
-curl -I https://beta.perugrandtravel.com/
-npm run pre-cutover https://beta.perugrandtravel.com
+curl -sI https://next.perugrandtravel.com/ | head -15
+curl -s https://next.perugrandtravel.com/robots.txt
+bash scripts/pre-cutover-checklist.sh https://next.perugrandtravel.com
 ```
 
-- [ ] Beta responde 200  
-- [ ] Pre-cutover verde en beta  
+- [x] Beta responde 200 + SSL  
+- [x] Canonical/sitemap apuntan a `next.` (post-redeploy)  
+- [ ] QA manual FASE 1 sobre `next.`  
 
 ---
 

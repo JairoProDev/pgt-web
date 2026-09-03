@@ -1,6 +1,7 @@
 # Guía DNS cutover — Jairo (sin Ricardo)
 
-> Objetivo: apuntar `www.perugrandtravel.com` a Vercel sin perder SEO indexado en Google.
+> Objetivo: apuntar `www.perugrandtravel.com` a Vercel sin perder SEO indexado en Google.  
+> **Beta `next.` (estado vivo):** [`GUIA-VIVA-BETA-NEXT.md`](GUIA-VIVA-BETA-NEXT.md) — CNAME + dominio Vercel **hechos** 3 sep 2026.
 
 ---
 
@@ -16,7 +17,7 @@
 |----------|----------------|
 | `NEXT_PUBLIC_SITE_URL` | `https://www.perugrandtravel.com` |
 | `NEXT_PUBLIC_GTM_ID` | `GTM-K8SZBJM5` |
-| `NEXT_PUBLIC_ENV` | **eliminar** (o vacío) — quita `noindex` beta |
+| `NEXT_PUBLIC_ENV` | **eliminar** (o vacío) — quita `noindex` del preview `next`/`beta` |
 
 3. **Checklist técnico**
 
@@ -30,35 +31,32 @@ bash scripts/pre-cutover-checklist.sh https://perugrandtravel.vercel.app
 
 ---
 
-## Fase A — Beta (recomendado 3–7 días)
+## Fase A — Preview `next.` (recomendado 3–7 días)
 
-### A.1 Crear subdominio beta en Vercel
+> Hostname: **`next.perugrandtravel.com`**. DNS vivo = Banahosting (NS `perutrilhainca`), no panel GoDaddy.  
+> Detalle + checklist: `docs/GUIA-VIVA-BETA-NEXT.md` · scorecard: `docs/BETA-SCORECARD-Y-MULTIMERCADO.md`
 
-1. Vercel → **Settings → Domains → Add**
-2. Dominio: `beta.perugrandtravel.com`
-3. Vercel muestra registro DNS (CNAME o A).
+### A.1–A.2 Estado 3 sep 2026
 
-### A.2 DNS en tu registrador (donde compraste el dominio)
+| Paso | Estado |
+|------|--------|
+| Vercel Domains → `next.perugrandtravel.com` | **Hecho** |
+| WHM Zone Manager CNAME `next` → `cname.vercel-dns.com` | **Hecho** (TTL 14400) |
+| HTTPS 200 + SSL | **Hecho** |
 
-| Tipo | Nombre | Valor | TTL |
-|------|--------|-------|-----|
-| CNAME | `beta` | `cname.vercel-dns.com` | 300 |
-
-*(Vercel puede mostrar otro target — usa el que indica el panel.)*
-
-### A.3 Env beta
+### A.3 Env preview / production (hostname beta)
 
 | Variable | Valor |
 |----------|-------|
-| `NEXT_PUBLIC_SITE_URL` | `https://beta.perugrandtravel.com` |
-| `NEXT_PUBLIC_ENV` | `beta` |
+| `NEXT_PUBLIC_SITE_URL` | `https://next.perugrandtravel.com` |
+| `NEXT_PUBLIC_ENV` | `next` |
 
-Con `beta` activo: `robots.txt` bloquea indexación — Google no indexa beta.
+Con `next` activo: `robots.txt` bloquea indexación. (`beta` / `preview` siguen válidos en código.)
 
-### A.4 QA en beta
+### A.4 QA en next
 
 - Footer links, tours, blogs, WhatsApp, GTM Preview.
-- `npm run pre-cutover https://beta.perugrandtravel.com`
+- `bash scripts/pre-cutover-checklist.sh https://next.perugrandtravel.com`
 
 ---
 
@@ -127,7 +125,7 @@ curl https://www.perugrandtravel.com/sitemap.xml | head
 ### C.3 Rollback (si clics GSC caen >20% en 7d)
 
 1. Revertir CNAME `www` al valor anterior (WP)
-2. Mantener Vercel en beta para seguir arreglando
+2. Mantener Vercel en next. para seguir arreglando
 3. Avisar equipo
 
 ---
@@ -136,7 +134,7 @@ curl https://www.perugrandtravel.com/sitemap.xml | head
 
 | Acción | Tiempo típico |
 |--------|----------------|
-| DNS beta | 5–30 min |
+| DNS next. | 5–30 min |
 | DNS prod | 15 min – 48 h (TTL anterior) |
 | SSL Vercel | 5–15 min tras DNS verde |
 | Google re-crawl | 24–72 h primeras páginas |
