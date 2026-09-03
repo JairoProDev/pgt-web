@@ -35,7 +35,39 @@ SITIO NEXT.JS                    →  Vercel (pgt-web)
 
 **Por eso “Dominios” está vacío en BanaHosting:** el panel de dominios de BanaHosting solo lista dominios **comprados allí**. Los de PGT están comprados fuera y **delegan DNS** a BanaHosting vía nameservers `perutrilhainca`.
 
-### 1.3 ¿Qué es `perutrilhainca.com`?
+### 1.3 Inventario real WHM (inspección 3 sep 2026)
+
+Entré con el browser a **WHM → Enumerar las Cuentas**. No hay 1 sitio: hay **17 cuentas cPanel**, todas en el mismo Reseller.
+
+| Dominio | IP | Paquete | Contacto en WHM | Rol probable |
+|---------|-----|---------|-----------------|--------------|
+| **perugrandtravel.com** | 50.31.188.120 | Plan10Gb-Principal | marketing@ | **EN prod WP** |
+| **machupicchupacotes.com** | .121 | Plan10Gb-Principal | marketing@ | **PT** |
+| **viajesmachupicchutours.com** | .124 | Plan10Gb-Principal | marketing@ | **ES** |
+| **viaggiomachupicchu.it** | .124 | Pack2Gb | marketing@ | **IT** |
+| luxuryperutour.com | .124 | Pack2Gb | marketing@ | Lujo |
+| vinicuncaperu.com | .118 | Pack5Gb | marketing@ | Vinicunca |
+| incatrailbookings.com | .124 | Pack5Gb | marketing@ | Bookings |
+| ingressosmachupicchu.com | .118 | Pack2Gb | marketing@ | Ingressos |
+| paquetesdeviajesperu.com | .123 | Plan10Gb-Principal | marketing@ | ES legacy |
+| machupicchuperu.com.mx | .119 | Pack2Gb | marketing@ | MX |
+| tripstomachupicchu.us | .124 | Pack2Gb | marketing@ | Satélite US |
+| perutravelguides.com | .124 | Pack5Gb | marketing@ | Blog/guías |
+| dicasviagem.com | .119 | Pack2Gb | marketing@ | Blog PT |
+| **perutrilhainca.com** | .117 | Pack2Gb | **clever@** | Ancla reseller + redirect PT |
+| mercadomovil.pe | .119 | Pack2Gb | marketing@ | **Otro negocio?** |
+| perubienesraices.pe | .119 | Pack2Gb | marketing@ | **Otro negocio?** |
+| tejidosmarangani.pe | .119 | Pack2Gb | marketing@ | **Otro negocio?** |
+
+**Hallazgos:**
+
+- Cero cuentas **suspendidas**.
+- WHM avisó **PHP desactualizado** (sin parches de seguridad) — riesgo WP, no de Vercel.
+- Contacto casi todo `marketing@`; solo perutrilhainca usa `clever@`.
+- Nameservers del **plan** (ficha BanaHosting): `ns1.privatednsorg.com` / `ns2.privatednsorg.com` (IPs 50.31.188.115–116). Los sitios PGT delegan a `ns1/ns2.perutrilhainca.com` (mismo stack).
+- **DNS de `www` EN:** no se edita en “Dominios” del client area. Se edita en **WHM → DNS Zone Manager** o en el **cPanel de `perugrandtravel.com`** (botón cPanel de esa fila), **Zone Editor**.
+
+### 1.4 ¿Qué es `perutrilhainca.com`?
 
 | Pregunta | Respuesta (verificado 3 sep 2026) |
 |----------|-----------------------------------|
