@@ -67,19 +67,48 @@ Hay **dos ventanas**:
 24. Clic en esa fila `whatsapp_click` → pestaña **Etiquetas** → **Next GA4 - whatsapp_click** debe estar en **Etiquetas activadas**
 25. Opcional: pestaña **Capa de datos** → debe verse `event: whatsapp_click`
 
-#### E. Marcar conversión en GA4 (puede tardar minutos en aparecer el evento)
+#### E. Evento clave en GA4 (= antigua “conversión”)
 
-24. https://analytics.google.com/ → propiedad **Peru Grand Travel** / id `368486554`
-25. **Admin** (engranaje) → **Visualización de datos → Eventos**
-26. Cuando exista `whatsapp_click` → interruptor **Marcar como conversión**  
-    (si aún no aparece: Admin → **Conversiones** → **Nuevo evento de conversión** → nombre `whatsapp_click`)
-27. Opcional: **Informes → Tiempo real** mientras haces clic WA en `next.`
+En español GA4 ya no dice “Conversiones”: dice **Eventos clave** (estrella).
 
-- [x] Tag guardado con activador Evento personalizado `whatsapp_click`
-- [x] Versión publicada (`pgt-web whatsapp_click GA4`)
-- [x] Vista previa: tag fired en clic WA (`whatsapp_click` → Next GA4 · Completada · hits a G-NTXD373H4Q)
-- [x] Evento clave en GA4: estrella en `whatsapp_click` (antes “conversión”; UI = **Eventos clave**)
-  - Nota: la lista puede mostrar flujo **proof of concept** (POC viejo). El **nombre** es el mismo a nivel propiedad. Tras clics en `next.` debe aparecer también el flujo **perugrandtravel.com - GA4** (`G-NTXD373H4Q`). Verificar en **DebugView** o Tiempo real.  
+**No te confundas con “proof of concept”:**
+
+| Cosa | Qué es | Cuándo |
+|------|--------|--------|
+| **GTM Versión 2** `pgt-web whatsapp_click GA4` | Contenedor `GTM-K8SZBJM5` publicado **hoy** | Trigger `CE - whatsapp_click` + tag `Next GA4` → manda a **`G-NTXD373H4Q`** |
+| Stream **proof of concept** en GA4 | Otro *flujo de datos* de la **misma** propiedad (el POC de hace días, `pgt-poc`) | Ahí nació el **nombre** `whatsapp_click` por primera vez |
+| Stream **perugrandtravel.com - GA4** | Flujo EN prod / `next.` vía GTM | ID **`G-NTXD373H4Q`** |
+
+El **nombre del evento** es compartido en toda la propiedad. La estrella en `whatsapp_click` vale para ambos flujos.  
+La columna “Flujos activos → proof of concept” solo dice *dónde GA4 lo vio antes*; **no** significa que tu Versión 2 de GTM sea la del POC.
+
+#### E2. Comprobar hits (elige A o B)
+
+**DebugView** solo muestra eventos si el navegador está en **modo debug**.  
+Con la Versión 2 **ya publicada**, un clic normal en `next.` **no** aparece en DebugView (por eso ves “Esperando eventos de depuración”). Eso **no** significa que el tag falle — Tag Assistant ya lo probó.
+
+##### Opción A — Tiempo real (recomendado si GTM ya está publicado)
+
+1. GA4 → menú izquierdo **Informes** (no Admin)
+2. **Tiempo real** / **Resumen en tiempo real**
+3. Otra pestaña: https://next.perugrandtravel.com → clic WA
+4. En Tiempo real, en ~1 min: evento **`whatsapp_click`** (a veces bajo “Eventos por nombre de evento” o tarjeta de conversiones/eventos clave)
+
+##### Opción B — DebugView (solo con Vista previa GTM)
+
+1. **GTM** → **Vista previa** → URL `https://next.perugrandtravel.com` → conectar Tag Assistant
+2. Deja abierta la pestaña de Tag Assistant (modo debug activo)
+3. **GA4 Admin → DebugView** (la dejas esperando)
+4. En la web con `?gtm_debug=...` → clic WA
+5. En DebugView debe aparecer un **dispositivo** (el “0” pasa a un nombre) y el evento `whatsapp_click`
+
+Si DebugView sigue en 0: estás haciendo clic **sin** Vista previa GTM → usa **Opción A**.
+
+- [x] Tag GTM + activador + publicado  
+- [x] Tag Assistant: fired a `G-NTXD373H4Q`  
+- [x] Estrella evento clave `whatsapp_click`  
+- [x] Tiempo real: `whatsapp_click` visto desde `next.` (propiedad perugrandtravel.com - GA4)  
+- [ ] DebugView — **opcional / no requerido** (solo con Vista previa GTM)  
 
 ---
 
