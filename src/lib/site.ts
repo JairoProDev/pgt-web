@@ -22,6 +22,21 @@ export const siteConfig = {
     /** Single-line for display */
     formatted: "Av. El Sol N° 948 INT. OF. 320, Cusco – Peru",
   },
+  officeHours: {
+    summary: "Mon–Fri 8:00–13:00 & 14:00–18:00 · Sat 9:00–12:00 PET",
+    detail: "Office visits in Cusco. Sunday closed.",
+  },
+  supportHours: {
+    summary: "WhatsApp assistance 24/7",
+    detail: "Travel help on WhatsApp anytime — our team (and upcoming AI assistant) replies around the clock.",
+  },
+  languages: ["English", "Español", "Português"] as const,
+  awardChips: [
+    { label: "Price Miradas 2023", href: "/awards-and-recognitions/" },
+    { label: "Travelers' Choice 2023", href: "/awards-and-recognitions/" },
+    { label: "Gercetur Cusco", href: "/awards-and-recognitions/" },
+    { label: "Safe Travels 2021", href: "/awards-and-recognitions/" },
+  ] as const,
   logo: "/images/brand/logo.webp",
   social: {
     facebook: "https://www.facebook.com/perugrandtravel.br",
