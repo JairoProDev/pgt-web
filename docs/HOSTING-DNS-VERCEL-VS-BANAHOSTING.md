@@ -226,14 +226,17 @@ El icono naranja **CP** llama a `/xfercpanel` y **falla** cuando el load está e
 **Siguiente paso (saltea cPanel):**
 
 1. En WHM, abre **DNS Zone Manager** (no “Enumerar cuentas”).
-2. Fila **`perugrandtravel.com`** → botón **CNAME Record** (o **Administrar**).
-3. Añade:
+2. Fila **`perugrandtravel.com`** → botón **CNAME Record**.
+3. El modal WHM español tiene **solo 2 campos** (no hay TTL ni “Target”):
 
-| Type | Name | Target | TTL |
-|------|------|--------|-----|
-| CNAME | `next` | `cname.vercel-dns.com` | 300 |
+| Campo en pantalla | Qué es | Qué poner |
+|-------------------|--------|-----------|
+| **Nombre** | El subdominio | `next` · si pide FQDN: `next.perugrandtravel.com.` (**con punto final**) |
+| **CNAME** | Destino (Target) | `cname.vercel-dns.com.` (**con punto final**) |
 
-4. **No** toques A de `@`/`www`, MX, TXT.
+El placeholder `example.perugrandtravel.com.` es un ejemplo de FQDN, no el valor. **No** escribas `next.perugrandtravel.com` sin el punto: cPanel puede crear `next.perugrandtravel.com.perugrandtravel.com`. TTL lo pone la zona sola (~14400).
+
+4. **No** toques A de `@`/`www`, MX, TXT. MX de EN es **Google** (`aspmx.l.google.com`), no cPanel.
 5. Si Zone Manager también da 500: espera 15–30 min (load baja) **o** ticket Banahosting con Error ID `381fb3f66720c` + load 47.
 6. Mientras tanto demos en https://perugrandtravel.vercel.app (no requiere DNS).
 
@@ -247,12 +250,12 @@ Detalle e inventario: `pgt/02-empresa/HOSTING-BANAHOSTING-INVENTARIO.md`
 
 ### 5.3 Añadir beta `next` (seguro)
 
+WHM Zone Manager (modal real):
+
 | Campo | Valor |
 |-------|--------|
-| Type | CNAME |
-| Name / Host | `next` |
-| Record / Points to | `cname.vercel-dns.com` *(o el exacto que diga Vercel Domains)* |
-| TTL | 300 |
+| Nombre | `next` o `next.perugrandtravel.com.` |
+| CNAME | `cname.vercel-dns.com.` |
 
 Guardar → esperar 5–60 min → probar `https://next.perugrandtravel.com`
 
