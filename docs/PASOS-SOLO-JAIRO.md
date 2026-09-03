@@ -78,7 +78,8 @@ Hay **dos ventanas**:
 - [x] Tag guardado con activador Evento personalizado `whatsapp_click`
 - [x] Versión publicada (`pgt-web whatsapp_click GA4`)
 - [x] Vista previa: tag fired en clic WA (`whatsapp_click` → Next GA4 · Completada · hits a G-NTXD373H4Q)
-- [ ] Conversión marcada en GA4  
+- [x] Evento clave en GA4: estrella en `whatsapp_click` (antes “conversión”; UI = **Eventos clave**)
+  - Nota: la lista puede mostrar flujo **proof of concept** (POC viejo). El **nombre** es el mismo a nivel propiedad. Tras clics en `next.` debe aparecer también el flujo **perugrandtravel.com - GA4** (`G-NTXD373H4Q`). Verificar en **DebugView** o Tiempo real.  
 
 ---
 
