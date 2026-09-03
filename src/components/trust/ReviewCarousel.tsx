@@ -160,9 +160,9 @@ export function ReviewPlatformRow({ platform, reviews, autoScroll = true }: RowP
           className="flex gap-4 overflow-x-auto scroll-smooth pb-2 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           aria-label={`${platform.label} customer reviews`}
         >
-          {reviews.map((r) => (
+          {reviews.map((r, i) => (
             <ReviewCard
-              key={`${r.platform}-${r.author}-${r.date}`}
+              key={`${r.platform}-${r.author}-${r.date}-${i}-${r.title.slice(0, 24)}`}
               review={r}
               profileUrl={profileHref}
             />
