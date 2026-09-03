@@ -216,8 +216,28 @@ OVH          →  Drupal staging (pausar cutover EN si Next gana)
 2. **Mis servicios** → **Bana Reseller-1** / `perutrilhainca.com` → **Gestionar** / **Administrar**
 3. Busca acceso a **WHM** o **cPanel** (Reseller suele abrir WHM → lista de cuentas)
 4. En la lista de cuentas cPanel, localiza **`perugrandtravel.com`** (no solo perutrilhainca)
-5. Entra a **cPanel** de ese dominio
-6. Busca **Zone Editor** / **Editor de zona DNS** / **Advanced DNS Zone Editor**
+5. **No entres a cPanel desde el icono CP** si el servidor está saturado (load ~47 → 500 `xfercpanel`).
+6. En su lugar: menú WHM **Funciones DNS → DNS Zone Manager** (ya verificado: 17 zonas, incluye `perugrandtravel.com`).
+
+### 5.1.5 bloqueado (cPanel 500) — qué hacer ahora
+
+El icono naranja **CP** llama a `/xfercpanel` y **falla** cuando el load está en ~47. **No es tu permiso.** Es el servidor Banahosting saturado (17 WP en shared).
+
+**Siguiente paso (saltea cPanel):**
+
+1. En WHM, abre **DNS Zone Manager** (no “Enumerar cuentas”).
+2. Fila **`perugrandtravel.com`** → botón **CNAME Record** (o **Administrar**).
+3. Añade:
+
+| Type | Name | Target | TTL |
+|------|------|--------|-----|
+| CNAME | `next` | `cname.vercel-dns.com` | 300 |
+
+4. **No** toques A de `@`/`www`, MX, TXT.
+5. Si Zone Manager también da 500: espera 15–30 min (load baja) **o** ticket Banahosting con Error ID `381fb3f66720c` + load 47.
+6. Mientras tanto demos en https://perugrandtravel.vercel.app (no requiere DNS).
+
+Detalle e inventario: `pgt/02-empresa/HOSTING-BANAHOSTING-INVENTARIO.md`
 
 ### 5.2 Si solo ves WHM (Reseller)
 
