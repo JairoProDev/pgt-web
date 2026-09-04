@@ -2,12 +2,9 @@
 
 import Link from "next/link";
 import { useEffect, useId, useRef, useState } from "react";
-import {
-  DESTINATION_FEATURED,
-  DESTINATION_HUB,
-  DESTINATION_REGIONS,
-  headerDestinationLinks,
-} from "@/lib/destinations-nav";
+import { localeDestinations } from "@/lib/destinations-nav";
+import { copyFor } from "@/lib/market-copy";
+import { useMarket } from "@/lib/use-market";
 
 type Props = {
   onNavigate?: () => void;
@@ -18,6 +15,9 @@ export function NavDestinations({ variant, onNavigate }: Props) {
   const [open, setOpen] = useState(false);
   const panelId = useId();
   const rootRef = useRef<HTMLDivElement>(null);
+  const market = useMarket();
+  const copy = copyFor(market);
+  const dest = localeDestinations(market);
 
   useEffect(() => {
     if (!open) return;
@@ -52,12 +52,21 @@ export function NavDestinations({ variant, onNavigate }: Props) {
           aria-controls={panelId}
           onClick={() => setOpen(!open)}
         >
-          Destinations
+          {copy.destinations}
           <Chevron open={open} />
         </button>
         {open && (
           <ul id={panelId} className="mb-2 space-y-1 border-l-2 border-stone-100 pl-3">
-            {headerDestinationLinks.map((link) => (
+            <li>
+              <Link
+                href={dest.hub.href}
+                className="block py-1.5 text-sm font-medium text-pgt-blue hover:underline"
+                onClick={close}
+              >
+                {dest.hub.label}
+              </Link>
+            </li>
+            {dest.regions.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
@@ -68,15 +77,17 @@ export function NavDestinations({ variant, onNavigate }: Props) {
                 </Link>
               </li>
             ))}
-            <li>
-              <Link
-                href="/peru/"
-                className="block py-1.5 text-sm font-medium text-pgt-blue hover:underline"
-                onClick={close}
-              >
-                Peru overview →
-              </Link>
-            </li>
+            {dest.featured.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block py-1.5 text-sm font-medium text-stone-700 hover:text-pgt-blue"
+                  onClick={close}
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         )}
       </div>
@@ -93,7 +104,7 @@ export function NavDestinations({ variant, onNavigate }: Props) {
         aria-controls={panelId}
         onClick={() => setOpen(!open)}
       >
-        Destinations
+        {copy.destinations}
         <Chevron open={open} />
       </button>
 
@@ -101,25 +112,23 @@ export function NavDestinations({ variant, onNavigate }: Props) {
         <div
           id={panelId}
           role="menu"
-          aria-label="Peru destinations"
+          aria-label={copy.destinations}
           className="absolute left-0 top-full z-50 mt-2 w-[420px] rounded-xl border border-stone-200 bg-white p-4 shadow-xl ring-1 ring-stone-100"
         >
-          {/* Prominent "All Destinations" link */}
           <Link
-            href={DESTINATION_HUB.href}
+            href={dest.hub.href}
             className="mb-3 block rounded-lg border border-stone-200 px-4 py-3 hover:border-pgt-gold/40 hover:bg-stone-50"
             onClick={close}
           >
-            <span className="block text-sm font-semibold text-pgt-blue">{DESTINATION_HUB.label}</span>
-            <span className="mt-0.5 block text-xs text-stone-500">{DESTINATION_HUB.description}</span>
+            <span className="block text-sm font-semibold text-pgt-blue">{dest.hub.label}</span>
+            <span className="mt-0.5 block text-xs text-stone-500">{dest.hub.description}</span>
           </Link>
 
-          {/* 2-column grid of regions */}
           <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-stone-400">
-            Peru regions
+            {dest.regionsHeading}
           </p>
           <div className="mb-3 grid grid-cols-2 gap-2">
-            {DESTINATION_REGIONS.map((link) => (
+            {dest.regions.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -135,11 +144,10 @@ export function NavDestinations({ variant, onNavigate }: Props) {
             ))}
           </div>
 
-          {/* Featured destination with gold accent */}
           <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-stone-400">
-            Featured
+            {dest.featuredHeading}
           </p>
-          {DESTINATION_FEATURED.map((link) => (
+          {dest.featured.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -154,10 +162,9 @@ export function NavDestinations({ variant, onNavigate }: Props) {
             </Link>
           ))}
 
-          {/* Peru overview link at bottom */}
           <div className="mt-3 border-t border-stone-100 pt-3">
-            <Link href="/peru/" className="text-sm font-medium text-pgt-blue hover:underline" onClick={close}>
-              Peru overview →
+            <Link href={dest.overview.href} className="text-sm font-medium text-pgt-blue hover:underline" onClick={close}>
+              {dest.overview.label}
             </Link>
           </div>
         </div>

@@ -5,15 +5,17 @@ import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { contentPageTitle, openGraphImage } from "@/lib/metadata";
 import { getAllBlogs } from "@/lib/content";
+import { blogsIndexLanguageAlternates } from "@/lib/hreflang";
 import { itemListSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 import type { SearchBlogEntry } from "@/lib/search-types";
+import { inferBlogTopics } from "@/lib/blog-topics";
 
 export const metadata: Metadata = {
   title: contentPageTitle("Peru Travel Blog | Peru Grand Travel"),
   description:
     "Peru travel guides from licensed Cusco experts: Machu Picchu, Inca Trail, Sacred Valley, Lima, and trip planning tips.",
-  alternates: { canonical: "/blogs/" },
+  alternates: { canonical: "/blogs/", languages: blogsIndexLanguageAlternates() },
   openGraph: {
     title: "Peru Travel Blog | Peru Grand Travel",
     description:
@@ -29,21 +31,6 @@ const FEATURED_TOPICS = [
   { label: "Cusco", href: "/peru/cusco/" },
   { label: "Packages", href: "/packages/" },
 ] as const;
-
-const BLOG_TOPIC_RULES: { label: string; re: RegExp }[] = [
-  { label: "Cusco", re: /\bcusco\b|sacred valley|ollantaytambo|salkantay|inca trail/ },
-  { label: "Machu Picchu", re: /machu picchu|machupicchu|huayna|aguas calientes/ },
-  { label: "Lima", re: /\blima\b|miraflores|barranco|huacachina/ },
-  { label: "Amazon", re: /amazon|rainforest|maldonado|tambopata/ },
-  { label: "Food", re: /food|ceviche|restaurant|gastronom|pisco|cuisine/ },
-  { label: "Planning", re: /itinerary|pack|when to|best time|visa|budget|tips|guide/ },
-];
-
-function inferBlogTopics(slug: string, h1: string, intro: string): string[] {
-  const text = `${slug} ${h1} ${intro}`.toLowerCase();
-  const topics = BLOG_TOPIC_RULES.filter((r) => r.re.test(text)).map((r) => r.label);
-  return topics.length > 0 ? topics : ["Peru"];
-}
 
 function toSearchEntry(post: ReturnType<typeof getAllBlogs>[number]): SearchBlogEntry {
   const title = post.h1.replace(/^▷\s*/, "").trim();

@@ -1,7 +1,6 @@
 /** Footer navigation — internal links for SEO, UX and crawl depth */
 
-import { footerDestinationLinks } from "./destinations-nav";
-import { copyFor } from "./market-copy";
+import { localeDestinations } from "./destinations-nav";
 import { withMarketPrefix, type MarketId } from "./markets";
 
 export type FooterLink = {
@@ -72,44 +71,24 @@ export const footerSections: FooterSection[] = [
         label: "Peru Travel Packages",
         description: "Multi-day tours with hotels & guides",
       },
-      {
-        href: "/machu-picchu-packages/",
-        label: "Machu Picchu Tours",
-      },
-      {
-        href: "/inca-trail-tours/",
-        label: "Inca Trail to Machu Picchu",
-      },
-      {
-        href: "/salkantay-treks/",
-        label: "Salkantay Trek to Machu Picchu",
-      },
-      {
-        href: "/luxury-tours/",
-        label: "Luxury Peru Tours",
-      },
-      {
-        href: "/day-tours-in-cusco/",
-        label: "Day Tours in Cusco",
-      },
-      {
-        href: "/offers/",
-        label: "Special Offers",
-      },
-      {
-        href: "/tailor-made-tour/",
-        label: "Tailor-Made Tours",
-      },
+      { href: "/machu-picchu-packages/", label: "Machu Picchu Tours" },
+      { href: "/inca-trail-tours/", label: "Inca Trail to Machu Picchu" },
+      { href: "/salkantay-treks/", label: "Salkantay Trek to Machu Picchu" },
+      { href: "/luxury-tours/", label: "Luxury Peru Tours" },
+      { href: "/day-tours-in-cusco/", label: "Day Tours in Cusco" },
+      { href: "/offers/", label: "Special Offers" },
+      { href: "/tailor-made-tour/", label: "Tailor-Made Tours" },
     ],
   },
   {
     id: "destinations",
     title: "Destinations",
     links: [
-      ...footerDestinationLinks.map((link) => ({
+      ...localeDestinations("en").regions.map((link) => ({
         href: link.href,
         label: link.label,
       })),
+      { href: "/destinations/", label: "All Destinations" },
       { href: "/blogs/", label: "Peru Travel Blog" },
     ],
   },
@@ -121,49 +100,124 @@ export const footerUtilityLinks: FooterLink[] = [
   { href: "/join-to-peru-grand-travel/", label: "Work With Us" },
 ];
 
-/** Prefix only locale-existing routes; other hrefs stay on EN paths so they do not 404. */
+function prefix(market: MarketId, href: string): string {
+  return withMarketPrefix(market, href);
+}
+
+function esSections(): FooterSection[] {
+  const dest = localeDestinations("es");
+  return [
+    {
+      id: "company",
+      title: "Nuestra empresa",
+      links: [
+        { href: prefix("es", "/sobre-nosotros/"), label: "Sobre nosotros", group: "brand" },
+        { href: prefix("es", "/proyectos-sociales/"), label: "Proyectos sociales", group: "brand" },
+        { href: prefix("es", "/turismo-sostenible/"), label: "Turismo sostenible", group: "brand" },
+        { href: prefix("es", "/premios-y-reconocimientos/"), label: "Premios y reconocimientos", group: "brand" },
+        { href: prefix("es", "/politicas-terminos-y-condiciones/"), label: "Términos y condiciones", group: "legal" },
+        { href: prefix("es", "/politicas-de-privacidad-y-proteccion-de-datos/"), label: "Política de privacidad", group: "legal" },
+        {
+          href: prefix("es", "/politica-contra-la-explotacion-el-acoso-y-la-discriminacion/"),
+          label: "Política contra explotación y acoso",
+          group: "legal",
+        },
+        { href: prefix("es", "/codigo-de-etica-esnna/"), label: "Código de ética ESNNA", group: "legal" },
+        { href: prefix("es", "/documentos-legales/"), label: "Documentos legales", group: "legal" },
+      ],
+    },
+    {
+      id: "packages",
+      title: "Paquetes y tours",
+      links: [
+        { href: prefix("es", "/packages/"), label: "Paquetes a Perú", description: "Tours de varios días con hoteles y guías" },
+        { href: prefix("es", "/camino-inca/"), label: "Camino Inca a Machu Picchu" },
+        { href: prefix("es", "/salkantay-trek/"), label: "Salkantay Trek" },
+        { href: prefix("es", "/full-day-cusco/"), label: "Tours full day en Cusco" },
+        { href: prefix("es", "/ofertas/"), label: "Ofertas" },
+        { href: prefix("es", "/tour-personalizado/"), label: "Tour a medida" },
+      ],
+    },
+    {
+      id: "destinations",
+      title: "Destinos",
+      links: [
+        { href: dest.hub.href, label: dest.hub.label },
+        ...dest.regions.map((l) => ({ href: l.href, label: l.label })),
+        { href: prefix("es", "/blogs/"), label: "Blog de viajes" },
+      ],
+    },
+  ];
+}
+
+function ptSections(): FooterSection[] {
+  const dest = localeDestinations("pt");
+  return [
+    {
+      id: "company",
+      title: "Nossa empresa",
+      links: [
+        { href: prefix("pt", "/quem-somos/"), label: "Quem somos", group: "brand" },
+        { href: prefix("pt", "/projetos-sociais/"), label: "Projetos sociais", group: "brand" },
+        { href: prefix("pt", "/turismo-sustentavel/"), label: "Turismo sustentável", group: "brand" },
+        { href: prefix("pt", "/premios-e-reconhecimentos/"), label: "Prêmios e reconhecimentos", group: "brand" },
+        { href: prefix("pt", "/politicas-termos-e-condicoes/"), label: "Termos e condições", group: "legal" },
+        { href: prefix("pt", "/politicas-de-privacidade-e-protecao-de-dados/"), label: "Política de privacidade", group: "legal" },
+        { href: prefix("pt", "/codigo-de-conduta-esnna/"), label: "Código de conduta ESNNA", group: "legal" },
+        { href: prefix("pt", "/documentos-legais/"), label: "Documentos legais", group: "legal" },
+      ],
+    },
+    {
+      id: "packages",
+      title: "Pacotes e tours",
+      links: [
+        { href: prefix("pt", "/packages/"), label: "Pacotes para o Peru", description: "Roteiros de vários dias com hotéis e guias" },
+        { href: prefix("pt", "/viagens-machu-picchu/"), label: "Viagens Machu Picchu" },
+        { href: prefix("pt", "/trilha-inca-peru/"), label: "Trilha Inca" },
+        { href: prefix("pt", "/trilha-salkantay/"), label: "Trilha Salkantay" },
+        { href: prefix("pt", "/tours-opcionais/"), label: "Tours opcionais em Cusco" },
+        { href: prefix("pt", "/promocoes/"), label: "Promoções" },
+        { href: prefix("pt", "/crie-seu-roteiro/"), label: "Crie seu roteiro" },
+      ],
+    },
+    {
+      id: "destinations",
+      title: "Destinos",
+      links: [
+        { href: dest.hub.href, label: dest.hub.label },
+        ...dest.regions.map((l) => ({ href: l.href, label: l.label })),
+        { href: prefix("pt", "/blogs/"), label: "Blog de viagens" },
+      ],
+    },
+  ];
+}
+
 export function localizeFooterHref(market: MarketId, href: string): string {
-  if (href === "/" || href === "/packages/") {
-    return withMarketPrefix(market, href);
-  }
+  if (market === "en") return href;
+  if (href === "/" || href === "/packages/") return withMarketPrefix(market, href);
   return href;
 }
 
 export function footerSectionsFor(market: MarketId): FooterSection[] {
-  if (market === "en") return footerSections;
-  const copy = copyFor(market).footer;
-  return footerSections.map((section) => ({
-    ...section,
-    title:
-      section.id === "packages"
-        ? copy.sectionPackages
-        : section.id === "destinations"
-          ? copy.sectionDestinations
-          : section.id === "company"
-            ? copy.sectionCompany
-            : section.title,
-    links: section.links.map((link) => ({
-      ...link,
-      href: localizeFooterHref(market, link.href),
-      ...(link.href === "/packages/"
-        ? { label: copy.packagesLink, description: copy.packagesDesc }
-        : {}),
-    })),
-  }));
+  if (market === "es") return esSections();
+  if (market === "pt") return ptSections();
+  return footerSections;
 }
 
 export function footerUtilityLinksFor(market: MarketId): FooterLink[] {
-  if (market === "en") return footerUtilityLinks;
-  const copy = copyFor(market).footer;
-  return footerUtilityLinks.map((link) => ({
-    ...link,
-    label:
-      link.href === "/contact-us/"
-        ? copy.contactUs
-        : link.href === "/payment-methods/"
-          ? copy.paymentMethods
-          : link.href === "/join-to-peru-grand-travel/"
-            ? copy.workWithUs
-            : link.label,
-  }));
+  if (market === "es") {
+    return [
+      { href: prefix("es", "/contacto/"), label: "Contáctanos" },
+      { href: prefix("es", "/metodos-de-pago/"), label: "Métodos de pago" },
+      { href: prefix("es", "/unete-a-peru-grand-travel/"), label: "Trabaja con nosotros" },
+    ];
+  }
+  if (market === "pt") {
+    return [
+      { href: prefix("pt", "/contato/"), label: "Contato" },
+      { href: prefix("pt", "/metodos-de-pagamento/"), label: "Métodos de pagamento" },
+      { href: prefix("pt", "/junte-se-a-nos-e-trabalhe-conosco/"), label: "Trabalhe conosco" },
+    ];
+  }
+  return footerUtilityLinks;
 }

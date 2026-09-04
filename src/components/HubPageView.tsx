@@ -51,7 +51,7 @@ export function HubPageView({
     <>
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", url: siteConfig.baseUrl },
+          { name: copy.pageChrome.homeCrumb, url: siteConfig.baseUrl },
           { name: page.h1, url: `${siteConfig.baseUrl}${path}` },
         ])}
       />

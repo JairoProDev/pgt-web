@@ -11,6 +11,8 @@ import {
 } from "@/lib/content";
 import { cleanPageTitle, sanitizeSectionHeading } from "@/lib/page-utils";
 import { breadcrumbSchema, touristDestinationSchema, travelAgencySchema } from "@/lib/schema";
+import { copyFor } from "@/lib/market-copy";
+import { contactPath } from "@/lib/destinations-nav";
 import { withMarketPrefix, type MarketId } from "@/lib/markets";
 import { siteConfig } from "@/lib/site";
 import type { PageContent, PageLink } from "@/lib/types";
@@ -24,21 +26,23 @@ type Props = {
   tourGridTitle?: string;
 };
 
-function ContactDetails() {
+function ContactDetails({ market }: { market: MarketId }) {
+  const chrome = copyFor(market).pageChrome;
+  const copy = copyFor(market);
   return (
     <div className="mt-8 rounded-xl border border-stone-200 bg-stone-50 p-6">
-      <h2 className="text-lg font-semibold text-stone-900">Get in touch</h2>
+      <h2 className="text-lg font-semibold text-stone-900">{chrome.getInTouch}</h2>
       <dl className="mt-4 space-y-3 text-sm text-stone-600">
         <div>
           <dt className="font-medium text-stone-800">{siteConfig.legalName}</dt>
           <dd>RUC {siteConfig.ruc}</dd>
         </div>
         <div>
-          <dt className="font-medium text-stone-800">Office</dt>
+          <dt className="font-medium text-stone-800">{chrome.office}</dt>
           <dd>{siteConfig.address.formatted}</dd>
         </div>
         <div>
-          <dt className="font-medium text-stone-800">Phone / WhatsApp</dt>
+          <dt className="font-medium text-stone-800">{copy.footer.phoneWa}</dt>
           <dd>
             <a href={`tel:${siteConfig.phonePe.replace(/\s/g, "")}`} className="text-pgt-blue hover:underline">
               {siteConfig.phonePe}
@@ -53,7 +57,7 @@ function ContactDetails() {
           </dd>
         </div>
         <div>
-          <dt className="font-medium text-stone-800">USA</dt>
+          <dt className="font-medium text-stone-800">{copy.footer.usaLine}</dt>
           <dd>
             <a href={`tel:${siteConfig.phoneUs.replace(/\s/g, "")}`} className="text-pgt-blue hover:underline">
               {siteConfig.phoneUs}
@@ -61,7 +65,7 @@ function ContactDetails() {
           </dd>
         </div>
         <div>
-          <dt className="font-medium text-stone-800">Email</dt>
+          <dt className="font-medium text-stone-800">{chrome.email}</dt>
           <dd>
             <a href={`mailto:${siteConfig.email}`} className="text-pgt-blue hover:underline">
               {siteConfig.email}
@@ -95,8 +99,10 @@ function ChildLinksGrid({ links, title }: { links: PageLink[]; title: string }) 
 }
 
 export function ContentPageView({ page, path, market = "en", showTourGrid, tourGridTitle }: Props) {
+  const chrome = copyFor(market).pageChrome;
   const h1 = cleanPageTitle(page.h1);
-  const isContact = path === "/contact-us/" || path === "/contacto/" || path === "/contato/";
+  const isContact =
+    path === "/contact-us/" || path === "/contacto/" || path === "/contato/";
   const isDestination = page.pageType === "destination";
   const sections = page.sections?.filter((s) => s.body && s.body.length > 40) ?? [];
   const childLinks =
@@ -118,11 +124,9 @@ export function ContentPageView({ page, path, market = "en", showTourGrid, tourG
       ? getToursBySlugs(page.tourSlugs.slice(0, 6), market)
       : [];
 
-  const waMessage = isContact
-    ? "Hi! I'd like to contact Peru Grand Travel about a trip to Peru."
-    : `Hi! I'm reading about ${h1} on Peru Grand Travel and would like more information.`;
+  const waMessage = isContact ? chrome.waContact : chrome.waPage(h1);
 
-  const crumbs = [{ name: "Home", url: siteConfig.baseUrl }];
+  const crumbs = [{ name: chrome.homeCrumb, url: siteConfig.baseUrl }];
   const parts = path.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
   let acc = "";
   for (const part of parts) {
@@ -173,7 +177,7 @@ export function ContentPageView({ page, path, market = "en", showTourGrid, tourG
           )}
         </header>
 
-        {isContact && <ContactDetails />}
+        {isContact && <ContactDetails market={market} />}
 
         {page.bodyHtml ? (
           <div
@@ -195,42 +199,49 @@ export function ContentPageView({ page, path, market = "en", showTourGrid, tourG
 
         {sections.length === 0 && page.heroSubtitle && !isContact && (
           <p className="mt-8 text-stone-600">
-            Explore our{" "}
-            <Link href="/packages/" className="font-medium text-pgt-blue hover:underline">
-              Peru travel packages
+            {chrome.emptyBefore}{" "}
+            <Link
+              href={withMarketPrefix(market, "/packages/")}
+              className="font-medium text-pgt-blue hover:underline"
+            >
+              {chrome.emptyPackages}
             </Link>{" "}
-            or{" "}
-            <Link href="/contact-us/" className="font-medium text-pgt-blue hover:underline">
-              contact our team
+            {chrome.emptyOr}{" "}
+            <Link href={contactPath(market)} className="font-medium text-pgt-blue hover:underline">
+              {chrome.emptyContact}
             </Link>{" "}
-            for a custom itinerary.
+            {chrome.emptyAfter}
           </p>
         )}
 
         <ChildLinksGrid
           links={prefixedChildren}
-          title={path.startsWith("/peru/") ? "Explore this destination" : "Related pages"}
+          title={
+            path.startsWith("/peru/") || path.startsWith("/destinos/") || path.startsWith("/tours-")
+              ? chrome.exploreDest
+              : chrome.relatedPages
+          }
         />
 
         {tourCards.length > 0 && (
           <div className="mt-12 -mx-4 max-w-none px-0">
-            <PackageGrid items={tourCards} title={tourGridTitle ?? "Recommended tours"} />
+            <PackageGrid items={tourCards} title={tourGridTitle ?? chrome.recommended} />
           </div>
         )}
 
         {relatedTours.length > 0 && (
-          <RelatedTours tours={relatedTours} pagePath={path} heading="Related tours" />
+          <RelatedTours tours={relatedTours} pagePath={path} heading={chrome.relatedTours} />
         )}
 
         <div className="mt-12 rounded-xl bg-pgt-blue p-6 text-center text-white md:p-8">
           <p className="text-lg font-semibold">
-            {isContact ? "Prefer WhatsApp?" : "Plan your Peru trip with a local expert"}
+            {isContact ? chrome.preferWa : chrome.planExpert}
           </p>
           <p className="mt-2 text-sm text-blue-100">
-            Response from our Cusco team — typically within a few hours.
+            {chrome.replyHours}
           </p>
           <WhatsAppButton
-            label="Chat on WhatsApp"
+            label={chrome.chatWa}
             message={waMessage}
             utmContent={`page_${page.slug}`}
             contentType="static"

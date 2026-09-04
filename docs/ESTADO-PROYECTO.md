@@ -48,7 +48,7 @@
 | Páginas estáticas/hubs | 62 | **62** JSON |
 | Build SSG | 589 URLs | **591** rutas generadas |
 | Footer links funcionales | 100% | **~95%** (ver auditoría abajo) |
-| Payload CMS | Editar 1 tour (H1/precio) | **Payload 3 wired** — local Postgres; Neon terms pending Jairo. See `docs/PAYLOAD.md` |
+| Payload CMS | Editar 1 tour (H1/precio) | **Payload 3 + Neon hybrid live** en `next.` — vista previa de `heroImage` por URL (sin Blob de pago). See `docs/PAYLOAD.md` |
 | Beta DNS | beta.perugrandtravel.com | **Pendiente (Jairo)** |
 | Cutover prod DNS | www → Vercel | **Guía lista — Jairo ejecuta** ([PASOS-SOLO-JAIRO.md](PASOS-SOLO-JAIRO.md)) |
 
@@ -239,10 +239,10 @@ Ver blueprint completo: **`docs/BLUEPRINT-FASE-A-BETA-CUTOVER.md`**
 - [ ] GSC estable 30 días
 
 ### Fase C — Post-cutover (mes 1–2)
-- [ ] Payload CMS live
+- [x] Payload CMS live (Neon hybrid en `next.`)
 - [ ] Top 50 imágenes locales
 - [ ] Revisión manual top 20 tours
-- [ ] i18n ES/PT/IT (repos separados o subpaths)
+- [x] i18n ES/PT en preview (`/es/`, `/pt/`) — catálogo real, footer/nav/búsqueda por mercado. IT no.
 
 ---
 

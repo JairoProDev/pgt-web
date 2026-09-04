@@ -1,5 +1,5 @@
 #!/usr/bin/env npx tsx
-/** Rich client search index — tours + blogs for Trip Finder & ⌘K search */
+/** Rich client search index — tours + blogs for Trip Finder & ⌘K search, per market */
 import fs from "fs";
 import path from "path";
 import { tourDayCount, isTrustedPrice } from "../src/lib/conversion";
@@ -11,10 +11,14 @@ import {
   inferTourStyle,
   styleKeyFromLabel,
 } from "../src/lib/tour-card";
+import type { MarketId } from "../src/lib/markets";
+import { inferBlogTopics } from "../src/lib/blog-topics";
 import type { BlogPost, Tour } from "../src/lib/types";
 
 const ROOT = path.join(process.cwd(), "src/content");
 const OUT = path.join(process.cwd(), "data/search-index.json");
+
+const MARKETS: MarketId[] = ["en", "es", "pt"];
 
 function walkJson(dir: string): string[] {
   if (!fs.existsSync(dir)) return [];
@@ -27,23 +31,22 @@ function walkJson(dir: string): string[] {
   return out;
 }
 
-const BLOG_TOPIC_RULES: { label: string; re: RegExp }[] = [
-  { label: "Cusco", re: /\bcusco\b|sacred valley|ollantaytambo|salkantay|inca trail/ },
-  { label: "Machu Picchu", re: /machu picchu|machupicchu|huayna|aguas calientes/ },
-  { label: "Lima", re: /\blima\b|miraflores|barranco|huacachina/ },
-  { label: "Amazon", re: /amazon|rainforest|maldonado|tambopata/ },
-  { label: "Food", re: /food|ceviche|restaurant|gastronom|pisco|cuisine/ },
-  { label: "Planning", re: /itinerary|pack|when to|best time|visa|budget|tips|guide/ },
-];
-
-function inferBlogTopics(post: BlogPost): string[] {
-  const text = `${post.slug} ${post.h1} ${post.intro}`.toLowerCase();
-  const topics = BLOG_TOPIC_RULES.filter((r) => r.re.test(text)).map((r) => r.label);
-  return topics.length > 0 ? topics : ["Peru"];
+function toursDir(market: MarketId): string {
+  return market === "en" ? path.join(ROOT, "tours") : path.join(ROOT, market, "tours");
 }
 
-function main() {
-  const tours = walkJson(path.join(ROOT, "tours")).map((f) => {
+function blogsDir(market: MarketId): string {
+  return market === "en" ? path.join(ROOT, "blogs") : path.join(ROOT, market, "blogs");
+}
+
+const POPULAR: Record<MarketId, string[]> = {
+  en: ["Salkantay trek", "Inca Trail 4 days", "Machu Picchu packages", "5 day Cusco itinerary", "Amazon rainforest tour"],
+  es: ["Salkantay", "Camino Inca 4 días", "Paquetes Machu Picchu", "Cusco 5 días", "Selva amazónica"],
+  pt: ["Salkantay", "Trilha Inca 4 dias", "Pacotes Machu Picchu", "Cusco 5 dias", "Floresta amazônica"],
+};
+
+function buildMarket(market: MarketId) {
+  const tours = walkJson(toursDir(market)).map((f) => {
     const t = JSON.parse(fs.readFileSync(f, "utf-8")) as Tour;
     const style = inferTourStyle(t);
     const days = tourDayCount(t);
@@ -68,9 +71,9 @@ function main() {
     };
   });
 
-  const blogs = walkJson(path.join(ROOT, "blogs")).map((f) => {
+  const blogs = walkJson(blogsDir(market)).map((f) => {
     const b = JSON.parse(fs.readFileSync(f, "utf-8")) as BlogPost;
-    const topics = inferBlogTopics(b);
+    const topics = inferBlogTopics(b.slug, b.h1, b.intro);
     return {
       type: "blog" as const,
       slug: b.slug,
@@ -85,23 +88,30 @@ function main() {
     };
   });
 
-  const index = {
+  return {
     generated: new Date().toISOString(),
-    popularQueries: [
-      "Salkantay trek",
-      "Inca Trail 4 days",
-      "Machu Picchu packages",
-      "5 day Cusco itinerary",
-      "Amazon rainforest tour",
-    ],
+    popularQueries: POPULAR[market],
     counts: { tours: tours.length, blogs: blogs.length },
     tours,
     blogs,
   };
+}
 
+function main() {
+  const markets = {
+    en: buildMarket("en"),
+    es: buildMarket("es"),
+    pt: buildMarket("pt"),
+  };
+  const index = {
+    generated: new Date().toISOString(),
+    markets,
+  };
   fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, JSON.stringify(index) + "\n");
-  console.log(`search-index: ${tours.length} tours, ${blogs.length} blogs → ${OUT}`);
+  console.log(
+    `search-index: en ${markets.en.counts.tours}t/${markets.en.counts.blogs}b · es ${markets.es.counts.tours}t/${markets.es.counts.blogs}b · pt ${markets.pt.counts.tours}t/${markets.pt.counts.blogs}b → ${OUT}`,
+  );
 }
 
 main();

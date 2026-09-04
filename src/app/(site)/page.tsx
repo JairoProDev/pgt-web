@@ -14,6 +14,7 @@ import { TrustValueBand } from "@/components/trust/TrustValueBand";
 import { WhatsAppSticky } from "@/components/WhatsAppButton";
 import { getHubTourCards, getPageByPath } from "@/lib/content";
 import { homePageSchema } from "@/lib/schema";
+import { homeLanguageAlternates } from "@/lib/hreflang";
 import { contentPageTitle } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 
@@ -25,7 +26,7 @@ export function generateMetadata(): Metadata {
   return {
     title: contentPageTitle(page.seo.title),
     description: page.seo.description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, languages: homeLanguageAlternates() },
     openGraph: {
       title: page.seo.title,
       description: page.seo.description,

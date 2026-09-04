@@ -58,8 +58,29 @@ export const TRUST_SIGNALS = [
 ] as const;
 
 /** Default tours when blog scrape missed relatedTourSlugs — keeps blog→WA path alive. */
-export function defaultRelatedTourSlugs(blogSlug: string): string[] {
+export function defaultRelatedTourSlugs(blogSlug: string, market: MarketId = "en"): string[] {
   const s = blogSlug.toLowerCase();
+  if (market === "es") {
+    if (s.includes("salkantay")) {
+      return ["salkantay-trek-4d", "camino-salkantay-sky-machu-picchu-5-dias", "camino-inca-salkantay-machu-picchu-7-dias"];
+    }
+    if (s.includes("inca") || s.includes("camino")) {
+      return ["camino-inca-clasico-4-dias", "camino-inca-corto-2-dias", "camino-inca-corto-valle-sagrado-3-dias"];
+    }
+    if (s.includes("machu") || s.includes("picchu")) {
+      return ["cusco-machu-picchu-2-dias", "cusco-machu-picchu-4-dias", "cusco-valle-sagrado-machu-picchu-7-dias"];
+    }
+    return ["salkantay-trek-4d", "camino-inca-clasico-4-dias", "cusco-espectacular-7d"];
+  }
+  if (market === "pt") {
+    if (s.includes("salkantay")) {
+      return ["trilha-salkantay-4d", "trilha-salkantay-sky-5d", "trilha-salkantay-combinada-7d"];
+    }
+    if (s.includes("inca") || s.includes("trilha")) {
+      return ["trilha-salkantay-4d", "trilha-salkantay-sky-5d"];
+    }
+    return ["trilha-salkantay-4d", "trilha-salkantay-sky-5d", "trilha-salkantay-combinada-7d"];
+  }
   if (s.includes("salkantay")) {
     return ["the-classic-salkantay-trek-5d", "salkantay-trek-4-days", "trek-humantay-salkantay-2d"];
   }

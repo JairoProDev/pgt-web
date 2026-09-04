@@ -7,7 +7,9 @@ import { RelatedTours } from "@/components/RelatedTours";
 import { WhatsAppButton, WhatsAppSticky } from "@/components/WhatsAppButton";
 import { blogWhatsAppMessage, defaultRelatedTourSlugs } from "@/lib/conversion";
 import { getToursBySlugs } from "@/lib/content";
+import { localizeGenericHeading } from "@/lib/chrome-i18n";
 import { copyFor } from "@/lib/market-copy";
+import { blogLanguageAlternates } from "@/lib/hreflang";
 import { blogPath, blogsIndexPath, withMarketPrefix, type MarketId } from "@/lib/markets";
 import { contentPageTitle, openGraphImage } from "@/lib/metadata";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
@@ -55,7 +57,7 @@ export function blogMetadata(blog: BlogPost, market: MarketId): Metadata {
   return {
     title: contentPageTitle(blog.seo.title),
     description: blog.seo.description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, languages: blogLanguageAlternates(blog.slug) },
     openGraph: {
       title: blog.seo.title,
       description: blog.seo.description,
@@ -76,9 +78,7 @@ export function BlogPageBody({ blog, market }: { blog: BlogPost; market: MarketI
   const tourSlugs =
     blog.relatedTourSlugs.length >= 2
       ? blog.relatedTourSlugs
-      : market === "en"
-        ? defaultRelatedTourSlugs(blog.slug)
-        : blog.relatedTourSlugs;
+      : defaultRelatedTourSlugs(blog.slug, market);
   const relatedTours = getToursBySlugs(tourSlugs.slice(0, 4), market);
   const waMessage = blogWhatsAppMessage(blog.h1, market);
   const packagesHref = withMarketPrefix(market, "/packages/");
@@ -136,7 +136,7 @@ export function BlogPageBody({ blog, market }: { blog: BlogPost; market: MarketI
             ) : null}
             {blog.sections.map((section, index) => (
               <section key={`${section.heading}-${index}`}>
-                <h2>{section.heading}</h2>
+                <h2>{localizeGenericHeading(section.heading, market)}</h2>
                 {section.body.split(/\n\n+/).map((para) => (
                   <p key={para.slice(0, 60)}>{para}</p>
                 ))}

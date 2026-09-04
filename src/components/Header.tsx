@@ -8,8 +8,10 @@ import { createPortal } from "react-dom";
 import { NavDestinations } from "@/components/NavDestinations";
 import { useSearch } from "@/components/search/SearchProvider";
 import { trackWhatsAppClick } from "@/lib/analytics";
+import { contactPath } from "@/lib/destinations-nav";
 import { headerPackageLinks } from "@/lib/header-nav";
 import { copyFor } from "@/lib/market-copy";
+import { switchMarketPath } from "@/lib/market-switch";
 import { marketFromPathname, withMarketPrefix, type MarketId } from "@/lib/markets";
 import { siteConfig, whatsAppUrl } from "@/lib/site";
 
@@ -77,17 +79,12 @@ function NavPackages({ isActive }: { isActive: boolean }) {
   );
 }
 
-const navLinksAfterDestinations = [
-  { href: "/machu-picchu-packages/", label: "Machu Picchu" },
-  { href: "/blogs/", label: "Blog" },
-  { href: "/contact-us/", label: "Contact" },
-];
-
 function LangSwitch({ market }: { market: MarketId }) {
+  const pathname = usePathname() || "/";
   const items = [
-    { id: "en" as const, href: "/", label: "EN" },
-    { id: "es" as const, href: "/es/", label: "ES" },
-    { id: "pt" as const, href: "/pt/", label: "PT" },
+    { id: "en" as const, href: switchMarketPath(pathname, "en"), label: "EN" },
+    { id: "es" as const, href: switchMarketPath(pathname, "es"), label: "ES" },
+    { id: "pt" as const, href: switchMarketPath(pathname, "pt"), label: "PT" },
   ];
   return (
     <nav aria-label={copyFor(market).header.langAria} className="flex items-center gap-1 text-xs font-semibold">
@@ -117,6 +114,7 @@ export function Header() {
   const homeHref = withMarketPrefix(market, "/");
   const packagesHref = withMarketPrefix(market, "/packages/");
   const blogsHref = withMarketPrefix(market, "/blogs/");
+  const contactHref = contactPath(market);
 
   // Body scroll lock
   useEffect(() => {
@@ -190,6 +188,7 @@ export function Header() {
         >
           {isLocale ? (
             <>
+            <NavDestinations variant="desktop" />
             <Link
               href={packagesHref}
               className={`hover:text-pgt-blue ${
@@ -210,12 +209,26 @@ export function Header() {
             >
               {copy.blog}
             </Link>
+            <Link
+              href={contactHref}
+              className={`hover:text-pgt-blue ${
+                isActive(contactHref)
+                  ? "border-b-2 border-pgt-gold font-semibold text-pgt-blue"
+                  : ""
+              }`}
+            >
+              {copy.contact}
+            </Link>
             </>
           ) : (
             <>
               <NavDestinations variant="desktop" />
               <NavPackages isActive={isActive("/packages/")} />
-              {navLinksAfterDestinations.map((link) => (
+              {[
+                { href: "/machu-picchu-packages/", label: "Machu Picchu" },
+                { href: blogsHref, label: copy.blog },
+                { href: contactHref, label: copy.contact },
+              ].map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
@@ -230,19 +243,17 @@ export function Header() {
               ))}
             </>
           )}
-          {!isLocale && (
           <button
             type="button"
             onClick={openSearch}
             className="inline-flex items-center gap-1.5 rounded-lg border border-stone-200 px-3 py-1.5 text-stone-600 transition hover:border-pgt-gold/50 hover:text-pgt-blue"
-            aria-label="Search site (Ctrl+K)"
+            aria-label={`${copy.search} (Ctrl+K)`}
           >
             <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
             <span className="hidden lg:inline">{copy.search}</span>
           </button>
-          )}
           <LangSwitch market={market} />
           <a
             href={`tel:${siteConfig.phonePe.replace(/\s/g, "")}`}
@@ -267,18 +278,16 @@ export function Header() {
 
         {/* Mobile controls */}
         <div className="flex items-center gap-2 md:hidden">
-          {!isLocale && (
           <button
             type="button"
             className="rounded-lg p-2 text-stone-700 hover:bg-stone-100"
-            aria-label="Search"
+            aria-label={copy.search}
             onClick={openSearch}
           >
             <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
-          )}
 
           <a
             href={waMobile}
@@ -324,6 +333,7 @@ export function Header() {
         homeHref={homeHref}
         packagesHref={packagesHref}
         blogsHref={blogsHref}
+        contactHref={contactHref}
         packagesLabel={copy.packages}
         isLocale={isLocale}
       />
@@ -342,6 +352,7 @@ function MobileMenu({
   homeHref,
   packagesHref,
   blogsHref,
+  contactHref,
   packagesLabel,
   isLocale,
 }: {
@@ -354,6 +365,7 @@ function MobileMenu({
   homeHref: string;
   packagesHref: string;
   blogsHref: string;
+  contactHref: string;
   packagesLabel: string;
   isLocale: boolean;
 }) {
@@ -402,7 +414,6 @@ function MobileMenu({
           <div className="mb-4">
             <LangSwitch market={market} />
           </div>
-          {!isLocale && (
           <button
             type="button"
             onClick={() => {
@@ -414,13 +425,13 @@ function MobileMenu({
             <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
-            <span className="text-sm">Search trips & guides...</span>
+            <span className="text-sm">{copy.searchUi.placeholder}</span>
           </button>
-          )}
 
           <nav className="space-y-1">
             {isLocale ? (
               <>
+              <NavDestinations variant="mobile" onNavigate={onClose} />
               <Link
                 href={packagesHref}
                 className="block border-b border-stone-100 py-2 text-sm font-medium text-stone-700 hover:text-pgt-blue"
@@ -435,6 +446,13 @@ function MobileMenu({
               >
                 {copy.blog}
               </Link>
+              <Link
+                href={contactHref}
+                className="block border-b border-stone-100 py-2 text-sm font-medium text-stone-700 hover:text-pgt-blue"
+                onClick={onClose}
+              >
+                {copy.contact}
+              </Link>
               </>
             ) : (
             <>
@@ -447,7 +465,7 @@ function MobileMenu({
                 aria-expanded={packagesOpen}
                 onClick={() => setPackagesOpen(!packagesOpen)}
               >
-                Packages & Tours
+                {copy.hub.packagesEyebrow}
                 <svg
                   className={`h-4 w-4 transition ${packagesOpen ? "rotate-180" : ""}`}
                   fill="none"
@@ -475,18 +493,18 @@ function MobileMenu({
             </div>
 
             <Link
-              href="/blogs/"
+              href={blogsHref}
               className="block border-b border-stone-100 py-2 text-sm font-medium text-stone-700 hover:text-pgt-blue"
               onClick={onClose}
             >
-              Blog
+              {copy.blog}
             </Link>
             <Link
-              href="/contact-us/"
+              href={contactHref}
               className="block border-b border-stone-100 py-2 text-sm font-medium text-stone-700 hover:text-pgt-blue"
               onClick={onClose}
             >
-              Contact
+              {copy.contact}
             </Link>
             </>
             )}

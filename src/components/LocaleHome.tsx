@@ -9,6 +9,7 @@ import { TrustValueBand } from "@/components/trust/TrustValueBand";
 import { WhatsAppSticky } from "@/components/WhatsAppButton";
 import { getHubTourCards, getPageByPath } from "@/lib/content";
 import { copyFor } from "@/lib/market-copy";
+import { homeLanguageAlternates } from "@/lib/hreflang";
 import { withMarketPrefix, type MarketId } from "@/lib/markets";
 import { contentPageTitle } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
@@ -21,7 +22,7 @@ export function localeHomeMetadata(market: MarketId): Metadata {
   return {
     title: contentPageTitle(page.seo.title),
     description: page.seo.description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, languages: homeLanguageAlternates() },
     openGraph: {
       title: page.seo.title,
       description: page.seo.description,

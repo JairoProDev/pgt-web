@@ -10,6 +10,7 @@ import {
   type FooterLink,
   type FooterSection,
 } from "@/lib/footer-nav";
+import { awardsPath, contactPath, paymentPath, privacyPath } from "@/lib/destinations-nav";
 import { copyFor, type FooterCopy } from "@/lib/market-copy";
 import { withMarketPrefix } from "@/lib/markets";
 import { travelAgencySchema } from "@/lib/schema";
@@ -176,7 +177,15 @@ function MobileAccordion({
   );
 }
 
-function NewsletterCard({ idPrefix, copy }: { idPrefix: string; copy: FooterCopy }) {
+function NewsletterCard({
+  idPrefix,
+  copy,
+  contactHref,
+}: {
+  idPrefix: string;
+  copy: FooterCopy;
+  contactHref: string;
+}) {
   const inputId = `${idPrefix}-newsletter-email`;
   const helpId = `${idPrefix}-newsletter-help`;
 
@@ -189,7 +198,7 @@ function NewsletterCard({ idPrefix, copy }: { idPrefix: string; copy: FooterCopy
         {copy.travelTips}
       </h2>
       <p className="mt-2 text-sm text-blue-100">{copy.travelTipsBody}</p>
-      <form action="/contact-us/" method="get" className="mt-4 space-y-3">
+      <form action={contactHref} method="get" className="mt-4 space-y-3">
         <input type="hidden" name="intent" value="newsletter" />
         <div>
           <label htmlFor={inputId} className="block text-sm font-medium text-blue-50">
@@ -221,7 +230,15 @@ function NewsletterCard({ idPrefix, copy }: { idPrefix: string; copy: FooterCopy
   );
 }
 
-function PaymentsBlock({ headingId, copy }: { headingId: string; copy: FooterCopy }) {
+function PaymentsBlock({
+  headingId,
+  copy,
+  paymentHref,
+}: {
+  headingId: string;
+  copy: FooterCopy;
+  paymentHref: string;
+}) {
   return (
     <div>
       <h2
@@ -233,7 +250,7 @@ function PaymentsBlock({ headingId, copy }: { headingId: string; copy: FooterCop
       <p className="mt-2 text-sm text-blue-100">
         {copy.bookConfidence}{" "}
         <Link
-          href="/payment-methods/"
+          href={paymentHref}
           className={`font-medium text-white underline-offset-2 hover:underline ${focusRing}`}
         >
           {copy.viewMethods}
@@ -260,7 +277,15 @@ function PaymentsBlock({ headingId, copy }: { headingId: string; copy: FooterCop
   );
 }
 
-function AwardChips({ headingId, copy }: { headingId: string; copy: FooterCopy }) {
+function AwardChips({
+  headingId,
+  copy,
+  awardsHref,
+}: {
+  headingId: string;
+  copy: FooterCopy;
+  awardsHref: string;
+}) {
   return (
     <div>
       <h2
@@ -273,7 +298,7 @@ function AwardChips({ headingId, copy }: { headingId: string; copy: FooterCopy }
         {siteConfig.awardChips.map((chip) => (
           <li key={chip.label}>
             <Link
-              href={chip.href}
+              href={awardsHref}
               className={`inline-flex min-h-11 items-center rounded-full border border-pgt-gold/55 bg-pgt-blue-dark/40 px-3.5 py-2 text-xs font-medium text-pgt-gold transition hover:border-pgt-gold hover:bg-pgt-gold/15 hover:text-white ${focusRing}`}
             >
               {chip.label}
@@ -296,7 +321,10 @@ export function Footer() {
   const waPrimary = whatsAppUrl(copy.waPrimary, { utmContent: "footer_whatsapp" });
   const waSupport = whatsAppUrl(copy.waSupport, { utmContent: "footer_support_24_7" });
 
-  const privacyHref = "/privacy-policy-and-data-protection/";
+  const contactHref = contactPath(market);
+  const paymentHref = paymentPath(market);
+  const awardsHref = awardsPath(market);
+  const privacyHref = privacyPath(market);
   const legalBarLinks = [
     ...utilityLinks,
     ...(utilityLinks.some((link) => link.href === privacyHref)
@@ -446,7 +474,7 @@ export function Footer() {
                   {copy.chatWa}
                 </a>
                 <Link
-                  href="/contact-us/"
+                  href={contactHref}
                   className={`inline-flex min-h-11 flex-1 items-center justify-center rounded-lg border border-white/70 bg-transparent px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10 ${focusRing}`}
                 >
                   {copy.contactUs}
@@ -506,21 +534,21 @@ export function Footer() {
 
           <MobileAccordion title={copy.paymentsAwards}>
             <div className="space-y-8">
-              <PaymentsBlock headingId="footer-payments-mobile" copy={copy} />
-              <AwardChips headingId="footer-awards-mobile" copy={copy} />
+              <PaymentsBlock headingId="footer-payments-mobile" copy={copy} paymentHref={paymentHref} />
+              <AwardChips headingId="footer-awards-mobile" copy={copy} awardsHref={awardsHref} />
             </div>
           </MobileAccordion>
 
           <MobileAccordion title={copy.getTipsAccordion}>
-            <NewsletterCard idPrefix="footer-mobile" copy={copy} />
+            <NewsletterCard idPrefix="footer-mobile" copy={copy} contactHref={contactHref} />
           </MobileAccordion>
         </div>
 
         {/* Desktop engagement band */}
         <div className="mt-12 hidden gap-8 border-t border-pgt-gold/30 pt-10 md:grid md:grid-cols-3">
-          <NewsletterCard idPrefix="footer" copy={copy} />
-          <PaymentsBlock headingId="footer-payments" copy={copy} />
-          <AwardChips headingId="footer-awards" copy={copy} />
+          <NewsletterCard idPrefix="footer" copy={copy} contactHref={contactHref} />
+          <PaymentsBlock headingId="footer-payments" copy={copy} paymentHref={paymentHref} />
+          <AwardChips headingId="footer-awards" copy={copy} awardsHref={awardsHref} />
         </div>
       </div>
 

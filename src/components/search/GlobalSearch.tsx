@@ -4,8 +4,11 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { trackSearch } from "@/lib/analytics";
+import { copyFor } from "@/lib/market-copy";
+import { blogPath, tourPath } from "@/lib/markets";
 import { searchUnified } from "@/lib/search-engine";
 import { whatsAppUrl } from "@/lib/site";
+import { useMarket } from "@/lib/use-market";
 import { useSearch } from "./SearchProvider";
 
 type FlatResult =
@@ -15,6 +18,8 @@ type FlatResult =
 export function GlobalSearch() {
   const { open, closeSearch, index } = useSearch();
   const pathname = usePathname();
+  const market = useMarket();
+  const ui = copyFor(market).searchUi;
   const inputRef = useRef<HTMLInputElement>(null);
   const [query, setQuery] = useState("");
   const [activeIndex, setActiveIndex] = useState(0);
@@ -31,7 +36,7 @@ export function GlobalSearch() {
       kind: "tour" as const,
       slug: t.slug,
       title: t.title,
-      meta: `${t.days}d · ${t.style}${t.trustedPrice ? ` · From US$ ${t.priceFrom.toLocaleString()}` : " · Quote on request"}`,
+      meta: `${ui.days(t.days)} · ${t.style}${t.trustedPrice ? ` · ${ui.fromPrice(t.priceFrom.toLocaleString())}` : ` · ${ui.quoteOnRequest}`}`,
     }));
     const blogRows = results.blogs.map((b) => ({
       kind: "blog" as const,
@@ -40,7 +45,7 @@ export function GlobalSearch() {
       meta: b.topics.join(" · "),
     }));
     return { tourRows, blogRows, flatResults: [...tourRows, ...blogRows] };
-  }, [results]);
+  }, [results, ui]);
 
   useEffect(() => {
     if (open) {
@@ -77,19 +82,16 @@ export function GlobalSearch() {
         const item = flatResults[activeIndex];
         closeSearch();
         window.location.href =
-          item.kind === "tour" ? `/tour/${item.slug}/` : `/blog/${item.slug}/`;
+          item.kind === "tour" ? tourPath(market, item.slug) : blogPath(market, item.slug);
       }
     },
-    [flatResults, activeIndex, closeSearch],
+    [flatResults, activeIndex, closeSearch, market],
   );
 
   if (!open) return null;
 
   const noResults = results && flatResults.length === 0;
-  const waHref = whatsAppUrl(
-    `Hi! I searched "${query}" on Peru Grand Travel but didn't find exactly what I need. Can you help me plan my trip?`,
-    { utmContent: "search_no_results" },
-  );
+  const waHref = whatsAppUrl(ui.waNoResults(query), { utmContent: "search_no_results" });
 
   let rowIndex = 0;
 
@@ -98,7 +100,7 @@ export function GlobalSearch() {
       className="fixed inset-0 z-[100] flex items-start justify-center bg-stone-900/50 px-4 pt-[10vh] backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
-      aria-label="Search Peru Grand Travel"
+      aria-label={ui.aria}
       onClick={closeSearch}
     >
       <div
@@ -118,9 +120,9 @@ export function GlobalSearch() {
               setActiveIndex(0);
             }}
             onKeyDown={onKeyDown}
-            placeholder="Search trips, treks, Machu Picchu guides…"
+            placeholder={ui.placeholder}
             className="flex-1 bg-transparent text-base text-stone-900 placeholder:text-stone-400 focus:outline-none"
-            aria-label="Search"
+            aria-label={copyFor(market).search}
             autoComplete="off"
           />
           <kbd className="hidden rounded border border-stone-200 px-2 py-0.5 text-xs text-stone-400 sm:inline">
@@ -131,9 +133,7 @@ export function GlobalSearch() {
         <div className="max-h-[min(60vh,420px)] overflow-y-auto p-2">
           {!query.trim() && (
             <div className="px-3 py-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-stone-400">
-                Popular searches
-              </p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-stone-400">{ui.popular}</p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {index.popularQueries.map((q) => (
                   <button
@@ -146,20 +146,18 @@ export function GlobalSearch() {
                   </button>
                 ))}
               </div>
-              <p className="mt-4 text-xs text-stone-500">
-                Trips show price and WhatsApp quote · Guides open blog articles
-              </p>
+              <p className="mt-4 text-xs text-stone-500">{ui.hint}</p>
             </div>
           )}
 
           {tourRows.length > 0 && (
-            <ResultSection title="Trips & packages">
+            <ResultSection title={ui.trips}>
               {tourRows.map((row) => {
                 const idx = rowIndex++;
                 return (
                   <SearchResultRow
                     key={row.slug}
-                    href={`/tour/${row.slug}/`}
+                    href={tourPath(market, row.slug)}
                     title={row.title}
                     meta={row.meta}
                     active={activeIndex === idx}
@@ -172,13 +170,13 @@ export function GlobalSearch() {
           )}
 
           {blogRows.length > 0 && (
-            <ResultSection title="Travel guides">
+            <ResultSection title={ui.guides}>
               {blogRows.map((row) => {
                 const idx = rowIndex++;
                 return (
                   <SearchResultRow
                     key={row.slug}
-                    href={`/blog/${row.slug}/`}
+                    href={blogPath(market, row.slug)}
                     title={row.title}
                     meta={row.meta}
                     active={activeIndex === idx}
@@ -192,17 +190,15 @@ export function GlobalSearch() {
 
           {noResults && (
             <div className="px-4 py-8 text-center">
-              <p className="font-semibold text-stone-800">No results for &ldquo;{query}&rdquo;</p>
-              <p className="mt-2 text-sm text-stone-600">
-                Try &ldquo;Salkantay&rdquo;, &ldquo;Inca Trail&rdquo;, or &ldquo;Machu Picchu 5 days&rdquo;
-              </p>
+              <p className="font-semibold text-stone-800">{ui.noResults(query)}</p>
+              <p className="mt-2 text-sm text-stone-600">{ui.tryHint}</p>
               <a
                 href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-4 inline-flex rounded-lg bg-[#25D366] px-5 py-2.5 text-sm font-semibold text-white hover:bg-[#1ebe57]"
               >
-                Ask us on WhatsApp
+                {ui.askWa}
               </a>
             </div>
           )}
@@ -210,7 +206,7 @@ export function GlobalSearch() {
 
         <div className="border-t border-stone-100 px-4 py-2 text-center text-xs text-stone-400">
           <kbd className="rounded border border-stone-200 px-1.5">⌘</kbd>
-          <kbd className="ml-0.5 rounded border border-stone-200 px-1.5">K</kbd> anywhere on the site
+          <kbd className="ml-0.5 rounded border border-stone-200 px-1.5">K</kbd> {ui.shortcut}
         </div>
       </div>
     </div>

@@ -12,6 +12,7 @@ import {
   tourWhatsAppMessage,
 } from "@/lib/conversion";
 import { copyFor } from "@/lib/market-copy";
+import { tourLanguageAlternates } from "@/lib/hreflang";
 import { tourPath, withMarketPrefix, type MarketId } from "@/lib/markets";
 import { contentPageTitle, openGraphImage } from "@/lib/metadata";
 import { breadcrumbSchema, faqSchema, tourProductSchema, touristTripSchema } from "@/lib/schema";
@@ -64,7 +65,7 @@ export function tourMetadata(tour: Tour, market: MarketId): Metadata {
   return {
     title: contentPageTitle(tour.seo.title),
     description: tour.seo.description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, languages: tourLanguageAlternates(tour.slug) },
     openGraph: {
       title: tour.seo.title,
       description: tour.seo.description,

@@ -24,6 +24,8 @@ Peru Grand Travel (PERU GRAND TRAVEL GROUP S.A.C., RUC 20603059302) is a license
 - [Viajes Machu Picchu Tours (ES)](https://www.viajesmachupicchutours.com/)
 - [Machu Picchu Pacotes (PT)](https://www.machupicchupacotes.com/)
 
+Preview (noindex) of the same catalogs: [ES home](https://next.perugrandtravel.com/es/), [PT home](https://next.perugrandtravel.com/pt/). ES destination hubs use `/es/destinos/` and `/es/tours-{region}/` — there is no `/es/peru/` tree. PT keeps `/pt/peru/`.
+
 ## How to quote / book
 
 Travelers message WhatsApp [+51 946 622 318](https://wa.me/51946622318) or [+1 786 558 8237](https://wa.me/17865588237) with dates, group size, and interests. The team replies with 2–3 tailored package options. No booking fee to ask.

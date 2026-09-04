@@ -2,7 +2,8 @@
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import searchIndexData from "../../../data/search-index.json";
-import type { SearchIndex } from "@/lib/search-types";
+import type { SearchIndex, SearchIndexBundle } from "@/lib/search-types";
+import { useMarket } from "@/lib/use-market";
 import { GlobalSearch } from "./GlobalSearch";
 
 type SearchContextValue = {
@@ -13,6 +14,14 @@ type SearchContextValue = {
   index: SearchIndex;
 };
 
+const EMPTY_INDEX: SearchIndex = {
+  generated: "",
+  popularQueries: [],
+  counts: { tours: 0, blogs: 0 },
+  tours: [],
+  blogs: [],
+};
+
 const SearchContext = createContext<SearchContextValue | null>(null);
 
 export function useSearch() {
@@ -21,9 +30,17 @@ export function useSearch() {
   return ctx;
 }
 
+function indexForMarket(raw: unknown, market: "en" | "es" | "pt"): SearchIndex {
+  const data = raw as SearchIndexBundle & SearchIndex;
+  if (data.markets?.[market]) return data.markets[market];
+  if (Array.isArray(data.tours)) return data;
+  return EMPTY_INDEX;
+}
+
 export function SearchProvider({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false);
-  const index = searchIndexData as SearchIndex;
+  const market = useMarket();
+  const index = useMemo(() => indexForMarket(searchIndexData, market), [market]);
 
   const openSearch = useCallback(() => setOpen(true), []);
   const closeSearch = useCallback(() => setOpen(false), []);

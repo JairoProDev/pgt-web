@@ -3,16 +3,18 @@ import { BlogIndexClient } from "@/components/BlogIndexClient";
 import { JsonLd } from "@/components/JsonLd";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { getAllBlogs } from "@/lib/content";
+import { blogsIndexLanguageAlternates } from "@/lib/hreflang";
 import { contentPageTitle } from "@/lib/metadata";
 import { itemListSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 import type { SearchBlogEntry } from "@/lib/search-types";
+import { inferBlogTopics } from "@/lib/blog-topics";
 
 export const metadata: Metadata = {
   title: contentPageTitle("Blog de viajes a Perú | Viajes Machu Picchu Tours"),
   description:
     "Guías de viaje a Perú: Machu Picchu, Camino Inca, Cusco, Lima y consejos para armar tu viaje.",
-  alternates: { canonical: "/es/blogs/" },
+  alternates: { canonical: "/es/blogs/", languages: blogsIndexLanguageAlternates() },
 };
 
 function toEntry(post: ReturnType<typeof getAllBlogs>[number]): SearchBlogEntry {
@@ -21,7 +23,7 @@ function toEntry(post: ReturnType<typeof getAllBlogs>[number]): SearchBlogEntry 
     slug: post.slug,
     title: post.h1.replace(/^▷\s*/, "").trim(),
     intro: (post.intro || post.seo.description || "").slice(0, 200),
-    topics: ["Perú"],
+    topics: inferBlogTopics(post.slug, post.h1, post.intro),
     modifiedAt: post.modifiedAt,
     relatedTourSlugs: post.relatedTourSlugs?.slice(0, 3) ?? [],
     searchText: [post.h1, post.intro, post.seo.description, post.slug].join(" ").toLowerCase(),

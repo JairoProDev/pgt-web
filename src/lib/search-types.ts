@@ -33,6 +33,11 @@ export type SearchIndex = {
   blogs: SearchBlogEntry[];
 };
 
+export type SearchIndexBundle = {
+  generated: string;
+  markets: Record<"en" | "es" | "pt", SearchIndex>;
+};
+
 export type SearchResultTour = SearchTourEntry & { score: number };
 export type SearchResultBlog = SearchBlogEntry & { score: number };
 

@@ -203,13 +203,83 @@ export type FooterCopy = {
   supportHoursDetail: string;
 };
 
+export type BlogLeadCopy = {
+  kicker: string;
+  title: string;
+  body: string;
+  cta: string;
+};
+
+export type SearchUiCopy = {
+  aria: string;
+  placeholder: string;
+  popular: string;
+  hint: string;
+  trips: string;
+  guides: string;
+  noResults: (q: string) => string;
+  tryHint: string;
+  askWa: string;
+  waNoResults: (q: string) => string;
+  quoteOnRequest: string;
+  fromPrice: (amount: string) => string;
+  days: (n: number) => string;
+  shortcut: string;
+};
+
+export type BlogIndexCopy = {
+  searchAria: string;
+  searchLabel: string;
+  placeholder: string;
+  all: string;
+  articleOne: string;
+  articleMany: string;
+  matching: string;
+  noMatch: string;
+  tryAnother: string;
+  showAll: string;
+  updated: string;
+};
+
+export type PageChromeCopy = {
+  getInTouch: string;
+  office: string;
+  email: string;
+  emptyBefore: string;
+  emptyPackages: string;
+  emptyOr: string;
+  emptyContact: string;
+  emptyAfter: string;
+  exploreDest: string;
+  relatedPages: string;
+  recommended: string;
+  relatedTours: string;
+  preferWa: string;
+  planExpert: string;
+  replyHours: string;
+  chatWa: string;
+  waContact: string;
+  waPage: (h1: string) => string;
+  homeCrumb: string;
+  notFoundTitle: string;
+  notFoundBody: string;
+  notFoundWa: string;
+  askWa: string;
+};
+
 export type MarketCopy = {
   packages: string;
   home: string;
   tours: string;
   blog: string;
   contact: string;
+  destinations: string;
   search: string;
+  relatedAsk: string;
+  blogLead: BlogLeadCopy;
+  searchUi: SearchUiCopy;
+  blogIndex: BlogIndexCopy;
+  pageChrome: PageChromeCopy;
   priceFrom: (amount: string) => string;
   requestQuote: string;
   includes: string;
@@ -262,7 +332,73 @@ const EN: MarketCopy = {
   tours: "Tours",
   blog: "Blog",
   contact: "Contact",
+  destinations: "Destinations",
   search: "Search",
+  relatedAsk: "Ask about this tour",
+  blogLead: {
+    kicker: "Plan your trip",
+    title: "Want a custom Peru itinerary based on this guide?",
+    body: "Our Cusco team replies in English on WhatsApp — no booking fee to ask questions.",
+    cta: "Get a free trip proposal",
+  },
+  searchUi: {
+    aria: "Search Peru Grand Travel",
+    placeholder: "Search trips, treks, Machu Picchu guides…",
+    popular: "Popular searches",
+    hint: "Trips show price and WhatsApp quote · Guides open blog articles",
+    trips: "Trips & packages",
+    guides: "Travel guides",
+    noResults: (q) => `No results for “${q}”`,
+    tryHint: "Try “Salkantay”, “Inca Trail”, or “Machu Picchu 5 days”",
+    askWa: "Ask us on WhatsApp",
+    waNoResults: (q) =>
+      `Hi! I searched "${q}" on Peru Grand Travel but didn't find exactly what I need. Can you help me plan my trip?`,
+    quoteOnRequest: "Quote on request",
+    fromPrice: (amount) => `From US$ ${amount}`,
+    days: (n) => `${n}d`,
+    shortcut: "anywhere on the site",
+  },
+  blogIndex: {
+    searchAria: "Search blog articles",
+    searchLabel: "Search articles",
+    placeholder: "Search guides — e.g. Salkantay, Lima food, best time to visit…",
+    all: "All",
+    articleOne: "article",
+    articleMany: "articles",
+    matching: " matching your search",
+    noMatch: "No articles match",
+    tryAnother: "Try another topic or clear your search.",
+    showAll: "Show all articles",
+    updated: "Updated",
+  },
+  pageChrome: {
+    getInTouch: "Get in touch",
+    office: "Office",
+    email: "Email",
+    emptyBefore: "Explore our",
+    emptyPackages: "Peru travel packages",
+    emptyOr: "or",
+    emptyContact: "contact our team",
+    emptyAfter: "for a custom itinerary.",
+    exploreDest: "Explore this destination",
+    relatedPages: "Related pages",
+    recommended: "Recommended tours",
+    relatedTours: "Related tours",
+    preferWa: "Prefer WhatsApp?",
+    planExpert: "Plan your Peru trip with a local expert",
+    replyHours: "Response from our Cusco team — typically within a few hours.",
+    chatWa: "Chat on WhatsApp",
+    waContact: "Hi! I'd like to contact Peru Grand Travel about a trip to Peru.",
+    waPage: (h1) =>
+      `Hi! I'm reading about ${h1} on Peru Grand Travel and would like more information.`,
+    homeCrumb: "Home",
+    notFoundTitle: "Page not found",
+    notFoundBody:
+      "This URL may have moved during our site upgrade. Try a hub below or message us — we reply with package options for your dates.",
+    notFoundWa:
+      "Hi! I was browsing perugrandtravel.com and need help finding the right Peru package.",
+    askWa: "Ask on WhatsApp",
+  },
   priceFrom: (amount) => `From US$ ${amount}`,
   requestQuote: "Request a quote",
   includes: "Includes",
@@ -598,7 +734,73 @@ const ES: MarketCopy = {
   tours: "Tours",
   blog: "Blog",
   contact: "Contacto",
+  destinations: "Destinos",
   search: "Buscar",
+  relatedAsk: "Consultar este tour",
+  blogLead: {
+    kicker: "Arma tu viaje",
+    title: "¿Quieres un itinerario a medida a partir de esta guía?",
+    body: "El equipo en Cusco responde en español por WhatsApp — consultar no tiene costo.",
+    cta: "Pedir propuesta sin costo",
+  },
+  searchUi: {
+    aria: "Buscar en Viajes Machu Picchu Tours",
+    placeholder: "Busca tours, trekkings, guías de Machu Picchu…",
+    popular: "Búsquedas populares",
+    hint: "Los tours muestran precio y cotización por WhatsApp · Las guías abren el blog",
+    trips: "Tours y paquetes",
+    guides: "Guías de viaje",
+    noResults: (q) => `Sin resultados para “${q}”`,
+    tryHint: "Prueba “Salkantay”, “Camino Inca” o “Machu Picchu 5 días”",
+    askWa: "Preguntar por WhatsApp",
+    waNoResults: (q) =>
+      `Hola! Busqué "${q}" en Viajes Machu Picchu Tours y no encontré exactamente eso. ¿Me ayudan a armar el viaje?`,
+    quoteOnRequest: "Cotizar",
+    fromPrice: (amount) => `Desde US$ ${amount}`,
+    days: (n) => `${n}d`,
+    shortcut: "en cualquier página",
+  },
+  blogIndex: {
+    searchAria: "Buscar artículos del blog",
+    searchLabel: "Buscar artículos",
+    placeholder: "Busca guías — p. ej. Salkantay, comida en Lima, mejor época…",
+    all: "Todos",
+    articleOne: "artículo",
+    articleMany: "artículos",
+    matching: " que coinciden con tu búsqueda",
+    noMatch: "Ningún artículo coincide",
+    tryAnother: "Prueba otro tema o borra la búsqueda.",
+    showAll: "Ver todos los artículos",
+    updated: "Actualizado",
+  },
+  pageChrome: {
+    getInTouch: "Contacto directo",
+    office: "Oficina",
+    email: "Email",
+    emptyBefore: "Explora nuestros",
+    emptyPackages: "paquetes a Perú",
+    emptyOr: "o",
+    emptyContact: "escribe al equipo",
+    emptyAfter: "para un itinerario a medida.",
+    exploreDest: "Explora este destino",
+    relatedPages: "Páginas relacionadas",
+    recommended: "Tours recomendados",
+    relatedTours: "Tours relacionados",
+    preferWa: "¿Prefieres WhatsApp?",
+    planExpert: "Arma tu viaje a Perú con un experto local",
+    replyHours: "El equipo en Cusco responde — normalmente en unas horas.",
+    chatWa: "Chatear por WhatsApp",
+    waContact: "Hola! Quiero contactar a Viajes Machu Picchu Tours sobre un viaje a Perú.",
+    waPage: (h1) =>
+      `Hola! Estoy leyendo sobre ${h1} en Viajes Machu Picchu Tours y me gustaría más información.`,
+    homeCrumb: "Inicio",
+    notFoundTitle: "Página no encontrada",
+    notFoundBody:
+      "Esta URL pudo moverse en la migración. Prueba un hub o escríbenos — respondemos con opciones para tus fechas.",
+    notFoundWa:
+      "Hola! Estaba navegando el sitio y necesito ayuda para encontrar el paquete adecuado a Perú.",
+    askWa: "Consultar por WhatsApp",
+  },
   priceFrom: (amount) => `Desde US$ ${amount}`,
   requestQuote: "Solicitar cotización",
   includes: "Incluye",
@@ -935,7 +1137,73 @@ const PT: MarketCopy = {
   tours: "Pacotes",
   blog: "Blog",
   contact: "Contato",
+  destinations: "Destinos",
   search: "Buscar",
+  relatedAsk: "Perguntar sobre este pacote",
+  blogLead: {
+    kicker: "Monte sua viagem",
+    title: "Quer um roteiro sob medida a partir deste guia?",
+    body: "A equipe em Cusco responde em português no WhatsApp — perguntar não tem custo.",
+    cta: "Pedir proposta grátis",
+  },
+  searchUi: {
+    aria: "Buscar em Machu Picchu Pacotes",
+    placeholder: "Busque pacotes, trekkings, guias de Machu Picchu…",
+    popular: "Buscas populares",
+    hint: "Pacotes mostram preço e cotação no WhatsApp · Guias abrem o blog",
+    trips: "Pacotes e tours",
+    guides: "Guias de viagem",
+    noResults: (q) => `Nenhum resultado para “${q}”`,
+    tryHint: "Tente “Salkantay”, “Trilha Inca” ou “Machu Picchu 5 dias”",
+    askWa: "Perguntar no WhatsApp",
+    waNoResults: (q) =>
+      `Olá! Busquei "${q}" em Machu Picchu Pacotes e não achei exatamente isso. Podem me ajudar a montar a viagem?`,
+    quoteOnRequest: "Sob consulta",
+    fromPrice: (amount) => `A partir de US$ ${amount}`,
+    days: (n) => `${n}d`,
+    shortcut: "em qualquer página",
+  },
+  blogIndex: {
+    searchAria: "Buscar artigos do blog",
+    searchLabel: "Buscar artigos",
+    placeholder: "Busque guias — ex. Salkantay, comida em Lima, melhor época…",
+    all: "Todos",
+    articleOne: "artigo",
+    articleMany: "artigos",
+    matching: " que coincidem com a busca",
+    noMatch: "Nenhum artigo encontrado",
+    tryAnother: "Tente outro tema ou limpe a busca.",
+    showAll: "Ver todos os artigos",
+    updated: "Atualizado",
+  },
+  pageChrome: {
+    getInTouch: "Fale conosco",
+    office: "Escritório",
+    email: "E-mail",
+    emptyBefore: "Explore nossos",
+    emptyPackages: "pacotes para o Peru",
+    emptyOr: "ou",
+    emptyContact: "fale com a equipe",
+    emptyAfter: "para um roteiro sob medida.",
+    exploreDest: "Explore este destino",
+    relatedPages: "Páginas relacionadas",
+    recommended: "Tours recomendados",
+    relatedTours: "Tours relacionados",
+    preferWa: "Prefere WhatsApp?",
+    planExpert: "Planeje sua viagem ao Peru com um especialista local",
+    replyHours: "A equipe em Cusco responde — em geral em poucas horas.",
+    chatWa: "Conversar no WhatsApp",
+    waContact: "Olá! Quero falar com Machu Picchu Pacotes sobre uma viagem ao Peru.",
+    waPage: (h1) =>
+      `Olá! Estou lendo sobre ${h1} em Machu Picchu Pacotes e gostaria de mais informações.`,
+    homeCrumb: "Início",
+    notFoundTitle: "Página não encontrada",
+    notFoundBody:
+      "Este URL pode ter mudado na migração. Tente um hub ou chame a gente — respondemos com opções para as suas datas.",
+    notFoundWa:
+      "Olá! Estava navegando o site e preciso de ajuda para encontrar o pacote certo para o Peru.",
+    askWa: "Perguntar no WhatsApp",
+  },
   priceFrom: (amount) => `A partir de US$ ${amount}`,
   requestQuote: "Pedir cotação",
   includes: "Inclui",

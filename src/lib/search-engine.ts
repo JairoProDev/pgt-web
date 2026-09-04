@@ -10,22 +10,28 @@ import type {
 const SYNONYMS: Record<string, string[]> = {
   mp: ["machu picchu", "machupicchu"],
   machupicchu: ["machu picchu"],
-  inca: ["inca trail", "incan"],
+  inca: ["inca trail", "incan", "camino inca", "trilha inca"],
+  camino: ["inca trail", "camino inca"],
+  trilha: ["inca trail", "trilha inca"],
   salk: ["salkantay"],
   salkantay: ["salkantay trek"],
-  trail: ["trek", "hike"],
-  trek: ["trail", "hiking"],
-  amazon: ["rainforest", "jungle"],
+  trail: ["trek", "hike", "trekking"],
+  trek: ["trail", "hiking", "trekking"],
+  amazon: ["rainforest", "jungle", "selva", "amazonas"],
+  selva: ["amazon", "amazonas"],
   cusco: ["cusco", "cuzco"],
   lima: ["lima"],
-  budget: ["cheap", "affordable", "price"],
+  budget: ["cheap", "affordable", "price", "precio", "preco"],
   luxury: ["deluxe", "belmond"],
-  family: ["kids", "children"],
-  day: ["full day", "1 day"],
+  family: ["kids", "children", "familia"],
+  day: ["full day", "1 day", "full day"],
+  paquete: ["package", "tour"],
+  pacote: ["package", "tour"],
+  cotiz: ["quote", "price"],
 };
 
 const COMMERCIAL_RE =
-  /\b(tour|package|trek|trail|price|book|quote|days|itinerary|availability|cost)\b/i;
+  /\b(tour|package|paquete|pacote|trek|trekking|trail|trilha|camino|price|precio|preco|book|quote|cotiz|days|dias|itinerary|itinerario|roteiro|availability|cost|costo)\b/i;
 
 function normalize(text: string): string {
   return text
@@ -119,11 +125,12 @@ export function filterBlogEntries(
   blogs: SearchBlogEntry[],
   query: string,
   topic: string | null,
+  allLabel = "All",
 ): SearchBlogEntry[] {
   const tokens = expandTokens(query);
   let filtered = blogs;
 
-  if (topic && topic !== "All") {
+  if (topic && topic !== allLabel) {
     filtered = filtered.filter((b) => b.topics.includes(topic));
   }
 
