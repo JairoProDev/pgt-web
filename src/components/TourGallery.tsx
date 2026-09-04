@@ -20,7 +20,8 @@ export function TourGallery({ images, alts, heroAlt }: Props) {
           src={images[active]}
           alt={alt}
           fill
-          priority
+          preload
+          fetchPriority="high"
           unoptimized={images[active]?.startsWith("http")}
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 70vw"

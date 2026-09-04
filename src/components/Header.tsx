@@ -180,7 +180,6 @@ export function Header() {
             width={180}
             height={52}
             className="h-10 w-auto"
-            priority
           />
         </Link>
 

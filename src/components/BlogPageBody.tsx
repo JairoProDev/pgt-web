@@ -111,7 +111,8 @@ export function BlogPageBody({ blog, market }: { blog: BlogPost; market: MarketI
               src={blog.heroImage}
               alt={blog.h1}
               fill
-              priority
+              preload
+              fetchPriority="high"
               className="object-cover"
               sizes="100vw"
             />

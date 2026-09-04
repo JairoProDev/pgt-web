@@ -156,7 +156,8 @@ export function ContentPageView({ page, path, market = "en", showTourGrid, tourG
             src={page.heroImage}
             alt={h1}
             fill
-            priority
+            preload
+            fetchPriority="high"
             className="object-cover"
             sizes="100vw"
           />

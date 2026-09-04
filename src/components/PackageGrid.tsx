@@ -22,8 +22,8 @@ export function PackageGrid({ items, title, pagePath = "/packages/" }: Props) {
         {copy.gridHintAfter}
       </p>
       <div className="grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
-        {items.map((pkg, index) => (
-          <TourPackageCard key={pkg.slug} pkg={pkg} pagePath={pagePath} priority={index < 3} />
+        {items.map((pkg) => (
+          <TourPackageCard key={pkg.slug} pkg={pkg} pagePath={pagePath} />
         ))}
       </div>
     </section>
