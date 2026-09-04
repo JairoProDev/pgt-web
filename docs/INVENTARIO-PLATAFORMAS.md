@@ -12,7 +12,7 @@ Actualizado: 2026-09-01 · Responsable técnico: **Jairo** (dirección) · Ejecu
 |--------|--------------|-----|-----------------|----------------|--------------|
 | **EN** | perugrandtravel.com | `https://www.perugrandtravel.com/` | `368486554` | `GTM-K8SZBJM5` (container `261504322`) | **pgt-web** (Next) + Drupal (migración) |
 | **PT** | machupicchupacotes.com | `https://www.machupicchupacotes.com/` | `375022927` | *(verificar en tagmanager.google.com)* | WordPress |
-| **ES** | viajesmachupicchutours.com | `https://www.viajesmachupicchutours.com/` | `470828894` | *(verificar)* | WordPress |
+| **ES** | viajesmachupicchutours.com | `sc-domain:viajesmachupicchutours.com` *(Domain, no URL-prefix)* | `470828894` | *(verificar)* | WordPress |
 | **IT** | viaggiomachupicchu.it | `https://www.viaggiomachupicchu.it/` | *(abrir en GA4)* | *(verificar)* | WordPress |
 
 **Dominios P2 / abandonados:** luxuryperutour, vinicuncaperu, satélites — ver `pgt/02-empresa/MAPA-HERRAMIENTAS.md`. No conectar al agente salvo auditoría.

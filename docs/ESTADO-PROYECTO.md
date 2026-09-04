@@ -1,7 +1,7 @@
 # Estado del proyecto PGT Web
 
-> Última actualización: 2026-09-02  
-> Repo: [pgt-web](https://github.com/JairoProDev/pgt-web) · Preview: https://perugrandtravel.vercel.app  
+> Última actualización: 2026-09-04  
+> Repo: [pgt-web](https://github.com/JairoProDev/pgt-web) · Preview: https://next.perugrandtravel.com · CMS: `/admin/`  
 
 ---
 
@@ -29,7 +29,7 @@
 | **S3** Bloque Jairo | ✅ Contenido | ⚠️ Calidad tour variable |
 | **S4** Catálogo 69+452 | ✅ Hecho | ⚠️ Blog CTA mejorado, falta medir |
 | **S5** 62 páginas + destinos | ✅ Hecho | ✅ Contenido real post scraper v2 |
-| **S6** Payload + QA | ⚠️ Stub CMS | ❌ GTM conversión = **Jairo en GTM admin** |
+| **S6** Payload + QA | ✅ CMS en Neon free + hybrid | ⚠️ GTM `whatsapp_click` ya medido; PageSpeed en curso |
 | **S7** Cutover | 🔄 Fase A | ❌ DNS beta/prod = **Jairo** (ver blueprint) |
 
 **Respuesta honesta:** el plan **técnico de migración** está ~**90%** completo. El plan **de conversión** está ~**80%**. **Siguiente gran paso: Fase A — Validación** (ver `docs/BLUEPRINT-FASE-A-BETA-CUTOVER.md`).
@@ -48,7 +48,7 @@
 | Páginas estáticas/hubs | 62 | **62** JSON |
 | Build SSG | 589 URLs | **591** rutas generadas |
 | Footer links funcionales | 100% | **~95%** (ver auditoría abajo) |
-| Payload CMS | Editar 1 tour + 1 blog | **Stub** — export JSON listo, PostgreSQL pendiente |
+| Payload CMS | Editar 1 tour (H1/precio) | **Payload 3 wired** — local Postgres; Neon terms pending Jairo. See `docs/PAYLOAD.md` |
 | Beta DNS | beta.perugrandtravel.com | **Pendiente (Jairo)** |
 | Cutover prod DNS | www → Vercel | **Guía lista — Jairo ejecuta** ([PASOS-SOLO-JAIRO.md](PASOS-SOLO-JAIRO.md)) |
 
@@ -264,6 +264,7 @@ Criterio OK: ≥1 sección de contenido OR ≥3 tours en hub.
 - **Migración cutover:** `docs/MIGRACION-COMPLETA-PGT-WEB.md`
 - **Solo Jairo (humano):** `docs/PASOS-SOLO-JAIRO.md`
 - **Día D:** `docs/CHECKLIST-DIA-D-CUTOVER.md`
+- **Hosting Banahosting vs Vercel:** `docs/HOSTING-DNS-VERCEL-VS-BANAHOSTING.md`
 - **Guía maestra SEO/marketing:** `docs/GUIA-MAESTRA-SEO-MARKETING-PGT.md`
 - **Reporte jefatura:** `docs/REPORTE-AVANCE-JAIRO.md`
 - **Plataformas multi-dominio:** `docs/INVENTARIO-PLATAFORMAS.md`

@@ -10,7 +10,7 @@
 |------------|--------|-------------|
 | Service account | ✅ | Scripts automáticos sin login |
 | GA4 `368486554` | ✅ | `npm run sync:ga4` → `pgt/03-seo/datos/ga4-export-*/` |
-| GSC 4 dominios | ⚠️ 3/4 | EN + PT + IT OK · **ES** (`viajesmachupicchutours.com`) falta invitar SA |
+| GSC 4 dominios | ✅ 4/4 | EN/PT/IT = URL-prefix `https://www.../` · **ES** = `sc-domain:viajesmachupicchutours.com` (Domain property) |
 | GTM API lectura | ✅ | Agente puede leer contenedor `GTM-K8SZBJM5` |
 | Sheet OTAS | ✅ | Ver sección **OTAS** abajo |
 | Drive OAuth | ✅ | atendimento@ + marketing@ · `npm run drive:oauth` si expira |
@@ -100,7 +100,7 @@ npm run precios:apply   # solo tras validado_ops=yes
 | 1.3  | Google Auth Platform (OAuth) | ✅ |
 | 2    | Service account + JSON       | ✅ |
 | 3    | GA4 Viewer                   | ✅ |
-| 4    | Search Console (4 idiomas)   | ⚠️ EN+PT+IT OK · **ES** pendiente invitar SA |
+| 4    | Search Console (4 idiomas)   | ✅ EN/PT/IT URL-prefix · ES Domain `sc-domain:` |
 | 5    | GTM API                      | ✅ · tag WA = **manual UI** (ver 5B) |
 | 6    | Drive + Sheets OTAS          | ✅ OAuth + export + PAQUETES MODELO mapeado |
 | 8    | MCPs en Cursor               | ✅ |

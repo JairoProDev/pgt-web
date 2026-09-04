@@ -1,36 +1,11 @@
-# Payload CMS — Fase 2 (post catálogo scrape)
+# Payload CMS — Fase 2 (histórico)
 
-El catálogo v1 vive en `src/content/*.json` generado por scripts scrape.
+**Estado 2026-09-03:** Payload 3 está implementado. Guía viva: [`PAYLOAD.md`](./PAYLOAD.md).
 
-Payload CMS 3.x se integra en Sprint 6 cuando:
+El catálogo v1 sigue en `src/content/*.json`. El front lee JSON por defecto (`CONTENT_SOURCE=json`) y puede pasar a `hybrid` / `payload` sin cambiar plantillas.
 
-- 69 tours + 452 blogs ya están en JSON
-- Lizet/Ricardo necesitan editar precios sin PR a GitHub
+## Qué quedó atrás
 
-## Setup planificado
-
-```
-pgt-web/
-├── payload.config.ts
-├── src/collections/Tours.ts
-├── src/collections/Blogs.ts
-└── src/collections/Pages.ts
-```
-
-## Import path
-
-1. `npm run cms:export` → `data/payload-export/{tours,blogs,pages}.json`
-2. Collection schemas in `cms/payload.config.ts`
-3. PostgreSQL en Vercel Postgres o Neon
-4. Front sigue leyendo JSON en build hasta switch a API (ISR)
-
-## Scripts
-
-```bash
-npm run cms:export      # genera bundle import-ready
-npm run backup:images   # top 50 heroes → public/images/backup/
-```
-
-## Decisión pendiente
-
-Confirmar con Ricardo hosting PostgreSQL antes de implementar.
+- Stub en `cms/payload.config.ts` (reemplazado por `payload.config.ts` en la raíz)
+- Decisión de hosting: **Neon Postgres** vía Vercel Marketplace (no `@vercel/postgres`)
+- Import: `npm run cms:import` (Local API) además de `npm run cms:export` (bundle JSON)
