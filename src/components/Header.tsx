@@ -184,7 +184,7 @@ export function Header() {
         {/* Desktop navigation */}
         <nav
           className="hidden items-center gap-5 text-sm font-medium text-stone-700 md:flex"
-          aria-label="Main navigation"
+          aria-label={copy.header.navAria}
         >
           {isLocale ? (
             <>

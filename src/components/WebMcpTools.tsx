@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect } from "react";
+import { contactPath } from "@/lib/destinations-nav";
+import { marketFromPathname, withMarketPrefix } from "@/lib/markets";
 import { whatsAppUrl } from "@/lib/site";
 
 type ToolInput = Record<string, unknown>;
@@ -31,6 +33,9 @@ export function WebMcpTools() {
   useEffect(() => {
     const ctx = getModelContext();
     if (!ctx) return;
+    const market = marketFromPathname(window.location.pathname);
+    const packagesHref = withMarketPrefix(market, "/packages/");
+    const contactHref = contactPath(market);
 
     try {
       ctx.registerTool({
@@ -65,8 +70,8 @@ export function WebMcpTools() {
         name: "open_packages",
         description: "Open the Peru packages catalog on this site.",
         execute: async () => {
-          window.location.assign("/packages/");
-          return { ok: true, path: "/packages/" };
+          window.location.assign(packagesHref);
+          return { ok: true, path: packagesHref };
         },
       });
 
@@ -74,8 +79,8 @@ export function WebMcpTools() {
         name: "open_contact",
         description: "Open the contact page for Peru Grand Travel.",
         execute: async () => {
-          window.location.assign("/contact-us/");
-          return { ok: true, path: "/contact-us/" };
+          window.location.assign(contactHref);
+          return { ok: true, path: contactHref };
         },
       });
     } catch {

@@ -1,3 +1,4 @@
+import searchIndexData from "../../data/search-index.json";
 import {
   awardsPath,
   contactPath,
@@ -13,6 +14,7 @@ import {
   withMarketPrefix,
   type MarketId,
 } from "./markets";
+import type { SearchIndexBundle } from "./search-types";
 
 export function stripMarketPrefix(pathname: string): string {
   if (pathname === "/es" || pathname === "/es/") return "/";
@@ -48,6 +50,49 @@ const STATIC_ALIASES: Record<string, (market: MarketId) => string> = {
   "/premios-e-reconhecimentos/": awardsPath,
 };
 
+/** Same page in each market — used instead of pairing by nav index. */
+const PATH_GROUPS: Record<MarketId, string>[] = [
+  { en: "/about-us/", es: "/sobre-nosotros/", pt: "/quem-somos/" },
+  { en: "/social-projects/", es: "/proyectos-sociales/", pt: "/projetos-sociais/" },
+  { en: "/sustainable-tourism/", es: "/turismo-sostenible/", pt: "/turismo-sustentavel/" },
+  { en: "/policy-terms-and-conditions/", es: "/politicas-terminos-y-condiciones/", pt: "/politicas-termos-e-condicoes/" },
+  { en: "/policy-against-exploitation-and-harassment/", es: "/politica-contra-la-explotacion-el-acoso-y-la-discriminacion/", pt: "/codigo-de-conduta-esnna/" },
+  { en: "/esnna/", es: "/codigo-de-etica-esnna/", pt: "/codigo-de-conduta-esnna/" },
+  { en: "/legal-documents/", es: "/documentos-legales/", pt: "/documentos-legais/" },
+  { en: "/inca-trail-tours/", es: "/camino-inca/", pt: "/trilha-inca-peru/" },
+  { en: "/salkantay-treks/", es: "/salkantay-trek/", pt: "/trilha-salkantay/" },
+  { en: "/machu-picchu-packages/", es: "/packages/", pt: "/viagens-machu-picchu/" },
+  { en: "/day-tours-in-cusco/", es: "/full-day-cusco/", pt: "/tours-opcionais/" },
+  { en: "/offers/", es: "/ofertas/", pt: "/promocoes/" },
+  { en: "/tailor-made-tour/", es: "/tour-personalizado/", pt: "/crie-seu-roteiro/" },
+];
+
+function groupedPath(rest: string, to: MarketId): string | null {
+  const n = normalizeRest(rest);
+  for (const group of PATH_GROUPS) {
+    if (Object.values(group).some((href) => href === n)) {
+      return withMarketPrefix(to, group[to]);
+    }
+  }
+  return null;
+}
+
+let tourSlugSets: Partial<Record<MarketId, Set<string>>> | null = null;
+let blogSlugSets: Partial<Record<MarketId, Set<string>>> | null = null;
+
+function slugSet(kind: "tours" | "blogs", market: MarketId): Set<string> {
+  if (!tourSlugSets || !blogSlugSets) {
+    const bundle = searchIndexData as SearchIndexBundle;
+    tourSlugSets = { en: new Set(), es: new Set(), pt: new Set() };
+    blogSlugSets = { en: new Set(), es: new Set(), pt: new Set() };
+    for (const id of ["en", "es", "pt"] as const) {
+      for (const t of bundle.markets?.[id]?.tours ?? []) tourSlugSets[id]!.add(t.slug);
+      for (const b of bundle.markets?.[id]?.blogs ?? []) blogSlugSets[id]!.add(b.slug);
+    }
+  }
+  return (kind === "tours" ? tourSlugSets : blogSlugSets)[market]!;
+}
+
 /** Keep the user on the same kind of page when switching EN / ES / PT. */
 export function switchMarketPath(pathname: string, to: MarketId): string {
   const from = marketFromPathname(pathname);
@@ -56,10 +101,18 @@ export function switchMarketPath(pathname: string, to: MarketId): string {
   const rest = normalizeRest(stripMarketPrefix(pathname));
 
   const tour = rest.match(/^\/tour\/([^/]+)\/$/);
-  if (tour) return tourPath(to, tour[1]);
+  if (tour) {
+    return slugSet("tours", to).has(tour[1])
+      ? tourPath(to, tour[1])
+      : withMarketPrefix(to, "/packages/");
+  }
 
   const blog = rest.match(/^\/blog\/([^/]+)\/$/);
-  if (blog) return blogPath(to, blog[1]);
+  if (blog) {
+    return slugSet("blogs", to).has(blog[1])
+      ? blogPath(to, blog[1])
+      : blogsIndexPath(to);
+  }
 
   if (rest === "/blogs/") return blogsIndexPath(to);
   if (rest === "/packages/") return withMarketPrefix(to, "/packages/");
@@ -68,18 +121,17 @@ export function switchMarketPath(pathname: string, to: MarketId): string {
   const alias = STATIC_ALIASES[rest];
   if (alias) return alias(to);
 
+  const grouped = groupedPath(rest, to);
+  if (grouped) return grouped;
+
   const fromNav = localeDestinations(from);
   const toNav = localeDestinations(to);
   if (rest === normalizeRest(stripMarketPrefix(fromNav.hub.href))) return toNav.hub.href;
 
-  for (let i = 0; i < fromNav.regions.length; i++) {
-    if (rest === normalizeRest(stripMarketPrefix(fromNav.regions[i].href)) && toNav.regions[i]) {
+  const regionCount = Math.min(fromNav.regions.length, toNav.regions.length);
+  for (let i = 0; i < regionCount; i++) {
+    if (rest === normalizeRest(stripMarketPrefix(fromNav.regions[i].href))) {
       return toNav.regions[i].href;
-    }
-  }
-  for (let i = 0; i < fromNav.featured.length; i++) {
-    if (rest === normalizeRest(stripMarketPrefix(fromNav.featured[i].href)) && toNav.featured[i]) {
-      return toNav.featured[i].href;
     }
   }
 

@@ -25,7 +25,7 @@ Lista viva para que next. esté presentable mañana. Ordenada por impacto en lea
 | Ítem | Nota |
 |------|------|
 | hreflang tours/blogs/homes | Emitido; `next.` noindex así que Google no lo usa aún |
-| Lang switch on-path | Tour/blog/packages/destinos mapeados; páginas únicas ES → home |
+| Lang switch on-path | Tour/blog con slug en el otro mercado; si no existe → paquetes o índice de blogs (no 404) |
 | Topic chips blog | Labels ES/PT; keys internas EN (Cusco, Food…) |
 | Imágenes locales top 50 | Sigue pendiente; no Blob pago |
 | IT (italiano) | Fuera. No hay mercado en next. |

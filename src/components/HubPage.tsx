@@ -4,7 +4,8 @@ import { HubPageView } from "@/components/HubPageView";
 import { getHubTourCards, getPageByPath } from "@/lib/content";
 import { getHubConfig } from "@/lib/hub-config";
 import { copyFor } from "@/lib/market-copy";
-import { withMarketPrefix, type MarketId } from "@/lib/markets";
+import { pageLanguageAlternates } from "@/lib/hreflang";
+import { MARKETS, withMarketPrefix, type MarketId } from "@/lib/markets";
 import { contentPageTitle } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 import type { PageContent } from "@/lib/types";
@@ -18,11 +19,12 @@ export function buildHubMetadata(path: string, market: MarketId = "en"): Metadat
   return {
     title: contentPageTitle(page.seo.title),
     description: page.seo.description,
-    alternates: { canonical: publicPath },
+    alternates: { canonical: publicPath, languages: pageLanguageAlternates(path) },
     openGraph: {
       title: page.seo.title,
       description: page.seo.description,
       url: `${siteConfig.baseUrl}${publicPath}`,
+      locale: MARKETS[market].ogLocale,
       type: "website",
     },
   };

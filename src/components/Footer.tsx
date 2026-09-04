@@ -212,7 +212,7 @@ function NewsletterCard({
             autoComplete="email"
             inputMode="email"
             aria-describedby={helpId}
-            placeholder="you@email.com"
+            placeholder={copy.emailPlaceholder}
             className={`mt-1.5 w-full min-h-11 rounded-lg border border-white/20 bg-white px-3 py-2.5 text-sm text-stone-900 placeholder:text-stone-400 ${focusRing} focus-visible:outline-pgt-gold`}
           />
         </div>

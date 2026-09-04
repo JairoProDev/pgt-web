@@ -189,7 +189,7 @@ export function ContentPageView({ page, path, market = "en", showTourGrid, tourG
         <div className="prose-pgt mt-10 space-y-10">
           {sections.map((section) => (
             <section key={`${section.heading}-${section.body.slice(0, 40)}`}>
-              <h2>{sanitizeSectionHeading(section.heading, page.h1)}</h2>
+              <h2>{sanitizeSectionHeading(section.heading, page.h1, market)}</h2>
               {section.body.split(/\n\n+/).map((para) => (
                 <p key={para.slice(0, 48)}>{para}</p>
               ))}
@@ -230,7 +230,7 @@ export function ContentPageView({ page, path, market = "en", showTourGrid, tourG
         )}
 
         {relatedTours.length > 0 && (
-          <RelatedTours tours={relatedTours} pagePath={path} heading={chrome.relatedTours} />
+          <RelatedTours tours={relatedTours} pagePath={path} heading={chrome.relatedTours} market={market} />
         )}
 
         <div className="mt-12 rounded-xl bg-pgt-blue p-6 text-center text-white md:p-8">

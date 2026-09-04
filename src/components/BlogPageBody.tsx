@@ -10,7 +10,7 @@ import { getToursBySlugs } from "@/lib/content";
 import { localizeGenericHeading } from "@/lib/chrome-i18n";
 import { copyFor } from "@/lib/market-copy";
 import { blogLanguageAlternates } from "@/lib/hreflang";
-import { blogPath, blogsIndexPath, withMarketPrefix, type MarketId } from "@/lib/markets";
+import { blogPath, blogsIndexPath, withMarketPrefix, MARKETS, type MarketId } from "@/lib/markets";
 import { contentPageTitle, openGraphImage } from "@/lib/metadata";
 import { articleSchema, breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
@@ -63,6 +63,7 @@ export function blogMetadata(blog: BlogPost, market: MarketId): Metadata {
       description: blog.seo.description,
       url: `${siteConfig.baseUrl}${path}`,
       type: "article",
+      locale: MARKETS[market].ogLocale,
       publishedTime: blog.publishedAt,
       modifiedTime: blog.modifiedAt,
       images: openGraphImage(blog.heroImage, blog.h1),
@@ -155,6 +156,7 @@ export function BlogPageBody({ blog, market }: { blog: BlogPost; market: MarketI
             tours={relatedTours}
             pagePath={path}
             heading={chrome.relatedHeading}
+            market={market}
           />
 
           <div className="mt-10 rounded-xl bg-pgt-blue p-6 text-center text-white md:p-8">

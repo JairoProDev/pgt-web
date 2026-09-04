@@ -12,14 +12,13 @@ import { WhatsAppButton } from "./WhatsAppButton";
 type Props = {
   pkg: PackageCard;
   pagePath: string;
-  priority?: boolean;
 };
 
 function MetaIcon({ children }: { children: ReactNode }) {
   return <span className="inline-flex items-center gap-1 text-stone-500">{children}</span>;
 }
 
-export function TourPackageCard({ pkg, pagePath, priority = false }: Props) {
+export function TourPackageCard({ pkg, pagePath }: Props) {
   const market = useMarket();
   const copy = copyFor(market);
   const href = tourPath(market, pkg.slug);
@@ -34,7 +33,6 @@ export function TourPackageCard({ pkg, pagePath, priority = false }: Props) {
             src={pkg.image}
             alt={pkg.title}
             fill
-            priority={priority}
             className="object-cover transition duration-300 group-hover:scale-[1.03]"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />

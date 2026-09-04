@@ -157,6 +157,7 @@ export type HeaderChromeCopy = {
   closeMenu: string;
   mobileNav: string;
   langAria: string;
+  navAria: string;
 };
 
 export type FooterCopy = {
@@ -173,6 +174,7 @@ export type FooterCopy = {
   travelTips: string;
   travelTipsBody: string;
   emailLabel: string;
+  emailPlaceholder: string;
   getTips: string;
   tipsHelp: string;
   securePayment: string;
@@ -516,6 +518,7 @@ const EN: MarketCopy = {
     closeMenu: "Close menu",
     mobileNav: "Mobile navigation",
     langAria: "Language",
+    navAria: "Main navigation",
   },
   trustSignals: [
     "Licensed Cusco tour operator",
@@ -694,6 +697,7 @@ const EN: MarketCopy = {
     travelTips: "Travel tips",
     travelTipsBody: "Cusco tips and trip ideas — we follow up personally.",
     emailLabel: "Email for travel tips",
+    emailPlaceholder: "you@email.com",
     getTips: "Get travel tips",
     tipsHelp: "We'll open the contact form so our team can follow up. No spam list yet.",
     securePayment: "Secure payment",
@@ -919,6 +923,7 @@ const ES: MarketCopy = {
     closeMenu: "Cerrar menú",
     mobileNav: "Navegación móvil",
     langAria: "Idioma",
+    navAria: "Navegación principal",
   },
   trustSignals: [
     "Operador turístico licenciado en Cusco",
@@ -1097,6 +1102,7 @@ const ES: MarketCopy = {
     travelTips: "Consejos de viaje",
     travelTipsBody: "Tips de Cusco e ideas de viaje — te respondemos en persona.",
     emailLabel: "Email para consejos de viaje",
+    emailPlaceholder: "tu@email.com",
     getTips: "Recibir consejos",
     tipsHelp: "Abriremos el formulario de contacto para que el equipo te escriba. Aún no hay lista de correo.",
     securePayment: "Pago seguro",
@@ -1322,6 +1328,7 @@ const PT: MarketCopy = {
     closeMenu: "Fechar menu",
     mobileNav: "Navegação no celular",
     langAria: "Idioma",
+    navAria: "Navegação principal",
   },
   trustSignals: [
     "Operadora de turismo licenciada em Cusco",
@@ -1500,6 +1507,7 @@ const PT: MarketCopy = {
     travelTips: "Dicas de viagem",
     travelTipsBody: "Dicas de Cusco e ideias de roteiro — respondemos pessoalmente.",
     emailLabel: "E-mail para dicas de viagem",
+    emailPlaceholder: "voce@email.com",
     getTips: "Receber dicas",
     tipsHelp: "Vamos abrir o formulário de contato para a equipe te responder. Ainda não há lista de spam.",
     securePayment: "Pagamento seguro",

@@ -4,7 +4,7 @@ import Link from "next/link";
 import type { Tour } from "@/lib/types";
 import { formatPriceLabel, tourWhatsAppMessage } from "@/lib/conversion";
 import { copyFor } from "@/lib/market-copy";
-import { tourPath } from "@/lib/markets";
+import { tourPath, type MarketId } from "@/lib/markets";
 import { useMarket } from "@/lib/use-market";
 import { WhatsAppButton } from "./WhatsAppButton";
 
@@ -12,10 +12,12 @@ type Props = {
   tours: Tour[];
   pagePath: string;
   heading?: string;
+  market?: MarketId;
 };
 
-export function RelatedTours({ tours, pagePath, heading }: Props) {
-  const market = useMarket();
+export function RelatedTours({ tours, pagePath, heading, market: marketProp }: Props) {
+  const fromPath = useMarket();
+  const market = marketProp ?? fromPath;
   const copy = copyFor(market);
   if (!tours.length) return null;
 

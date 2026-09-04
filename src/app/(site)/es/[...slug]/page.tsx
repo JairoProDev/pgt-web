@@ -4,8 +4,9 @@ import { ContentPageView } from "@/components/ContentPageView";
 import { HubPage } from "@/components/HubPage";
 import { getAllPagePaths } from "@/lib/content";
 import { resolvePage } from "@/lib/cms-resolve-page";
+import { pageLanguageAlternates } from "@/lib/hreflang";
+import { MARKETS, withMarketPrefix } from "@/lib/markets";
 import { contentPageTitle, openGraphImage } from "@/lib/metadata";
-import { withMarketPrefix } from "@/lib/markets";
 import { siteConfig } from "@/lib/site";
 
 const RESERVED = new Set(["packages", "tour", "blog", "blogs"]);
@@ -32,11 +33,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: contentPageTitle(page.seo.title),
     description: page.seo.description,
-    alternates: { canonical: publicPath },
+    alternates: { canonical: publicPath, languages: pageLanguageAlternates(path) },
     openGraph: {
       title: page.seo.title,
       description: page.seo.description,
       url: `${siteConfig.baseUrl}${publicPath}`,
+      locale: MARKETS.es.ogLocale,
       ...(page.heroImage ? { images: openGraphImage(page.heroImage, page.h1) } : {}),
     },
   };

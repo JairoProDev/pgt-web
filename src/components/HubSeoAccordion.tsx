@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { localizeGenericHeading } from "@/lib/chrome-i18n";
 import { copyFor } from "@/lib/market-copy";
 import { useMarket } from "@/lib/use-market";
 
@@ -13,12 +14,13 @@ type Props = {
 /** Long scraped hub copy — collapsed by default so products appear first on mobile. */
 export function HubSeoAccordion({ sections }: Props) {
   const [open, setOpen] = useState(false);
-  const copy = copyFor(useMarket()).hub;
+  const market = useMarket();
+  const copy = copyFor(market).hub;
 
   if (!sections.length) return null;
 
   const cleaned = sections.map((s) => ({
-    heading: s.heading.replace(/^▷\s*/, "").trim(),
+    heading: localizeGenericHeading(s.heading.replace(/^▷\s*/, "").trim(), market),
     body: cleanHubBody(s.body),
   }));
 
@@ -28,7 +30,7 @@ export function HubSeoAccordion({ sections }: Props) {
     <section className="border-t border-stone-200 bg-stone-50 px-4 py-10 md:py-12">
       <div className="mx-auto max-w-3xl">
         <h2 className="text-xl font-bold text-stone-900 md:text-2xl">
-          {cleaned[0]?.heading ?? "About our Peru packages"}
+          {cleaned[0]?.heading || copyFor(market).overview}
         </h2>
         <p className="mt-3 leading-relaxed text-stone-600">
           {open ? cleaned[0]?.body : `${preview}${(cleaned[0]?.body.length ?? 0) > 280 ? "…" : ""}`}

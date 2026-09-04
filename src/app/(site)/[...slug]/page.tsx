@@ -4,6 +4,8 @@ import { ContentPageView } from "@/components/ContentPageView";
 import { HubPage } from "@/components/HubPage";
 import { getAllPagePaths } from "@/lib/content";
 import { resolvePage } from "@/lib/cms-resolve-page";
+import { pageLanguageAlternates } from "@/lib/hreflang";
+import { MARKETS } from "@/lib/markets";
 import { contentPageTitle, openGraphImage } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
 import type { PageContent } from "@/lib/types";
@@ -41,11 +43,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: contentPageTitle(page.seo.title),
     description: page.seo.description,
-    alternates: { canonical: path },
+    alternates: { canonical: path, languages: pageLanguageAlternates(path) },
     openGraph: {
       title: page.seo.title,
       description: page.seo.description,
       url: `${siteConfig.baseUrl}${path}`,
+      locale: MARKETS.en.ogLocale,
       ...(page.heroImage ? { images: openGraphImage(page.heroImage, page.h1) } : {}),
     },
   };
