@@ -37,3 +37,35 @@ export function htmlField(name: "bodyHtml" | "customHtml" = "bodyHtml") {
     },
   };
 }
+
+export function seoGroupField() {
+  return {
+    name: "seo" as const,
+    type: "group" as const,
+    fields: [
+      {
+        name: "title" as const,
+        type: "text" as const,
+        maxLength: 60,
+        admin: {
+          description: "50–60 caracteres. Lo que ve Google.",
+          components: {
+            Field: "/payload/components/SeoCharField.tsx#default",
+          },
+        },
+      },
+      {
+        name: "description" as const,
+        type: "textarea" as const,
+        maxLength: 160,
+        admin: {
+          description: "120–160 caracteres.",
+          components: {
+            Field: "/payload/components/SeoCharTextarea.tsx#default",
+          },
+        },
+      },
+      { name: "canonical" as const, type: "text" as const },
+    ],
+  };
+}

@@ -74,10 +74,18 @@ export default buildConfig({
       importMapFile: path.resolve(dirname, "src/app/(payload)/admin/importMap.js"),
     },
     components: {
+      beforeDashboard: ["/payload/components/BeforeDashboard.tsx#default"],
       graphics: {
         Logo: "/payload/graphics/Logo.tsx#default",
         Icon: "/payload/graphics/Icon.tsx#default",
       },
+    },
+    livePreview: {
+      breakpoints: [
+        { label: "Mobile", name: "mobile", width: 375, height: 667 },
+        { label: "Tablet", name: "tablet", width: 768, height: 1024 },
+        { label: "Desktop", name: "desktop", width: 1440, height: 900 },
+      ],
     },
     meta: {
       titleSuffix: " · PGT CMS",
