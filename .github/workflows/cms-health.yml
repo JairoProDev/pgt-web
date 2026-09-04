@@ -1,0 +1,13 @@
+# Keep Neon free compute awake without a paid plan.
+# Hobby Vercel crons are daily-only; this fills the gap.
+name: cms-health
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping PGT CMS
+        run: curl -fsSL --max-time 40 https://next.perugrandtravel.com/cms-health

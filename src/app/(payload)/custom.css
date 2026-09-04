@@ -1,0 +1,60 @@
+/* PGT admin white-label — keep overrides scoped to chrome, not form fields. */
+@layer payload {
+  :root {
+    --pgt-blue: #193a8a;
+    --pgt-blue-dark: #122a66;
+    --pgt-orange: #e87722;
+
+    /* Light accent on primary/success controls without reshaping layouts. */
+    --color-success-400: #2a4fa8;
+    --color-success-500: var(--pgt-blue);
+    --color-success-550: #16357d;
+    --color-success-600: var(--pgt-blue-dark);
+    --color-success-650: #0f1c45;
+  }
+
+  .pgt-admin-logo {
+    display: block;
+    height: 32px;
+    width: auto;
+    max-width: 160px;
+    object-fit: contain;
+  }
+
+  .pgt-admin-icon {
+    display: block;
+    height: 28px;
+    width: 28px;
+    object-fit: contain;
+  }
+
+  /* Safety net if Payload fallback SVG ever renders. */
+  .graphic-logo,
+  .graphic-icon {
+    display: none !important;
+  }
+
+  .btn--style-primary {
+    background: var(--pgt-blue);
+    border-color: var(--pgt-blue);
+  }
+
+  .btn--style-primary:hover:not(.btn--disabled) {
+    background: var(--pgt-blue-dark);
+    border-color: var(--pgt-blue-dark);
+  }
+
+  .nav__link-indicator {
+    background: var(--pgt-orange);
+  }
+
+  a[href*="payloadcms.com"],
+  .nav .nav__link[href*="payloadcms"] {
+    display: none !important;
+  }
+
+  .step-nav a:hover,
+  .step-nav a:focus-visible {
+    color: var(--pgt-blue);
+  }
+}
