@@ -1,0 +1,23 @@
+{
+  "slug": "metodos-de-pago",
+  "path": "/metodos-de-pago/",
+  "pageType": "static",
+  "title": "MÉTODOS DE PAGO",
+  "seo": {
+    "title": "▷ MÉTODOS DE PAGO | Perú Grand Travel",
+    "description": "Explora los métodos de pago disponibles de Perú Grand Travel, ofrecemos opciones seguras y flexibles para tu comodidad.",
+    "canonical": "/es/metodos-de-pago/"
+  },
+  "h1": "MÉTODOS DE PAGO",
+  "heroSubtitle": "Explora los métodos de pago disponibles de Perú Grand Travel, ofrecemos opciones seguras y flexibles para tu comodidad.",
+  "heroImage": "https://www.viajesmachupicchutours.com/wp-content/uploads/2026/01/br.webp",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Al confirmar su reserva, usted asume que es consistente con las políticas, términos y condiciones de la compañía. Le pedimos que lea cuidadosamente."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}

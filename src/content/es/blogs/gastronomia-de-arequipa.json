@@ -1,0 +1,22 @@
+{
+  "slug": "gastronomia-de-arequipa",
+  "title": "Las 5 mejores comidas típicas de Arequipa",
+  "seo": {
+    "title": "Las 5 mejores comidas típicas de Arequipa",
+    "description": "Conoce los 5 mejores comidas tipicas de Arequipa como: Chupe de Camarón, Rocoto relleno, Solterito de queso, etc.",
+    "canonical": "/es/blog/gastronomia-de-arequipa/"
+  },
+  "h1": "Las 5 mejores comidas típicas de Arequipa",
+  "publishedAt": "2022-09-30T19:13:12+00:00",
+  "modifiedAt": "2024-05-16T22:44:09+00:00",
+  "heroImage": "https://www.viajesmachupicchutours.com/wp-content/uploads/2022/09/comida-arequipa.jpg",
+  "intro": "",
+  "sections": [],
+  "relatedTourSlugs": [
+    "lima-colonial-tierra-sagrada-de-los-incas-7-dias",
+    "encuentro-de-los-incas-8-dias",
+    "lima-colonial-huacachina-y-tierra-sagrada-de-los-incas-9d",
+    "peru-espectacular-10-dias",
+    "peru-historico-gastronomico-10-dias"
+  ]
+}

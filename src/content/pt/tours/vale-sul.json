@@ -1,0 +1,37 @@
+{
+  "slug": "vale-sul",
+  "title": "Tour ao Vale Sul de Cusco – Peru Grand Travel",
+  "h1": "Tour ao Vale Sul de Cusco",
+  "seo": {
+    "title": "Tour ao Vale Sul de Cusco – Peru Grand Travel",
+    "description": "Explore o passeio pelo Vale Sul no coração de Cusco. Os sítios arqueológicos de Tipon, Pikillaqta e a Capela Sistina da América Andahuaylillas.",
+    "canonical": "/pt/tour/vale-sul/"
+  },
+  "priceFrom": 0,
+  "currency": "USD",
+  "duration": "",
+  "difficulty": null,
+  "categories": [],
+  "heroImage": "https://www.machupicchupacotes.com/wp-content/uploads/2023/03/igreja-andahuaylillas-vale-sul.webp",
+  "gallery": [
+    "https://www.machupicchupacotes.com/wp-content/uploads/2023/03/igreja-andahuaylillas-vale-sul.webp",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2022/06/pessoas-cusco-peru.jpg",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2022/06/motivos-para-visitar-machu-picchu.jpg",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2023/09/us.webp",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2023/09/es.webp",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2026/01/it.webp",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2024/05/Pacotes-para-Machu-Picchu-e-Peru-300x300.webp",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2024/05/Pacotes-para-Machu-Picchu-e-Peru-150x150.webp"
+  ],
+  "summary": "Explore o passeio pelo Vale Sul no coração de Cusco. Os sítios arqueológicos de Tipon, Pikillaqta e a Capela Sistina da América Andahuaylillas.",
+  "itinerary": [],
+  "included": [
+    "Transporte e guia",
+    "Ingressos"
+  ],
+  "excluded": [
+    "Transporte e guia",
+    "Ingressos"
+  ],
+  "relatedTourSlugs": []
+}

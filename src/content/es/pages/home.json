@@ -1,0 +1,29 @@
+{
+  "slug": "home",
+  "path": "/",
+  "pageType": "home",
+  "title": "Agencia de viajes a Perú y Machu Picchu",
+  "seo": {
+    "title": "Agencia de viajes a Perú y Machu Picchu",
+    "description": "Operador licenciado en Cusco. Paquetes a Machu Picchu, Cusco, Lima y el Perú con hoteles, traslados y guías.",
+    "canonical": "/es/"
+  },
+  "h1": "Agencia de viajes a Perú y Machu Picchu",
+  "heroEmotionalLine": "VIAJA · DESCUBRE · PERÚ",
+  "heroHeadline": "Tu aventura a Machu Picchu empieza aquí",
+  "heroSubtitle": "Operador licenciado en Cusco desde 2012. Hoteles, traslados y guías — cuéntanos tu viaje y te enviamos 2–3 cotizaciones por WhatsApp.",
+  "heroImage": "/images/content/page/home/hero.webp",
+  "sections": [],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "machu-picchu-clasico-5d",
+    "cusco-machu-picchu-3-dias",
+    "cusco-machu-picchu-4-dias",
+    "valle-sagrado-y-machu-picchu-2d",
+    "lima-colonial-tierra-sagrada-de-los-incas-7-dias",
+    "cusco-espectacular-7d",
+    "peru-espectacular-10-dias",
+    "camino-inca-clasico-4-dias"
+  ]
+}

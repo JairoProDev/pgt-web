@@ -1,0 +1,90 @@
+{
+  "slug": "estilo-de-viaje",
+  "path": "/estilo-de-viaje/",
+  "pageType": "hub",
+  "title": "Los mejores estilos de viaje a Peru",
+  "seo": {
+    "title": "Los mejores estilos de viaje a Peru| Peru Grand Travel",
+    "description": "Explora aquí tu estilo de viaje a Perú: Turismo de aventura, trekkings, Viajes tradicionales, Viajes combinados, Turismo Cultural, Adrenalina, fiestas.",
+    "canonical": "/es/estilo-de-viaje/"
+  },
+  "h1": "Estilo de viaje",
+  "heroSubtitle": "Explora aquí tu estilo de viaje a Perú: Turismo de aventura, trekkings, Viajes tradicionales, Viajes combinados, Turismo Cultural, Adrenalina, fiestas.",
+  "heroImage": "https://www.viajesmachupicchutours.com/wp-content/uploads/2022/08/experiencias-de-viaje-peru.jpg",
+  "sections": [
+    {
+      "heading": "Nuestros mejores estilos de viajes",
+      "body": "Si te gusta la aventura, la cultura, y mucho más, todo estará a tu alcance en Perú. Si deseas dejar la comodidad, agarrar tu mochila y aventurarte, claro que puedes visitar estas tierras. Qué dices, ¿Te animas a explorar tu estilo de viaje? Los viajes tradicionales te llevarán a sitios turísticos más visitados como Machu Picchu, por lo que más de un visitante compartirá tu emoción. Aquí la aventura se vivirá en muchas formas, como recorriendo senderos rodeados de montañas y vegetación, y con actividades que sacarán ese ser inquieto. Te asombrarás al ver vestigios y maravillas de antiguas culturas como la de los Incas, que habitaron esta parte del planeta, Bellísimos parajes de ensueño, con montañas blancas, lagunas cristalinas, flores y aves exóticas pondrán la magia en tus caminatas como el camino inca, y tu esfuerzo siempre será recompensado. Las fiestas y eventos serán una de las mejores expresiones culturales en las que podrás participar. Además, deportes como la tirolesa y el rafting, sacarán toda esa adrenalina y te harán vibrar de emoción. Si te gusta más la variedad y flexibilidad, la combinación será perfecta. ¡Entonces solo escoge tu estilo y explora el Perú!"
+    },
+    {
+      "heading": "Suscríbete a nuestra Newsletter",
+      "body": "¡Regístrese ahora para recibir ofertas especiales e información sobre los mejores tours!\n\nAl suscribirte a nuestra Newsletter también aceptas nuestra política de privacidad . Puedes darte de baja de la misma en cualquier momento."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/estilo-de-viaje/viajes-tradicionales/",
+      "label": "Viajes Tradicionales"
+    },
+    {
+      "path": "/estilo-de-viaje/viajes-combinados/",
+      "label": "Viajes Combinados"
+    },
+    {
+      "path": "/estilo-de-viaje/turismo-de-aventura/",
+      "label": "Turismo De Aventura"
+    },
+    {
+      "path": "/estilo-de-viaje/turismo-cultural/",
+      "label": "Turismo Cultural"
+    },
+    {
+      "path": "/estilo-de-viaje/trekking/",
+      "label": "Trekking"
+    },
+    {
+      "path": "/estilo-de-viaje/fiestas-y-eventos/",
+      "label": "Fiestas Y Eventos"
+    },
+    {
+      "path": "/estilo-de-viaje/adrenalina/",
+      "label": "Adrenalina"
+    }
+  ],
+  "tourSlugs": [
+    "lima-colonial-tierra-sagrada-de-los-incas-7-dias",
+    "encuentro-de-los-incas-8-dias",
+    "lima-colonial-huacachina-y-tierra-sagrada-de-los-incas-9d",
+    "peru-espectacular-10-dias",
+    "peru-historico-gastronomico-10-dias",
+    "origenes-de-los-incas-10d",
+    "fascinante-aventura-y-desafio-en-los-andes-11d",
+    "origenes-y-misterios-de-los-andes-16d",
+    "machu-picchu-1-dia",
+    "cusco-machu-picchu-2-dias",
+    "cusco-machu-picchu-4-dias",
+    "machu-picchu-clasico-5d",
+    "machu-picchu-laguna-humantay-6-dias",
+    "cusco-valle-sagrado-machu-picchu-7-dias",
+    "cusco-machu-picchu-inolvidable-8-dias",
+    "desafio-machu-picchu-8d",
+    "camino-inca-corto-2-dias",
+    "camino-inca-corto-valle-sagrado-3-dias",
+    "camino-inca-clasico-4-dias",
+    "camino-inca-7d-traslados",
+    "salkantay-trek-4d",
+    "camino-salkantay-sky-machu-picchu-5-dias",
+    "lares-machu-picchu-4-dias",
+    "caminata-7-lagunas-ausangate",
+    "laguna-humantay-full-day",
+    "vinicunca-montana-de-colores-1-dia",
+    "montana-de-7-colores-en-cuatrimoto",
+    "palccoyo-cordillera-de-arcoiris-1-dia",
+    "salineras-maras-moray",
+    "maras-moray-salineras-quatrimoto",
+    "maras-moray-en-bicicleta",
+    "qeswachaka-4-lagunas-full-day",
+    "matrimonio-andino-full-day"
+  ]
+}

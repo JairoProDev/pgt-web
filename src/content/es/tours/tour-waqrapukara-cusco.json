@@ -1,0 +1,49 @@
+{
+  "slug": "tour-waqrapukara-cusco",
+  "title": "Tour Cusco - Waqrapukara - Cusco",
+  "h1": "Tour Waqrapukara",
+  "seo": {
+    "title": "Tour Cusco - Waqrapukara - Cusco",
+    "description": "Embárquese en una aventura en Waqrapukara Cusco, explorando ruinas antiguas. Disfrute de vistas panorámicas, fauna local y visitas guiadas.",
+    "canonical": "/es/tour/tour-waqrapukara-cusco/"
+  },
+  "priceFrom": 0,
+  "currency": "USD",
+  "duration": "",
+  "difficulty": null,
+  "categories": [],
+  "heroImage": "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/08/Waqrapukara_cusco-1.webp",
+  "gallery": [
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/08/Waqrapukara_cusco-1.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2026/01/br.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2026/01/us.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2026/01/it.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/03/Paquetes-en-Machu-Picchu-y-Peru.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/03/Paquetes-en-Machu-Picchu-y-Peru-300x300.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/03/Paquetes-en-Machu-Picchu-y-Peru-150x150.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/03/Tours-a-Machu-Picchu.webp"
+  ],
+  "summary": "Embárquese en una aventura en Waqrapukara Cusco, explorando ruinas antiguas. Disfrute de vistas panorámicas, fauna local y visitas guiadas.",
+  "itinerary": [],
+  "included": [
+    "Transporte",
+    "Guia",
+    "Entradas",
+    "Desayuno",
+    "Box lunch",
+    "Botiquín de primeros auxilios",
+    "Tanque de oxígeno",
+    "Entradas"
+  ],
+  "excluded": [
+    "Transporte",
+    "Guia",
+    "Entradas",
+    "Desayuno",
+    "Box lunch",
+    "Botiquín de primeros auxilios",
+    "Tanque de oxígeno",
+    "Entradas"
+  ],
+  "relatedTourSlugs": []
+}

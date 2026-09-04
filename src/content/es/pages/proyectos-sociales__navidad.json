@@ -1,0 +1,31 @@
+{
+  "slug": "navidad",
+  "path": "/proyectos-sociales/navidad/",
+  "pageType": "static",
+  "title": "Campaña Navideña: Compartiendo Alegría",
+  "seo": {
+    "title": "Campaña Navideña: Compartiendo Alegría | Peru Grand Travel",
+    "description": "Comparte el espíritu navideño con Peru Grand Travel. Nuestra campaña navideña busca llevar felicidad y recursos a los más necesitados",
+    "canonical": "/es/proyectos-sociales/navidad/"
+  },
+  "h1": "Navidad",
+  "heroSubtitle": "Comparte el espíritu navideño con Peru Grand Travel. Nuestra campaña navideña busca llevar felicidad y recursos a los más necesitados",
+  "heroImage": "https://www.viajesmachupicchutours.com/wp-content/uploads/2026/01/br.webp",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "En Peru Grand Travel, nos comprometemos con un turismo responsable y sostenible, priorizando experiencias inolvidables para nuestros viajeros mientras apoyamos el desarrollo socioeconómico de las comunidades locales y protegemos el medio ambiente. A través de nuestros tours y paquetes, promovemos un turismo ético, respetuoso con la cultura, la naturaleza y las tradiciones peruanas. Además, dedicamos esfuerzos a proyectos sociales que impulsan el crecimiento económico, educativo y cultural de las poblaciones locales, como nuestra campaña navideña. Nuestro enfoque se basa en crear un impacto positivo y duradero en cada destino que visitamos. Trabajamos en estrecha colaboración con las comunidades para asegurar que los beneficios del turismo lleguen directamente a las personas, preservando su patrimonio y mejorando su calidad de vida. Con Peru Grand Travel, cada viaje no solo es una aventura, sino una contribución activa al bienestar y desarrollo de Perú. Conoce todos nuestro proyectos sociales ."
+    },
+    {
+      "heading": "2022",
+      "body": "Campaña navideña PGT 2022 en Calca, Cusco, junto a niños y padres. Una experiencia única compartiendo alegría, regalos y tradiciones en el corazón de los Andes. Perú Grand Travel apoya las celebraciones navideñas que unen a la comunidad y a los viajeros en una emotiva conexión cultural."
+    },
+    {
+      "heading": "2023",
+      "body": "Campaña navideña PGT 2023 en Maras, Urubamba, compartiendo sonrisas y abrazos con niños y padres en el corazón de los Andes. Únete a una celebración de navidad llena de amor, regalos y tradiciones que entrelazan corazones, creando recuerdos que perduraran en el alma y en el espíritu."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}

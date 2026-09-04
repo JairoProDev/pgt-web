@@ -1,0 +1,29 @@
+{
+  "slug": "home",
+  "path": "/",
+  "pageType": "home",
+  "title": "Agência de viagens ao Peru e Machu Picchu",
+  "seo": {
+    "title": "Agência de viagens ao Peru e Machu Picchu",
+    "description": "Operadora licenciada em Cusco. Pacotes para Machu Picchu, Cusco, Lima e o Peru com hotéis, transfers e guias.",
+    "canonical": "/pt/"
+  },
+  "h1": "Agência de viagens ao Peru e Machu Picchu",
+  "heroEmotionalLine": "VIAJE · DESCUBRA · PERU",
+  "heroHeadline": "Sua aventura a Machu Picchu começa aqui",
+  "heroSubtitle": "Operadora licenciada em Cusco desde 2012. Hotéis, transfers e guias — conte sua viagem e enviamos 2–3 cotações no WhatsApp.",
+  "heroImage": "/images/content/page/home/hero.webp",
+  "sections": [],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "machu-picchu-classico-5d",
+    "machu-picchu-express-3d",
+    "vale-sagrado-e-machu-picchu-2d",
+    "lima-colonial-e-terra-sagrada-dos-incas-7d",
+    "cusco-espetacular-7d",
+    "peru-espetacular-10d",
+    "trilha-inca-classica-4d",
+    "reveillon-machu-picchu"
+  ]
+}

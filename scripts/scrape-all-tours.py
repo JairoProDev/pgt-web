@@ -21,7 +21,7 @@ scrape_tour = _mod.scrape_tour
 
 PGT_ROOT = Path(__file__).resolve().parents[2] / "pgt"
 TOURS_TXT = PGT_ROOT / "03-seo/datos/inventario-sitemap-2026-08-31/tours.txt"
-OUT = Path(__file__).resolve().parents[1] / "src" / "content" / "tours"
+DEFAULT_OUT = Path(__file__).resolve().parents[1] / "src" / "content" / "tours"
 
 
 def load_urls(limit: int | None = None, urls_file: Path | None = None) -> list[str]:
@@ -36,21 +36,23 @@ def main() -> None:
     p.add_argument("--urls-file", type=Path, default=None)
     p.add_argument("--delay", type=float, default=0.4)
     p.add_argument("--skip-existing", action="store_true")
+    p.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    p.add_argument("--canonical-prefix", type=str, default="/tour")
     args = p.parse_args()
 
     urls = load_urls(args.limit, args.urls_file)
-    OUT.mkdir(parents=True, exist_ok=True)
+    args.out.mkdir(parents=True, exist_ok=True)
     ok, fail = 0, 0
 
     for i, url in enumerate(urls, 1):
         slug = url.rstrip("/").split("/")[-1]
-        out = OUT / f"{slug}.json"
+        out = args.out / f"{slug}.json"
         if args.skip_existing and out.exists():
             print(f"[{i}/{len(urls)}] skip {slug}", file=sys.stderr)
             ok += 1
             continue
         try:
-            data = scrape_tour(url)
+            data = scrape_tour(url, canonical_prefix=args.canonical_prefix)
             out.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
             print(f"[{i}/{len(urls)}] OK {slug} US${data.get('priceFrom', 0)}", file=sys.stderr)
             ok += 1
@@ -59,7 +61,7 @@ def main() -> None:
             fail += 1
         scrape_delay(args.delay)
 
-    print(f"Done: {ok} ok, {fail} fail → {OUT}", file=sys.stderr)
+    print(f"Done: {ok} ok, {fail} fail → {args.out}", file=sys.stderr)
 
 
 if __name__ == "__main__":

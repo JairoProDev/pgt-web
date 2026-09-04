@@ -1,0 +1,27 @@
+{
+  "slug": "quem-somos",
+  "path": "/quem-somos/",
+  "pageType": "static",
+  "title": "AGÊNCIA DE TURISMO em Cusco",
+  "seo": {
+    "title": "▷ AGÊNCIA DE TURISMO em Cusco | Peru Grand Travel",
+    "description": "Peru Grand Travel é a principal agência de turismo em Cusco, oferecendo viagens personalizadas para Machu Picchu, Cusco, Lima e mais.",
+    "canonical": "/pt/quem-somos/"
+  },
+  "h1": "AGÊNCIA DE TURISMO em Cusco",
+  "heroSubtitle": "Peru Grand Travel é a principal agência de turismo em Cusco, oferecendo viagens personalizadas para Machu Picchu, Cusco, Lima e mais.",
+  "heroImage": "https://www.machupicchupacotes.com/wp-content/uploads/2025/11/DSC08149.webp",
+  "sections": [
+    {
+      "heading": "Sobre a Peru Grand Travel Nossa Cultura Organizacional",
+      "body": "Fomentamos um ambiente colaborativo , de iniciativa e inovação, liderança e trabalho em equipe para alcançar os objetivos e impulsionar o crescimento de todos."
+    },
+    {
+      "heading": "Nossa História",
+      "body": "A Peru Grand Travel nasceu em 15 de novembro de 2010 , com a ideia de criar uma empresa que oferecesse algo realmente especial aos viajantes: experiências únicas no Peru. Depois de alguns anos de trabalho e planejamento, a empresa iniciou suas operações em novembro de 2012 , conquistando pouco a pouco seu espaço no setor turístico. Desde então, vem crescendo e se adaptando às necessidades dos turistas que desejam conhecer o Peru de uma forma mais pessoal e autêntica. Seu fundador, Clever Ponce , acompanha e inspira toda a equipe nesse propósito, desenvolvendo estratégias que impulsionam a inovação e a escalabilidade, com o objetivo de conectar mais culturas, transformar vidas e consolidar a empresa como referência em turismo responsável. Hoje, a Peru Grand Travel tem sua sede em Cusco, uma cidade repleta de história e cultura. Essa localização privilegiada oferece uma vantagem única, por estar no coração de uma das regiões mais impressionantes e ricas em patrimônio cultural e natural do país. A partir daí, a empresa proporciona aos seus clientes acesso a destinos icônicos como Machu Picchu e o Vale Sagrado, garantindo que cada viagem seja uma experiência verdadeiramente memorável e genuína."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}

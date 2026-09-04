@@ -1,0 +1,59 @@
+{
+  "slug": "turismo-de-aventura",
+  "path": "/estilo-de-viaje/turismo-de-aventura/",
+  "pageType": "hub",
+  "title": "Turismo de aventura",
+  "seo": {
+    "title": "Turismo de aventura | Peru Grand Travel",
+    "description": "Turismo de aventura en Perú: practica los deportes al aire libre como Montañismo, Canotaje, Caminatas, Surf.",
+    "canonical": "/es/estilo-de-viaje/turismo-de-aventura/"
+  },
+  "h1": "Turismo de aventura",
+  "heroSubtitle": "Turismo de aventura en Perú: practica los deportes al aire libre como Montañismo, Canotaje, Caminatas, Surf.",
+  "heroImage": "https://www.viajesmachupicchutours.com/wp-content/uploads/2026/01/br.webp",
+  "sections": [],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/estilo-de-viaje/turismo-de-aventura/feed/",
+      "label": "Feed"
+    }
+  ],
+  "tourSlugs": [
+    "lima-colonial-tierra-sagrada-de-los-incas-7-dias",
+    "encuentro-de-los-incas-8-dias",
+    "lima-colonial-huacachina-y-tierra-sagrada-de-los-incas-9d",
+    "peru-espectacular-10-dias",
+    "peru-historico-gastronomico-10-dias",
+    "origenes-de-los-incas-10d",
+    "fascinante-aventura-y-desafio-en-los-andes-11d",
+    "origenes-y-misterios-de-los-andes-16d",
+    "machu-picchu-1-dia",
+    "cusco-machu-picchu-2-dias",
+    "cusco-machu-picchu-4-dias",
+    "machu-picchu-clasico-5d",
+    "machu-picchu-laguna-humantay-6-dias",
+    "cusco-valle-sagrado-machu-picchu-7-dias",
+    "cusco-machu-picchu-inolvidable-8-dias",
+    "desafio-machu-picchu-8d",
+    "camino-inca-corto-2-dias",
+    "camino-inca-corto-valle-sagrado-3-dias",
+    "camino-inca-clasico-4-dias",
+    "camino-inca-7d-traslados",
+    "salkantay-trek-4d",
+    "camino-salkantay-sky-machu-picchu-5-dias",
+    "lares-machu-picchu-4-dias",
+    "caminata-7-lagunas-ausangate",
+    "laguna-humantay-full-day",
+    "vinicunca-montana-de-colores-1-dia",
+    "montana-de-7-colores-en-cuatrimoto",
+    "palccoyo-cordillera-de-arcoiris-1-dia",
+    "salineras-maras-moray",
+    "maras-moray-salineras-quatrimoto",
+    "maras-moray-en-bicicleta",
+    "qeswachaka-4-lagunas-full-day",
+    "matrimonio-andino-full-day",
+    "camino-inca-jungle-4-dias",
+    "camino-inca-jungle-aventura-7-dias"
+  ]
+}

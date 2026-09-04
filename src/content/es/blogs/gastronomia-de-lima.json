@@ -1,0 +1,22 @@
+{
+  "slug": "gastronomia-de-lima",
+  "title": "Las 5 mejores comidas típicas de Lima",
+  "seo": {
+    "title": "Las 5 mejores comidas típicas de Lima",
+    "description": "Lima capital gastronómica de América, disfruta de las comidas típicas de Lima como el rico ceviche, Causa Limeño, Ají de gallina.",
+    "canonical": "/es/blog/gastronomia-de-lima/"
+  },
+  "h1": "Las 5 mejores comidas típicas de Lima",
+  "publishedAt": "2022-09-30T22:07:29+00:00",
+  "modifiedAt": "2024-04-15T14:51:59+00:00",
+  "heroImage": "https://www.viajesmachupicchutours.com/wp-content/uploads/2022/09/causa-limena.jpg",
+  "intro": "",
+  "sections": [],
+  "relatedTourSlugs": [
+    "lima-colonial-tierra-sagrada-de-los-incas-7-dias",
+    "encuentro-de-los-incas-8-dias",
+    "lima-colonial-huacachina-y-tierra-sagrada-de-los-incas-9d",
+    "peru-espectacular-10-dias",
+    "peru-historico-gastronomico-10-dias"
+  ]
+}

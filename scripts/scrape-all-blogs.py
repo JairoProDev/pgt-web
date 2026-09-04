@@ -9,23 +9,24 @@ import sys
 from pathlib import Path
 
 from scrape_lib import (
-    BASE,
     curl,
     extract_blog_sections,
     extract_gallery,
     extract_tour_slugs_from_html,
     one,
     scrape_delay,
+    set_page_origin,
     slug_from_url,
     strip_html,
 )
 
 PGT_ROOT = Path(__file__).resolve().parents[2] / "pgt"
 BLOGS_TXT = PGT_ROOT / "03-seo/datos/inventario-sitemap-2026-08-31/blogs.txt"
-OUT = Path(__file__).resolve().parents[1] / "src" / "content" / "blogs"
+DEFAULT_OUT = Path(__file__).resolve().parents[1] / "src" / "content" / "blogs"
 
 
-def scrape_blog(url: str) -> dict:
+def scrape_blog(url: str, canonical_prefix: str | None = None) -> dict:
+    set_page_origin(url)
     html = curl(url)
     slug = slug_from_url(url)
     hero = one(html, r'property="og:image"\s+content="([^"]*)"') or ""
@@ -39,6 +40,7 @@ def scrape_blog(url: str) -> dict:
     )
 
     related = extract_tour_slugs_from_html(html)[:5]
+    prefix = (canonical_prefix or "/blog").rstrip("/")
 
     return {
         "slug": slug,
@@ -46,7 +48,7 @@ def scrape_blog(url: str) -> dict:
         "seo": {
             "title": one(html, r"<title[^>]*>([^<]+)</title>"),
             "description": one(html, r'name="description"\s+content="([^"]*)"'),
-            "canonical": f"/blog/{slug}/",
+            "canonical": f"{prefix}/{slug}/",
         },
         "h1": one(html, r"<h1[^>]*>([^<]+)</h1>"),
         "publishedAt": one(html, r'"datePublished"\s*:\s*"([^"]+)"') or "2025-01-01",
@@ -85,20 +87,23 @@ def main() -> None:
     p.add_argument("--csv", type=Path, default=None, help="blogs-jairo CSV")
     p.add_argument("--delay", type=float, default=0.35)
     p.add_argument("--skip-existing", action="store_true")
+    p.add_argument("--out", type=Path, default=DEFAULT_OUT)
+    p.add_argument("--canonical-prefix", type=str, default="/blog")
     args = p.parse_args()
 
     urls = load_urls(args.limit, args.urls_file, args.csv)
-    OUT.mkdir(parents=True, exist_ok=True)
+    args.out.mkdir(parents=True, exist_ok=True)
     ok, fail = 0, 0
 
     for i, url in enumerate(urls, 1):
         slug = slug_from_url(url)
-        out = OUT / f"{slug}.json"
+        out = args.out / f"{slug}.json"
         if args.skip_existing and out.exists():
+            print(f"[{i}/{len(urls)}] skip {slug}", file=sys.stderr)
             ok += 1
             continue
         try:
-            data = scrape_blog(url)
+            data = scrape_blog(url, canonical_prefix=args.canonical_prefix)
             out.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n")
             print(f"[{i}/{len(urls)}] OK {slug}", file=sys.stderr)
             ok += 1
@@ -107,7 +112,7 @@ def main() -> None:
             fail += 1
         scrape_delay(args.delay)
 
-    print(f"Done: {ok} ok, {fail} fail", file=sys.stderr)
+    print(f"Done: {ok} ok, {fail} fail → {args.out}", file=sys.stderr)
 
 
 if __name__ == "__main__":

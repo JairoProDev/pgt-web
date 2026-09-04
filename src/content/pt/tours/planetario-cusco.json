@@ -1,0 +1,45 @@
+{
+  "slug": "planetario-cusco",
+  "title": "Excursão ao Planetário de Cusco – Peru Grand Travel",
+  "h1": "Excursão ao Planetário de Cusco",
+  "seo": {
+    "title": "Excursão ao Planetário de Cusco – Peru Grand Travel",
+    "description": "Reserve sua excursão ao Planetário de Cusco. Saiba mais sobre a astronomia inca, como eles a usavam para a religião e a agricultura.",
+    "canonical": "/pt/tour/planetario-cusco/"
+  },
+  "priceFrom": 0,
+  "currency": "USD",
+  "duration": "",
+  "difficulty": null,
+  "categories": [],
+  "heroImage": "https://www.machupicchupacotes.com/wp-content/uploads/2023/04/planetario-cusco-1d.webp",
+  "gallery": [
+    "https://www.machupicchupacotes.com/wp-content/uploads/2023/04/planetario-cusco-1d.webp",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2022/06/pessoas-cusco-peru.jpg",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2022/06/motivos-para-visitar-machu-picchu.jpg",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2023/09/us.webp",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2023/09/es.webp",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2026/01/it.webp",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2024/05/Pacotes-para-Machu-Picchu-e-Peru-300x300.webp",
+    "https://www.machupicchupacotes.com/wp-content/uploads/2024/05/Pacotes-para-Machu-Picchu-e-Peru-150x150.webp"
+  ],
+  "summary": "Reserve sua excursão ao Planetário de Cusco. Saiba mais sobre a astronomia inca, como eles a usavam para a religião e a agricultura.",
+  "itinerary": [],
+  "included": [
+    "Pacotes Peru Lima Colonial e Terra Sagrada dos Incas 7D/6N",
+    "Lima Colonial, Huacachina, e Terra Sagrada dos Incas 9D/8N",
+    "Peru Espetacular 10D/9N",
+    "Peru Histórico e Gastronômico 10D/9N",
+    "Fascinante Aventura & desafio nos Andes 11D/10N",
+    "Origens e Mistérios dos Andes 16D/15N"
+  ],
+  "excluded": [
+    "Pacotes Peru Lima Colonial e Terra Sagrada dos Incas 7D/6N",
+    "Lima Colonial, Huacachina, e Terra Sagrada dos Incas 9D/8N",
+    "Peru Espetacular 10D/9N",
+    "Peru Histórico e Gastronômico 10D/9N",
+    "Fascinante Aventura & desafio nos Andes 11D/10N",
+    "Origens e Mistérios dos Andes 16D/15N"
+  ],
+  "relatedTourSlugs": []
+}

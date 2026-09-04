@@ -1,0 +1,39 @@
+{
+  "slug": "cusco-city-tour",
+  "title": "City Tour en Cusco: Descubre los Tesoros Inca en un Día",
+  "h1": "City Tour en Cusco",
+  "seo": {
+    "title": "City Tour en Cusco: Descubre los Tesoros Inca en un Día",
+    "description": "Descubre la magia del City tour en Cusco con visitas a Sacsayhuamán, Qorikancha y más. Sumérgete en la historia y cultura inca en un día!",
+    "canonical": "/es/tour/cusco-city-tour/"
+  },
+  "priceFrom": 0,
+  "currency": "USD",
+  "duration": "",
+  "difficulty": null,
+  "categories": [],
+  "heroImage": "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/08/sacsayhuaman-city-tour-cusco.webp",
+  "gallery": [
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/08/sacsayhuaman-city-tour-cusco.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2026/01/br.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2026/01/us.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2026/01/it.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/03/Paquetes-en-Machu-Picchu-y-Peru.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/03/Paquetes-en-Machu-Picchu-y-Peru-300x300.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/03/Paquetes-en-Machu-Picchu-y-Peru-150x150.webp",
+    "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/03/Tours-a-Machu-Picchu.webp"
+  ],
+  "summary": "Descubre la magia del City tour en Cusco con visitas a Sacsayhuamán, Qorikancha y más. Sumérgete en la historia y cultura inca en un día!",
+  "itinerary": [],
+  "included": [
+    "Transporte",
+    "Guia",
+    "Entradas"
+  ],
+  "excluded": [
+    "Transporte",
+    "Guia",
+    "Entradas"
+  ],
+  "relatedTourSlugs": []
+}

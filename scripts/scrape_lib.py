@@ -9,6 +9,19 @@ import time
 from urllib.parse import urljoin, urlparse
 
 BASE = "https://www.perugrandtravel.com"
+_PAGE_ORIGIN = BASE
+
+RELATED_TOURS_SPLIT = re.compile(
+    r"Related Tours|Tours relacionados|Pacotes relacionados|Tours Relacionados",
+    re.I,
+)
+DAY_HEADING = r"(?:Day|D[ií]a)"
+
+
+def set_page_origin(url: str) -> None:
+    global _PAGE_ORIGIN
+    parsed = urlparse(url)
+    _PAGE_ORIGIN = f"{parsed.scheme}://{parsed.netloc}" if parsed.netloc else BASE
 
 
 def curl(url: str, timeout: int = 90) -> str:
@@ -33,16 +46,16 @@ def slug_from_url(url: str) -> str:
 def abs_url(path: str) -> str:
     if path.startswith("http"):
         return path
-    return urljoin(BASE, path)
+    return urljoin(_PAGE_ORIGIN + "/", path)
 
 
 def normalize_uploads(url: str) -> str:
     if url.startswith("http"):
         return url
     if url.startswith("/"):
-        return BASE + url
+        return _PAGE_ORIGIN + url
     if url.startswith("wp-content"):
-        return f"{BASE}/{url}"
+        return f"{_PAGE_ORIGIN}/{url}"
     return url
 
 
@@ -50,9 +63,9 @@ def extract_price(html: str) -> float:
     # Price must come from this tour's header/booking widget — not "Related Tours" grids.
     main_chunk = one(
         html,
-        r"tourmaster-single-tour-content-wrap[^>]*>([\s\S]*?)(?:Related Tours|gdlr-core-title-item-title[^>]*>Related|</footer)",
+        r"tourmaster-single-tour-content-wrap[^>]*>([\s\S]*?)(?:Related Tours|Tours relacionados|Pacotes relacionados|gdlr-core-title-item-title[^>]*>Related|</footer)",
     ) or one(html, r"<main[^>]*>([\s\S]*?)</main>") or html
-    header_chunk = main_chunk.split("Related Tours")[0]
+    header_chunk = RELATED_TOURS_SPLIT.split(main_chunk, maxsplit=1)[0]
 
     for pat in [
         r'"@type"\s*:\s*"Product"[\s\S]*?"offers"\s*:\s*\{[\s\S]*?"price"\s*:\s*"([\d.]+)"',
@@ -71,6 +84,8 @@ def extract_price(html: str) -> float:
         r"tourmaster-tour-price-wrap[^>]*>[\s\S]{0,120}?US\$?\s*([\d,]+)",
         r"tourmaster-tour-price[^>]*>\s*US\$?\s*([\d,]+)",
         r"From\s*US\$?\s*([\d,]+)",
+        r"Desde\s*US\$?\s*([\d,]+)",
+        r"A partir de\s*US\$?\s*([\d,]+)",
     ]
     prices_chunk = _tour_content_chunk(html, "prices") or header_chunk
     for chunk in (prices_chunk, header_chunk):
@@ -90,7 +105,7 @@ def extract_price(html: str) -> float:
 
 def extract_gallery(html: str, limit: int = 8) -> list[str]:
     urls = re.findall(
-        r'https?://(?:www\.)?perugrandtravel\.com/wp-content/uploads/[^"\'>\s]+\.(?:webp|jpg|jpeg|png)',
+        r'https?://[^"\'>\s]+/wp-content/uploads/[^"\'>\s]+\.(?:webp|jpg|jpeg|png)',
         html,
         re.I,
     )
@@ -125,7 +140,7 @@ def extract_itinerary(html: str) -> list[dict]:
     chunk = _tour_content_chunk(html, "itinerary") or html
     # Tourmaster: h3/h4 "Day N: title" + following text until next day heading
     for m in re.finditer(
-        r"<h[34][^>]*>(Day\s*\d+[^<]*)</h[34]>(.*?)(?=<h[34][^>]*>Day\s*\d+|$)",
+        rf"<h[34][^>]*>({DAY_HEADING}\s*\d+[^<]*)</h[34]>(.*?)(?=<h[34][^>]*>{DAY_HEADING}\s*\d+|$)",
         chunk,
         re.I | re.S,
     ):
@@ -133,7 +148,7 @@ def extract_itinerary(html: str) -> list[dict]:
         body = re.sub(r"<[^>]+>", " ", m.group(2))
         body = re.sub(r"\s+", " ", html_lib.unescape(body)).strip()
         if title and len(body) > 20:
-            day_m = re.search(r"Day\s*(\d+)", title, re.I)
+            day_m = re.search(rf"{DAY_HEADING}\s*(\d+)", title, re.I)
             items.append(
                 {
                     "day": int(day_m.group(1)) if day_m else len(items) + 1,
@@ -146,7 +161,7 @@ def extract_itinerary(html: str) -> list[dict]:
     # Fallback: inline Day N: patterns
     day = 0
     for block in re.finditer(
-        r"(?:▸\s*)?(Day\s*\d+[^<\n]+)(.*?)(?=(?:▸\s*)?Day\s*\d+|$)",
+        rf"(?:▸\s*)?({DAY_HEADING}\s*\d+[^<\n]+)(.*?)(?=(?:▸\s*)?{DAY_HEADING}\s*\d+|$)",
         chunk,
         re.I | re.S,
     ):
@@ -228,7 +243,7 @@ def extract_duration(html: str) -> str:
         title = one(html, r"<h1[^>]*>([^<]+)</h1>")
     if title:
         m = re.search(
-            r"(\d+\s*D\s*/\s*\d+\s*N|\d+D/\d+N|\d+\s*Days?\s*/\s*\d+\s*Nights?)",
+            r"(\d+\s*D\s*/\s*\d+\s*N|\d+D/\d+N|\d+\s*Days?\s*/\s*\d+\s*Nights?|\d+\s*d[ií]as?\s*/\s*\d+\s*n(?:oches?|oites?))",
             title,
             re.I,
         )
@@ -237,7 +252,10 @@ def extract_duration(html: str) -> str:
         m = re.search(r"(\d+)\s*days?", title, re.I)
         if m:
             return f"{m.group(1)}D"
-        if re.search(r"full\s*day", title, re.I):
+        m = re.search(r"(\d+)\s*d[ií]as?", title, re.I)
+        if m:
+            return f"{m.group(1)}D"
+        if re.search(r"full\s*day|d[ií]a\s*completo|full\s*day", title, re.I):
             return "1D"
     for pat in [
         r"(\d+\s*Days?\s*/\s*\d+\s*Nights?)",
@@ -266,7 +284,10 @@ def infer_duration(h1: str, slug: str) -> str:
         m = re.search(r"(\d+)\s*days?", h1, re.I)
         if m:
             return f"{m.group(1)}D"
-        if re.search(r"full\s*day", h1, re.I):
+        m = re.search(r"(\d+)\s*d[ií]as?", h1, re.I)
+        if m:
+            return f"{m.group(1)}D"
+        if re.search(r"full\s*day|d[ií]a\s*completo", h1, re.I):
             return "1D"
     m = re.search(r"-(\d+)d(?:$|-)", slug, re.I)
     if m:
@@ -288,7 +309,7 @@ def extract_tour_slugs_from_html(html: str, main_only: bool = False) -> list[str
             or html
         )
     slugs: list[str] = []
-    for m in re.finditer(r"/tour/([a-z0-9-]+)/?", chunk, re.I):
+    for m in re.finditer(r"/(?:tour|pacote)/([a-z0-9-]+)/?", chunk, re.I):
         s = m.group(1)
         if s not in slugs and s != "tourmaster-tour":
             slugs.append(s)
@@ -317,8 +338,29 @@ def extract_hero_image(html: str) -> str:
     return gallery[0] if gallery else ""
 
 
+def _strip_style_script(html: str) -> str:
+    html = re.sub(r"<style[^>]*>.*?</style>", " ", html, flags=re.I | re.S)
+    html = re.sub(r"<script[^>]*>.*?</script>", " ", html, flags=re.I | re.S)
+    return html
+
+
+def _is_noise_body(body: str) -> bool:
+    if not body or len(body) < 60:
+        return True
+    if re.search(r":root\s*\{|@media\s|\.gdlr-core-|\.traveltour-|\.mm-menu|\.form-consult|\.preciop\s*\{", body):
+        return True
+    if re.search(r"946\s*622\s*318|info@perugrandtravel\.com", body, re.I):
+        return True
+    if re.search(r"TripAdvisor|Trustindex|Publicado en Tripadvisor|Ver todas las opiniones", body, re.I):
+        return True
+    if body.count("{") >= 3 and body.count("}") >= 3:
+        return True
+    return False
+
+
 def extract_page_sections(html: str) -> list[dict]:
     """Extract Goodlayers gdlr-core page builder sections."""
+    html = _strip_style_script(html)
     sections: list[dict] = []
     current_heading = "Overview"
     pattern = re.compile(
@@ -335,12 +377,10 @@ def extract_page_sections(html: str) -> list[dict]:
                 current_heading = heading
         elif m.group(2):
             body = strip_html(m.group(2))
-            if len(body) < 60:
+            if _is_noise_body(body):
                 continue
             # Skip team-member cards (name + short role)
             if re.match(r"^[A-Z][a-zÀ-ú]+(?:\s+[A-Z][a-zÀ-ú]+){1,3}\s+(General|Sales|Manager|Coordinator)", body):
-                continue
-            if re.search(r"946\s*622\s*318|info@perugrandtravel\.com", body):
                 continue
             sections.append({"heading": current_heading, "body": body[:8000]})
     # De-dupe consecutive identical headings with merge
@@ -353,37 +393,45 @@ def extract_page_sections(html: str) -> list[dict]:
     if not merged:
         content = one(html, r"traveltour-content-area[^>]*>(.*?)</div>\s*</div>\s*</div>")
         if content:
+            content = _strip_style_script(content)
             for part in re.split(r"<h3[^>]*>", content, flags=re.I)[1:]:
                 m = re.match(r"([^<]+)</h3>(.*?)(?=<h3|$)", part, re.I | re.S)
                 if m:
                     heading = strip_html(m.group(1))
                     body = strip_html(m.group(2))
-                    if heading and len(body) > 40:
+                    if heading and not _is_noise_body(body):
                         merged.append({"heading": heading, "body": body[:8000]})
             if not merged:
                 paras = [
                     strip_html(p)
                     for p in re.findall(r"<p[^>]*>(.*?)</p>", content, re.I | re.S)
                 ]
-                paras = [p for p in paras if len(p) > 60 and "all-inclusive tour packages" not in p.lower()]
+                paras = [
+                    p
+                    for p in paras
+                    if not _is_noise_body(p) and "all-inclusive tour packages" not in p.lower()
+                ]
                 if paras:
                     merged.append({"heading": "Overview", "body": "\n\n".join(paras[:12])[:8000]})
     if not merged:
-        fallback = strip_html(
+        fallback_raw = (
             one(html, r"gdlr-core-page-builder-body[^>]*>(.*?)</div>\s*</div>\s*<footer")
             or one(html, r"<main[^>]*>(.*?)</main>")
             or ""
         )
-        if len(fallback) > 100 and ":root{" not in fallback:
+        fallback = strip_html(_strip_style_script(fallback_raw))
+        if not _is_noise_body(fallback):
             merged.append({"heading": "Overview", "body": fallback[:8000]})
     return merged[:25]
 
 
 def extract_child_page_links(html: str, page_path: str) -> list[dict]:
     page_path = page_path if page_path.endswith("/") else f"{page_path}/"
+    origin_host = urlparse(_PAGE_ORIGIN).netloc.replace(".", r"\.")
+    href_pat = rf'href="(?:https?://(?:www\.)?{origin_host})?(/[^"#?]+)"'
     seen: set[str] = set()
     out: list[dict] = []
-    for m in re.finditer(r'href="(?:https://www\.perugrandtravel\.com)?(/[^"#?]+)"', html, re.I):
+    for m in re.finditer(href_pat, html, re.I):
         p = m.group(1)
         if not p.endswith("/"):
             p += "/"

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -19,6 +20,7 @@ from scrape_lib import (
     one,
     sanitize_duration,
     scrape_delay,
+    set_page_origin,
     slug_from_url,
 )
 
@@ -37,7 +39,8 @@ def _extract_difficulty(html: str) -> str | None:
     return val
 
 
-def scrape_tour(url: str) -> dict:
+def scrape_tour(url: str, canonical_prefix: str | None = None) -> dict:
+    set_page_origin(url)
     html = curl(url)
     slug = slug_from_url(url)
     hero = one(html, r'property="og:image"\s+content="([^"]*)"') or ""
@@ -45,8 +48,16 @@ def scrape_tour(url: str) -> dict:
     if hero and hero not in gallery:
         gallery.insert(0, hero)
 
-    included = extract_list_section(html, "Includes")
-    excluded = extract_list_section(html, "Excludes")
+    included: list[str] = []
+    for heading in ("Includes", "Incluye", "Inclui", "O que está incluso"):
+        included = extract_list_section(html, heading)
+        if included:
+            break
+    excluded: list[str] = []
+    for heading in ("Excludes", "No incluye", "Não inclui", "Nao inclui"):
+        excluded = extract_list_section(html, heading)
+        if excluded:
+            break
     if not included:
         included = [x.strip("✓ ").strip() for x in re_find_li(html, "include")]
     if not excluded:
@@ -54,11 +65,16 @@ def scrape_tour(url: str) -> dict:
 
     itinerary = extract_itinerary(html)
     h1 = one(html, r"<h1[^>]*>([^<]+)</h1>") or ""
+    if not h1:
+        title_raw = one(html, r"<title[^>]*>([^<]+)</title>")
+        h1 = re.sub(r"^[≫>\s]+", "", title_raw).strip()
     duration = extract_duration(html)
     if not duration:
         duration = sanitize_duration(one(html, r"Duration[^:]*:\s*([^<]+)"))
     if not duration:
         duration = infer_duration(h1, slug)
+
+    prefix = (canonical_prefix or "/tour").rstrip("/")
 
     return {
         "slug": slug,
@@ -67,7 +83,7 @@ def scrape_tour(url: str) -> dict:
         "seo": {
             "title": one(html, r"<title[^>]*>([^<]+)</title>"),
             "description": one(html, r'name="description"\s+content="([^"]*)"'),
-            "canonical": f"/tour/{slug}/",
+            "canonical": f"{prefix}/{slug}/",
         },
         "priceFrom": extract_price(html),
         "currency": "USD",

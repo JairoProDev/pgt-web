@@ -1,0 +1,27 @@
+{
+  "slug": "contacto",
+  "path": "/contacto/",
+  "pageType": "static",
+  "title": "CONTACTO",
+  "seo": {
+    "title": "▷ CONTACTO | Perú Grand Travel",
+    "description": "Ponte en contacto con Perú Grand Travel para obtener asistencia personalizada, aclarar dudas y saber más sobre nuestros servicios.",
+    "canonical": "/es/contacto/"
+  },
+  "h1": "Contacto",
+  "heroSubtitle": "Ponte en contacto con Perú Grand Travel para obtener asistencia personalizada, aclarar dudas y saber más sobre nuestros servicios.",
+  "heroImage": "https://www.viajesmachupicchutours.com/wp-content/uploads/2022/08/personas-peru.jpg",
+  "sections": [
+    {
+      "heading": "Overview",
+      "body": "Rellene los siguientes campos y uno de nuestros asesores se pondrá en contacto con usted."
+    },
+    {
+      "heading": "Asistencia",
+      "body": "Horario de Oficina: Nuestro servicio es de lunes a viernes de 09:00 a 18:00 y los sábados de 09:00 a 13:00."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}

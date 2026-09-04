@@ -1,0 +1,59 @@
+{
+  "slug": "experiencias",
+  "path": "/experiencias/",
+  "pageType": "hub",
+  "title": "EXPERIÊNCIAS DE VIAGEM",
+  "seo": {
+    "title": "EXPERIÊNCIAS DE VIAGEM | Peru Grand Travel",
+    "description": "Descubra as melhores experiências de viagem no Peru. Tours, aventuras, cultura e gastronomia esperam por você no país andino.",
+    "canonical": "/pt/experiencias/"
+  },
+  "h1": "Experiências",
+  "heroSubtitle": "Descubra as melhores experiências de viagem no Peru. Tours, aventuras, cultura e gastronomia esperam por você no país andino.",
+  "heroImage": "https://www.machupicchupacotes.com/wp-content/uploads/2022/06/experiencias-de-viagem-peru.jpg",
+  "sections": [
+    {
+      "heading": "Nossas melhores experiências",
+      "body": "Se você gosta de aventura, cultura, trekking, festas e muito mais, tudo estará ao seu alcance no Peru. Se quiser sair do conforto, pegue na mochila e aventure-se, claro que pode visitar estas terras. O que você diz, você se atreve a explorar seu estilo de viagem?"
+    },
+    {
+      "heading": "Receba nossas novidades!",
+      "body": "Registre-se agora para receber ofertas especiais e informação sobre os melhores tours!\n\nAo subscrever-se em nossa Newsletter, você também aceita nossa política de privacidade , que pode ser cancelada a qualquer momento."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "lima-colonial-e-terra-sagrada-dos-incas-7d",
+    "lima-colonial-huacachina-e-terra-sagrada-dos-incas-9d",
+    "peru-espetacular-10d",
+    "peru-historico-e-gastronomico-10d",
+    "fascinante-aventura-desafio-nos-andes-11d",
+    "origens-e-misterios-dos-andes-16d",
+    "machu-picchu-full-day",
+    "machu-picchu-4d",
+    "machu-picchu-classico-5d",
+    "machu-picchu-laguna-humantay-6d",
+    "incrivel-experiencia-machu-picchu-7d",
+    "machu-picchu-inesquecivel-8d",
+    "desafio-machu-picchu-8d",
+    "trilha-inca-curta-2d",
+    "vale-sagrado-trilha-inca-curta-3d",
+    "trilha-inca-classica-4d",
+    "trilha-inca-classica-7d",
+    "trilha-salkantay-4d",
+    "trilha-salkantay-sky-5d",
+    "trilha-lares-4d",
+    "vale-sagrado-e-machu-picchu-2d",
+    "7-lagunas-ausangate",
+    "laguna-humantay-1d",
+    "montanha-colorida-1d",
+    "montanha-colorida-quadricilo",
+    "montanha-palccoyo-1d",
+    "salineras-maras-moray",
+    "moray-e-salineiras-bike-1d",
+    "salineras-maras-moray-de-quadriciclo",
+    "qeswachaka-1d",
+    "casamento-andino-full-day"
+  ]
+}

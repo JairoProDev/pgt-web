@@ -1,0 +1,40 @@
+{
+  "slug": "proyectos-sociales",
+  "path": "/proyectos-sociales/",
+  "pageType": "static",
+  "title": "PROYECTOS SOCIALES",
+  "seo": {
+    "title": "▷ PROYECTOS SOCIALES | Perú Grand Travel",
+    "description": "Conoce los proyectos sociales apoyados por Perú Grand Travel para mejorar la calidad de vida de las comunidades peruanas.",
+    "canonical": "/es/proyectos-sociales/"
+  },
+  "h1": "Fundación PGT",
+  "heroSubtitle": "Conoce los proyectos sociales apoyados por Perú Grand Travel para mejorar la calidad de vida de las comunidades peruanas.",
+  "heroImage": "https://www.viajesmachupicchutours.com/wp-content/uploads/2026/01/br.webp",
+  "sections": [
+    {
+      "heading": "Nuestro Enfoque",
+      "body": "En Peru Grand Travel, nos comprometemos con un turismo responsable y sostenible, priorizando experiencias inolvidables para nuestros viajeros mientras apoyamos el desarrollo socioeconómico de las comunidades locales y protegemos el medio ambiente. A través de nuestros tours y paquetes, promovemos un turismo ético, respetuoso con la cultura, la naturaleza y las tradiciones peruanas. Además, dedicamos esfuerzos a proyectos sociales que impulsan el crecimiento económico, educativo y cultural de las poblaciones locales.\n\nNuestro enfoque se basa en crear un impacto positivo y duradero en cada destino que visitamos. Trabajamos en estrecha colaboración con las comunidades para asegurar que los beneficios del turismo lleguen directamente a las personas, preservando su patrimonio y mejorando su calidad de vida. Con Peru Grand Travel, cada viaje no solo es una aventura, sino una contribución activa al bienestar y desarrollo de Perú."
+    },
+    {
+      "heading": "Campaña Navideña: Iluminando Corazones, Compartiendo Alegría",
+      "body": "En Peru Grand Travel , la Navidad es más que solo una temporada: es un momento para compartir y cuidar de nuestras comunidades locales. Descubre cómo nuestra Campaña Navideña ilumina corazones y extiende alegría a través de proyectos sociales que impactan positivamente a quienes más lo necesitan. Únete a nosotros en esta celebración de generosidad y esperanza."
+    },
+    {
+      "heading": "Por un Planeta más Limpio: Nuestra Campaña de Limpieza",
+      "body": "Nuestra agencia se dedica activamente a promover la concienciación y educación ambiental como parte integral de nuestra filosofía de turismo sostenible. Para cumplir con este compromiso, organizamos regularmente campañas de limpieza de senderos y caminatas en la región de Cusco. Estas actividades no solo buscan preservar la belleza natural de nuestros paisajes, sino también generar un impacto positivo en la comunidad local al involucrar a residentes y visitantes en la conservación activa del entorno.\n\nNuestra agencia se dedica activamente a promover la concienciación y educación ambiental como parte integral de nuestra filosofía de turismo sostenible. Para cumplir con este compromiso, organizamos regularmente campañas de limpieza de senderos y caminatas en la región de Cusco. Estas actividades no solo buscan preservar la belleza natural de nuestros paisajes, sino también generar un impacto positivo en la comunidad local al involucrar a residentes y visitantes en la conservación activa del entorno."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/proyectos-sociales/navidad/",
+      "label": "Navidad"
+    },
+    {
+      "path": "/proyectos-sociales/campanas-de-limpieza/",
+      "label": "Campanas De Limpieza"
+    }
+  ],
+  "tourSlugs": []
+}

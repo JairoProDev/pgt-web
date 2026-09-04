@@ -1,0 +1,55 @@
+{
+  "slug": "crie-seu-roteiro",
+  "path": "/crie-seu-roteiro/",
+  "pageType": "hub",
+  "title": "CRIE SEU ROTEIRO",
+  "seo": {
+    "title": "▷ CRIE SEU ROTEIRO | Peru Grand Travel",
+    "description": "Crie seu roteiro sob medida para o Peru. Temos agentes especializados que ajudam a encontrar as melhores atividades, hospedagem e transporte.",
+    "canonical": "/pt/crie-seu-roteiro/"
+  },
+  "h1": "Crie seu roteiro",
+  "heroSubtitle": "Crie seu roteiro sob medida para o Peru. Temos agentes especializados que ajudam a encontrar as melhores atividades, hospedagem e transporte.",
+  "heroImage": "https://www.machupicchupacotes.com/wp-content/uploads/2022/06/peru-machu-picchu.jpg",
+  "sections": [
+    {
+      "heading": "Não encontrou a viagem que procurava?",
+      "body": "Preencha o formulário ao lado com os detalhes de seu plano de viagem e receba seu orçamento personalizado. Criaremos um itinerário específico conforme seu perfil. Informe os dados da sua viagem Número de passageiros * —Por favor, elige una opción— 1 2 3 4 5 6 7 8 9 10+ Qual seria a quantidade de dias? * Data prevista* Que tipo de experiência você procura? * —Por favor, elige una opción— Viagens Tradicionais Viagens Combinadas Turismo de Aventura Turismo Cultural Categoria de hotéis * —Por favor, elige una opción— Econômica Turística Primeira Premium Luxo Tipo de acomodação * —Por favor, elige una opción— Single Duplo Triplo Qual seu orçamento estimado por pessoa? * —Por favor, elige una opción— menos de USD 1000 entre USD 1000 e USD 2000 entre USD 2000 e USD 3000 acima de USD 3000 Para personalizar da melhor forma possível sua viagem, por favor, forneça todas informações importantes, se possui suas passagens aéreas, incluir algum passeio em específico, etc. Seus dados de contato"
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": [
+    "lima-colonial-e-terra-sagrada-dos-incas-7d",
+    "lima-colonial-huacachina-e-terra-sagrada-dos-incas-9d",
+    "peru-espetacular-10d",
+    "peru-historico-e-gastronomico-10d",
+    "fascinante-aventura-desafio-nos-andes-11d",
+    "origens-e-misterios-dos-andes-16d",
+    "machu-picchu-full-day",
+    "machu-picchu-4d",
+    "machu-picchu-classico-5d",
+    "machu-picchu-laguna-humantay-6d",
+    "incrivel-experiencia-machu-picchu-7d",
+    "machu-picchu-inesquecivel-8d",
+    "desafio-machu-picchu-8d",
+    "trilha-inca-curta-2d",
+    "vale-sagrado-trilha-inca-curta-3d",
+    "trilha-inca-classica-4d",
+    "trilha-inca-classica-7d",
+    "trilha-salkantay-4d",
+    "trilha-salkantay-sky-5d",
+    "trilha-lares-4d",
+    "vale-sagrado-e-machu-picchu-2d",
+    "7-lagunas-ausangate",
+    "laguna-humantay-1d",
+    "montanha-colorida-1d",
+    "montanha-colorida-quadricilo",
+    "montanha-palccoyo-1d",
+    "salineras-maras-moray",
+    "moray-e-salineiras-bike-1d",
+    "salineras-maras-moray-de-quadriciclo",
+    "qeswachaka-1d",
+    "casamento-andino-full-day"
+  ]
+}

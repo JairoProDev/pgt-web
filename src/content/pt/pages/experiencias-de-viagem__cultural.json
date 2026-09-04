@@ -1,0 +1,55 @@
+{
+  "slug": "cultural",
+  "path": "/experiencias-de-viagem/cultural/",
+  "pageType": "hub",
+  "title": "Turismo Cultural no PERU (Tradições, Costumes e História)",
+  "seo": {
+    "title": "▷ Turismo Cultural no PERU (Tradições, Costumes e História)",
+    "description": "Descubra a riqueza cultural do Peru com o nosso turismo cultural. Visite as maravilhas arqueológicas e desfrute das tradições deste país. Reserve agora!",
+    "canonical": "/pt/experiencias-de-viagem/cultural/"
+  },
+  "h1": "Turismo Cultural",
+  "heroSubtitle": "Descubra a riqueza cultural do Peru com o nosso turismo cultural. Visite as maravilhas arqueológicas e desfrute das tradições deste país. Reserve agora!",
+  "heroImage": "https://www.machupicchupacotes.com/wp-content/uploads/2022/06/pessoas-cusco-peru.jpg",
+  "sections": [],
+  "bodyHtml": "",
+  "childLinks": [
+    {
+      "path": "/experiencias-de-viagem/cultural/feed/",
+      "label": "Feed"
+    }
+  ],
+  "tourSlugs": [
+    "lima-colonial-e-terra-sagrada-dos-incas-7d",
+    "lima-colonial-huacachina-e-terra-sagrada-dos-incas-9d",
+    "peru-espetacular-10d",
+    "peru-historico-e-gastronomico-10d",
+    "fascinante-aventura-desafio-nos-andes-11d",
+    "origens-e-misterios-dos-andes-16d",
+    "machu-picchu-full-day",
+    "machu-picchu-4d",
+    "machu-picchu-classico-5d",
+    "machu-picchu-laguna-humantay-6d",
+    "incrivel-experiencia-machu-picchu-7d",
+    "machu-picchu-inesquecivel-8d",
+    "desafio-machu-picchu-8d",
+    "trilha-inca-curta-2d",
+    "vale-sagrado-trilha-inca-curta-3d",
+    "trilha-inca-classica-4d",
+    "trilha-inca-classica-7d",
+    "trilha-salkantay-4d",
+    "trilha-salkantay-sky-5d",
+    "trilha-lares-4d",
+    "vale-sagrado-e-machu-picchu-2d",
+    "7-lagunas-ausangate",
+    "laguna-humantay-1d",
+    "montanha-colorida-1d",
+    "montanha-colorida-quadricilo",
+    "montanha-palccoyo-1d",
+    "salineras-maras-moray",
+    "moray-e-salineiras-bike-1d",
+    "salineras-maras-moray-de-quadriciclo",
+    "qeswachaka-1d",
+    "casamento-andino-full-day"
+  ]
+}

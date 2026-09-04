@@ -1,0 +1,51 @@
+{
+  "slug": "sobre-nosotros",
+  "path": "/sobre-nosotros/",
+  "pageType": "static",
+  "title": "NOSOTROS",
+  "seo": {
+    "title": "▷ NOSOTROS | Perú Grand Travel",
+    "description": "Perú Grand Travel es la principal agencia de turismo en Cusco, ofreciendo viajes personalizados a Machu Picchu, Cusco, Lima y más.",
+    "canonical": "/es/sobre-nosotros/"
+  },
+  "h1": "NOSOTROS",
+  "heroSubtitle": "Perú Grand Travel es la principal agencia de turismo en Cusco, ofreciendo viajes personalizados a Machu Picchu, Cusco, Lima y más.",
+  "heroImage": "https://www.viajesmachupicchutours.com/wp-content/uploads/2024/08/El-equipo-de-profesionales-de-Peru-Grand-Travel-2.webp",
+  "sections": [
+    {
+      "heading": "Sobre Nosotros Nuestra Cultura Organizacional",
+      "body": "Fomentamos un ambiente colaborativo , de iniciativa e innovación, liderazgo y trabajo en equipo para el logro de los objetivos y como impulso al crecimiento de todos."
+    },
+    {
+      "heading": "Nuestra Historia",
+      "body": "Perú Grand Travel nació el 15 de noviembre de 2010 , con la idea de crear una empresa que ofreciera algo realmente especial a los viajeros: experiencias únicas en Perú. Tras un par de años de trabajo y planificación, la empresa comenzó a operar en noviembre de 2012 , poco a poco ganándose su lugar en el sector turístico. Desde entonces, ha ido creciendo y adaptándose a las necesidades de los turistas que buscan conocer el Perú de una manera más personal y auténtica. Su fundador, Clever Ponce , brinda un acompañamiento a todo el equipo en su propósito, diseñando estrategias que impulsen su innovación y escalabilidad, para conectar más culturas, transformar más vidas y consolidarla como referente en turismo responsable. Hoy, Perú Grand Travel tiene su sede en Cusco, una ciudad cargada de historia y cultura. Esta ubicación le da una ventaja única, ya que está en el centro de una de las regiones más impresionantes y llenas de patrimonio cultural y natural del país. Esto permite a la empresa ofrecer a sus clientes acceso a lugares icónicos como Machu Picchu y el Valle Sagrado, garantizando que cada viaje sea una experiencia verdaderamente memorable y genuina."
+    },
+    {
+      "heading": "Misión",
+      "body": "Superamos las expectativas de experiencia de nuestros pasajeros en nuestros programas turísticos. Contamos con un equipo apasionado y comprometido que te ayuda a lograr transformar tu vida."
+    },
+    {
+      "heading": "Visión",
+      "body": "Ser la agencia de viajes Peruana referente que inspire al mundo por transformar la vida de nuestros viajeros, preservar la esencia viva de las comunidades locales del Perú y promover un turismo sostenible para las futuras generaciones mientras consolidamos el posicionamiento de Perú Grand Travel en los mercados clave."
+    },
+    {
+      "heading": "Propósito",
+      "body": "En Peru Grand Travel, nuestro propósito es claro, transformar la vida de nuestro pasajero con una conexión profunda de nuestra cultura, así mismo preservar la esencia de nuestras comunidades locales, y por supuesto promover un turismo responsable."
+    },
+    {
+      "heading": "Valores",
+      "body": "En Perú Grand Travel vivimos nuestros valores en cada acción y decisión: Honestidad Actuamos con transparencia y verdad en todo lo que hacemos, generando confianza con nuestros pasajeros, colaboradores y aliados estratégicos. Gratitud Reconocemos y valoramos cada oportunidad, cada viajero y cada miembro de nuestro equipo. La gratitud es el motor que nos impulsa a servir con excelencia.\n\nLealtad Somos fieles a nuestro propósito, a nuestra cultura y a las comunidades que nos rodean. Construimos relaciones sólidas y duraderas basadas en respeto mutuo. Solidaridad La solidaridad nos une y nos fortalece, acompañando a nuestros compañeros, clientes y comunidades con apoyo, cuidado y respeto. Compromiso con los resultados Trabajamos con dedicación, disciplina e innovación para superar las expectativas de nuestros clientes y asegurar el crecimiento sostenible de la empresa."
+    },
+    {
+      "heading": "Conectar culturas y transformar vidas",
+      "body": "En Perú Grand Travel creemos que cada viaje es un puente entre culturas. Nuestro compromiso es crear experiencias auténticas que inspiren, enriquezcan y dejen huellas profundas, transformando no solo la forma de viajar, sino también la forma de vivir."
+    },
+    {
+      "heading": "Tu viaje a Perú comienza aquí Vive Perú, transforma tu vida",
+      "body": "Porque cada viajero es único, en Perú Grand Travel diseñamos experiencias pensadas para ti. Desde el primer contacto hasta el último recuerdo, te acompañamos con cercanía, cuidado y calidad, para que tu viaje a Perú no solo empiece aquí, sino que se convierta en una experiencia que transforma tu vida."
+    }
+  ],
+  "bodyHtml": "",
+  "childLinks": [],
+  "tourSlugs": []
+}
