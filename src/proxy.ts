@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import { MARKETS, marketFromPathname } from "./lib/markets";
 
 /** HTTP language for crawlers without dynamizing the static layout. */
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const market = marketFromPathname(request.nextUrl.pathname);
   const res = NextResponse.next();
   res.headers.set("Content-Language", MARKETS[market].htmlLang);
