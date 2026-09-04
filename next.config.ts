@@ -4,6 +4,7 @@ import redirectsData from "./data/redirects.json";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
+  poweredByHeader: false,
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [70, 75],

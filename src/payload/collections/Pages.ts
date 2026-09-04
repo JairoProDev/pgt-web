@@ -79,7 +79,16 @@ export const Pages: CollectionConfig = {
             { name: "heroHeadline", type: "text" },
             { name: "heroSubtitle", type: "textarea" },
             { name: "heroEmotionalLine", type: "text" },
-            { name: "heroImage", type: "text" },
+            {
+              name: "heroImage",
+              type: "text",
+              admin: {
+                description: "URL pública o /images/.... Vista previa abajo.",
+                components: {
+                  afterInput: ["/payload/components/ImageUrlPreview.tsx#default"],
+                },
+              },
+            },
             {
               name: "sections",
               type: "array",

@@ -112,7 +112,11 @@ export const Tours: CollectionConfig = {
               name: "heroImage",
               type: "text",
               admin: {
-                description: "Public URL or /images/... path. Media uploads come later (Vercel Blob).",
+                description:
+                  "URL pública o /images/.... Vista previa abajo. Subida de archivos llega con Blob (gratis no cubre storage de Payload en Vercel).",
+                components: {
+                  afterInput: ["/payload/components/ImageUrlPreview.tsx#default"],
+                },
               },
             },
             {

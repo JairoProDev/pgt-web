@@ -65,7 +65,16 @@ export const Blogs: CollectionConfig = {
             },
             { name: "title", type: "text", required: true },
             { name: "h1", type: "text" },
-            { name: "heroImage", type: "text" },
+            {
+              name: "heroImage",
+              type: "text",
+              admin: {
+                description: "URL pública o /images/.... Vista previa abajo.",
+                components: {
+                  afterInput: ["/payload/components/ImageUrlPreview.tsx#default"],
+                },
+              },
+            },
             { name: "intro", type: "textarea" },
             { name: "category", type: "text" },
             {

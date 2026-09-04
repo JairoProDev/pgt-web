@@ -1,3 +1,4 @@
+import { default as default_d4166680d8a12402b4508863a3b1e2df } from '../../../payload/components/ImageUrlPreview.tsx'
 import { default as default_f3b0b20f48c0ef335542cb62123d0dab } from '../../../payload/components/SeoCharField.tsx'
 import { default as default_d8667206d23d6bd802b2fb1d007ad5df } from '../../../payload/components/SeoCharTextarea.tsx'
 import { ToursMyWorkBanner as ToursMyWorkBanner_4d856e2daa87e2c5f3cfa5af2892eaac } from '../../../payload/components/MyWorkBanner.tsx'
@@ -10,6 +11,7 @@ import { CollectionCards as CollectionCards_f9c02e79a4aed9a3924487c0cd4cafb1 } f
 
 /** @type import('payload').ImportMap */
 export const importMap = {
+  "/payload/components/ImageUrlPreview.tsx#default": default_d4166680d8a12402b4508863a3b1e2df,
   "/payload/components/SeoCharField.tsx#default": default_f3b0b20f48c0ef335542cb62123d0dab,
   "/payload/components/SeoCharTextarea.tsx#default": default_d8667206d23d6bd802b2fb1d007ad5df,
   "/payload/components/MyWorkBanner.tsx#ToursMyWorkBanner": ToursMyWorkBanner_4d856e2daa87e2c5f3cfa5af2892eaac,
