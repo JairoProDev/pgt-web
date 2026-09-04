@@ -1,4 +1,7 @@
 import { ConversionHero } from "@/components/ConversionHero";
+import { HeroBackground } from "@/components/HeroBackground";
+import { copyFor } from "@/lib/market-copy";
+import { marketFromPathname } from "@/lib/markets";
 import type { PageContent } from "@/lib/types";
 
 type Props = {
@@ -11,35 +14,36 @@ type Props = {
 };
 
 export function HubHero({ page, path, packageCount, waMessage, utmContent, emotionalLine }: Props) {
+  const copy = copyFor(marketFromPathname(path));
   const title = page.h1.replace(/^▷\s*/, "").split("|")[0].trim();
-  const subtitle =
-    page.heroSubtitle ??
-    "Hotels, transfers, and guided tours — customized for your dates and group size.";
+  const subtitle = page.heroSubtitle ?? copy.hub.subtitleFallback;
 
   return (
     <ConversionHero
       variant="hub"
       emotionalLine={
         emotionalLine ??
-        (path.includes("machu-picchu") ? "MACHU PICCHU · SACRED VALLEY · CUSCO" : "PERU PACKAGES · MACHU PICCHU · TREKS")
+        (path.includes("machu-picchu") ? copy.hub.emotionalLineMp : copy.hub.emotionalLine)
       }
-      eyebrow={`${packageCount} packages · Cusco-based operator`}
+      eyebrow={copy.hub.eyebrow(packageCount)}
       title={title}
       subtitle={subtitle}
-      image={page.heroImage}
       imageAlt={title}
-      statBadge={`${packageCount} packages available`}
+      statBadge={copy.hub.statBadge(packageCount)}
       showTripIntent
       intentUtmContent={`${utmContent}_hero_intent`}
+      valueChips={copy.heroIntent.chips}
       primaryCta={{
-        label: "Get a custom quote on WhatsApp",
+        label: copy.hub.ctaLabel,
         message: waMessage,
         utmContent: `${utmContent}_hero`,
         contentType: "hub",
         contentSlug: page.slug,
         pagePath: path,
       }}
-      anchorLink={{ href: "#packages-grid", label: "Browse packages ↓" }}
-    />
+      anchorLink={{ href: "#packages-grid", label: copy.hub.browse }}
+    >
+      {page.heroImage ? <HeroBackground src={page.heroImage} alt={title} lcp /> : null}
+    </ConversionHero>
   );
 }

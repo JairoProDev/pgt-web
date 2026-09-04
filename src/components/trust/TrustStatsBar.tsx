@@ -1,6 +1,8 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
-import { TRUST_STATS } from "@/lib/trust-content";
+import { copyFor } from "@/lib/market-copy";
+import { useMarket } from "@/lib/use-market";
 
 function StatIcon({ kind }: { kind: number }) {
   const cls = "h-6 w-6 shrink-0 text-stone-700";
@@ -35,6 +37,7 @@ function StatIcon({ kind }: { kind: number }) {
 }
 
 export function TrustStatsBar({ compact = false }: { compact?: boolean }) {
+  const copy = copyFor(useMarket());
   return (
     <div
       className={
@@ -49,7 +52,7 @@ export function TrustStatsBar({ compact = false }: { compact?: boolean }) {
             ? "mx-auto max-w-7xl"
             : "mx-auto max-w-5xl rounded-2xl border border-stone-200/80 bg-white px-4 py-5 shadow-lg shadow-stone-900/10 md:px-6"
         }
-        aria-label="Why travelers trust Peru Grand Travel"
+        aria-label={copy.trustStats.aria}
       >
         <ul
           className={
@@ -58,7 +61,7 @@ export function TrustStatsBar({ compact = false }: { compact?: boolean }) {
               : "grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-0 md:divide-x md:divide-stone-200"
           }
         >
-          {TRUST_STATS.map((stat, i) => {
+          {copy.trustStats.items.map((stat, i) => {
             const inner = (
               <>
                 <StatIcon kind={i} />

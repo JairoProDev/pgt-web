@@ -23,6 +23,8 @@ export type Tour = {
   excluded: string[];
   faq?: { q: string; a: string }[];
   relatedTourSlugs?: string[];
+  /** Drupal-style full HTML. Rendered as-is when present. */
+  customHtml?: string;
 };
 
 export type BlogPost = {
@@ -35,6 +37,7 @@ export type BlogPost = {
   heroImage: string;
   intro: string;
   sections: { heading: string; body: string }[];
+  bodyHtml?: string;
   relatedTourSlugs: string[];
   category?: string;
 };

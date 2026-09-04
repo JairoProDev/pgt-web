@@ -1,19 +1,22 @@
+"use client";
+
 import { Fragment, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import {
-  footerSections,
-  footerUtilityLinks,
+  footerSectionsFor,
+  footerUtilityLinksFor,
   type FooterLink,
   type FooterSection,
 } from "@/lib/footer-nav";
+import { copyFor, type FooterCopy } from "@/lib/market-copy";
+import { withMarketPrefix } from "@/lib/markets";
 import { travelAgencySchema } from "@/lib/schema";
 import { siteConfig, whatsAppUrl } from "@/lib/site";
+import { useMarket } from "@/lib/use-market";
 
 const EXPLORE_ORDER = ["packages", "destinations", "company"] as const;
-
-const TRUST_CHIPS = ["Since 2012", "Licensed operator", "Cusco"] as const;
 
 const focusRing =
   "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
@@ -58,8 +61,8 @@ function WhatsAppGlyph({ className = "h-5 w-5" }: { className?: string }) {
   );
 }
 
-function orderedExploreSections(): FooterSection[] {
-  return EXPLORE_ORDER.map((id) => footerSections.find((section) => section.id === id)).filter(
+function orderedExploreSections(sections: FooterSection[]): FooterSection[] {
+  return EXPLORE_ORDER.map((id) => sections.find((section) => section.id === id)).filter(
     (section): section is FooterSection => Boolean(section),
   );
 }
@@ -67,9 +70,11 @@ function orderedExploreSections(): FooterSection[] {
 function FooterLinkList({
   links,
   showDescriptions = false,
+  policiesLegal,
 }: {
   links: FooterLink[];
   showDescriptions?: boolean;
+  policiesLegal: string;
 }) {
   const firstLegalIndex = links.findIndex((link) => link.group === "legal");
 
@@ -83,7 +88,7 @@ function FooterLinkList({
             {showLegalLabel ? (
               <li className="!mt-5 list-none border-t border-pgt-gold/30 pt-3">
                 <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-pgt-gold">
-                  Policies & legal
+                  {policiesLegal}
                 </p>
               </li>
             ) : null}
@@ -104,7 +109,13 @@ function FooterLinkList({
   );
 }
 
-function FooterNavColumn({ section }: { section: FooterSection }) {
+function FooterNavColumn({
+  section,
+  policiesLegal,
+}: {
+  section: FooterSection;
+  policiesLegal: string;
+}) {
   const headingId = `footer-${section.id}`;
   const showDescriptions = section.id === "packages";
 
@@ -116,7 +127,11 @@ function FooterNavColumn({ section }: { section: FooterSection }) {
       >
         {section.title}
       </h2>
-      <FooterLinkList links={section.links} showDescriptions={showDescriptions} />
+      <FooterLinkList
+        links={section.links}
+        showDescriptions={showDescriptions}
+        policiesLegal={policiesLegal}
+      />
     </nav>
   );
 }
@@ -161,7 +176,7 @@ function MobileAccordion({
   );
 }
 
-function NewsletterCard({ idPrefix }: { idPrefix: string }) {
+function NewsletterCard({ idPrefix, copy }: { idPrefix: string; copy: FooterCopy }) {
   const inputId = `${idPrefix}-newsletter-email`;
   const helpId = `${idPrefix}-newsletter-help`;
 
@@ -171,16 +186,14 @@ function NewsletterCard({ idPrefix }: { idPrefix: string }) {
         id={`${idPrefix}-newsletter-heading`}
         className="text-xs font-semibold uppercase tracking-[0.14em] text-white"
       >
-        Travel tips
+        {copy.travelTips}
       </h2>
-      <p className="mt-2 text-sm text-blue-100">
-        Cusco tips and trip ideas — we follow up personally.
-      </p>
+      <p className="mt-2 text-sm text-blue-100">{copy.travelTipsBody}</p>
       <form action="/contact-us/" method="get" className="mt-4 space-y-3">
         <input type="hidden" name="intent" value="newsletter" />
         <div>
           <label htmlFor={inputId} className="block text-sm font-medium text-blue-50">
-            Email for travel tips
+            {copy.emailLabel}
           </label>
           <input
             id={inputId}
@@ -198,35 +211,35 @@ function NewsletterCard({ idPrefix }: { idPrefix: string }) {
           type="submit"
           className={`inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-pgt-gold px-4 py-2.5 text-sm font-semibold text-pgt-blue-dark transition hover:brightness-110 ${focusRing}`}
         >
-          Get travel tips
+          {copy.getTips}
         </button>
         <p id={helpId} className="text-xs leading-relaxed text-blue-200/90">
-          We&apos;ll open the contact form so our team can follow up. No spam list yet.
+          {copy.tipsHelp}
         </p>
       </form>
     </div>
   );
 }
 
-function PaymentsBlock({ headingId }: { headingId: string }) {
+function PaymentsBlock({ headingId, copy }: { headingId: string; copy: FooterCopy }) {
   return (
     <div>
       <h2
         id={headingId}
         className="text-xs font-semibold uppercase tracking-[0.14em] text-white"
       >
-        Secure payment
+        {copy.securePayment}
       </h2>
       <p className="mt-2 text-sm text-blue-100">
-        Book with confidence.{" "}
+        {copy.bookConfidence}{" "}
         <Link
           href="/payment-methods/"
           className={`font-medium text-white underline-offset-2 hover:underline ${focusRing}`}
         >
-          View all methods
+          {copy.viewMethods}
         </Link>
       </p>
-      <ul className="mt-4 flex flex-wrap gap-3" aria-label="Accepted payment methods">
+      <ul className="mt-4 flex flex-wrap gap-3" aria-label={copy.paymentsAria}>
         {siteConfig.paymentMethods.map((method) => (
           <li
             key={method.name}
@@ -247,14 +260,14 @@ function PaymentsBlock({ headingId }: { headingId: string }) {
   );
 }
 
-function AwardChips({ headingId }: { headingId: string }) {
+function AwardChips({ headingId, copy }: { headingId: string; copy: FooterCopy }) {
   return (
     <div>
       <h2
         id={headingId}
         className="text-xs font-semibold uppercase tracking-[0.14em] text-white"
       >
-        Awards &amp; recognition
+        {copy.awards}
       </h2>
       <ul className="mt-4 flex flex-wrap gap-2">
         {siteConfig.awardChips.map((chip) => (
@@ -273,24 +286,22 @@ function AwardChips({ headingId }: { headingId: string }) {
 }
 
 export function Footer() {
-  const exploreSections = orderedExploreSections();
+  const market = useMarket();
+  const copy = copyFor(market).footer;
+  const exploreSections = orderedExploreSections(footerSectionsFor(market));
+  const utilityLinks = footerUtilityLinksFor(market);
   const year = new Date().getFullYear();
+  const homeHref = withMarketPrefix(market, "/");
 
-  const waPrimary = whatsAppUrl(
-    "Hi! I found Peru Grand Travel online and would like help planning my trip to Peru.",
-    { utmContent: "footer_whatsapp" },
-  );
-  const waSupport = whatsAppUrl(
-    "Hi! I need travel assistance from Peru Grand Travel.",
-    { utmContent: "footer_support_24_7" },
-  );
+  const waPrimary = whatsAppUrl(copy.waPrimary, { utmContent: "footer_whatsapp" });
+  const waSupport = whatsAppUrl(copy.waSupport, { utmContent: "footer_support_24_7" });
 
   const privacyHref = "/privacy-policy-and-data-protection/";
   const legalBarLinks = [
-    ...footerUtilityLinks,
-    ...(footerUtilityLinks.some((link) => link.href === privacyHref)
+    ...utilityLinks,
+    ...(utilityLinks.some((link) => link.href === privacyHref)
       ? []
-      : [{ href: privacyHref, label: "Privacy Policy" }]),
+      : [{ href: privacyHref, label: copy.privacyPolicy }]),
   ];
 
   return (
@@ -303,7 +314,7 @@ export function Footer() {
           <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between md:gap-8">
             <div className="flex min-w-0 items-start gap-4 sm:items-center">
               <Link
-                href="/"
+                href={homeHref}
                 className={`shrink-0 rounded-lg border border-pgt-gold/45 bg-white px-3 py-2 shadow-sm ${focusRing}`}
               >
                 <Image
@@ -315,15 +326,15 @@ export function Footer() {
                   loading="lazy"
                 />
               </Link>
-              <p className="max-w-xl text-sm leading-relaxed text-blue-100">{siteConfig.tagline}</p>
+              <p className="max-w-xl text-sm leading-relaxed text-blue-100">{copy.tagline}</p>
             </div>
             <p className="shrink-0 text-xs font-semibold uppercase tracking-[0.16em] text-pgt-gold">
               RUC {siteConfig.ruc} · Cusco, Peru
             </p>
           </div>
 
-          <ul className="mt-5 flex flex-wrap gap-2" aria-label="Trust highlights">
-            {TRUST_CHIPS.map((chip) => (
+          <ul className="mt-5 flex flex-wrap gap-2" aria-label={copy.trustAria}>
+            {copy.trustChips.map((chip) => (
               <li
                 key={chip}
                 className="inline-flex min-h-9 items-center rounded-full border border-pgt-gold/40 bg-pgt-blue/40 px-3 py-1.5 text-xs font-medium tracking-wide text-blue-50"
@@ -343,7 +354,7 @@ export function Footer() {
               id="footer-contact"
               className="text-xs font-semibold uppercase tracking-[0.14em] text-white"
             >
-              Contact us
+              {copy.contact}
             </h2>
 
             <div className="mt-4 space-y-4 text-sm text-blue-100">
@@ -356,7 +367,7 @@ export function Footer() {
 
               <p>
                 <span className="block text-xs font-semibold uppercase tracking-wider text-blue-200">
-                  Phone / WhatsApp
+                  {copy.phoneWa}
                 </span>
                 <a
                   href={`tel:${siteConfig.phonePe.replace(/\s/g, "")}`}
@@ -375,7 +386,7 @@ export function Footer() {
 
               <p>
                 <span className="block text-xs font-semibold uppercase tracking-wider text-blue-200">
-                  USA line
+                  {copy.usaLine}
                 </span>
                 <a
                   href={`tel:${siteConfig.phoneUs.replace(/\s/g, "")}`}
@@ -396,30 +407,30 @@ export function Footer() {
 
               <div className="rounded-lg border border-white/10 bg-white/5 px-3.5 py-3">
                 <p className="text-xs font-semibold uppercase tracking-wider text-pgt-gold">
-                  Office hours (Cusco)
+                  {copy.officeHours}
                 </p>
-                <p className="mt-1 text-sm text-blue-50">{siteConfig.officeHours.summary}</p>
-                <p className="mt-0.5 text-xs text-blue-200">{siteConfig.officeHours.detail}</p>
+                <p className="mt-1 text-sm text-blue-50">{copy.officeHoursSummary}</p>
+                <p className="mt-0.5 text-xs text-blue-200">{copy.officeHoursDetail}</p>
               </div>
 
               <div className="rounded-lg border border-pgt-wa/35 bg-pgt-wa/10 px-3.5 py-3">
                 <p className="text-xs font-semibold uppercase tracking-wider text-[#9aefb8]">
-                  {siteConfig.supportHours.summary}
+                  {copy.supportHoursSummary}
                 </p>
-                <p className="mt-1 text-sm text-blue-50">{siteConfig.supportHours.detail}</p>
+                <p className="mt-1 text-sm text-blue-50">{copy.supportHoursDetail}</p>
                 <a
                   href={waSupport}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`mt-2 inline-flex min-h-11 items-center text-sm font-semibold text-white underline-offset-2 hover:underline ${focusRing}`}
                 >
-                  Message us on WhatsApp
+                  {copy.messageWa}
                 </a>
               </div>
 
               <p>
                 <span className="block text-xs font-semibold uppercase tracking-wider text-blue-200">
-                  Languages
+                  {copy.languages}
                 </span>
                 <span className="text-blue-50">{siteConfig.languages.join(" · ")}</span>
               </p>
@@ -432,20 +443,20 @@ export function Footer() {
                   className={`inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-pgt-wa px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-105 ${focusRing}`}
                 >
                   <WhatsAppGlyph />
-                  Chat on WhatsApp
+                  {copy.chatWa}
                 </a>
                 <Link
                   href="/contact-us/"
                   className={`inline-flex min-h-11 flex-1 items-center justify-center rounded-lg border border-white/70 bg-transparent px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/10 ${focusRing}`}
                 >
-                  Contact us
+                  {copy.contactUs}
                 </Link>
               </div>
             </div>
 
             <div className="mt-6">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-blue-200">
-                Follow us
+                {copy.follow}
               </p>
               <ul className="mt-3 flex flex-wrap gap-2">
                 {(Object.entries(siteConfig.social) as [keyof typeof siteConfig.social, string][]).map(
@@ -455,7 +466,7 @@ export function Footer() {
                         href={url}
                         target="_blank"
                         rel="noopener noreferrer me"
-                        aria-label={`Peru Grand Travel on ${network}`}
+                        aria-label={copy.socialAria(network)}
                         className={`flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-white/20 ${focusRing}`}
                       >
                         <SocialIcon type={network} />
@@ -470,7 +481,11 @@ export function Footer() {
           {/* Desktop explore columns */}
           <div className="hidden gap-8 md:grid md:grid-cols-3 lg:col-span-8">
             {exploreSections.map((section) => (
-              <FooterNavColumn key={section.id} section={section} />
+              <FooterNavColumn
+                key={section.id}
+                section={section}
+                policiesLegal={copy.policiesLegal}
+              />
             ))}
           </div>
         </div>
@@ -483,28 +498,29 @@ export function Footer() {
                 <FooterLinkList
                   links={section.links}
                   showDescriptions={section.id === "packages"}
+                  policiesLegal={copy.policiesLegal}
                 />
               </nav>
             </MobileAccordion>
           ))}
 
-          <MobileAccordion title="Payments & awards">
+          <MobileAccordion title={copy.paymentsAwards}>
             <div className="space-y-8">
-              <PaymentsBlock headingId="footer-payments-mobile" />
-              <AwardChips headingId="footer-awards-mobile" />
+              <PaymentsBlock headingId="footer-payments-mobile" copy={copy} />
+              <AwardChips headingId="footer-awards-mobile" copy={copy} />
             </div>
           </MobileAccordion>
 
-          <MobileAccordion title="Get travel tips">
-            <NewsletterCard idPrefix="footer-mobile" />
+          <MobileAccordion title={copy.getTipsAccordion}>
+            <NewsletterCard idPrefix="footer-mobile" copy={copy} />
           </MobileAccordion>
         </div>
 
         {/* Desktop engagement band */}
         <div className="mt-12 hidden gap-8 border-t border-pgt-gold/30 pt-10 md:grid md:grid-cols-3">
-          <NewsletterCard idPrefix="footer" />
-          <PaymentsBlock headingId="footer-payments" />
-          <AwardChips headingId="footer-awards" />
+          <NewsletterCard idPrefix="footer" copy={copy} />
+          <PaymentsBlock headingId="footer-payments" copy={copy} />
+          <AwardChips headingId="footer-awards" copy={copy} />
         </div>
       </div>
 
@@ -512,7 +528,7 @@ export function Footer() {
       <div className="border-t border-white/10 bg-black/25 px-4 py-5">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 text-center text-xs text-blue-200 sm:flex-row sm:text-left">
           <p>
-            © {year} · {siteConfig.name} · All rights reserved
+            © {year} · {siteConfig.name} · {copy.rights}
           </p>
           <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
             {legalBarLinks.map((link) => (

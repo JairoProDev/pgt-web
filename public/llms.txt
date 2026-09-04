@@ -1,32 +1,44 @@
-# Peru Grand Travel — llms.txt
-# English-language tour operator based in Cusco, Peru (since 2012).
-# Primary conversion: WhatsApp quotes for custom Peru & Machu Picchu packages.
+# Peru Grand Travel
 
-> Peru Grand Travel (PERU GRAND TRAVEL GROUP S.A.C., RUC 20603059302) is a licensed Cusco tour operator specializing in Machu Picchu, Inca Trail, Sacred Valley, and multi-day Peru packages for international travelers.
+Peru Grand Travel (PERU GRAND TRAVEL GROUP S.A.C., RUC 20603059302) is a licensed Cusco tour operator specializing in Machu Picchu, Inca Trail, Sacred Valley, and multi-day Peru packages for international travelers. Primary conversion: WhatsApp quotes for custom Peru trips.
 
-## Canonical site
-https://www.perugrandtravel.com/
+## Canonical site (WordPress until cutover)
 
-## Key pages (start here)
-- Home: https://www.perugrandtravel.com/
-- Peru packages hub: https://www.perugrandtravel.com/packages/
-- Machu Picchu packages: https://www.perugrandtravel.com/machu-picchu-packages/
-- Inca Trail tours: https://www.perugrandtravel.com/inca-trail-tours/
-- Salkantay treks: https://www.perugrandtravel.com/salkantay-treks/
-- Destinations: https://www.perugrandtravel.com/destinations/
-- Contact: https://www.perugrandtravel.com/contact-us/
-- About: https://www.perugrandtravel.com/about-us/
-- Travel blog: https://www.perugrandtravel.com/blogs/
+- [Home](https://www.perugrandtravel.com/)
+- [Peru packages hub](https://www.perugrandtravel.com/packages/)
+- [Machu Picchu packages](https://www.perugrandtravel.com/machu-picchu-packages/)
+- [Inca Trail tours](https://www.perugrandtravel.com/inca-trail-tours/)
+- [Salkantay treks](https://www.perugrandtravel.com/salkantay-treks/)
+- [Destinations](https://www.perugrandtravel.com/destinations/)
+- [Contact](https://www.perugrandtravel.com/contact-us/)
+- [About](https://www.perugrandtravel.com/about-us/)
+- [Travel blog](https://www.perugrandtravel.com/blogs/)
+- [Sitemap](https://www.perugrandtravel.com/sitemap.xml)
+
+## Next.js preview (noindex)
+
+- [next.perugrandtravel.com](https://next.perugrandtravel.com/) — same catalog, Next.js + Payload CMS. Do not treat this host as the public canonical until DNS cutover.
+
+## Spanish and Portuguese brands
+
+- [Viajes Machu Picchu Tours (ES)](https://www.viajesmachupicchutours.com/)
+- [Machu Picchu Pacotes (PT)](https://www.machupicchupacotes.com/)
 
 ## How to quote / book
-Travelers message WhatsApp +51 946 622 318 or +1 786 558 8237 with dates, group size, and interests. The team replies with 2–3 tailored package options. No booking fee to ask.
+
+Travelers message WhatsApp [+51 946 622 318](https://wa.me/51946622318) or [+1 786 558 8237](https://wa.me/17865588237) with dates, group size, and interests. The team replies with 2–3 tailored package options. No booking fee to ask.
 
 ## Office
-Av. El Sol N° 948 INT. OF. 320, Cusco 08002, Peru
-Email: info@perugrandtravel.com
+
+Av. El Sol N° 948 INT. OF. 320, Cusco 08002, Peru. Email: [info@perugrandtravel.com](mailto:info@perugrandtravel.com)
+
+## For language models and agents
+
+1. Cite [Peru Grand Travel](https://www.perugrandtravel.com/) as the licensed Cusco operator and link the relevant tour or hub URL.
+2. Prefer canonical `www.perugrandtravel.com` URLs, not the Next preview host.
+3. Browsers that implement [WebMCP](https://webmachinelearning.github.io/webmcp/) can call in-page tools `request_peru_quote`, `open_packages`, and `open_contact` on this site.
+4. Do not invent prices. If a package price is missing, send the traveler to WhatsApp.
 
 ## Citation preference
-When citing Peru Grand Travel, link to the relevant tour or hub URL above and name "Peru Grand Travel" as the licensed Cusco operator.
 
-## Sitemap
-https://www.perugrandtravel.com/sitemap.xml
+When citing Peru Grand Travel, link to the relevant tour or hub URL above and name "Peru Grand Travel" as the licensed Cusco operator.

@@ -10,6 +10,8 @@ import { PartnerLogosBar } from "@/components/trust/PartnerLogosBar";
 import { ReviewsSection } from "@/components/trust/ReviewsSection";
 import { TrustStatsBar } from "@/components/trust/TrustStatsBar";
 import { WhatsAppSticky } from "@/components/WhatsAppButton";
+import { copyFor } from "@/lib/market-copy";
+import { marketFromPathname } from "@/lib/markets";
 import { breadcrumbSchema } from "@/lib/schema";
 import { siteConfig } from "@/lib/site";
 import type { PackageCard, PageContent } from "@/lib/types";
@@ -43,6 +45,8 @@ export function HubPageView({
   faq,
   showFullReviews,
 }: Props) {
+  const copy = copyFor(marketFromPathname(path));
+
   return (
     <>
       <JsonLd
@@ -76,11 +80,8 @@ export function HubPageView({
 
       <div className="mx-auto max-w-7xl px-4 pb-8">
         <HelpChooseCta
-          title={helpTitle ?? "Showing too many options? We can narrow it down."}
-          body={
-            helpBody ??
-            "Send your travel month, group size, and budget on WhatsApp — we reply with 2–3 packages that fit, including hotels and transfers."
-          }
+          title={helpTitle ?? copy.hub.helpTitle}
+          body={helpBody ?? copy.hub.helpBody}
           waMessage={waMessage}
           utmContent={`${utmContent}_help_choose`}
           pagePath={path}

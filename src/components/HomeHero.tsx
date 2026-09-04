@@ -1,39 +1,48 @@
 import { ConversionHero } from "@/components/ConversionHero";
+import { HeroBackground } from "@/components/HeroBackground";
+import { copyFor } from "@/lib/market-copy";
+import { marketFromPathname, withMarketPrefix, type MarketId } from "@/lib/markets";
 import type { PageContent } from "@/lib/types";
 
 type Props = {
   page: PageContent;
   path: string;
   waMessage: string;
+  market?: MarketId;
 };
 
-export function HomeHero({ page, path, waMessage }: Props) {
-  const emotionalLine = page.heroEmotionalLine ?? "TRAVEL · DISCOVER · PERU";
-  const title = page.heroHeadline ?? "Your Machu Picchu adventure starts here";
-  const subtitle =
-    page.heroSubtitle ??
-    "Licensed Cusco tour operator since 2012. Hotels, transfers & expert guides — we send 2–3 tailored quotes on WhatsApp.";
+export function HomeHero({ page, path, waMessage, market }: Props) {
+  const resolvedMarket = market ?? marketFromPathname(path);
+  const copy = copyFor(resolvedMarket);
+  const hero = copy.homeHero;
+  const emotionalLine = page.heroEmotionalLine ?? hero.emotionalFallback;
+  const title = page.heroHeadline ?? hero.titleFallback;
+  const subtitle = page.heroSubtitle ?? hero.subtitleFallback;
 
   return (
     <ConversionHero
       variant="home"
       emotionalLine={emotionalLine}
-      eyebrow="Reply within hours · English support"
+      eyebrow={hero.eyebrow}
       title={title}
       subtitle={subtitle}
-      image={page.heroImage}
-      imageAlt="Machu Picchu and the Peruvian Andes — Peru Grand Travel"
+      imageAlt={hero.imageAlt}
       showTripIntent
+      valueChips={copy.heroIntent.chips}
       primaryCta={{
-        label: "Plan on WhatsApp",
+        label: hero.cta,
         message: waMessage,
         utmContent: "home_hero",
         contentType: "home",
         contentSlug: "home",
         pagePath: path,
       }}
-      secondaryLink={{ href: "/packages/", label: "Browse all packages →" }}
-      anchorLink={{ href: "#popular-trips", label: "See popular trips ↓" }}
-    />
+      secondaryLink={{ href: withMarketPrefix(resolvedMarket, "/packages/"), label: hero.browse }}
+      anchorLink={{ href: "#popular-trips", label: hero.popular }}
+    >
+      {page.heroImage ? (
+        <HeroBackground src={page.heroImage} alt={hero.imageAlt} lcp />
+      ) : null}
+    </ConversionHero>
   );
 }

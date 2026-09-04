@@ -28,7 +28,7 @@ export function trackWhatsAppClick(ctx: WhatsAppClickContext, onSent?: () => voi
     content_type: ctx.contentType,
     content_slug: ctx.contentSlug,
     utm_content: ctx.utmContent,
-    environment: siteConfig.isBeta ? "beta" : "production",
+    environment: siteConfig.deployEnvironment,
   });
 
   window.setTimeout(() => onSent?.(), 400);
@@ -51,6 +51,6 @@ export function trackSearch(ctx: SearchEventContext) {
     search_results: ctx.resultCount,
     search_source: ctx.source,
     page_path: ctx.pagePath,
-    environment: siteConfig.isBeta ? "beta" : "production",
+    environment: siteConfig.deployEnvironment,
   });
 }

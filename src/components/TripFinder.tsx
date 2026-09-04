@@ -2,20 +2,18 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { trackSearch } from "@/lib/analytics";
+import { copyFor } from "@/lib/market-copy";
 import {
   applyQuickFilter,
-  BUDGET_OPTIONS,
   DEFAULT_TRIP_FILTERS,
-  DESTINATION_OPTIONS,
-  DURATION_OPTIONS,
   filterPackageCards,
   filtersMatchPreset,
   isDefaultFilters,
-  QUICK_FILTER_PRESETS,
-  STYLE_OPTIONS,
+  labelsFor,
   type TripFilters,
 } from "@/lib/trip-filters";
 import type { PackageCard } from "@/lib/types";
+import { useMarket } from "@/lib/use-market";
 
 type Props = {
   items: PackageCard[];
@@ -25,6 +23,9 @@ type Props = {
 };
 
 export function TripFinder({ items, pagePath, compact, onFilteredChange }: Props) {
+  const market = useMarket();
+  const copy = copyFor(market).finder;
+  const labels = labelsFor(market);
   const [filters, setFilters] = useState<TripFilters>(DEFAULT_TRIP_FILTERS);
 
   const filtered = useMemo(() => filterPackageCards(items, filters), [items, filters]);
@@ -59,14 +60,12 @@ export function TripFinder({ items, pagePath, compact, onFilteredChange }: Props
     <div
       className={`rounded-2xl border border-stone-200 bg-white shadow-sm ring-1 ring-stone-100 ${compact ? "p-4 md:p-5" : "p-5 md:p-6"}`}
       role="search"
-      aria-label="Filter Peru packages"
+      aria-label={copy.ariaLabel}
     >
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h2 className="text-lg font-semibold text-stone-900">Find your trip</h2>
-          <p className="mt-0.5 text-sm text-stone-600">
-            Filter by length, style, destination, or budget — no page reload.
-          </p>
+          <h2 className="text-lg font-semibold text-stone-900">{copy.title}</h2>
+          <p className="mt-0.5 text-sm text-stone-600">{copy.subtitle}</p>
         </div>
         {!isDefaultFilters(filters) && (
           <button
@@ -74,21 +73,21 @@ export function TripFinder({ items, pagePath, compact, onFilteredChange }: Props
             onClick={() => setFilters(DEFAULT_TRIP_FILTERS)}
             className="text-sm font-medium text-pgt-blue hover:underline"
           >
-            Clear filters
+            {copy.clear}
           </button>
         )}
       </div>
 
       <div className="mt-4 flex items-center gap-2">
         <span className="hidden shrink-0 text-xs font-semibold uppercase tracking-wide text-stone-500 sm:inline">
-          Popular:
+          {copy.popular}
         </span>
         <div
           className="flex flex-1 gap-2 overflow-x-auto pb-1 -mx-1 px-1 snap-x"
           role="group"
-          aria-label="Popular filters"
+          aria-label={copy.popularAria}
         >
-          {QUICK_FILTER_PRESETS.map((preset) => {
+          {labels.presets.map((preset) => {
             const applied = applyQuickFilter(preset.filters);
             const isActive = filtersMatchPreset(filters, applied);
             return (
@@ -113,39 +112,40 @@ export function TripFinder({ items, pagePath, compact, onFilteredChange }: Props
       <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <FilterSelect
           id="trip-duration"
-          label="Duration"
+          label={copy.duration}
           value={filters.duration}
-          options={DURATION_OPTIONS}
+          options={labels.duration}
           onChange={(v) => update("duration", v as TripFilters["duration"])}
         />
         <FilterSelect
           id="trip-style"
-          label="Trip style"
+          label={copy.style}
           value={filters.style}
-          options={STYLE_OPTIONS}
+          options={labels.style}
           onChange={(v) => update("style", v as TripFilters["style"])}
         />
         <FilterSelect
           id="trip-destination"
-          label="Destination"
+          label={copy.destination}
           value={filters.destination}
-          options={DESTINATION_OPTIONS}
+          options={labels.destination}
           onChange={(v) => update("destination", v as TripFilters["destination"])}
         />
         <FilterSelect
           id="trip-budget"
-          label="Starting price"
+          label={copy.budget}
           value={filters.budget}
-          options={BUDGET_OPTIONS}
+          options={labels.budget}
           onChange={(v) => update("budget", v as TripFilters["budget"])}
         />
       </div>
 
       <p className="mt-3 text-sm text-stone-600" aria-live="polite">
-        Showing <strong className="font-semibold text-stone-800">{filtered.length}</strong> of{" "}
-        {items.length} {items.length === 1 ? "package" : "packages"}
+        {copy.showingBefore}{" "}
+        <strong className="font-semibold text-stone-800">{filtered.length}</strong> {copy.showingOf}{" "}
+        {items.length} {items.length === 1 ? copy.packageOne : copy.packageMany}
         {!isDefaultFilters(filters) && filtered.length === 0 && (
-          <span className="text-pgt-orange"> — try widening your filters</span>
+          <span className="text-pgt-orange">{copy.widen}</span>
         )}
       </p>
     </div>

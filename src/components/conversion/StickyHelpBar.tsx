@@ -2,7 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { trackWhatsAppClick } from "@/lib/analytics";
+import { copyFor } from "@/lib/market-copy";
 import { whatsAppUrl } from "@/lib/site";
+import { useMarket } from "@/lib/use-market";
 
 type Props = {
   message: string;
@@ -15,6 +17,7 @@ type Props = {
 /** Mobile-only slim bar after scroll — distinct from FAB for attribution. */
 export function StickyHelpBar({ message, utmContent, pagePath, contentType, contentSlug }: Props) {
   const [show, setShow] = useState(false);
+  const copy = copyFor(useMarket());
 
   useEffect(() => {
     const onScroll = () => setShow(window.scrollY > 480);
@@ -42,7 +45,7 @@ export function StickyHelpBar({ message, utmContent, pagePath, contentType, cont
         className="flex items-center justify-center gap-2 text-sm font-semibold text-pgt-blue"
       >
         <span aria-hidden>💬</span>
-        Not sure which trip? Message us on WhatsApp
+        {copy.stickyHelp}
       </a>
     </div>
   );

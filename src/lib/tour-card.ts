@@ -1,3 +1,4 @@
+import type { MarketId } from "./markets";
 import type { PackageCard, Tour } from "./types";
 import {
   displayDuration,
@@ -114,16 +115,16 @@ export function destinationTagsFromTour(tour: Tour): string[] {
   return tags;
 }
 
-export function enrichPackageCard(tour: Tour): PackageCard {
+export function enrichPackageCard(tour: Tour, market: MarketId = "en"): PackageCard {
   const styleLabel = inferTourStyle(tour);
   return {
     slug: tour.slug,
     title: displayCardTitle(tour.h1),
     duration: displayDuration(tour),
     priceFrom: tour.priceFrom,
-    priceLabel: formatPriceLabel(tour),
+    priceLabel: formatPriceLabel(tour, market),
     trustedPrice: isTrustedPrice(tour),
-    waMessage: tourWhatsAppMessage(tour),
+    waMessage: tourWhatsAppMessage(tour, market),
     highlights: cardFeatureChips(tour),
     image: tour.heroImage,
     summary: tour.summary?.slice(0, 160),

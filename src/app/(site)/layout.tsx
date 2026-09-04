@@ -4,11 +4,13 @@ import { AppProviders } from "@/components/AppProviders";
 import { UrgencyBanner } from "@/components/conversion/UrgencyBanner";
 import { Footer } from "@/components/Footer";
 import { GoogleTagManager, GoogleTagManagerNoScript } from "@/components/GoogleTagManager";
+import { WebMcpTools } from "@/components/WebMcpTools";
 import { Header } from "@/components/Header";
+import { LocaleHtmlLang } from "@/components/LocaleHtmlLang";
 import { TrustBar } from "@/components/TrustBar";
 import { absoluteContentUrl, geoMetadata, openGraphImage } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
-import "./globals.css";
+import "../globals.css";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -50,16 +52,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${poppins.variable} light`} style={{ colorScheme: "light" }}>
       <head>
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM instructions" />
       </head>
       <body className="flex min-h-screen flex-col bg-white font-sans text-stone-900 antialiased">
         <GoogleTagManager />
         <GoogleTagManagerNoScript />
+        <WebMcpTools />
         <AppProviders>
+          <LocaleHtmlLang />
           <Header />
           <TrustBar />
           <UrgencyBanner />

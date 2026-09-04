@@ -1,3 +1,6 @@
+import { copyFor } from "./market-copy";
+import type { MarketId } from "./markets";
+
 export type TripDuration = "3-4" | "5-7" | "8+" | "flexible";
 export type TravelWhen = "may-sep" | "oct-apr" | "flexible";
 export type MachuPicchuInterest = "yes" | "trek" | "maybe";
@@ -27,39 +30,28 @@ export const MACHU_OPTIONS: { value: MachuPicchuInterest; label: string }[] = [
   { value: "maybe", label: "Still deciding" },
 ];
 
-const DURATION_LABEL: Record<TripDuration, string> = {
-  "3-4": "3–4 days",
-  "5-7": "5–7 days",
-  "8+": "8+ days or more",
-  flexible: "flexible length",
-};
-
-const WHEN_LABEL: Record<TravelWhen, string> = {
-  "may-sep": "May–September",
-  "oct-apr": "October–April",
-  flexible: "flexible dates",
-};
-
-const MACHU_LABEL: Record<MachuPicchuInterest, string> = {
-  yes: "Machu Picchu is a priority",
-  trek: "interested in trekking",
-  maybe: "still exploring options",
-};
-
 export const DEFAULT_TRIP_INTENT: TripIntent = {
   duration: "5-7",
   when: "flexible",
   machuPicchu: "yes",
 };
 
-export function buildTripIntentMessage(intent: TripIntent): string {
-  return (
-    `Hi! I'm planning a trip to Peru from perugrandtravel.com.\n\n` +
-    `• Trip length: ${DURATION_LABEL[intent.duration]}\n` +
-    `• Travel window: ${WHEN_LABEL[intent.when]}\n` +
-    `• Machu Picchu / treks: ${MACHU_LABEL[intent.machuPicchu]}\n\n` +
-    `Can you send 2–3 package options with availability and prices for my dates?`
-  );
+export function buildTripIntentMessage(intent: TripIntent, market: MarketId = "en"): string {
+  const copy = copyFor(market).heroIntent;
+  return copy.wa({
+    duration: copy.waDurations[intent.duration],
+    when: copy.waWhens[intent.when],
+    machu: copy.waMachus[intent.machuPicchu],
+  });
+}
+
+export function heroOptionsFor(market: MarketId) {
+  const copy = copyFor(market).heroIntent;
+  return {
+    duration: DURATION_OPTIONS.map((o) => ({ value: o.value, label: copy.durations[o.value] })),
+    when: WHEN_OPTIONS.map((o) => ({ value: o.value, label: copy.whens[o.value] })),
+    machu: MACHU_OPTIONS.map((o) => ({ value: o.value, label: copy.machus[o.value] })),
+  };
 }
 
 export const HERO_VALUE_CHIPS = [

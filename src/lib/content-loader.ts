@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import type { MarketId } from "./markets";
 import { enrichPackageCard } from "./tour-card";
 import type { BlogPost, PackageCard, PageContent, Tour } from "./types";
 
@@ -28,34 +29,56 @@ function readJsonDir<T>(dir: string): T[] {
   return items;
 }
 
-let _tours: Record<string, Tour> | null = null;
-let _blogs: Record<string, BlogPost> | null = null;
-let _pagesByPath: Record<string, PageContent> | null = null;
-let _pagesBySlug: Record<string, PageContent> | null = null;
+const _tours: Partial<Record<MarketId, Record<string, Tour>>> = {};
+let _blogs: Partial<Record<MarketId, Record<string, BlogPost>>> = {};
+const _pagesByPath: Partial<Record<MarketId, Record<string, PageContent>>> = {};
+const _pagesBySlug: Partial<Record<MarketId, Record<string, PageContent>>> = {};
+
+function toursDir(market: MarketId): string {
+  return market === "en"
+    ? path.join(CONTENT_ROOT, "tours")
+    : path.join(CONTENT_ROOT, market, "tours");
+}
+
+function pagesDir(market: MarketId): string {
+  return market === "en"
+    ? path.join(CONTENT_ROOT, "pages")
+    : path.join(CONTENT_ROOT, market, "pages");
+}
 
 function normalizePath(p: string): string {
   if (!p || p === "/") return "/";
   return p.endsWith("/") ? p : `${p}/`;
 }
 
-function loadTours(): Record<string, Tour> {
-  if (_tours) return _tours;
-  const list = readJsonDir<Tour>(path.join(CONTENT_ROOT, "tours"));
-  _tours = {};
+function loadTours(market: MarketId = "en"): Record<string, Tour> {
+  const cached = _tours[market];
+  if (cached) return cached;
+  const list = readJsonDir<Tour>(toursDir(market));
+  const map: Record<string, Tour> = {};
   for (const t of list) {
-    if (t.slug) _tours[t.slug] = t;
+    if (t.slug) map[t.slug] = t;
   }
-  return _tours;
+  _tours[market] = map;
+  return map;
 }
 
-function loadBlogs(): Record<string, BlogPost> {
-  if (_blogs) return _blogs;
-  const list = readJsonDir<BlogPost>(path.join(CONTENT_ROOT, "blogs"));
-  _blogs = {};
+function blogsDir(market: MarketId): string {
+  return market === "en"
+    ? path.join(CONTENT_ROOT, "blogs")
+    : path.join(CONTENT_ROOT, market, "blogs");
+}
+
+function loadBlogs(market: MarketId = "en"): Record<string, BlogPost> {
+  const cached = _blogs[market];
+  if (cached) return cached;
+  const list = readJsonDir<BlogPost>(blogsDir(market));
+  const map: Record<string, BlogPost> = {};
   for (const b of list) {
-    if (b.slug) _blogs[b.slug] = b;
+    if (b.slug) map[b.slug] = b;
   }
-  return _blogs;
+  _blogs[market] = map;
+  return map;
 }
 
 function pagePath(page: PageContent): string {
@@ -66,51 +89,58 @@ function pagePath(page: PageContent): string {
   return normalizePath(`/${page.slug}/`);
 }
 
-function loadPages(): { byPath: Record<string, PageContent>; bySlug: Record<string, PageContent> } {
-  if (_pagesByPath && _pagesBySlug) {
-    return { byPath: _pagesByPath, bySlug: _pagesBySlug };
+function loadPages(market: MarketId = "en"): {
+  byPath: Record<string, PageContent>;
+  bySlug: Record<string, PageContent>;
+} {
+  const cachedPath = _pagesByPath[market];
+  const cachedSlug = _pagesBySlug[market];
+  if (cachedPath && cachedSlug) {
+    return { byPath: cachedPath, bySlug: cachedSlug };
   }
-  const list = readJsonDir<PageContent>(path.join(CONTENT_ROOT, "pages"));
-  _pagesByPath = {};
-  _pagesBySlug = {};
+  const list = readJsonDir<PageContent>(pagesDir(market));
+  const byPath: Record<string, PageContent> = {};
+  const bySlug: Record<string, PageContent> = {};
   for (const p of list) {
     const pth = pagePath(p);
-    _pagesByPath[pth] = p;
-    if (p.slug) _pagesBySlug[p.slug] = p;
+    byPath[pth] = p;
+    if (p.slug) bySlug[p.slug] = p;
   }
-  return { byPath: _pagesByPath, bySlug: _pagesBySlug };
+  _pagesByPath[market] = byPath;
+  _pagesBySlug[market] = bySlug;
+  return { byPath, bySlug };
 }
 
-export function getTour(slug: string): Tour | undefined {
-  return loadTours()[slug];
+export function getTour(slug: string, market: MarketId = "en"): Tour | undefined {
+  return loadTours(market)[slug];
 }
 
-export function getAllTours(): Tour[] {
-  return Object.values(loadTours());
+export function getAllTours(market: MarketId = "en"): Tour[] {
+  return Object.values(loadTours(market));
 }
 
-export function getAllTourSlugs(): string[] {
-  return Object.keys(loadTours());
+export function getAllTourSlugs(market: MarketId = "en"): string[] {
+  return Object.keys(loadTours(market));
 }
 
-export function getBlog(slug: string): BlogPost | undefined {
-  return loadBlogs()[slug];
+export function getBlog(slug: string, market: MarketId = "en"): BlogPost | undefined {
+  return loadBlogs(market)[slug];
 }
 
-export function getAllBlogs(): BlogPost[] {
-  return Object.values(loadBlogs());
+export function getAllBlogs(market: MarketId = "en"): BlogPost[] {
+  return Object.values(loadBlogs(market));
 }
 
-export function getAllBlogSlugs(): string[] {
-  return Object.keys(loadBlogs());
+export function getAllBlogSlugs(market: MarketId = "en"): string[] {
+  return Object.keys(loadBlogs(market));
 }
 
-export function getPageBySlug(slug: string): PageContent | undefined {
-  return loadPages().bySlug[slug];
+export function getPageBySlug(slug: string, market: MarketId = "en"): PageContent | undefined {
+  return loadPages(market).bySlug[slug];
 }
 
-export function getPageByPath(pathname: string): PageContent | undefined {
-  return loadPages().byPath[normalizePath(pathname)];
+export function getPageByPath(pathname: string, market: MarketId = "en"): PageContent | undefined {
+  return loadPages(market).byPath[normalizePath(pathname)];
 }
 
 /** @deprecated use getPageBySlug */
@@ -120,26 +150,26 @@ export function getPage(slug: string): PageContent {
   return page;
 }
 
-export function getAllPagePaths(): string[] {
-  return Object.keys(loadPages().byPath);
+export function getAllPagePaths(market: MarketId = "en"): string[] {
+  return Object.keys(loadPages(market).byPath);
 }
 
-export function getAllPageSlugs(): string[] {
-  return Object.keys(loadPages().bySlug);
+export function getAllPageSlugs(market: MarketId = "en"): string[] {
+  return Object.keys(loadPages(market).bySlug);
 }
 
-export function getToursBySlugs(slugs: string[]): Tour[] {
-  const tours = loadTours();
+export function getToursBySlugs(slugs: string[], market: MarketId = "en"): Tour[] {
+  const tours = loadTours(market);
   return slugs.map((s) => tours[s]).filter(Boolean);
 }
 
-export function tourToPackageCard(tour: Tour): PackageCard {
-  return enrichPackageCard(tour);
+export function tourToPackageCard(tour: Tour, market: MarketId = "en"): PackageCard {
+  return enrichPackageCard(tour, market);
 }
 
-export function getChildPagesByPath(parentPath: string): PageContent[] {
+export function getChildPagesByPath(parentPath: string, market: MarketId = "en"): PageContent[] {
   const norm = parentPath.endsWith("/") ? parentPath : `${parentPath}/`;
-  const { byPath } = loadPages();
+  const { byPath } = loadPages(market);
   return Object.entries(byPath)
     .filter(([pth]) => {
       if (!pth.startsWith(norm) || pth === norm) return false;
@@ -150,6 +180,6 @@ export function getChildPagesByPath(parentPath: string): PageContent[] {
     .sort((a, b) => a.h1.localeCompare(b.h1));
 }
 
-export function getHubTourCards(tourSlugs: string[]) {
-  return getToursBySlugs(tourSlugs).map(tourToPackageCard);
+export function getHubTourCards(tourSlugs: string[], market: MarketId = "en") {
+  return getToursBySlugs(tourSlugs, market).map((tour) => tourToPackageCard(tour, market));
 }

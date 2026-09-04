@@ -1,8 +1,12 @@
-import Image from "next/image";
+"use client";
+
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { HeroTripIntent } from "@/components/HeroTripIntent";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { HERO_VALUE_CHIPS } from "@/lib/hero-trip-intent";
+import { copyFor } from "@/lib/market-copy";
+import { useMarket } from "@/lib/use-market";
 
 export type HeroPrimaryCta = {
   label: string;
@@ -32,6 +36,9 @@ type Props = {
   showTripIntent?: boolean;
   intentUtmContent?: string;
   statBadge?: string;
+  valueChips?: readonly { icon: string; label: string }[];
+  /** Server-rendered LCP image — pass as children from HomeHero / HubHero. */
+  children?: ReactNode;
 };
 
 export function ConversionHero({
@@ -41,30 +48,26 @@ export function ConversionHero({
   subtitle,
   eyebrow,
   image,
-  imageAlt,
+  imageAlt: _imageAlt,
   primaryCta,
   secondaryLink,
   anchorLink,
   showTripIntent = false,
   intentUtmContent = "home_hero_intent",
   statBadge,
+  valueChips = HERO_VALUE_CHIPS,
+  children,
 }: Props) {
+  const hasImage = Boolean(children || image);
   return (
     <section className="relative overflow-hidden pb-20 lg:pb-14">
-      {image && (
+      {hasImage && (
         <>
-          <Image
-            src={image}
-            alt=""
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-          />
+          {children}
           <div className="absolute inset-0 bg-gradient-to-b from-stone-900/75 via-stone-900/65 to-stone-900/85 lg:bg-gradient-to-r lg:from-stone-900/90 lg:via-stone-900/75 lg:to-stone-900/50" />
         </>
       )}
-      {!image && <div className="absolute inset-0 bg-pgt-blue" />}
+      {!hasImage && <div className="absolute inset-0 bg-pgt-blue" />}
 
       <div className="relative mx-auto max-w-7xl px-4 py-10 md:py-14 lg:py-16">
         <div className="grid items-start gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-10 xl:gap-14">
@@ -92,7 +95,7 @@ export function ConversionHero({
             </p>
 
             <ul className="mt-6 flex flex-wrap gap-2">
-              {HERO_VALUE_CHIPS.map((chip) => (
+              {valueChips.map((chip) => (
                 <li
                   key={chip.label}
                   className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-xs font-medium text-white backdrop-blur-sm ring-1 ring-white/15"
@@ -165,13 +168,11 @@ export function ConversionHero({
 }
 
 function HubActionCard({ primaryCta }: { primaryCta: HeroPrimaryCta }) {
+  const copy = copyFor(useMarket()).hub;
   return (
     <div className="space-y-4">
-      <p className="text-sm font-semibold text-stone-900">Get a personalized quote</p>
-      <p className="text-sm leading-relaxed text-stone-600">
-        Tell us your travel dates and group size. We reply with package options including hotels,
-        transfers, and guided tours.
-      </p>
+      <p className="text-sm font-semibold text-stone-900">{copy.quoteTitle}</p>
+      <p className="text-sm leading-relaxed text-stone-600">{copy.quoteBody}</p>
       <WhatsAppButton
         label={primaryCta.label}
         message={primaryCta.message}
@@ -181,7 +182,7 @@ function HubActionCard({ primaryCta }: { primaryCta: HeroPrimaryCta }) {
         pagePath={primaryCta.pagePath}
         className="w-full justify-center py-3.5"
       />
-      <p className="text-center text-xs text-stone-500">English support · No booking fee to ask</p>
+      <p className="text-center text-xs text-stone-500">{copy.quoteHint}</p>
     </div>
   );
 }

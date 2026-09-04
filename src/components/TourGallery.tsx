@@ -21,6 +21,7 @@ export function TourGallery({ images, alts, heroAlt }: Props) {
           alt={alt}
           fill
           priority
+          unoptimized={images[active]?.startsWith("http")}
           className="object-cover"
           sizes="(max-width: 768px) 100vw, 70vw"
         />
@@ -36,7 +37,14 @@ export function TourGallery({ images, alts, heroAlt }: Props) {
                 i === active ? "border-pgt-blue" : "border-transparent opacity-70"
               }`}
             >
-              <Image src={src} alt={alts?.[i] ?? `${heroAlt} ${i + 1}`} fill className="object-cover" sizes="96px" />
+              <Image
+                src={src}
+                alt={alts?.[i] ?? `${heroAlt} ${i + 1}`}
+                fill
+                unoptimized={src.startsWith("http")}
+                className="object-cover"
+                sizes="96px"
+              />
             </button>
           ))}
         </div>

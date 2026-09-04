@@ -1,7 +1,12 @@
+"use client";
+
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { tourPath } from "@/lib/markets";
 import type { PackageCard } from "@/lib/types";
+import { copyFor } from "@/lib/market-copy";
+import { useMarket } from "@/lib/use-market";
 import { WhatsAppButton } from "./WhatsAppButton";
 
 type Props = {
@@ -15,8 +20,10 @@ function MetaIcon({ children }: { children: ReactNode }) {
 }
 
 export function TourPackageCard({ pkg, pagePath, priority = false }: Props) {
-  const href = `/tour/${pkg.slug}/`;
-  const priceText = pkg.priceLabel ?? `From US$ ${pkg.priceFrom.toLocaleString()}`;
+  const market = useMarket();
+  const copy = copyFor(market);
+  const href = tourPath(market, pkg.slug);
+  const priceText = pkg.priceLabel ?? copy.priceFrom(pkg.priceFrom.toLocaleString());
   const quoteMode = pkg.trustedPrice === false;
 
   return (
@@ -35,7 +42,7 @@ export function TourPackageCard({ pkg, pagePath, priority = false }: Props) {
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
         {pkg.badge === "best-seller" && (
           <span className="absolute left-3 top-3 rounded-full bg-pgt-orange px-2.5 py-0.5 text-xs font-bold uppercase tracking-wide text-white shadow">
-            Best seller
+            {copy.card.bestSeller}
           </span>
         )}
         {pkg.destinations && (
@@ -93,24 +100,24 @@ export function TourPackageCard({ pkg, pagePath, priority = false }: Props) {
         <div className="mt-5 border-t border-stone-100 pt-4">
           <div className="flex items-end justify-between gap-3">
             <div>
-              <p className="text-xs text-stone-500">{quoteMode ? "Pricing" : "From"}</p>
+              <p className="text-xs text-stone-500">{quoteMode ? copy.card.pricing : copy.card.from}</p>
               <p
                 className={`text-xl font-bold leading-none ${quoteMode ? "text-pgt-blue" : "text-stone-900"}`}
               >
                 {priceText}
-                {!quoteMode && <span className="text-sm font-normal text-stone-500"> /person</span>}
+                {!quoteMode && <span className="text-sm font-normal text-stone-500">{copy.card.perPersonSuffix}</span>}
               </p>
             </div>
             {!quoteMode && (
               <p className="max-w-[9rem] text-right text-[11px] leading-tight text-stone-500">
-                English support · No booking fee to ask
+                {copy.card.supportHint}
               </p>
             )}
           </div>
 
           {pkg.waMessage && (
             <WhatsAppButton
-              label="Get quote on WhatsApp"
+              label={copy.card.getQuote}
               message={pkg.waMessage}
               utmContent={`card_${pkg.slug}`}
               contentType="hub"
@@ -124,7 +131,7 @@ export function TourPackageCard({ pkg, pagePath, priority = false }: Props) {
             href={href}
             className="mt-3 block text-center text-sm font-medium text-pgt-blue hover:underline"
           >
-            View full itinerary →
+            {copy.card.viewItinerary}
           </Link>
         </div>
       </div>

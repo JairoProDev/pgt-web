@@ -11,12 +11,14 @@ import {
 } from "@/lib/content";
 import { cleanPageTitle, sanitizeSectionHeading } from "@/lib/page-utils";
 import { breadcrumbSchema, touristDestinationSchema, travelAgencySchema } from "@/lib/schema";
+import { withMarketPrefix, type MarketId } from "@/lib/markets";
 import { siteConfig } from "@/lib/site";
 import type { PageContent, PageLink } from "@/lib/types";
 
 type Props = {
   page: PageContent;
   path: string;
+  market?: MarketId;
   /** Show tour cards when page lists packages (destinations/hubs-lite) */
   showTourGrid?: boolean;
   tourGridTitle?: string;
@@ -92,24 +94,28 @@ function ChildLinksGrid({ links, title }: { links: PageLink[]; title: string }) 
   );
 }
 
-export function ContentPageView({ page, path, showTourGrid, tourGridTitle }: Props) {
+export function ContentPageView({ page, path, market = "en", showTourGrid, tourGridTitle }: Props) {
   const h1 = cleanPageTitle(page.h1);
-  const isContact = path === "/contact-us/";
+  const isContact = path === "/contact-us/" || path === "/contacto/" || path === "/contato/";
   const isDestination = page.pageType === "destination";
   const sections = page.sections?.filter((s) => s.body && s.body.length > 40) ?? [];
   const childLinks =
     page.childLinks && page.childLinks.length > 0
       ? page.childLinks
-      : getChildPagesByPath(path).map((p) => ({
+      : getChildPagesByPath(path, market).map((p) => ({
           path: p.path ?? `/${p.slug}/`,
           label: cleanPageTitle(p.h1),
         }));
+  const prefixedChildren = childLinks.map((link) => ({
+    ...link,
+    path: withMarketPrefix(market, link.path),
+  }));
 
   const tourCards =
-    showTourGrid && page.tourSlugs?.length ? getHubTourCards(page.tourSlugs) : [];
+    showTourGrid && page.tourSlugs?.length ? getHubTourCards(page.tourSlugs, market) : [];
   const relatedTours =
     !showTourGrid && page.tourSlugs?.length
-      ? getToursBySlugs(page.tourSlugs.slice(0, 6))
+      ? getToursBySlugs(page.tourSlugs.slice(0, 6), market)
       : [];
 
   const waMessage = isContact
@@ -168,6 +174,13 @@ export function ContentPageView({ page, path, showTourGrid, tourGridTitle }: Pro
 
         {isContact && <ContactDetails />}
 
+        {page.bodyHtml ? (
+          <div
+            className="prose-pgt mt-10"
+            dangerouslySetInnerHTML={{ __html: page.bodyHtml }}
+          />
+        ) : null}
+
         <div className="prose-pgt mt-10 space-y-10">
           {sections.map((section) => (
             <section key={`${section.heading}-${section.body.slice(0, 40)}`}>
@@ -194,7 +207,7 @@ export function ContentPageView({ page, path, showTourGrid, tourGridTitle }: Pro
         )}
 
         <ChildLinksGrid
-          links={childLinks}
+          links={prefixedChildren}
           title={path.startsWith("/peru/") ? "Explore this destination" : "Related pages"}
         />
 

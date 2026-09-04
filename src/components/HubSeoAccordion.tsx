@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { copyFor } from "@/lib/market-copy";
+import { useMarket } from "@/lib/use-market";
 
 type Section = { heading: string; body: string };
 
@@ -11,6 +13,7 @@ type Props = {
 /** Long scraped hub copy — collapsed by default so products appear first on mobile. */
 export function HubSeoAccordion({ sections }: Props) {
   const [open, setOpen] = useState(false);
+  const copy = copyFor(useMarket()).hub;
 
   if (!sections.length) return null;
 
@@ -38,7 +41,7 @@ export function HubSeoAccordion({ sections }: Props) {
             className="mt-3 text-sm font-semibold text-pgt-blue hover:underline"
             aria-expanded={open}
           >
-            {open ? "Show less" : "Read full overview"}
+            {open ? copy.showLess : copy.readOverview}
           </button>
         )}
 

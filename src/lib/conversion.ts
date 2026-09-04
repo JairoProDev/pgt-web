@@ -1,4 +1,6 @@
 import type { Tour } from "./types";
+import type { MarketId } from "./markets";
+import { copyFor } from "./market-copy";
 
 /** Parse day count from h1/duration for price sanity checks. */
 export function tourDayCount(tour: Pick<Tour, "h1" | "duration">): number {
@@ -29,21 +31,29 @@ export function isTrustedPrice(tour: Pick<Tour, "priceFrom" | "h1" | "duration">
   return true;
 }
 
-export function formatPriceLabel(tour: Pick<Tour, "priceFrom" | "h1" | "duration">): string {
-  if (!isTrustedPrice(tour)) return "Request a quote";
-  return `From US$ ${tour.priceFrom.toLocaleString()}`;
+export function formatPriceLabel(
+  tour: Pick<Tour, "priceFrom" | "h1" | "duration">,
+  market: MarketId = "en",
+): string {
+  const copy = copyFor(market);
+  if (!isTrustedPrice(tour)) return copy.requestQuote;
+  return copy.priceFrom(tour.priceFrom.toLocaleString());
 }
 
-export function tourWhatsAppMessage(tour: Pick<Tour, "h1" | "slug" | "priceFrom">): string {
-  const price = isTrustedPrice(tour as Tour)
-    ? ` Can you confirm availability and the price from US$ ${tour.priceFrom}?`
-    : " Can you send availability and a quote for my dates?";
-  return `Hi! I'm interested in the ${tour.h1} from perugrandtravel.com.${price}`;
+export function tourWhatsAppMessage(
+  tour: Pick<Tour, "h1" | "slug" | "priceFrom">,
+  market: MarketId = "en",
+): string {
+  const copy = copyFor(market);
+  const priceNote = isTrustedPrice(tour as Tour)
+    ? copy.priceConfirm((tour as Tour).priceFrom)
+    : copy.priceAsk;
+  return copy.waTour(tour.h1, priceNote);
 }
 
 export const TRUST_SIGNALS = [
   "Licensed Cusco tour operator",
-  "English support · Reply within hours",
+  "English support · Reply within minutes",
   "Secure payment: BCP, EBANX, Western Union",
 ] as const;
 
@@ -72,7 +82,13 @@ export function defaultRelatedTourSlugs(blogSlug: string): string[] {
   ];
 }
 
-export function blogWhatsAppMessage(h1: string): string {
+export function blogWhatsAppMessage(h1: string, market: MarketId = "en"): string {
   const topic = h1.replace(/^▷\s*/, "").split("|")[0].trim();
+  if (market === "es") {
+    return `Hola! Leí el artículo "${topic}" en Viajes Machu Picchu Tours. ¿Me ayudan a planificar mi viaje a Perú?`;
+  }
+  if (market === "pt") {
+    return `Olá! Li o artigo "${topic}" em Machu Picchu Pacotes. Podem me ajudar a planejar minha viagem ao Peru?`;
+  }
   return `Hi! I read your article "${topic}" on Peru Grand Travel. Can you help me plan my trip to Peru?`;
 }

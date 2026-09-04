@@ -1,3 +1,5 @@
+import { copyFor } from "./market-copy";
+import type { MarketId } from "./markets";
 import type { PackageCard } from "./types";
 
 export type DurationFilter = "any" | "1" | "2-4" | "5-7" | "8+";
@@ -141,6 +143,32 @@ export const QUICK_FILTER_PRESETS: QuickFilterPreset[] = [
   { id: "trekking", label: "Trekking", filters: { style: "trekking" } },
   { id: "multi-day", label: "Multi-day", filters: { style: "package" } },
 ];
+
+export function labelsFor(market: MarketId) {
+  const copy = copyFor(market).finder;
+  return {
+    duration: DURATION_OPTIONS.map((o) => ({
+      value: o.value,
+      label: copy.durationOptions[o.value],
+    })),
+    style: STYLE_OPTIONS.map((o) => ({
+      value: o.value,
+      label: copy.styleOptions[o.value],
+    })),
+    destination: DESTINATION_OPTIONS.map((o) => ({
+      value: o.value,
+      label: copy.destinationOptions[o.value],
+    })),
+    budget: BUDGET_OPTIONS.map((o) => ({
+      value: o.value,
+      label: copy.budgetOptions[o.value],
+    })),
+    presets: QUICK_FILTER_PRESETS.map((preset) => ({
+      ...preset,
+      label: copy.presets[preset.id as keyof typeof copy.presets],
+    })),
+  };
+}
 
 export function applyQuickFilter(preset: Partial<TripFilters>): TripFilters {
   return { ...DEFAULT_TRIP_FILTERS, ...preset };

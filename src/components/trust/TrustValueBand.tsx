@@ -1,6 +1,9 @@
-import { TRUST_VALUE_PROPS, type TrustValueProp } from "@/lib/trust-content";
+"use client";
 
-function ValueIcon({ icon }: Pick<TrustValueProp, "icon">) {
+import { copyFor, type TrustValueCopy } from "@/lib/market-copy";
+import { useMarket } from "@/lib/use-market";
+
+function ValueIcon({ icon }: { icon: TrustValueCopy["items"][number]["icon"] }) {
   const cls = "mx-auto h-10 w-10 text-white";
   if (icon === "destinations") {
     return (
@@ -28,13 +31,14 @@ function ValueIcon({ icon }: Pick<TrustValueProp, "icon">) {
 }
 
 export function TrustValueBand() {
+  const copy = copyFor(useMarket()).trustValue;
   return (
     <section className="bg-pgt-blue text-white" aria-labelledby="trust-value-heading">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 md:grid-cols-3 md:gap-8 md:px-6 md:py-14">
         <h2 id="trust-value-heading" className="sr-only">
-          Why book with Peru Grand Travel
+          {copy.heading}
         </h2>
-        {TRUST_VALUE_PROPS.map((item) => (
+        {copy.items.map((item) => (
           <article key={item.title} className="text-center">
             <ValueIcon icon={item.icon} />
             <h3 className="mt-4 text-sm font-bold uppercase tracking-wide md:text-base">{item.title}</h3>

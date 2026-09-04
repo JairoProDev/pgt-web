@@ -9,9 +9,10 @@ import type { SearchBlogEntry } from "@/lib/search-types";
 
 type Props = {
   posts: SearchBlogEntry[];
+  hrefPrefix?: string;
 };
 
-export function BlogIndexClient({ posts }: Props) {
+export function BlogIndexClient({ posts, hrefPrefix = "/blog" }: Props) {
   const pathname = usePathname();
   const [query, setQuery] = useState("");
   const [topic, setTopic] = useState<string>("All");
@@ -93,7 +94,7 @@ export function BlogIndexClient({ posts }: Props) {
           {filtered.map((post) => (
             <li key={post.slug} className="border-b border-stone-200 pb-6">
               <Link
-                href={`/blog/${post.slug}/`}
+                href={`${hrefPrefix}/${post.slug}/`}
                 className="text-xl font-semibold text-pgt-blue hover:underline"
               >
                 {post.title}

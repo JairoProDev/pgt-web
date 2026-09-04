@@ -70,10 +70,40 @@ export const siteConfig = {
       height: 22,
     },
   ],
-  isBeta:
-    (process.env.NEXT_PUBLIC_SITE_URL ?? "").includes("beta.") ||
-    (process.env.NEXT_PUBLIC_SITE_URL ?? "").includes("vercel.app") ||
-    process.env.NEXT_PUBLIC_ENV === "beta",
+  /**
+   * Non-production preview (`next.` / `beta.` / vercel.app / ENV flag).
+   * When true: robots noindex + dataLayer environment ≠ production.
+   * Subdomain branding: prefer `next.perugrandtravel.com` (NEXT_PUBLIC_ENV=next).
+   * `beta` remains accepted for backward compatibility.
+   */
+  isBeta: (() => {
+    const url = (process.env.NEXT_PUBLIC_SITE_URL ?? "").toLowerCase();
+    const env = (process.env.NEXT_PUBLIC_ENV ?? "").toLowerCase();
+    return (
+      env === "next" ||
+      env === "beta" ||
+      env === "preview" ||
+      url.includes("next.") ||
+      url.includes("beta.") ||
+      url.includes("vercel.app")
+    );
+  })(),
+  /** Label pushed to GTM/GA4 — prefer "next" when that is the public hostname. */
+  deployEnvironment: (() => {
+    const url = (process.env.NEXT_PUBLIC_SITE_URL ?? "").toLowerCase();
+    const env = (process.env.NEXT_PUBLIC_ENV ?? "").toLowerCase();
+    const nonProd =
+      env === "next" ||
+      env === "beta" ||
+      env === "preview" ||
+      url.includes("next.") ||
+      url.includes("beta.") ||
+      url.includes("vercel.app");
+    if (!nonProd) return "production" as const;
+    if (env === "next" || url.includes("next.")) return "next" as const;
+    if (env === "preview") return "preview" as const;
+    return "beta" as const;
+  })(),
 } as const;
 
 export function whatsAppUrl(

@@ -1,59 +1,53 @@
-import type { Metadata } from "next";
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import { HubFAQ } from "@/components/HubFAQ";
 import { TourTrustCard } from "@/components/trust/TourTrustCard";
 import { StickyHelpBar } from "@/components/conversion/StickyHelpBar";
 import { JsonLd } from "@/components/JsonLd";
 import { TourGallery } from "@/components/TourGallery";
 import { WhatsAppButton, WhatsAppSticky } from "@/components/WhatsAppButton";
-import { getAllTourSlugs, getTour } from "@/lib/content";
-import { displayDuration, formatPriceLabel, isTrustedPrice, tourWhatsAppMessage, TRUST_SIGNALS } from "@/lib/conversion";
-import { filterTourGallery } from "@/lib/tour-images";
-import { extraFaqsForTour } from "@/lib/tour-faq-extras";
-import { openGraphImage } from "@/lib/metadata";
+import {
+  displayDuration,
+  formatPriceLabel,
+  isTrustedPrice,
+  tourWhatsAppMessage,
+} from "@/lib/conversion";
+import { copyFor } from "@/lib/market-copy";
+import { tourPath, withMarketPrefix, type MarketId } from "@/lib/markets";
+import { contentPageTitle, openGraphImage } from "@/lib/metadata";
 import { breadcrumbSchema, faqSchema, tourProductSchema, touristTripSchema } from "@/lib/schema";
-import { contentPageTitle } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site";
+import { extraFaqsForTour } from "@/lib/tour-faq-extras";
+import { filterTourGallery } from "@/lib/tour-images";
+import type { Tour } from "@/lib/types";
+import type { Metadata } from "next";
 
-type Props = { params: Promise<{ slug: string }> };
-
-export async function generateStaticParams() {
-  return getAllTourSlugs().map((slug) => ({ slug }));
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const tour = getTour(slug);
-  if (!tour) return {};
-  const path = `/tour/${slug}/`;
-  return {
-    title: contentPageTitle(tour.seo.title),
-    description: tour.seo.description,
-    alternates: { canonical: path },
-    openGraph: {
-      title: tour.seo.title,
-      description: tour.seo.description,
-      url: `${siteConfig.baseUrl}${path}`,
-      type: "website",
-      images: openGraphImage(tour.heroImage, tour.h1),
-    },
-  };
-}
-
-export default async function TourPage({ params }: Props) {
-  const { slug } = await params;
-  const tour = getTour(slug);
-  if (!tour) notFound();
-
-  const path = `/tour/${slug}/`;
-  const url = `${siteConfig.baseUrl}${path}`;
-  const waMessage = tourWhatsAppMessage(tour);
-  const duration = displayDuration(tour);
-  const priceLabel = formatPriceLabel(tour);
-
-  const faqs = [
-  ...(tour.faq ?? [
+function defaultFaqs(tour: Tour, market: MarketId): { q: string; a: string }[] {
+  if (tour.faq?.length) return tour.faq;
+  if (market === "es") {
+    return [
+      {
+        q: "¿Qué incluye el precio?",
+        a: tour.included.slice(0, 4).join("; ") || "Escríbenos para el detalle de inclusiones según tus fechas.",
+      },
+      {
+        q: "¿Qué tan difícil es este viaje?",
+        a: tour.difficulty ?? "Moderado a desafiante — consúltanos para más detalle.",
+      },
+    ];
+  }
+  if (market === "pt") {
+    return [
+      {
+        q: "O que está incluído no preço?",
+        a: tour.included.slice(0, 4).join("; ") || "Chame no WhatsApp para o detalhe de inclusões nas suas datas.",
+      },
+      {
+        q: "Qual é o nível de dificuldade?",
+        a: tour.difficulty ?? "Moderado a desafiador — fale conosco para mais detalhes.",
+      },
+    ];
+  }
+  return [
     {
       q: "What is included in the price?",
       a: tour.included.slice(0, 4).join("; ") || "Contact us for a detailed inclusion list for your dates.",
@@ -62,12 +56,42 @@ export default async function TourPage({ params }: Props) {
       q: "How difficult is this trek?",
       a: tour.difficulty ?? "Moderate to challenging — contact us for details.",
     },
-  ]),
-  ...extraFaqsForTour(slug),
   ];
+}
 
+export function tourMetadata(tour: Tour, market: MarketId): Metadata {
+  const path = tourPath(market, tour.slug);
+  return {
+    title: contentPageTitle(tour.seo.title),
+    description: tour.seo.description,
+    alternates: { canonical: path },
+    openGraph: {
+      title: tour.seo.title,
+      description: tour.seo.description,
+      url: `${siteConfig.baseUrl}${path}`,
+      locale: market === "es" ? "es_PE" : market === "pt" ? "pt_BR" : "en_US",
+      type: "website",
+      images: openGraphImage(tour.heroImage, tour.h1),
+    },
+  };
+}
+
+export function TourPageBody({ tour, market = "en" }: { tour: Tour; market?: MarketId }) {
+  const copy = copyFor(market);
+  const path = tourPath(market, tour.slug);
+  const url = `${siteConfig.baseUrl}${path}`;
+  const waMessage = tourWhatsAppMessage(tour, market);
+  const duration = displayDuration(tour);
+  const priceLabel = formatPriceLabel(tour, market);
+  const faqs = [
+    ...defaultFaqs(tour, market),
+    ...(market === "en" ? extraFaqsForTour(tour.slug) : []),
+  ];
   const galleryImages = filterTourGallery(tour.heroImage, tour.gallery);
   const trustedPrice = isTrustedPrice(tour);
+  const homeHref = withMarketPrefix(market, "/");
+  const packagesHref = withMarketPrefix(market, "/packages/");
+  const utm = `${market}_tour_${tour.slug}`;
 
   return (
     <>
@@ -93,8 +117,8 @@ export default async function TourPage({ params }: Props) {
             trustedPrice,
           }),
           breadcrumbSchema([
-            { name: "Home", url: siteConfig.baseUrl },
-            { name: "Tours", url: `${siteConfig.baseUrl}/packages/` },
+            { name: copy.home, url: `${siteConfig.baseUrl}${homeHref}` },
+            { name: copy.tours, url: `${siteConfig.baseUrl}${packagesHref}` },
             { name: tour.h1, url },
           ]),
           ...(faqs.length > 0 ? [faqSchema(faqs)] : []),
@@ -103,9 +127,13 @@ export default async function TourPage({ params }: Props) {
 
       <div className="mx-auto max-w-7xl px-4 py-8">
         <nav className="mb-4 text-sm text-stone-500">
-          <Link href="/" className="hover:text-pgt-blue">Home</Link>
+          <Link href={homeHref} className="hover:text-pgt-blue">
+            {copy.home}
+          </Link>
           {" / "}
-          <Link href="/packages/" className="hover:text-pgt-blue">Tours</Link>
+          <Link href={packagesHref} className="hover:text-pgt-blue">
+            {copy.tours}
+          </Link>
           {" / "}
           <span className="text-stone-800">{tour.h1}</span>
         </nav>
@@ -119,20 +147,23 @@ export default async function TourPage({ params }: Props) {
             </p>
 
             <div className="mt-6">
-              <TourGallery
-                images={galleryImages}
-                alts={tour.galleryAlt}
-                heroAlt={tour.h1}
-              />
+              <TourGallery images={galleryImages} alts={tour.galleryAlt} heroAlt={tour.h1} />
             </div>
 
             <section className="mt-10">
-              <h2 className="text-xl font-semibold text-pgt-blue">Overview</h2>
+              <h2 className="text-xl font-semibold text-pgt-blue">{copy.overview}</h2>
               <p className="mt-3 leading-relaxed text-stone-600">{tour.summary}</p>
             </section>
 
+            {tour.customHtml ? (
+              <div
+                className="prose-pgt mt-10"
+                dangerouslySetInnerHTML={{ __html: tour.customHtml }}
+              />
+            ) : null}
+
             <section className="mt-10">
-              <h2 className="text-xl font-semibold text-pgt-blue">Itinerary</h2>
+              <h2 className="text-xl font-semibold text-pgt-blue">{copy.itinerary}</h2>
               {tour.itinerary.length > 0 ? (
                 <div className="mt-4 space-y-6">
                   {tour.itinerary.map((day) => (
@@ -144,15 +175,13 @@ export default async function TourPage({ params }: Props) {
                 </div>
               ) : (
                 <div className="mt-4 rounded-lg border border-dashed border-stone-300 bg-stone-50 p-6 text-center">
-                  <p className="text-stone-600">
-                    Full day-by-day itinerary available on request — message us for the detailed PDF.
-                  </p>
+                  <p className="text-stone-600">{copy.itineraryFallback}</p>
                   <WhatsAppButton
-                    label="Request full itinerary"
-                    message={`Hi! Please send me the detailed day-by-day itinerary for ${tour.h1}.`}
-                    utmContent={`tour_${slug}_itinerary`}
+                    label={copy.requestItinerary}
+                    message={copy.waItinerary(tour.h1)}
+                    utmContent={`${utm}_itinerary`}
                     contentType="tour"
-                    contentSlug={slug}
+                    contentSlug={tour.slug}
                     pagePath={path}
                     className="mt-4"
                   />
@@ -162,7 +191,7 @@ export default async function TourPage({ params }: Props) {
 
             <section className="mt-10 grid gap-8 md:grid-cols-2">
               <div>
-                <h2 className="text-xl font-semibold text-pgt-blue">Includes</h2>
+                <h2 className="text-xl font-semibold text-pgt-blue">{copy.includes}</h2>
                 <ul className="mt-3 space-y-1 text-sm text-stone-600">
                   {tour.included.map((item) => (
                     <li key={item}>✓ {item}</li>
@@ -170,7 +199,7 @@ export default async function TourPage({ params }: Props) {
                 </ul>
               </div>
               <div>
-                <h2 className="text-xl font-semibold text-pgt-blue">Excludes</h2>
+                <h2 className="text-xl font-semibold text-pgt-blue">{copy.excludes}</h2>
                 <ul className="mt-3 space-y-1 text-sm text-stone-600">
                   {tour.excluded.map((item) => (
                     <li key={item}>✗ {item}</li>
@@ -182,29 +211,33 @@ export default async function TourPage({ params }: Props) {
 
           <aside className="lg:sticky lg:top-24 lg:self-start">
             <div className="rounded-xl border border-stone-200 bg-stone-50 p-6 shadow-sm">
-              <p className="text-sm text-stone-500">Price</p>
+              <p className="text-sm text-stone-500">
+                {copy.price}
+              </p>
               <p className="text-3xl font-bold text-pgt-orange">{priceLabel}</p>
-              {isTrustedPrice(tour) && (
-                <p className="mt-1 text-sm text-stone-600">per person · {duration}</p>
+              {trustedPrice && (
+                <p className="mt-1 text-sm text-stone-600">
+                  {copy.perPerson} · {duration}
+                </p>
               )}
               <ul className="mt-4 space-y-1 text-xs text-stone-500">
-                {TRUST_SIGNALS.map((s) => (
+                {copy.trustSignals.map((s) => (
                   <li key={s}>✓ {s}</li>
                 ))}
               </ul>
               <WhatsAppButton
-                label="Request info on WhatsApp"
+                label={copy.requestInfo}
                 message={waMessage}
-                utmContent={`tour_${slug}`}
+                utmContent={utm}
                 contentType="tour"
-                contentSlug={slug}
+                contentSlug={tour.slug}
                 pagePath={path}
                 className="mt-6 w-full"
               />
               <p className="mt-3 text-center text-xs leading-relaxed text-stone-500">
-                Typical reply within a few hours · Cusco time (UTC-5)
+                {copy.replyHint}
                 <br />
-                No obligation — ask about dates, hotels, or a custom version
+                {copy.noObligation}
               </p>
               <TourTrustCard />
             </div>
@@ -214,27 +247,27 @@ export default async function TourPage({ params }: Props) {
         {faqs.length > 0 && (
           <HubFAQ
             items={faqs}
-            heading="Questions about this trip"
+            heading={copy.questions}
             waMessage={waMessage}
-            utmContent={`tour_${slug}_faq`}
+            utmContent={`${utm}_faq`}
             pagePath={path}
-            contentSlug={slug}
+            contentSlug={tour.slug}
           />
         )}
       </div>
 
       <StickyHelpBar
         message={waMessage}
-        utmContent={`tour_${slug}_sticky_bar`}
+        utmContent={`${utm}_sticky_bar`}
         pagePath={path}
         contentType="tour"
-        contentSlug={slug}
+        contentSlug={tour.slug}
       />
       <WhatsAppSticky
         message={waMessage}
-        utmContent={`tour_${slug}_sticky`}
+        utmContent={`${utm}_sticky`}
         contentType="tour"
-        contentSlug={slug}
+        contentSlug={tour.slug}
         pagePath={path}
       />
     </>

@@ -1,6 +1,8 @@
 /** Footer navigation — internal links for SEO, UX and crawl depth */
 
 import { footerDestinationLinks } from "./destinations-nav";
+import { copyFor } from "./market-copy";
+import { withMarketPrefix, type MarketId } from "./markets";
 
 export type FooterLink = {
   href: string;
@@ -118,3 +120,50 @@ export const footerUtilityLinks: FooterLink[] = [
   { href: "/payment-methods/", label: "Payment Methods" },
   { href: "/join-to-peru-grand-travel/", label: "Work With Us" },
 ];
+
+/** Prefix only locale-existing routes; other hrefs stay on EN paths so they do not 404. */
+export function localizeFooterHref(market: MarketId, href: string): string {
+  if (href === "/" || href === "/packages/") {
+    return withMarketPrefix(market, href);
+  }
+  return href;
+}
+
+export function footerSectionsFor(market: MarketId): FooterSection[] {
+  if (market === "en") return footerSections;
+  const copy = copyFor(market).footer;
+  return footerSections.map((section) => ({
+    ...section,
+    title:
+      section.id === "packages"
+        ? copy.sectionPackages
+        : section.id === "destinations"
+          ? copy.sectionDestinations
+          : section.id === "company"
+            ? copy.sectionCompany
+            : section.title,
+    links: section.links.map((link) => ({
+      ...link,
+      href: localizeFooterHref(market, link.href),
+      ...(link.href === "/packages/"
+        ? { label: copy.packagesLink, description: copy.packagesDesc }
+        : {}),
+    })),
+  }));
+}
+
+export function footerUtilityLinksFor(market: MarketId): FooterLink[] {
+  if (market === "en") return footerUtilityLinks;
+  const copy = copyFor(market).footer;
+  return footerUtilityLinks.map((link) => ({
+    ...link,
+    label:
+      link.href === "/contact-us/"
+        ? copy.contactUs
+        : link.href === "/payment-methods/"
+          ? copy.paymentMethods
+          : link.href === "/join-to-peru-grand-travel/"
+            ? copy.workWithUs
+            : link.label,
+  }));
+}

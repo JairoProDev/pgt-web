@@ -5,12 +5,12 @@ import { trackWhatsAppClick } from "@/lib/analytics";
 import {
   buildTripIntentMessage,
   DEFAULT_TRIP_INTENT,
-  DURATION_OPTIONS,
-  MACHU_OPTIONS,
+  heroOptionsFor,
   type TripIntent,
-  WHEN_OPTIONS,
 } from "@/lib/hero-trip-intent";
+import { copyFor } from "@/lib/market-copy";
 import { whatsAppUrl } from "@/lib/site";
+import { useMarket } from "@/lib/use-market";
 
 type Props = {
   pagePath: string;
@@ -25,6 +25,9 @@ export function HeroTripIntent({
   contentType = "home",
   utmContent = "home_hero_intent",
 }: Props) {
+  const market = useMarket();
+  const copy = copyFor(market).heroIntent;
+  const options = heroOptionsFor(market);
   const [intent, setIntent] = useState<TripIntent>(DEFAULT_TRIP_INTENT);
 
   const update = <K extends keyof TripIntent>(key: K, value: TripIntent[K]) => {
@@ -33,7 +36,7 @@ export function HeroTripIntent({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const message = buildTripIntentMessage(intent);
+    const message = buildTripIntentMessage(intent, market);
     const href = whatsAppUrl(message, { utmContent });
 
     trackWhatsAppClick(
@@ -49,15 +52,15 @@ export function HeroTripIntent({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <p className="text-sm font-semibold text-stone-900">Plan your trip in 30 seconds</p>
+      <p className="text-sm font-semibold text-stone-900">{copy.title}</p>
 
-      <IntentField label="How long is your trip?">
+      <IntentField label={copy.durationLabel}>
         <select
           value={intent.duration}
           onChange={(e) => update("duration", e.target.value as TripIntent["duration"])}
           className={selectClass}
         >
-          {DURATION_OPTIONS.map((o) => (
+          {options.duration.map((o) => (
             <option key={o.value} value={o.value}>
               {o.label}
             </option>
@@ -65,13 +68,13 @@ export function HeroTripIntent({
         </select>
       </IntentField>
 
-      <IntentField label="When are you thinking of traveling?">
+      <IntentField label={copy.whenLabel}>
         <select
           value={intent.when}
           onChange={(e) => update("when", e.target.value as TripIntent["when"])}
           className={selectClass}
         >
-          {WHEN_OPTIONS.map((o) => (
+          {options.when.map((o) => (
             <option key={o.value} value={o.value}>
               {o.label}
             </option>
@@ -79,13 +82,13 @@ export function HeroTripIntent({
         </select>
       </IntentField>
 
-      <IntentField label="Machu Picchu or trekking?">
+      <IntentField label={copy.machuLabel}>
         <select
           value={intent.machuPicchu}
           onChange={(e) => update("machuPicchu", e.target.value as TripIntent["machuPicchu"])}
           className={selectClass}
         >
-          {MACHU_OPTIONS.map((o) => (
+          {options.machu.map((o) => (
             <option key={o.value} value={o.value}>
               {o.label}
             </option>
@@ -98,12 +101,10 @@ export function HeroTripIntent({
         className="flex w-full items-center justify-center gap-2 rounded-lg bg-[#25D366] px-6 py-3.5 text-sm font-semibold text-white shadow-md transition hover:bg-[#1ebe57]"
       >
         <WhatsAppIcon />
-        Get my quote on WhatsApp
+        {copy.submit}
       </button>
 
-      <p className="text-center text-xs text-stone-500">
-        We reply with 2–3 tailored options — no booking fee to ask.
-      </p>
+      <p className="text-center text-xs text-stone-500">{copy.hint}</p>
     </form>
   );
 }

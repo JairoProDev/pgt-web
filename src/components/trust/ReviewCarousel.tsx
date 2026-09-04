@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef } from "react";
+import { copyFor } from "@/lib/market-copy";
+import { useMarket } from "@/lib/use-market";
 import type { FeaturedReview, ReviewPlatform } from "@/lib/trust-content";
 
 const LOGO = {
@@ -46,7 +48,9 @@ function PlatformLogo({ platform, className }: { platform: ReviewPlatform["key"]
 }
 
 function ReviewCard({ review, profileUrl }: { review: FeaturedReview; profileUrl?: string }) {
+  const copy = copyFor(useMarket()).reviews;
   const href = profileUrl || undefined;
+  const platformName = review.platform === "tripadvisor" ? "Tripadvisor" : "Google";
 
   return (
     <article className="flex h-full min-w-[280px] max-w-[320px] snap-start flex-col rounded-xl border border-stone-200 bg-white p-4 shadow-sm md:min-w-[300px]">
@@ -61,7 +65,7 @@ function ReviewCard({ review, profileUrl }: { review: FeaturedReview; profileUrl
       </div>
       <div className="mt-2 flex items-center gap-2">
         <PlatformStars platform={review.platform} />
-        <span className="sr-only">{review.rating} out of 5 stars</span>
+        <span className="sr-only">{review.rating} / 5</span>
       </div>
       <p className="mt-3 text-sm font-medium text-stone-800 line-clamp-2">{review.title}</p>
       <p className="mt-1 flex-1 text-sm leading-relaxed text-stone-600 line-clamp-4">{review.text}</p>
@@ -72,7 +76,7 @@ function ReviewCard({ review, profileUrl }: { review: FeaturedReview; profileUrl
           rel="noopener noreferrer"
           className="mt-3 text-xs font-medium text-pgt-blue hover:underline"
         >
-          Read on {review.platform === "tripadvisor" ? "Tripadvisor" : "Google"} →
+          {copy.readOn(platformName)}
         </a>
       ) : null}
     </article>
@@ -115,18 +119,20 @@ export function ReviewPlatformRow({ platform, reviews, autoScroll = true }: RowP
   }, [autoScroll, reviews.length]);
 
   const profileHref = platform.profileUrl || undefined;
+  const copy = copyFor(useMarket()).reviews;
 
   return (
     <div className="grid gap-4 md:grid-cols-[240px_1fr] md:items-stretch md:gap-6">
       <div className="flex flex-col justify-center rounded-xl border border-stone-200 bg-stone-50 p-5 shadow-sm">
         <PlatformLogo platform={platform.key} className="mb-3 h-6 w-auto" />
-        <p className="text-sm font-bold uppercase tracking-wide text-stone-900">{platform.ratingLabel}</p>
+        <p className="text-sm font-bold uppercase tracking-wide text-stone-900">{copy.excellent}</p>
         <div className="mt-2">
           <PlatformStars platform={platform.key} size="lg" />
         </div>
         <p className="mt-2 text-sm text-stone-600">
-          Based on{" "}
-          <strong className="text-stone-900">{platform.reviewCount.toLocaleString()}</strong> reviews
+          {copy.basedOnBefore}
+          <strong className="text-stone-900">{platform.reviewCount.toLocaleString()}</strong>
+          {copy.basedOnAfter}
         </p>
         {profileHref ? (
           <a
@@ -135,7 +141,7 @@ export function ReviewPlatformRow({ platform, reviews, autoScroll = true }: RowP
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-pgt-blue hover:underline"
           >
-            See all on {platform.label} →
+            {copy.seeAll(platform.label)}
           </a>
         ) : null}
       </div>
